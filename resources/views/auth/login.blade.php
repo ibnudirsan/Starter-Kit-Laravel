@@ -86,7 +86,7 @@
                     </svg>
                   </span>
 
-                  <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                  <span class="app-brand-text demo text-body fw-bolder">RumahDev</span>
                 </a>
               </div>
               <h4 class="mb-2">Welcome to RumahDev</h4>
@@ -164,5 +164,6 @@
     <script src="{{ asset('assets/auth/js/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('assets/auth/js/menu.js') }}"></script>
     <script src="{{ asset('assets/auth/js/main.js') }}"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
