@@ -93,32 +93,59 @@
               </div>
 
               <h4 class="mb-2">System Register RumahDev</h4>
-              <p class="mb-4">Make your app management easy and fun!</p>
-
               <form id="formAuthentication" class="mb-3" method="POST" action="{{ route('register') }}">
                 @csrf
 
                 <div class="mb-3">
-                  <label for="username" class="form-label">Username</label>
-                  <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" autofocus/>
+                  <label for="name" class="form-label">Username</label>
+                  <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" placeholder="Enter your username" required autocomplete="off" autofocus/>
+
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
-                  <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
+                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Enter your email" required autocomplete="email">
+                    
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
 
                 <div class="mb-3 form-password-toggle">
                   <label class="form-label" for="password">Password</label>
                   <div class="input-group input-group-merge">
-                    <input
-                      type="password"
-                      id="password"
-                      class="form-control"
-                      name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
+                    <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" aria-describedby="password" required autocomplete="off"
+                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" 
                     />
+                    
+                    <span class="input-group-text cursor-pointer">
+                        <i class="bx bx-hide">
+                            <i class="fas fa-eye"></i>
+                        </i>
+                    </span>
+                  </div>
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="mb-3 form-password-toggle">
+                  <label class="form-label" for="password-confirm">Confirm Password</label>
+                  <div class="input-group input-group-merge">
+                    <input type="password" id="password-confirm" class="form-control" name="password_confirmation" aria-describedby="password" required autocomplete="off"
+                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" 
+                    />
+                    
                     <span class="input-group-text cursor-pointer">
                         <i class="bx bx-hide">
                             <i class="fas fa-eye"></i>
