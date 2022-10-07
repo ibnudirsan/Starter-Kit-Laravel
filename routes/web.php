@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::get('/', function () {
 
 Route::prefix('app/v1/')->group(function () {
     Auth::routes();
+    Route::get('reload-captcha',[LoginController::class,'reloadCaptcha']);
 });
 
 Route::prefix('app/v1/')->group(function () {

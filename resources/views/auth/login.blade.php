@@ -90,13 +90,13 @@
                 </a>
               </div>
               <h4 class="mb-2">Welcome to RumahDev</h4>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
+              <p class="mb-2">Please sign-in to your account and start the adventure</p>
 
               <form id="formAuthentication" class="mb-3" method="POST" action="{{ route('login') }}">
                 @csrf
 
                 <div class="mb-3">
-                  <label for="name" class="form-label">Email</label>
+                  <label for="name" class="form-label">Username</label>
                   <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Enter your username" value="{{ old('name') }}" utocomplete="off" required autofocus />
 
                     @error('name')
@@ -125,13 +125,34 @@
                         </i>
                     </span>
                   </div>
+                </div>
 
-                  <div class="d-flex justify-content-end">
-                    <a href="{{ route('password.request') }}">
-                      <small>Forgot Password?</small>
-                    </a>
-                  </div>
+                <div class="mb-3 form-password-toggle">
+                  <label class="form-label" for="captcha">Captcha</label>
+                    <div class="input-group input-group-merge">
+                      <div class="d-block captcha mb-2">
+                        <span>{!! captcha_img() !!}</span>
+                          <button type="button" class="btn btn-primary" class="reload" id="reload" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Reload Captcha">
+                          <i class="fas fa-redo-alt"></i>
+                        </button>
+                      </div>
+                    </div>
 
+                    <div class="input-group input-group-merge">
+                      <input id="captcha" type="text" class="form-control @error('captcha') is-invalid @enderror" placeholder="Enter Captcha..." name="captcha" required autocomplete="off">
+
+                        @error('captcha')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                      <a href="{{ route('password.request') }}">
+                        <small>Forgot Password?</small>
+                      </a>
+                    </div>
                 </div>
 
                 <div class="mb-3">
@@ -165,6 +186,7 @@
     <script src="{{ asset('assets/auth/js/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('assets/auth/js/menu.js') }}"></script>
     <script src="{{ asset('assets/auth/js/main.js') }}"></script>
+    <script src="{{ asset('assets/auth/js/captcha.js') }}"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>

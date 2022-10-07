@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Mews\Captcha\Facades\Captcha;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -50,6 +51,24 @@ class LoginController extends Controller
         return 'name';
     }
 
+
+    /**
+     * Validate the user login request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            $this->username()   => 'required|string',
+            'password'          => 'required|string',
+            'captcha'           => 'required|captcha',
+        ]);
+    }
+
     /**
      * Log the user out of the application.
      *
@@ -72,4 +91,9 @@ class LoginController extends Controller
             ? new JsonResponse([], 204)
             : redirect()->route('login');
     }
+
+    public function reloadCaptcha()
+    {
+        return response()->json(['captcha'=> Captcha::img()]);
+    }    
 }
