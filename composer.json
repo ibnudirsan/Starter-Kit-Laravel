@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.0",
         "mews/captcha": "3.2.7",
+        "yajra/laravel-datatables": "^9.0",
         "yaza/laravel-repository-service": "^3.2"
     },
     "require-dev": {

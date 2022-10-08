@@ -13,14 +13,13 @@ class CustomerResponse  implements CustomerDesign {
     * @property Model|mixed $model;
     */
     protected $model;
-
     public function __construct(Customer $model)
     {
         $this->model = $model;
     }
 
-    public function index()
+    public function datatable()
     {
-        return $this->model->all();
+        return $this->model->select('email','firstName','lastName','address','numberPhone');
     }
 }

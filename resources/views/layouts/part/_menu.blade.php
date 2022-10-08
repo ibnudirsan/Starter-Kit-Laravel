@@ -42,6 +42,9 @@
                 <li class="submenu-item ">
                     <a href="#">Data User</a>
                 </li>
+                <li class="submenu-item ">
+                    <a href="{{ route('customer.index') }}">Data Customer</a>
+                </li>
             </ul>
         </li>            
     </ul>

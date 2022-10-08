@@ -3,5 +3,5 @@
 namespace App\Repositories\Customer;
 
 interface CustomerDesign {
-    public function index();
+    public function datatable();
 }
