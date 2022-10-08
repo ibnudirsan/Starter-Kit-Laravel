@@ -19,5 +19,8 @@ class CustomerResponse  implements CustomerDesign {
         $this->model = $model;
     }
 
-    // Write something awesome :)
+    public function index()
+    {
+        return $this->model->all();
+    }
 }

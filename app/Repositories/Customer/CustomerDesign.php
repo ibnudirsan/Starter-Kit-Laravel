@@ -3,6 +3,5 @@
 namespace App\Repositories\Customer;
 
 interface CustomerDesign {
-
-    // Write something awesome :)
+    public function index();
 }
