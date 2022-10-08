@@ -14,7 +14,7 @@
                 <button class="btn icon icon-left btn-primary btn-sm"><i class="fas fa-cloud-download-alt"></i> Download</button>
             </div>
             <div class="col-12 col-md-4 order-md-1 order-first">
-                <h3>Data Master Customer</h3>
+                <h3>Master Customer</h3>
             </div>
             <div class="col-12 col-md-4 order-md-2 order-last">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
