@@ -9,10 +9,13 @@
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
-            <div class="col-12 col-md-6 order-md-1 order-last">
+            <div class="col-12 col-md-4 order-md-1 order-last">
+                <button class="btn icon icon-left btn-primary btn-sm"><i class="fas fa-cloud-download-alt"></i> Export</button>
+            </div>
+            <div class="col-12 col-md-4 order-md-1 order-last">
                 <h3>Data Master Customer</h3>
             </div>
-            <div class="col-12 col-md-6 order-md-2 order-first">
+            <div class="col-12 col-md-4 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Data Master</li>
@@ -25,8 +28,8 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-hover" id="tableCustomer">
+                <div class="ml-2 mr-2">
+                    <table class="table table-hover table-striped" id="tableCustomer">
                         <thead class="table-dark">
                             <tr>
                                 <th class="text-left" width="20px">No.</th>

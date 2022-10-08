@@ -24,16 +24,19 @@ $(document).ready( function () {
         bInfo             : true,
         responsive        : true,
         lengthChange      : true,
+        pageLength        : 10,
         lengthMenu        : [
-                                [ 5, 10, 15, 20, 25 ],
-                                [ '5', '10', '15', '20', '25']
+                                [10, 15, 20, 25 ],
+                                ['10', '15', '20', '25']
                             ],
         language          :
-        {
-            loadingRecords  : "Please wait - loading...",
+        {  
+            paginate        :   {
+                                    previous    : '<i class="fas fa-angle-double-left"></i>',
+                                    next        : '<i class="fas fa-angle-double-right"></i>'
+                                },
             lengthMenu      :   'Tampilkan ' +
                                     '<select class="form-control form-control-sm">'+
-                                        '<option value="5" selected class="font-small">5 Baris</option>'+
                                         '<option value="10" class="font-small">10 Baris</option>'+
                                         '<option value="20" class="font-small">20 Baris</option>'+
                                         '<option value="30" class="font-small">30 Baris</option>'+
