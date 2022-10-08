@@ -7,15 +7,16 @@
 
 @section('content')
 <div class="page-heading">
-    <div class="page-title">
+    <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                <button class="btn icon icon-left btn-primary btn-sm"><i class="fas fa-cloud-download-alt"></i> Export</button>
+                <a href="#" class="btn icon icon-left btn-danger btn-sm"><i class="fas fa-trash"></i> Trash</a>
+                <button class="btn icon icon-left btn-primary btn-sm"><i class="fas fa-cloud-download-alt"></i> Download</button>
             </div>
-            <div class="col-12 col-md-4 order-md-1 order-last">
+            <div class="col-12 col-md-4 order-md-1 order-first">
                 <h3>Data Master Customer</h3>
             </div>
-            <div class="col-12 col-md-4 order-md-2 order-first">
+            <div class="col-12 col-md-4 order-md-2 order-last">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Data Master</li>
@@ -36,8 +37,9 @@
                                 <th class="text-left" width="100px">First Name</th>
                                 <th class="text-left" width="100px">Last Name</th>
                                 <th class="text-left" width="200px">Email</th>
-                                <th class="text-left" width="200px">Numberphone</th>
+                                <th class="text-left" width="100px">Numberphone</th>
                                 <th class="text-left" width="400px">Address</th>
+                                <th class="text-left" width="100px">Delete</th>
                             </tr>
                         </thead>
                     </table>

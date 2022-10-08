@@ -71,6 +71,7 @@ $(document).ready( function () {
             {data:'email',name:'email'},
             {data:'numberPhone',name:'numberPhone'},
             {data:'address',name:'address'},
+            {data:'delete',name:'delete'},
         ]
     });
 

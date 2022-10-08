@@ -22,8 +22,19 @@ class CustomerController extends Controller
             $result = $this->CustomerResponse->datatable();
                 return DataTables::of($result)
                                 ->addIndexColumn(['address'])
-                                ->rawColumns([])
-                                ->escapeColumns([])
+
+                                ->addColumn('delete', function ($delete) {
+                                    return  '
+                                                <button class="btn btn-danger btn-sm"
+                                                        style="--bs-btn-padding-y: .25rem;
+                                                        --bs-btn-padding-x: .5rem;
+                                                        --bs-btn-font-size: .65rem;">
+                                                    Delete
+                                                </button>
+                                            ';
+                                })
+                                ->rawColumns(['delete'])
+                                ->escapeColumns(['delete'])
                                 ->smart(true)
                                 ->make();
         }

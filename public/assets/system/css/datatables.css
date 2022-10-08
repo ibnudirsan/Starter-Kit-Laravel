@@ -1,14 +1,11 @@
-table.dataTable td{
-    padding:8px 8px;
-    font-size:14px
-}
 .fontawesome-icons .the-icon svg{
     font-size:24px
 }
 
 .dataTables_wrapper {
     font-family: "Times Roman";
-    font-size: 13px;
+    padding:8px 8px;
+    font-size:13px;
     position: relative;
     clear: both;
     *zoom: 1;
