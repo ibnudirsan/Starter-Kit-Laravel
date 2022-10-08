@@ -128,6 +128,34 @@
                 </div>
 
                 <div class="mb-3">
+                  <label class="form-label" for="captcha">Captcha</label>
+                    <div class="input-group">
+                      <div class="d-block captcha mb-2">
+                        <span>{!! captcha_img('flat') !!}</span>
+                          <button type="button" class="btn btn-primary" class="reload" id="reload" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Reload Captcha">
+                          <i class="fas fa-redo-alt"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="input-group">
+                      <input id="captcha" type="text" class="form-control @error('captcha') is-invalid @enderror" placeholder="Enter Captcha..." name="captcha">
+
+                        @error('captcha')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                      <a href="{{ route('password.request') }}">
+                        <small>Forgot Password?</small>
+                      </a>
+                    </div>
+                </div>
+
+                <div class="mb-3">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                     <label class="form-check-label" for="remember"> Remember Me </label>

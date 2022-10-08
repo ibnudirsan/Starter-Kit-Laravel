@@ -53,18 +53,13 @@ class LoginController extends Controller
 
 
     /**
-     * Validate the user login request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return void
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * Overwrite function validateLogin untuk recaptcha.
      */
-    protected function validateLogin(Request $request)
-    {
+    protected function validateLogin(Request $request) {
         $request->validate([
             $this->username()   => 'required|string',
             'password'          => 'required|string',
+            'captcha'           => 'required|captcha',
         ]);
     }
 
@@ -77,22 +72,18 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         $this->guard()->logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
         if ($response = $this->loggedOut($request)) {
             return $response;
         }
-
-        return $request->wantsJson()
-            ? new JsonResponse([], 204)
-            : redirect()->route('login');
+            return $request->wantsJson()
+                ? new JsonResponse([], 204)
+                : redirect()->route('login');
     }
 
     public function reloadCaptcha()
     {
-        return response()->json(['captcha'=> Captcha::img()]);
+        return response()->json(['captcha'=> Captcha::img('flat')]);
     }    
 }
