@@ -26,6 +26,7 @@ Route::group(['prefix'  => '/customer'], function () {
     Route::name('customer.')->group(function () {
         Route::controller(CustomerController::class)->group(function () {
             Route::get('/list','index')->name('index');
+            Route::post('/delete/{id}','delete')->name('delete');
             Route::post('/excel','downloadExcel')->name('download');
         });
     });

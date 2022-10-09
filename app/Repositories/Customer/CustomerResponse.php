@@ -20,6 +20,12 @@ class CustomerResponse  implements CustomerDesign {
 
     public function datatable()
     {
-        return $this->model->select('email','firstName','lastName','address','numberPhone');
+        return $this->model->select('id','uuid','email','firstName','lastName','address','numberPhone');
+    }
+
+    public function delete($id)
+    {
+        $result = $this->model->find($id);
+            return $result->delete();
     }
 }

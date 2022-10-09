@@ -1,6 +1,7 @@
 @push('customCss')
 <link rel="stylesheet" href="{{ asset('assets/system/css/dataTables.bootstrap5.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/datatables.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/system/css/sweetalert2.min.css') }}">
 @endpush
 
 @extends('layouts.app')
@@ -45,7 +46,7 @@
                                 <th class="text-left" width="200px">Email</th>
                                 <th class="text-left" width="100px">Numberphone</th>
                                 <th class="text-left" width="400px">Address</th>
-                                <th class="text-left" width="80px">Delete</th>
+                                <th class="text-left" width="50px">Delete</th>
                             </tr>
                         </thead>
                     </table>
@@ -58,6 +59,8 @@
 @push('customJs')
 <script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
+<script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
 @include('master.customer.table.datatable')
+@include('master.customer.js.delete')
 @endpush
 
