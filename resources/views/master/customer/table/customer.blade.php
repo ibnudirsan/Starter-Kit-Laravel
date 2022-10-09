@@ -11,10 +11,12 @@ $(document).ready( function () {
 
     });
 
+    $.fn.DataTable.ext.pager.numbers_length = 12;
+    
     $('#tableCustomer').DataTable
 
     ({
-        scrollY           : true,
+        scrollY           : '500px',
         scrollX           : true,
         scrollCollapse    : true,
         paging            : true,

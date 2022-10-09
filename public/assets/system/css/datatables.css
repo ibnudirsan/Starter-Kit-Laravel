@@ -1,9 +1,34 @@
 table.dataTable td{
-    padding:4px 4px;
+    padding:1px 1px;
 }
 
-.fontawesome-icons .the-icon svg{
-    font-size:13px
+.page-item.active .page-link {
+    background-color: #198754 !important;
+    border: 1px black;
+    border-radius: 5px 5px 5px 5px;
+        -moz-border-radius: 3px 3px 3px 3px;
+        -webkit-border-radius: 3px 3px 3px 3px;
+        -webkit-box-shadow: inset 13px 14px 8px -8px rgba(148, 148, 148, 0.56);
+        -moz-box-shadow: inset 13px 14px 8px -8px rgba(148, 148, 148, 0.56);
+        box-shadow: inset 13px 14px 8px -8px rgba(148, 148, 148, 0.56);
+    font: bold;
+}
+
+.paginate_button:hover{
+  color: #ffffff !important;
+  background: none;
+  color: black!important;
+}  
+
+.page-link {
+    color: black !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    margin-left: 0px;
+    margin-right: 0px;
+    display: inline;
+    border: 0px;
 }
 
 .dataTables_wrapper {
@@ -11,8 +36,8 @@ table.dataTable td{
     font-size:13px;
     position: relative;
     clear: both;
-    *zoom: 1;
-    zoom: 1;
+    *zoom: 0;
+    zoom: 0;
 }
 
 .btn-size {
