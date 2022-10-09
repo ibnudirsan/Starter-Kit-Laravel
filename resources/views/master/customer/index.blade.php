@@ -45,7 +45,7 @@
                                 <th class="text-left" width="200px">Email</th>
                                 <th class="text-left" width="100px">Numberphone</th>
                                 <th class="text-left" width="400px">Address</th>
-                                <th class="text-left" width="100px">Delete</th>
+                                <th class="text-left" width="80px">Delete</th>
                             </tr>
                         </thead>
                     </table>
