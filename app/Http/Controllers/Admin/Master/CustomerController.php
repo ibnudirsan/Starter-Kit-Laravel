@@ -28,10 +28,7 @@ class CustomerController extends Controller
 
                                 ->addColumn('delete', function ($delete) {
                                     return  '
-                                                <button type="button" class="btn btn-danger btn-sm"
-                                                        style="--bs-btn-padding-y: .25rem;
-                                                        --bs-btn-padding-x: .5rem;
-                                                        --bs-btn-font-size: .65rem;"
+                                                <button type="button" class="btn btn-danger btn-sm btn-size"
                                                         onclick="isDelete('.$delete->id.')">
                                                             Trash
                                                 </button>
@@ -40,10 +37,7 @@ class CustomerController extends Controller
 
                                 ->addColumn('edit', function ($edit) {
                                     return  '
-                                                <a href="'.url(route('customer.edit',$edit->uuid)).'" type="button" class="btn btn-success btn-sm"
-                                                        style="--bs-btn-padding-y: .25rem;
-                                                        --bs-btn-padding-x: .5rem;
-                                                        --bs-btn-font-size: .65rem;">
+                                                <a href="'.url(route('customer.edit',$edit->uuid)).'" type="button" class="btn btn-success btn-sm btn-size">
                                                             Edit
                                                 </a>
                                             ';
@@ -95,10 +89,7 @@ class CustomerController extends Controller
 
                         ->addColumn('delete', function ($delete) {
                             return  '
-                                        <button type="button" class="btn btn-danger btn-sm"
-                                                style="--bs-btn-padding-y: .25rem;
-                                                --bs-btn-padding-x: .5rem;
-                                                --bs-btn-font-size: .65rem;"
+                                        <button type="button" class="btn btn-danger btn-sm btn-size"
                                                 onclick="isDelete('.$delete->id.')">
                                                     Delete
                                         </button>
@@ -107,10 +98,7 @@ class CustomerController extends Controller
 
                         ->addColumn('restore', function ($restore) {
                             return  '
-                                        <button type="button" class="btn btn-success btn-sm"
-                                                style="--bs-btn-padding-y: .25rem;
-                                                --bs-btn-padding-x: .5rem;
-                                                --bs-btn-font-size: .65rem;"
+                                        <button type="button" class="btn btn-success btn-sm btn-size"
                                                 onclick="isRestore('.$restore->id.')">
                                                     Restore
                                         </button>

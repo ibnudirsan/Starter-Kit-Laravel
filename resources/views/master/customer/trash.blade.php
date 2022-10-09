@@ -31,8 +31,8 @@
                                 <th class="text-left" width="200px">Email</th>
                                 <th class="text-left" width="100px">Numberphone</th>
                                 <th class="text-left" width="350px">Address</th>
-                                <th class="text-left" width="50px">Delete</th>
-                                <th class="text-left" width="50px">Restore</th>
+                                <th class="text-left" width="20px">Delete</th>
+                                <th class="text-left" width="20px">Restore</th>
                             </tr>
                         </thead>
                     </table>
