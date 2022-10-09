@@ -27,11 +27,12 @@ class CustomerController extends Controller
 
                                 ->addColumn('delete', function ($delete) {
                                     return  '
-                                                <button class="btn btn-danger btn-sm"
+                                                <button type="button" class="btn btn-danger btn-sm"
                                                         style="--bs-btn-padding-y: .25rem;
                                                         --bs-btn-padding-x: .5rem;
-                                                        --bs-btn-font-size: .65rem;">
-                                                    Delete
+                                                        --bs-btn-font-size: .65rem;"
+                                                        onclick="isDelete('.$delete->id.')">
+                                                            Delete
                                                 </button>
                                             ';
                                 })
@@ -41,6 +42,56 @@ class CustomerController extends Controller
                                 ->make();
         }
             return view('master.customer.index');
+    }
+
+    public function delete($id)
+    {
+        try {
+            $this->CustomerResponse->delete($id);
+            $success = true;
+        } catch (\Exception) {
+            $message = "Failed to change switch report";
+            $success = false;
+        }
+            if($success == true) {
+                /**
+                 * Return response true
+                 */
+                return response()->json([
+                    'success' => $success
+                ]);
+            }elseif($success == false){
+                /**
+                 * Return response false
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
+
+        
+
+
+        $success = true;
+        $message = "Failed to change switch report";
+        if($success == true) {
+            /**
+             * Return response true
+             */
+            return response()->json([
+                'success' => $success
+            ]);
+        }elseif($success == false){
+            /**
+             * Return response false
+             */
+            return response()->json([
+                'success' => $success,
+                'message' => $message,
+            ]);
+        }
+
     }
 
     public function downloadExcel()
