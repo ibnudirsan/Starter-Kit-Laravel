@@ -27,6 +27,20 @@ class CustomerResponse  implements CustomerDesign {
     }
 
     /**
+     * Query for create data customer method.
+     */
+    public function create($param)
+    {
+        return $this->model->create([
+            'firstName'     => $param->firstName,
+            'lastName'      => $param->lastName,
+            'email'         => $param->email,
+            'address'       => $param->address,
+            'numberPhone'   => $param->numberPhone
+        ]);
+    }
+
+    /**
      * Query for trashedData Method.
      */
     public function trashedData($id)

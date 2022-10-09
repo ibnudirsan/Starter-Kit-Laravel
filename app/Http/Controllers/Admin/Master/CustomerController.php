@@ -130,6 +130,15 @@ class CustomerController extends Controller
         # code...
     }
 
+    public function Store(Request $request)
+    {
+        try {
+            $this->CustomerResponse->create($request);
+        } catch (\Exception) {
+            //throw $th;
+        }
+    }
+
     public function edit($id)
     {
         # code...
