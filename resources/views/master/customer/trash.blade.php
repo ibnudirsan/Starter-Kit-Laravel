@@ -48,5 +48,6 @@
 <script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
 @include('master.customer.table.trash')
 @include('master.customer.js.restore')
+@include('master.customer.js.delete')
 @endpush
 

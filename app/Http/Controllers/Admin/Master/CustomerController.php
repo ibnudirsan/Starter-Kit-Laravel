@@ -117,7 +117,34 @@ class CustomerController extends Controller
             $this->CustomerResponse->restore($id);
             $success = true;
         } catch (\Exception) {
-            $message = "Failed to moving data Trash";
+            $message = "Failed to moving data customer Trash";
+            $success = false;
+        }
+            if($success == true) {
+                /**
+                 * Return response true
+                 */
+                return response()->json([
+                    'success' => $success
+                ]);
+            }elseif($success == false){
+                /**
+                 * Return response false
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
+    }
+
+    public function delete($id)
+    {
+        try {
+            $this->CustomerResponse->deletePermanent($id);
+            $success = true;
+        } catch (\Exception) {
+            $message = "Failed to Delete Permanent data customer Trash";
             $success = false;
         }
             if($success == true) {

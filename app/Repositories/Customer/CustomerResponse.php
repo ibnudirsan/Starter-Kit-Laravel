@@ -55,4 +55,12 @@ class CustomerResponse  implements CustomerDesign {
                         ->find($id);
             return $result->restore();
     }
+
+    public function deletePermanent($id)
+    {
+        $result = $this->model
+                        ->withTrashed()
+                        ->find($id);
+            return $result->forceDelete();
+    }
 }
