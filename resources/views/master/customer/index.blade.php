@@ -10,8 +10,14 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                <a href="#" class="btn icon icon-left btn-danger btn-sm"><i class="fas fa-trash"></i> Trash</a>
-                <button class="btn icon icon-left btn-primary btn-sm"><i class="fas fa-cloud-download-alt"></i> Download</button>
+                
+                <form action="{{ route('customer.download') }}" method="POST">
+                    @csrf
+
+                    <a href="#" class="btn icon icon-left btn-danger btn-sm"><i class="fas fa-trash"></i> Trash</a>
+                    <button type="submit" class="btn icon icon-left btn-primary btn-sm"><i class="fas fa-cloud-download-alt"></i> Download</button>
+                </form>
+
             </div>
             <div class="col-12 col-md-4 order-md-1 order-first">
                 <h3>Master Customer</h3>
