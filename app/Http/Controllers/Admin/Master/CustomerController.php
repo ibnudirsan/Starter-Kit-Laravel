@@ -43,6 +43,10 @@ class CustomerController extends Controller
                                             ';
                                 })
 
+                                ->editColumn('age', function ($age) {
+                                    return $age->age. " Years";
+                                })
+
                                 ->rawColumns(['delete','edit'])
                                 ->escapeColumns(['delete','edit'])
                                 ->smart(true)
@@ -103,6 +107,10 @@ class CustomerController extends Controller
                                                     Restore
                                         </button>
                                     ';
+                        })
+
+                        ->editColumn('age', function ($age) {
+                            return $age->age. " Years";
                         })
 
                         ->rawColumns(['delete','restore'])

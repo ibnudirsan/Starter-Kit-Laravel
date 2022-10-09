@@ -26,11 +26,13 @@
                         <thead class="table-dark">
                             <tr>
                                 <th class="text-left" width="20px">No.</th>
-                                <th class="text-left" width="100px">First Name</th>
-                                <th class="text-left" width="100px">Last Name</th>
-                                <th class="text-left" width="200px">Email</th>
+                                <th class="text-left" width="70px">First Name</th>
+                                <th class="text-left" width="70px">Last Name</th>
                                 <th class="text-left" width="100px">Numberphone</th>
-                                <th class="text-left" width="350px">Address</th>
+                                <th class="text-left" width="60px">Birth Day</th>
+                                <th class="text-left" width="50px">Age</th>
+                                <th class="text-left" width="200px">Email</th>
+                                <th class="text-left" width="300px">Address</th>
                                 <th class="text-left" width="20px">Delete</th>
                                 <th class="text-left" width="20px">Restore</th>
                             </tr>

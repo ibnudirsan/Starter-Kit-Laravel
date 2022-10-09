@@ -23,7 +23,7 @@ class CustomerResponse  implements CustomerDesign {
      */
     public function datatable()
     {
-        return $this->model->select('id','uuid','email','firstName','lastName','address','numberPhone','deleted_at');
+        return $this->model->select('id','uuid','firstName','lastName','address','numberPhone','email','birthDay','age','deleted_at');
     }
 
     /**

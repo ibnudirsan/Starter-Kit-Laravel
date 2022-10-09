@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid',40);
-            $table->string('email',50);
             $table->string('firstName',50);
             $table->string('lastName',50);
+            $table->date('birthDay');
+            $table->integer('age');
+            $table->string('email',50);
             $table->text('address')->fullText();
             $table->string('numberPhone',20);
             $table->softDeletes();
