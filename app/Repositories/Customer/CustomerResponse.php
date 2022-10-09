@@ -27,9 +27,9 @@ class CustomerResponse  implements CustomerDesign {
     }
 
     /**
-     * Query for Delete Method.
+     * Query for trashedData Method.
      */
-    public function delete($id)
+    public function trashedData($id)
     {
         $result = $this->model->find($id);
             return $result->delete();
@@ -41,6 +41,18 @@ class CustomerResponse  implements CustomerDesign {
     public function trashed()
     {
         return $this->model->select('id','email','firstName','lastName','address','numberPhone','deleted_at')
+            ->orderby('deleted_at','desc')
             ->onlyTrashed();
+    }
+
+    /**
+     * Query for Restore Data.
+     */
+    public function restore($id)
+    {
+        $result = $this->model
+                        ->withTrashed()
+                        ->find($id);
+            return $result->restore();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Master;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Exports\CustomersExport;
 use App\Http\Controllers\Controller;
@@ -47,10 +48,10 @@ class CustomerController extends Controller
     public function trashData($id)
     {
         try {
-            $this->CustomerResponse->delete($id);
+            $this->CustomerResponse->trashedData($id);
             $success = true;
         } catch (\Exception) {
-            $message = "Failed to change switch report";
+            $message = "Failed to moving data Trash";
             $success = false;
         }
             if($success == true) {
@@ -108,6 +109,33 @@ class CustomerController extends Controller
                         ->make();
         }
             return view('master.customer.trash');
+    }
+
+    public function RestoreData($id)
+    {
+        try {
+            $this->CustomerResponse->restore($id);
+            $success = true;
+        } catch (\Exception) {
+            $message = "Failed to moving data Trash";
+            $success = false;
+        }
+            if($success == true) {
+                /**
+                 * Return response true
+                 */
+                return response()->json([
+                    'success' => $success
+                ]);
+            }elseif($success == false){
+                /**
+                 * Return response false
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
     }
 
     public function downloadExcel()
