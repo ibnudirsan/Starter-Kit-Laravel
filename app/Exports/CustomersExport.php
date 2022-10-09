@@ -24,7 +24,7 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
     */
     public function collection()
     {
-        $result = Customer::select('email','firstName','lastName','address','numberPhone')->get(); 
+        $result = Customer::select('email','firstName','lastName','address','numberPhone','birthDay','age')->get(); 
             return $result;
     }
 
@@ -46,9 +46,11 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
         return [
             empty($result->firstName)   ? '-' : $result->firstName,     // A
             empty($result->lastName)    ? '-' : $result->lastName,      // B
-            empty($result->email)       ? '-' : $result->email,         // C
-            empty($result->numberPhone) ? '-' : $result->numberPhone,   // D
-            empty($result->address )    ? '-' : $result->address ,      // E
+            empty($result->birthDay)    ? '-' : $result->birthDay,      // C
+            empty($result->age)         ? '-' : $result->age. " Years", // D
+            empty($result->email)       ? '-' : $result->email,         // E
+            empty($result->numberPhone) ? '-' : $result->numberPhone,   // F
+            empty($result->address )    ? '-' : $result->address ,      // G
         ];
     }
 
@@ -84,6 +86,8 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
                 [
                     'First Name',
                     'Last Name',
+                    'Birth Day',
+                    'Age',
                     'Email Customer',
                     'Numberphone',
                     'Address',
@@ -105,6 +109,8 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
             'C4'  => ['font' => ['bold' => true]],
             'D4'  => ['font' => ['bold' => true]],
             'E4'  => ['font' => ['bold' => true]],
+            'F4'  => ['font' => ['bold' => true]],
+            'G4'  => ['font' => ['bold' => true]],
         ];
      }
 
@@ -132,7 +138,7 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
                     /**
                      * Report Title Settings
                      */
-                    $cellTittle = 'A1:E1';
+                    $cellTittle = 'A1:G1';
                     $event->sheet->getDelegate()->getStyle($cellTittle)->getFont()->setSize(14);
                     $event->sheet->getDelegate()->getStyle($cellTittle)->getFont()->setName('Time New Roman');
                     $event->sheet->getDelegate()->getStyle($cellTittle)->getFont()->setBold(true);
@@ -142,7 +148,7 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
                     /**
                      * Report Title Settings
                      */
-                    $cellTittle = 'A2:E2';
+                    $cellTittle = 'A2:G2';
                     $event->sheet->getDelegate()->getStyle($cellTittle)->getFont()->setSize(12);
                     $event->sheet->getDelegate()->getStyle($cellTittle)->getFont()->setName('Time New Roman');
                     $event->sheet->mergeCells($cellTittle);
@@ -150,7 +156,7 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
                     /**
                      * Empty Space Cell
                      */
-                    $cellTittle = 'A3:E3';
+                    $cellTittle = 'A3:G3';
                     $event->sheet->mergeCells($cellTittle);
 
                     /**
@@ -167,7 +173,7 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
                     /**
                      * Header Settings
                      */
-                    $cellRange = 'A4:E4';
+                    $cellRange = 'A4:G4';
                     $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(12);
                     $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setName('Time New Roman');
                     $event->sheet->getStyle($cellRange)->applyFromArray($styleArray);
@@ -183,8 +189,8 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
                      * Looping data for setting borders and Fonts in cell data.
                      */
                     for ($i=5; $i <=$countData+4 ; $i++) {
-                        $event->sheet->getStyle('A'.$i.':E'.$i)->applyFromArray($styleArray);
-                        $event->sheet->getDelegate()->getStyle('A'.$i.':E'.$i)->getFont()->setName('Time New Roman');
+                        $event->sheet->getStyle('A'.$i.':G'.$i)->applyFromArray($styleArray);
+                        $event->sheet->getDelegate()->getStyle('A'.$i.':G'.$i)->getFont()->setName('Time New Roman');
                     }
                 },
             ];
