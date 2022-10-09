@@ -1,8 +1,8 @@
 <script type="text/javascript">
     function isDelete(id) {
         swal({
-            title: "Confirmation Delete",
-            text: "Are you sure you want to delete customer data ?",
+            title: "Confirmation Trash",
+            text: "Are you sure you want to trash customer data ?",
             type: "question",
             showCancelButton: !0,
             cancelButtonText: "Batal...",
@@ -12,7 +12,7 @@
                 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
                     type: 'POST',
-                    url: "delete/" + id,
+                    url: "trash/" + id,
                     data: {_token: CSRF_TOKEN},
                     dataType: 'JSON',
                     success: function (results) {

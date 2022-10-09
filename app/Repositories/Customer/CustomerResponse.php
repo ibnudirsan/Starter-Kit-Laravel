@@ -18,14 +18,29 @@ class CustomerResponse  implements CustomerDesign {
         $this->model = $model;
     }
 
+    /**
+     * Query for datatable without get() method.
+     */
     public function datatable()
     {
         return $this->model->select('id','uuid','email','firstName','lastName','address','numberPhone');
     }
 
+    /**
+     * Query for Delete Method.
+     */
     public function delete($id)
     {
         $result = $this->model->find($id);
             return $result->delete();
+    }
+
+    /**
+     * Query for Datatable Transhed.
+     */
+    public function trashed()
+    {
+        return $this->model->select('id','email','firstName','lastName','address','numberPhone','deleted_at')
+            ->onlyTrashed();
     }
 }

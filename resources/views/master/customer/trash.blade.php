@@ -11,25 +11,10 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                
-                <form action="{{ route('customer.download') }}" method="POST">
-                    @csrf
-
-                    <a href="{{ route('customer.trash') }}" class="btn icon icon-left btn-danger btn-sm"><i class="fas fa-trash"></i> Trash</a>
-                    <button type="submit" class="btn icon icon-left btn-primary btn-sm"><i class="fas fa-cloud-download-alt"></i> Download</button>
-                </form>
-
+                <a href="{{ route('customer.index') }}" class="btn icon icon-left btn-primary btn-sm">Master Customers</a>
             </div>
             <div class="col-12 col-md-4 order-md-1 order-first">
-                <h3>Master Customer</h3>
-            </div>
-            <div class="col-12 col-md-4 order-md-2 order-last">
-                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Data Master</li>
-                        <li class="breadcrumb-item active" aria-current="page">Master Customer</li>
-                    </ol>
-                </nav>
+                <h3>Trash Data Customers</h3>
             </div>
         </div>
     </div>
@@ -37,7 +22,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="ml-2 mr-2">
-                    <table class="table table-hover table-striped" id="tableCustomer">
+                    <table class="table table-hover table-striped" id="tableCustomerTrash">
                         <thead class="table-dark">
                             <tr>
                                 <th class="text-left" width="20px">No.</th>
@@ -45,8 +30,9 @@
                                 <th class="text-left" width="100px">Last Name</th>
                                 <th class="text-left" width="200px">Email</th>
                                 <th class="text-left" width="100px">Numberphone</th>
-                                <th class="text-left" width="400px">Address</th>
-                                <th class="text-left" width="50px">Trash</th>
+                                <th class="text-left" width="350px">Address</th>
+                                <th class="text-left" width="50px">Delete</th>
+                                <th class="text-left" width="50px">Restore</th>
                             </tr>
                         </thead>
                     </table>
@@ -60,7 +46,6 @@
 <script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
-@include('master.customer.table.customer')
-@include('master.customer.js.trash')
+@include('master.customer.table.trash')
 @endpush
 

@@ -32,7 +32,7 @@ class CustomerController extends Controller
                                                         --bs-btn-padding-x: .5rem;
                                                         --bs-btn-font-size: .65rem;"
                                                         onclick="isDelete('.$delete->id.')">
-                                                            Delete
+                                                            Trash
                                                 </button>
                                             ';
                                 })
@@ -44,7 +44,7 @@ class CustomerController extends Controller
             return view('master.customer.index');
     }
 
-    public function delete($id)
+    public function trashData($id)
     {
         try {
             $this->CustomerResponse->delete($id);
@@ -69,29 +69,45 @@ class CustomerController extends Controller
                     'message' => $message,
                 ]);
             }
+    }
 
-        
+    public function Trash(Request $request)
+    {
+        if($request->ajax()) {
+            $result = $this->CustomerResponse->trashed();
+                return DataTables::of($result)
+                        ->addIndexColumn(['address'])
 
+                        ->addColumn('delete', function ($delete) {
+                            return  '
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                                style="--bs-btn-padding-y: .25rem;
+                                                --bs-btn-padding-x: .5rem;
+                                                --bs-btn-font-size: .65rem;"
+                                                onclick="isDelete('.$delete->id.')">
+                                                    Delete
+                                        </button>
+                                    ';
+                        })
 
-        $success = true;
-        $message = "Failed to change switch report";
-        if($success == true) {
-            /**
-             * Return response true
-             */
-            return response()->json([
-                'success' => $success
-            ]);
-        }elseif($success == false){
-            /**
-             * Return response false
-             */
-            return response()->json([
-                'success' => $success,
-                'message' => $message,
-            ]);
+                        ->addColumn('restore', function ($restore) {
+                            return  '
+                                        <button type="button" class="btn btn-success btn-sm"
+                                                style="--bs-btn-padding-y: .25rem;
+                                                --bs-btn-padding-x: .5rem;
+                                                --bs-btn-font-size: .65rem;"
+                                                onclick="isRestore('.$restore->id.')">
+                                                    Restore
+                                        </button>
+                                    ';
+                        })
+
+                        ->rawColumns(['delete','restore'])
+                        ->escapeColumns(['delete','restore'])
+                        ->smart(true)
+                        ->make();
         }
-
+            return view('master.customer.trash');
     }
 
     public function downloadExcel()
