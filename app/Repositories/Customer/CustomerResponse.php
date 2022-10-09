@@ -23,7 +23,7 @@ class CustomerResponse  implements CustomerDesign {
      */
     public function datatable()
     {
-        return $this->model->select('id','uuid','email','firstName','lastName','address','numberPhone');
+        return $this->model->select('id','uuid','email','firstName','lastName','address','numberPhone','deleted_at');
     }
 
     /**
@@ -33,16 +33,6 @@ class CustomerResponse  implements CustomerDesign {
     {
         $result = $this->model->find($id);
             return $result->delete();
-    }
-
-    /**
-     * Query for Datatable Transhed.
-     */
-    public function trashed()
-    {
-        return $this->model->select('id','email','firstName','lastName','address','numberPhone','deleted_at')
-            ->orderby('deleted_at','desc')
-            ->onlyTrashed();
     }
 
     /**
@@ -56,6 +46,9 @@ class CustomerResponse  implements CustomerDesign {
             return $result->restore();
     }
 
+    /**
+     * Query for Delete Permanent Data.
+     */
     public function deletePermanent($id)
     {
         $result = $this->model

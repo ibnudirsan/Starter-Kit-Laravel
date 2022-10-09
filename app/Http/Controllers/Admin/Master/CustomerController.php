@@ -37,8 +37,20 @@ class CustomerController extends Controller
                                                 </button>
                                             ';
                                 })
-                                ->rawColumns(['delete'])
-                                ->escapeColumns(['delete'])
+
+                                ->addColumn('edit', function ($edit) {
+                                    return  '
+                                                <a href="'.url(route('customer.edit',$edit->uuid)).'" type="button" class="btn btn-success btn-sm"
+                                                        style="--bs-btn-padding-y: .25rem;
+                                                        --bs-btn-padding-x: .5rem;
+                                                        --bs-btn-font-size: .65rem;">
+                                                            Edit
+                                                </a>
+                                            ';
+                                })
+
+                                ->rawColumns(['delete','edit'])
+                                ->escapeColumns(['delete','edit'])
                                 ->smart(true)
                                 ->make();
         }
@@ -75,7 +87,9 @@ class CustomerController extends Controller
     public function Trash(Request $request)
     {
         if($request->ajax()) {
-            $result = $this->CustomerResponse->trashed();
+            $result = $this->CustomerResponse->datatable()
+                            ->orderby('deleted_at','desc')
+                            ->onlyTrashed();
                 return DataTables::of($result)
                         ->addIndexColumn(['address'])
 
@@ -109,6 +123,16 @@ class CustomerController extends Controller
                         ->make();
         }
             return view('master.customer.trash');
+    }
+
+    public function create()
+    {
+        # code...
+    }
+
+    public function edit($id)
+    {
+        # code...
     }
 
     public function RestoreData($id)

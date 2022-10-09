@@ -16,7 +16,8 @@
                     @csrf
 
                     <a href="{{ route('customer.trash') }}" class="btn icon icon-left btn-danger btn-sm"><i class="fas fa-trash"></i> Trash</a>
-                    <button type="submit" class="btn icon icon-left btn-primary btn-sm"><i class="fas fa-cloud-download-alt"></i> Download</button>
+                    <button type="submit" class="btn icon icon-left btn-success btn-sm"><i class="fas fa-cloud-download-alt"></i> Download</button>
+                    <a href="{{ route('customer.create') }}" class="btn icon icon-left btn-primary btn-sm"><i class="fas fa-plus-circle"></i> Create</a>
                 </form>
 
             </div>
@@ -46,7 +47,8 @@
                                 <th class="text-left" width="200px">Email</th>
                                 <th class="text-left" width="100px">Numberphone</th>
                                 <th class="text-left" width="400px">Address</th>
-                                <th class="text-left" width="50px">Trash</th>
+                                <th class="text-left" width="20px">Edit</th>
+                                <th class="text-left" width="20px">Trash</th>
                             </tr>
                         </thead>
                     </table>
