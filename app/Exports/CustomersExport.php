@@ -19,6 +19,7 @@ use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 
 class CustomersExport implements FromCollection, WithMapping, WithHeadings, ShouldAutoSize, WithEvents, WithTitle, WithColumnFormatting, WithChunkReading, WithStyles
 {
+    protected $number = 0;
     /**
     * @return \Illuminate\Support\Collection
     */
@@ -39,18 +40,19 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
     /**
     * Maping data to be exported to excel form.
     *
-    * @param [type] $resultActivity
+    * @param [type] $result
     * @return array
     */
     public function map($result): array {
         return [
-            empty($result->firstName)   ? '-' : $result->firstName,     // A
-            empty($result->lastName)    ? '-' : $result->lastName,      // B
-            empty($result->birthDay)    ? '-' : $result->birthDay,      // C
-            empty($result->age)         ? '-' : $result->age. " Years", // D
-            empty($result->email)       ? '-' : $result->email,         // E
-            empty($result->numberPhone) ? '-' : $result->numberPhone,   // F
-            empty($result->address )    ? '-' : $result->address ,      // G
+            ++$this->number,                                                    // A
+            empty($result->firstName)   ? '-' : $result->firstName,             // B
+            empty($result->lastName)    ? '-' : $result->lastName,              // C
+            empty($result->birthDay)    ? '-' : $result->birthDay,              // D
+            empty($result->age)         ? '0 Years' : $result->age. " Years",   // E
+            empty($result->email)       ? '-' : $result->email,                 // F
+            empty($result->numberPhone) ? '-' : $result->numberPhone,           // G
+            empty($result->address )    ? '-' : $result->address ,              // H
         ];
     }
 
@@ -84,6 +86,7 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
 
             ],
                 [
+                    'No.',
                     'First Name',
                     'Last Name',
                     'Birth Day',
@@ -111,9 +114,11 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
             'E4'  => ['font' => ['bold' => true]],
             'F4'  => ['font' => ['bold' => true]],
             'G4'  => ['font' => ['bold' => true]],
+            'H4'  => ['font' => ['bold' => true]],
         ];
      }
 
+     
      /**
      * Execute the function after
      * the query is executed.
@@ -138,7 +143,7 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
                     /**
                      * Report Title Settings
                      */
-                    $cellTittle = 'A1:G1';
+                    $cellTittle = 'A1:H1';
                     $event->sheet->getDelegate()->getStyle($cellTittle)->getFont()->setSize(14);
                     $event->sheet->getDelegate()->getStyle($cellTittle)->getFont()->setName('Time New Roman');
                     $event->sheet->getDelegate()->getStyle($cellTittle)->getFont()->setBold(true);
@@ -148,7 +153,7 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
                     /**
                      * Report Title Settings
                      */
-                    $cellTittle = 'A2:G2';
+                    $cellTittle = 'A2:H2';
                     $event->sheet->getDelegate()->getStyle($cellTittle)->getFont()->setSize(12);
                     $event->sheet->getDelegate()->getStyle($cellTittle)->getFont()->setName('Time New Roman');
                     $event->sheet->mergeCells($cellTittle);
@@ -156,14 +161,14 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
                     /**
                      * Empty Space Cell
                      */
-                    $cellTittle = 'A3:G3';
+                    $cellTittle = 'A3:H3';
                     $event->sheet->mergeCells($cellTittle);
 
                     /**
                      * setting AutoFilter
                      */
                     $event->sheet->setAutoFilter('D4:E4');
-
+                    
                     /**
                      * Paper Settings
                      */
@@ -173,7 +178,7 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
                     /**
                      * Header Settings
                      */
-                    $cellRange = 'A4:G4';
+                    $cellRange = 'A4:H4';
                     $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(12);
                     $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setName('Time New Roman');
                     $event->sheet->getStyle($cellRange)->applyFromArray($styleArray);
@@ -189,8 +194,8 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
                      * Looping data for setting borders and Fonts in cell data.
                      */
                     for ($i=5; $i <=$countData+4 ; $i++) {
-                        $event->sheet->getStyle('A'.$i.':G'.$i)->applyFromArray($styleArray);
-                        $event->sheet->getDelegate()->getStyle('A'.$i.':G'.$i)->getFont()->setName('Time New Roman');
+                        $event->sheet->getStyle('A'.$i.':H'.$i)->applyFromArray($styleArray);
+                        $event->sheet->getDelegate()->getStyle('A'.$i.':H'.$i)->getFont()->setName('Time New Roman');
                     }
                 },
             ];

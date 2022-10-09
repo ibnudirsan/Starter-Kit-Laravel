@@ -138,15 +138,15 @@ return [
         |
         */
         'properties'  => [
-            'creator'        => '',
+            'creator'        => 'ibnudirsan',
             'lastModifiedBy' => '',
             'title'          => '',
             'description'    => '',
             'subject'        => '',
             'keywords'       => '',
-            'category'       => '',
+            'category'       => 'Report',
             'manager'        => '',
-            'company'        => '',
+            'company'        => 'RumahDev',
         ],
 
     ],
