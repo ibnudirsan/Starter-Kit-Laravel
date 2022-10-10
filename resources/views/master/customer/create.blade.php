@@ -32,49 +32,91 @@
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="first-name-column">First Name</label>
-                                <input type="text" id="first-name-column" class="form-control"
-                                    placeholder="First Name..." name="fname-column">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" class="form-control @error('firstName') is-invalid @enderror"
+                                    value="{{ old('firstName') }}"
+                                    placeholder="First Name..." name="firstName">
                             </div>
+
+                            @error('firstName')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="last-name-column">Last Name</label>
-                                <input type="text" id="last-name-column" class="form-control"
-                                    placeholder="Last Name..." name="lname-column">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" class="form-control @error('lastName') is-invalid @enderror"
+                                    value="{{ old('lastName') }}"
+                                    placeholder="Last Name..." name="lastName">
                             </div>
+
+                            @error('lastName')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="city-column">Email</label>
-                                <input type="text" id="city-column" class="form-control" placeholder="Email..."
-                                    name="city-column">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email..."
+                                    value="{{ old('email') }}"
+                                    name="email">
                             </div>
+
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="country-floating">Numberphone</label>
-                                <input type="text" id="country-floating" class="form-control"
-                                    name="country-floating" placeholder="Numberphone...">
+                                <label for="Numberphone">Numberphone</label>
+                                <input type="number" id="Numberphone" class="form-control @error('Numberphone') is-invalid @enderror"
+                                    value="{{ old('Numberphone') }}"
+                                    name="Numberphone" placeholder="Numberphone...">
                             </div>
+
+                            @error('Numberphone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="address" class="form-label">Address</label>
-                                <textarea class="form-control" id="address" rows="3" placeholder="Address..."></textarea>
+                                <textarea class="form-control @error('address') is-invalid @enderror" id="address" rows="3" 
+                                    placeholder="Address...">{{ old('address') }}</textarea>
                             </div>
+
+                            @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="email-id-column">Birth Day</label>
-                                <input type="text" id="day" class="form-control"
-                                    name="email-id-column" placeholder="Birth Day...">
+                                <label for="birthDay">Birth Day</label>
+                                <input type="text" id="birthDay" class="form-control @error('birthDay') is-invalid @enderror"
+                                    value="{{ old('birthDay') }}"
+                                    name="birthDay" placeholder="Birth Day...">
                             </div>
+
+                            @error('birthDay')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="col-12 d-flex justify-content-end">
@@ -98,10 +140,12 @@
     * Doc :
     * https://www.eyecon.ro/bootstrap-datepicker/
     */
-    $('#day').datepicker({
-            format: 'yyyy-mm-dd'
-        }).on('changeDate', function(ev){
-            $('#day').datepicker('hide');
+    $(document).ready(function () { 
+            $('#birthDay').datepicker({
+                format: 'yyyy-mm-dd'
+            }) 
+    }).on('changeDate', function (ev) { 
+        if (ev.viewMode == "days") { $('.datepicker').hide() } 
     });
 </script>
 @endpush
