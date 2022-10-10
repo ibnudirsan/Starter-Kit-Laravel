@@ -24,7 +24,7 @@ class CustomerController extends Controller
     {
         if($request->ajax()) {
             $result = $this->CustomerResponse->datatable();
-                return DataTables::of($result)
+                return DataTables::eloquent($result)
                                 ->addIndexColumn(['address'])
 
                                 ->addColumn('delete', function ($delete) {
@@ -46,6 +46,11 @@ class CustomerController extends Controller
 
                                 ->editColumn('age', function ($age) {
                                     return $age->age. " Years";
+                                })
+
+                                ->editColumn('created_at', function ($created) {
+                                    $date = Carbon::create($created->created_at)->format('Y-m-d H:i:s');
+                                    return $date;
                                 })
 
                                 ->rawColumns(['delete','edit'])
@@ -112,6 +117,11 @@ class CustomerController extends Controller
 
                         ->editColumn('age', function ($age) {
                             return $age->age. " Years";
+                        })
+
+                        ->editColumn('deleted_at', function ($deleted) {
+                            $date = Carbon::create($deleted->deleted_at)->format('Y-m-d H:i:s');
+                            return $date;
                         })
 
                         ->rawColumns(['delete','restore'])

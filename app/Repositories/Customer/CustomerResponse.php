@@ -24,8 +24,7 @@ class CustomerResponse  implements CustomerDesign {
      */
     public function datatable()
     {
-        return $this->model->select('id','uuid','firstName','lastName','address','numberPhone','email','birthDay','age','deleted_at')
-                            ->orderby('id','desc');
+        return $this->model->select('id','uuid','firstName','lastName','address','numberPhone','email','birthDay','age','deleted_at','created_at');
     }
 
     /**

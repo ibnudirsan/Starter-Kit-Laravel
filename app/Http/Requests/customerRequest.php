@@ -29,8 +29,11 @@ class customerRequest extends FormRequest
             'lastName'      => 'required|string|max:30',
             'email'         => 'required|unique:customers|email:rfc,dns|max:25',
             'address'       => 'required|max:30',
-            'Numberphone'   => 'required|numeric|max:13',
-            'birthDay'      => ['required','date_format:Y-m-d', new BirthYearRule()],
+            'Numberphone'   => 'required|numeric|digits_between:10,13',
+            'birthDay'      => [ 'required',
+                                 'date_format:Y-m-d',
+                                 new BirthYearRule()
+                                ],
         ];
     }
 }

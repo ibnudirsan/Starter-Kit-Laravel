@@ -42,15 +42,16 @@
                     <thead class="table-dark">
                         <tr>
                             <th class="text-left" width="20px">No.</th>
-                            <th class="text-left" width="80px">First Name</th>
-                            <th class="text-left" width="80px">Last Name</th>
-                            <th class="text-left" width="100px">Numberphone</th>
+                            <th class="text-left" width="70px">First Name</th>
+                            <th class="text-left" width="70px">Last Name</th>
+                            <th class="text-left" width="80px">Numberphone</th>
                             <th class="text-left" width="70px">Birth Day</th>
-                            <th class="text-left" width="50px">Age</th>
+                            <th class="text-left" width="30px">Age</th>
                             <th class="text-left" width="200px">Email</th>
-                            <th class="text-left" width="300px">Address</th>
-                            <th class="text-left" width="20px">Edit</th>
-                            <th class="text-left" width="20px">Trash</th>
+                            <th class="text-left" width="200px">Address</th>
+                            <th class="text-left" width="100px">Created</th>
+                            <th class="text-left" width="10px">Edit</th>
+                            <th class="text-left" width="10px">Trash</th>
                         </tr>
                     </thead>
                 </table>
