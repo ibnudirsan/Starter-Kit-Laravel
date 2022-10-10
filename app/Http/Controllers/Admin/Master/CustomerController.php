@@ -123,7 +123,7 @@ class CustomerController extends Controller
 
     public function create()
     {
-        # code...
+        return view('master.customer.create');
     }
 
     public function Store(Request $request)

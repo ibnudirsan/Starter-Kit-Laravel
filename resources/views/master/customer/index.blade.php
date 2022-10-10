@@ -15,9 +15,9 @@
                 <form action="{{ route('customer.download') }}" method="POST">
                     @csrf
 
-                    <a href="{{ route('customer.trash') }}" class="btn icon icon-left btn-danger btn-sm"><i class="fas fa-trash"></i> Trash</a>
-                    <button type="submit" class="btn icon icon-left btn-success btn-sm"><i class="fas fa-cloud-download-alt"></i> Download</button>
-                    <a href="{{ route('customer.create') }}" class="btn icon icon-left btn-primary btn-sm"><i class="fas fa-plus-circle"></i> Create</a>
+                    <a href="{{ route('customer.trash') }}" class="btn icon icon-left btn-danger btn-sm me-1 mb-1"><i class="fas fa-trash"></i> Trash</a>
+                    <button type="submit" class="btn icon icon-left btn-success btn-sm me-1 mb-1"><i class="fas fa-cloud-download-alt"></i> Download</button>
+                    <a href="{{ route('customer.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1"><i class="fas fa-plus-circle"></i> Create</a>
                 </form>
 
             </div>
@@ -38,24 +38,22 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <div class="ml-2 mr-2">
-                    <table class="table table-hover table-striped" id="tableCustomer">
-                        <thead class="table-dark">
-                            <tr>
-                                <th class="text-left" width="20px">No.</th>
-                                <th class="text-left" width="80px">First Name</th>
-                                <th class="text-left" width="80px">Last Name</th>
-                                <th class="text-left" width="100px">Numberphone</th>
-                                <th class="text-left" width="70px">Birth Day</th>
-                                <th class="text-left" width="50px">Age</th>
-                                <th class="text-left" width="200px">Email</th>
-                                <th class="text-left" width="300px">Address</th>
-                                <th class="text-left" width="20px">Edit</th>
-                                <th class="text-left" width="20px">Trash</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+                <table class="table table-hover table-striped" id="tableCustomer">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="text-left" width="20px">No.</th>
+                            <th class="text-left" width="80px">First Name</th>
+                            <th class="text-left" width="80px">Last Name</th>
+                            <th class="text-left" width="100px">Numberphone</th>
+                            <th class="text-left" width="70px">Birth Day</th>
+                            <th class="text-left" width="50px">Age</th>
+                            <th class="text-left" width="200px">Email</th>
+                            <th class="text-left" width="300px">Address</th>
+                            <th class="text-left" width="20px">Edit</th>
+                            <th class="text-left" width="20px">Trash</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </section>
