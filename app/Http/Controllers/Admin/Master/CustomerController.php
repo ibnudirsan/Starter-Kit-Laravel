@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Exports\CustomersExport;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\customerRequest;
 use Yajra\DataTables\Facades\DataTables;
 use App\Repositories\Customer\CustomerResponse;
 
@@ -126,7 +127,7 @@ class CustomerController extends Controller
         return view('master.customer.create');
     }
 
-    public function Store(Request $request)
+    public function Store(customerRequest $request)
     {
         try {
             $this->CustomerResponse->create($request);

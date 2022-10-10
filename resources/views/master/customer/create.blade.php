@@ -35,14 +35,14 @@
                                 <label for="firstName">First Name</label>
                                 <input type="text" id="firstName" class="form-control @error('firstName') is-invalid @enderror"
                                     value="{{ old('firstName') }}"
-                                    placeholder="First Name..." name="firstName">
-                            </div>
+                                    placeholder="First Name..." name="firstName" autofocus>
 
-                            @error('firstName')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                                    @error('firstName')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                            </div>
                         </div>
 
                         <div class="col-md-6 col-12">
@@ -51,13 +51,13 @@
                                 <input type="text" id="lastName" class="form-control @error('lastName') is-invalid @enderror"
                                     value="{{ old('lastName') }}"
                                     placeholder="Last Name..." name="lastName">
-                            </div>
 
-                            @error('lastName')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                                    @error('lastName')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                            </div>
                         </div>
 
                         <div class="col-md-6 col-12">
@@ -66,13 +66,13 @@
                                 <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email..."
                                     value="{{ old('email') }}"
                                     name="email">
-                            </div>
 
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                            </div>
                         </div>
 
                         <div class="col-md-6 col-12">
@@ -81,13 +81,13 @@
                                 <input type="number" id="Numberphone" class="form-control @error('Numberphone') is-invalid @enderror"
                                     value="{{ old('Numberphone') }}"
                                     name="Numberphone" placeholder="Numberphone...">
-                            </div>
 
-                            @error('Numberphone')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                                    @error('Numberphone')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                            </div>
                         </div>
 
                         <div class="col-md-6 col-12">
@@ -95,13 +95,13 @@
                                 <label for="address" class="form-label">Address</label>
                                 <textarea class="form-control @error('address') is-invalid @enderror" id="address" rows="3" 
                                     name="address" placeholder="Address...">{{ old('address') }}</textarea>
-                            </div>
 
-                            @error('address')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                                    @error('address')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                            </div>
                         </div>
 
                         <div class="col-md-6 col-12">
@@ -110,13 +110,13 @@
                                 <input type="text" id="birthDay" class="form-control @error('birthDay') is-invalid @enderror"
                                     value="{{ old('birthDay') }}"
                                     name="birthDay" placeholder="Birth Day...">
-                            </div>
 
-                            @error('birthDay')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                                    @error('birthDay')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                            </div>
                         </div>
 
                         <div class="col-12 d-flex justify-content-end">
