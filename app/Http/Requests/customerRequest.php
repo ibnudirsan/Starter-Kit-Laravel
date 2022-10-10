@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\BirthYearRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class customerRequest extends FormRequest
@@ -29,7 +30,7 @@ class customerRequest extends FormRequest
             'email'         => 'required|unique:customers|email:rfc,dns|max:25',
             'address'       => 'required|max:30',
             'Numberphone'   => 'required|numeric|max:13',
-            'birthDay'      => 'required|date_format:Y-m-d',
+            'birthDay'      => ['required','date_format:Y-m-d', new BirthYearRule()],
         ];
     }
 }
