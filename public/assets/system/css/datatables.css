@@ -31,9 +31,15 @@ table.dataTable td{
     border: 0px;
 }
 
+.dataTables_wrapper .dataTables_length select {
+    padding: 10px;
+    font-size: 12px;
+    border: none;
+}
+
 .dataTables_wrapper {
     font-family: "Times Roman";
-    font-size:13px;
+    font-size:12px;
     position: relative;
     clear: both;
     *zoom: 0;
