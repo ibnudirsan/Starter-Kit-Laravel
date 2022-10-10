@@ -130,6 +130,7 @@ class CustomerController extends Controller
     {
         try {
             $this->CustomerResponse->create($request);
+                return redirect()->route('customer.index');
         } catch (\Exception) {
             //throw $th;
         }

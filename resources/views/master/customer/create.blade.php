@@ -94,7 +94,7 @@
                             <div class="form-group">
                                 <label for="address" class="form-label">Address</label>
                                 <textarea class="form-control @error('address') is-invalid @enderror" id="address" rows="3" 
-                                    placeholder="Address...">{{ old('address') }}</textarea>
+                                    name="address" placeholder="Address...">{{ old('address') }}</textarea>
                             </div>
 
                             @error('address')

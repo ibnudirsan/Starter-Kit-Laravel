@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Customer;
 
+use Carbon\Carbon;
 use App\Models\Customer;
 use App\Repositories\Customer\CustomerDesign;
 
@@ -23,7 +24,8 @@ class CustomerResponse  implements CustomerDesign {
      */
     public function datatable()
     {
-        return $this->model->select('id','uuid','firstName','lastName','address','numberPhone','email','birthDay','age','deleted_at');
+        return $this->model->select('id','uuid','firstName','lastName','address','numberPhone','email','birthDay','age','deleted_at')
+                            ->orderby('id','desc');
     }
 
     /**
@@ -31,12 +33,17 @@ class CustomerResponse  implements CustomerDesign {
      */
     public function create($param)
     {
+        $birthDay   = $param->birthDay;
+        $age        = Carbon::parse($param->birthDay)->age;
+        
         return $this->model->create([
             'firstName'     => $param->firstName,
             'lastName'      => $param->lastName,
             'email'         => $param->email,
             'address'       => $param->address,
-            'numberPhone'   => $param->numberPhone
+            'numberPhone'   => $param->Numberphone,
+            'birthDay'      => $birthDay,
+            'age'           => $age,
         ]);
     }
 
