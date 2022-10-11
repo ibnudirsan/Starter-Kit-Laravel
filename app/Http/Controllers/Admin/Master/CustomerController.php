@@ -143,14 +143,14 @@ class CustomerController extends Controller
             $this->CustomerResponse->create($request);
                 $notification = ['message'      => 'Successfully created new customer.',
                                   'alert-type'  => 'primary',
-                                  'gravity'     => 'top',
+                                  'gravity'     => 'bottom',
                                   'position'    => 'right'];
                     return redirect()->route('customer.index')->with($notification);
         } catch (\Exception) {
             
             $notification = ['message'     => 'Failed to created data new customer.',
                              'alert-type'  => 'danger',
-                             'gravity'     => 'top',
+                             'gravity'     => 'bottom',
                              'position'    => 'right'];
                 return redirect()->route('customer.index')->with($notification);
             
