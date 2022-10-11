@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css/dataTables.bootstrap5.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/datatables.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/sweetalert2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
 @endpush
 
 @extends('layouts.app')
@@ -68,3 +69,9 @@
 @include('master.customer.js.trash')
 @endpush
 
+@push('Alert')
+<script src="{{ asset('assets/system/js/toastify.js') }}"></script>
+@if(Session::has('message'))
+    @include('layouts.part._notif')
+@endif
+@endpush

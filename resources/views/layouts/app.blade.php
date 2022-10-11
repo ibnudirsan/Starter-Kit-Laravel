@@ -35,5 +35,6 @@
         <script src="{{ asset('assets/system/js/bootstrap.js') }}"></script>
         <script src="{{ asset('assets/system/js/app.js') }}"></script>
         @stack('customJs')
+        @stack('Alert')
     </body>
 </html>
