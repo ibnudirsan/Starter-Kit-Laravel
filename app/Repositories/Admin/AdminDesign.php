@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repositories\User;
+namespace App\Repositories\Admin;
 
 use LaravelEasyRepository\Repository;
 
-interface UserDesign extends Repository{
+interface AdminDesign extends Repository{
 
     // Write something awesome :)
 }

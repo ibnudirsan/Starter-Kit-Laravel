@@ -8,6 +8,15 @@ use App\Repositories\Customer\CustomerDesign;
 
 class CustomerResponse  implements CustomerDesign {
 
+/*
+|--------------------------------------------------------------------------
+| Rumah Dev
+| Backend Developer : ibudirsan
+| Email             : ibnudirsan@gmail.com
+| Copyright © RumahDev 2022
+|--------------------------------------------------------------------------
+*/
+
     /**
     * Model class to be used in this repository for the common methods inside Eloquent
     * Don't remove or change $this->model variable name

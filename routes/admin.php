@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Master\AdminController;
 use App\Http\Controllers\Admin\Master\CustomerController;
 use App\Http\Controllers\Admin\Dashboard\dashboardController;
 /*
@@ -18,6 +19,18 @@ use App\Http\Controllers\Admin\Dashboard\dashboardController;
  * Dashboard
  */
 Route::get('dashboard', [dashboardController::class, 'index'])->name('home');
+
+
+/**
+ * Master Users
+ */
+Route::group(['prefix'  => '/admin'], function () {
+    Route::name('admin.')->group(function () {
+        Route::controller(AdminController::class)->group( function () {
+            Route::get('/list','index')->name('index');
+        });
+    });
+});
 
 /**
  * Master Customer

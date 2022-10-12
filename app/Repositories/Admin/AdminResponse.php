@@ -1,11 +1,20 @@
 <?php
 
-namespace App\Repositories\User;
+namespace App\Repositories\Admin;
 
 use LaravelEasyRepository\Implementations\Eloquent;
 use App\Models\User;
 
-class UserResponse extends Eloquent implements UserDesign{
+class AdminResponse extends Eloquent implements AdminDesign {
+
+/*
+|--------------------------------------------------------------------------
+| Rumah Dev
+| Backend Developer : ibudirsan
+| Email             : ibnudirsan@gmail.com
+| Copyright © RumahDev 2022
+|--------------------------------------------------------------------------
+*/
 
     /**
     * Model class to be used in this repository for the common methods inside Eloquent

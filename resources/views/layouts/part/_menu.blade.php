@@ -19,7 +19,7 @@
             </a>
             <ul class="submenu ">
                 <li class="submenu-item ">
-                    <a href="#">Data Admin</a>
+                    <a href="{{ route('admin.index') }}">Data Admin</a>
                 </li>
                 <li class="submenu-item ">
                     <a href="#">Data Role</a>
@@ -39,9 +39,6 @@
                 <span>Data Master</span>
             </a>
             <ul class="submenu ">
-                <li class="submenu-item ">
-                    <a href="#">Data User</a>
-                </li>
                 <li class="submenu-item ">
                     <a href="{{ route('customer.index') }}">Data Customer</a>
                 </li>
