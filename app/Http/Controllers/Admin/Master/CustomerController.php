@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\customerRequest;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\customer\editRequest;
 use App\Repositories\Customer\CustomerResponse;
 
 class CustomerController extends Controller
@@ -163,9 +164,9 @@ class CustomerController extends Controller
             return view('master.customer.edit',compact('result'));
     }
 
-    public function update(Request $request, $id)
+    public function update(editRequest $request, $id)
     {
-        $result = $this->CustomerResponse->update($request, $id);
+        $this->CustomerResponse->update($request, $id);
             $notification = ['message'      => 'Successfully updateed customer.',
                             'alert-type'  => 'primary',
                             'gravity'     => 'bottom',
