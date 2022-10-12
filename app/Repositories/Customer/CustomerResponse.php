@@ -46,6 +46,29 @@ class CustomerResponse  implements CustomerDesign {
         ]);
     }
 
+    public function edit($id)
+    {
+        $result = $this->model->where('uuid',$id)->first();
+            return $result;
+    }
+
+    public function update($param, $id)
+    {
+        $birthDay   = $param->birthDay;
+        $age        = Carbon::parse($param->birthDay)->age;
+
+        $result = $this->model->where('uuid',$id)->update([
+            'firstName'     => $param->firstName,
+            'lastName'      => $param->lastName,
+            'email'         => $param->email,
+            'address'       => $param->address,
+            'numberPhone'   => $param->Numberphone,
+            'birthDay'      => $birthDay,
+            'age'           => $age,
+        ]);
+            return $result;
+    }
+
     /**
      * Query for trashedData Method.
      */

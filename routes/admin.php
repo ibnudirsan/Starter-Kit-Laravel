@@ -29,6 +29,7 @@ Route::group(['prefix'  => '/customer'], function () {
             Route::get('/create','create')->name('create');
             Route::post('/store','Store')->name('store');
             Route::get('/edit/{id}','edit')->name('edit');
+            Route::post('update/{id}','update')->name('update');
             Route::post('/trash/{id}','trashData')->name('trash');
             Route::get('/trash','Trash')->name('trash');
             Route::post('/restore/{id}','RestoreData')->name('restore');

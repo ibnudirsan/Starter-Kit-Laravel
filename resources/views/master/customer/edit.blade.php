@@ -9,13 +9,13 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-first">
-                <h3>Create Customer</h3>
+                <h3>Edit Customer</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-last">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">List Customer</li>
-                        <li class="breadcrumb-item active" aria-current="page">Create Customer</li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit Customer</li>
                     </ol>
                 </nav>
             </div>
@@ -25,7 +25,7 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <form class="form" action="{{ route('customer.store') }}" method="POST">
+                <form class="form" action="{{ route('customer.update',$result->uuid) }}" method="POST">
                     @csrf
 
                     <div class="row">
@@ -34,7 +34,7 @@
                             <div class="form-group">
                                 <label for="firstName">First Name</label>
                                 <input type="text" id="firstName" class="form-control @error('firstName') is-invalid @enderror"
-                                    value="{{ old('firstName') }}"
+                                    value="{{ old('firstName', $result->firstName) }}"
                                     placeholder="First Name..." name="firstName" autofocus>
 
                                     @error('firstName')
@@ -49,7 +49,7 @@
                             <div class="form-group">
                                 <label for="lastName">Last Name</label>
                                 <input type="text" id="lastName" class="form-control @error('lastName') is-invalid @enderror"
-                                    value="{{ old('lastName') }}"
+                                    value="{{ old('lastName', $result->lastName) }}"
                                     placeholder="Last Name..." name="lastName">
 
                                     @error('lastName')
@@ -64,7 +64,7 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email..."
-                                    value="{{ old('email') }}"
+                                    value="{{ old('email', $result->email) }}"
                                     name="email">
 
                                     @error('email')
@@ -79,7 +79,7 @@
                             <div class="form-group">
                                 <label for="Numberphone">Numberphone</label>
                                 <input type="number" id="Numberphone" class="form-control @error('Numberphone') is-invalid @enderror"
-                                    value="{{ old('Numberphone') }}"
+                                    value="{{ old('Numberphone', $result->numberPhone) }}"
                                     name="Numberphone" placeholder="Numberphone...">
 
                                     @error('Numberphone')
@@ -94,7 +94,7 @@
                             <div class="form-group">
                                 <label for="address" class="form-label">Address</label>
                                 <textarea class="form-control @error('address') is-invalid @enderror" id="address" rows="3" 
-                                    name="address" placeholder="Address...">{{ old('address') }}</textarea>
+                                    name="address" placeholder="Address...">{{ old('address', $result->address) }}</textarea>
 
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
@@ -108,7 +108,7 @@
                             <div class="form-group">
                                 <label for="birthDay">Birth Day</label>
                                 <input type="text" id="birthDay" class="form-control @error('birthDay') is-invalid @enderror"
-                                    value="{{ old('birthDay') }}"
+                                    value="{{ old('birthDay', $result->birthDay) }}"
                                     name="birthDay" placeholder="Birth Day...">
 
                                     @error('birthDay')
@@ -121,7 +121,7 @@
 
                         <div class="col-12 d-flex justify-content-end">
                             <a href="{{ route('customer.index') }}" class="btn btn-outline-secondary icon icon-left me-1 mb-1"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
-                            <button type="submit" class="btn btn-primary icon icon-left me-1 mb-1"><i class="fas fa-plus-circle"></i> Create</button>
+                            <button type="submit" class="btn btn-primary icon icon-left me-1 mb-1"><i class="fas fa-edit"></i> Edit</button>
                         </div>
 
                     </div>

@@ -159,7 +159,18 @@ class CustomerController extends Controller
 
     public function edit($id)
     {
-        # code...
+        $result = $this->CustomerResponse->edit($id);
+            return view('master.customer.edit',compact('result'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $result = $this->CustomerResponse->update($request, $id);
+            $notification = ['message'      => 'Successfully updateed customer.',
+                            'alert-type'  => 'primary',
+                            'gravity'     => 'bottom',
+                            'position'    => 'right'];
+            return redirect()->route('customer.index')->with($notification);
     }
 
     public function RestoreData($id)
