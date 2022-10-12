@@ -19,7 +19,7 @@
             Toastify({
                     text: "{{ Session::get('message') }}",
                     duration: 5000,
-                    avatar: 'https://laravel.com/img/notification-logo.png',
+                    avatar: 'https://avatars.githubusercontent.com/u/114145089?v=4',
                     close: true,
                     gravity: "{{ Session::get('gravity') }}",
                     position: "{{ Session::get('position') }}",
@@ -31,7 +31,7 @@
             Toastify({
                     text: "{{ Session::get('message') }}",
                     duration: 5000,
-                    avatar: 'https://laravel.com/img/notification-logo.png',
+                    avatar: 'https://avatars.githubusercontent.com/u/114145089?v=4',
                     close: true,
                     gravity: "{{ Session::get('gravity') }}",
                     position: "{{ Session::get('position') }}",
@@ -43,7 +43,7 @@
             Toastify({
                     text: "{{ Session::get('message') }}",
                     duration: 5000,
-                    avatar: 'https://laravel.com/img/notification-logo.png',
+                    avatar: 'https://avatars.githubusercontent.com/u/114145089?v=4',
                     close: true,
                     gravity: "{{ Session::get('gravity') }}",
                     position: "{{ Session::get('position') }}",
