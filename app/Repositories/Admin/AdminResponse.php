@@ -15,18 +15,25 @@ class AdminResponse extends Eloquent implements AdminDesign {
 | Copyright © RumahDev 2022
 |--------------------------------------------------------------------------
 */
-
     /**
     * Model class to be used in this repository for the common methods inside Eloquent
     * Don't remove or change $this->model variable name
     * @property Model|mixed $model;
     */
     protected $model;
-
     public function __construct(User $model)
     {
         $this->model = $model;
     }
 
-    // Write something awesome :)
+    public function datatable()
+    {
+        return $this->model->select('id','uuid','name','deleted_at','email','created_at')
+                            ->with('profile');
+    }
+
+    public function create($param)
+    {
+        # code...
+    }
 }
