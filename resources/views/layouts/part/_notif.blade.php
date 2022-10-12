@@ -5,7 +5,7 @@
                 Toastify({
                     text: "{{ Session::get('message') }}",
                     duration: 5000,
-                    avatar: 'http://127.0.0.1:8000/assets/system/image/avatar.png',
+                    avatar: "{{ asset('assets/images/info.svg') }}",
                     newWindow: true,
                     stopOnFocus: true,
                     close: true,
@@ -19,7 +19,7 @@
             Toastify({
                     text: "{{ Session::get('message') }}",
                     duration: 5000,
-                    avatar: 'http://127.0.0.1:8000/assets/system/image/avatar.png',
+                    avatar: "{{ asset('assets/images/info.svg') }}",
                     close: true,
                     gravity: "{{ Session::get('gravity') }}",
                     position: "{{ Session::get('position') }}",
@@ -31,7 +31,7 @@
             Toastify({
                     text: "{{ Session::get('message') }}",
                     duration: 5000,
-                    avatar: 'http://127.0.0.1:8000/assets/system/image/avatar.png',
+                    avatar: "{{ asset('assets/images/info.svg') }}",
                     close: true,
                     gravity: "{{ Session::get('gravity') }}",
                     position: "{{ Session::get('position') }}",
@@ -43,7 +43,7 @@
             Toastify({
                     text: "{{ Session::get('message') }}",
                     duration: 5000,
-                    avatar: 'http://127.0.0.1:8000/assets/system/image/avatar.png',
+                    avatar: "{{ asset('assets/images/info.svg') }}",
                     close: true,
                     gravity: "{{ Session::get('gravity') }}",
                     position: "{{ Session::get('position') }}",
