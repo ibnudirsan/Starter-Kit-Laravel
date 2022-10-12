@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use App\Exports\CustomersExport;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Requests\customerRequest;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\customer\editRequest;
+use App\Http\Requests\customer\customerRequest;
 use App\Repositories\Customer\CustomerResponse;
 
 class CustomerController extends Controller

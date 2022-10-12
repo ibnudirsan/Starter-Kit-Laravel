@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\customer;
 
-use App\Rules\BirthYearRule;
+use App\Rules\customer\BirthYearRule;
+use App\Rules\customer\numberPhoneRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class customerRequest extends FormRequest
@@ -29,11 +30,13 @@ class customerRequest extends FormRequest
             'lastName'      => 'required|string|max:30',
             'email'         => 'required|unique:customers|email:rfc,dns|max:25',
             'address'       => 'required|max:30',
-            'Numberphone'   => 'required|numeric|digits_between:10,13',
+            'Numberphone'   => ['required',
+                                'numeric',
+                                'digits_between:10,13',
+                                new numberPhoneRule()],
             'birthDay'      => [ 'required',
                                  'date_format:Y-m-d',
-                                 new BirthYearRule()
-                                ],
+                                 new BirthYearRule()],
         ];
     }
 }

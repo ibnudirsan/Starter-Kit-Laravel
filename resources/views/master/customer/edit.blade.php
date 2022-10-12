@@ -78,7 +78,7 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="Numberphone">Numberphone</label>
-                                <input type="number" id="Numberphone" class="form-control @error('Numberphone') is-invalid @enderror"
+                                <input type="text" id="Numberphone" class="form-control @error('Numberphone') is-invalid @enderror"
                                     value="{{ old('Numberphone', $result->numberPhone) }}"
                                     name="Numberphone" placeholder="Numberphone...">
 

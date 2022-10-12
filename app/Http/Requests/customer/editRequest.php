@@ -2,8 +2,9 @@
 
 namespace App\Http\Requests\customer;
 
-use App\Rules\BirthYearRule;
 use Illuminate\Validation\Rule;
+use App\Rules\customer\BirthYearRule;
+use App\Rules\customer\numberPhoneRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class editRequest extends FormRequest
@@ -30,7 +31,10 @@ class editRequest extends FormRequest
             'lastName'      => 'required|string|max:30',
             'email' => 'required|email:rfc,dns|max:25||unique:customers,email,'.$this->id.',uuid',
             'address'       => 'required|max:30',
-            'Numberphone'   => 'required|numeric|digits_between:10,13',
+            'Numberphone'   => ['required',
+                                'numeric',
+                                'digits_between:10,13',
+                                new numberPhoneRule()],
             'birthDay'      => [ 'required',
                                  'date_format:Y-m-d',
                                  new BirthYearRule()
