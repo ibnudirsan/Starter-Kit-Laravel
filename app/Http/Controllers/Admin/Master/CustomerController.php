@@ -166,12 +166,20 @@ class CustomerController extends Controller
 
     public function update(editRequest $request, $id)
     {
-        $this->CustomerResponse->update($request, $id);
-            $notification = ['message'      => 'Successfully updateed customer.',
-                            'alert-type'  => 'primary',
-                            'gravity'     => 'bottom',
-                            'position'    => 'right'];
-            return redirect()->route('customer.index')->with($notification);
+        try {
+            $this->CustomerResponse->update($request, $id);
+                $notification = ['message'      => 'Successfully updateed customer.',
+                                'alert-type'  => 'success',
+                                'gravity'     => 'bottom',
+                                'position'    => 'right'];
+                return redirect()->route('customer.index')->with($notification);
+        } catch (\Exception) {
+                $notification = ['message'     => 'Failed to updated data customer.',
+                                'alert-type'  => 'danger',
+                                'gravity'     => 'bottom',
+                                'position'    => 'right'];
+                return redirect()->route('customer.index')->with($notification);
+        }
     }
 
     public function RestoreData($id)
