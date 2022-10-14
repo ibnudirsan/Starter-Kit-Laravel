@@ -15,7 +15,7 @@
         <li class="sidebar-item  has-sub">
             <a href="#" class='sidebar-link'>
                 <i class="fas fa-folder"></i>
-                <span>Auth</span>
+                <span>Authorization</span>
             </a>
             <ul class="submenu ">
                 <li class="submenu-item ">

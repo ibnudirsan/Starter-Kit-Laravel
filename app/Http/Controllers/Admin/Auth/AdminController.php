@@ -57,4 +57,10 @@ class AdminController extends Controller
         }
             return view('master.admin.index');
     }
+
+    public function create()
+    {
+        $roles = $this->AdminResponse->role();
+            return view('master.admin.create',compact('roles'));
+    }
 }

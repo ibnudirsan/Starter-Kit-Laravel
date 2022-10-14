@@ -29,6 +29,7 @@ Route::group(['prefix'  => '/admin'], function () {
     Route::name('admin.')->group(function () {
         Route::controller(AdminController::class)->group( function () {
             Route::get('/list','index')->name('index');
+            Route::get('/create','create')->name('create');
         });
     });
 });
