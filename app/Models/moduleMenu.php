@@ -51,7 +51,7 @@ class moduleMenu extends Model
         static::creating(function ($model) {
             try {
                 $model->id = Generator::uuid4()->toString();
-            } catch (\Exception) {
+            } catch (\Exception $e) {
                 abort(500);
             }
         });

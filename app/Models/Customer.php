@@ -61,7 +61,7 @@ class Customer extends Model
         static::creating(function ($model) {
             try {
                 $model->uuid = str_replace('-', '', Generator::uuid4()->toString());
-            } catch (\Exception) {
+            } catch (\Exception $e) {
                 abort(500);
             }
         });

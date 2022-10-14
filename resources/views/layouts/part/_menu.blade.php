@@ -22,7 +22,7 @@
                     <a href="{{ route('admin.index') }}">Data Admin</a>
                 </li>
                 <li class="submenu-item ">
-                    <a href="#">Data Role</a>
+                    <a href="{{ route('role.index') }}">Data Role</a>
                 </li>
                 <li class="submenu-item ">
                     <a href="#">Data Module</a>

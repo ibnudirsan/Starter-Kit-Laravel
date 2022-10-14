@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Master;
+namespace App\Http\Controllers\Admin\Auth;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-use App\Repositories\Admin\AdminResponse;
+use App\Repositories\Auth\Admin\AdminResponse;
 
 class AdminController extends Controller
 {

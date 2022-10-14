@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Repositories\Admin;
+namespace App\Repositories\Auth\Admin;
 
-use LaravelEasyRepository\Implementations\Eloquent;
 use App\Models\User;
+use App\Repositories\Auth\Admin\AdminDesign;
+use LaravelEasyRepository\Implementations\Eloquent;
 
 class AdminResponse extends Eloquent implements AdminDesign {
 

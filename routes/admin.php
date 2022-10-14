@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\Master\AdminController;
+use App\Http\Controllers\Admin\Auth\AdminController;
+use App\Http\Controllers\Admin\Auth\RoleController;
 use App\Http\Controllers\Admin\Master\CustomerController;
 use App\Http\Controllers\Admin\Dashboard\dashboardController;
 /*
@@ -22,11 +23,22 @@ Route::get('dashboard', [dashboardController::class, 'index'])->name('home');
 
 
 /**
- * Master Users
+ * Auth Admin
  */
 Route::group(['prefix'  => '/admin'], function () {
     Route::name('admin.')->group(function () {
         Route::controller(AdminController::class)->group( function () {
+            Route::get('/list','index')->name('index');
+        });
+    });
+});
+
+/**
+ * Auth Role 
+ */
+Route::group(['prefix'   => '/role'], function () {
+    Route::name('role.')->group(function () {
+        Route::controller(RoleController::class)->group(function () {
             Route::get('/list','index')->name('index');
         });
     });
