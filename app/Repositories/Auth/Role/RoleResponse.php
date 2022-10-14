@@ -25,9 +25,19 @@ class RoleResponse extends Eloquent implements RoleDesign {
     */
     protected $model;
 
-    public function __construct(Role $model)
+    public function __construct(Role $model, moduleMenu $module)
     {
-        $this->model = $model;
+        $this->model    = $model;
+        $this->module   = $module;
+    }
+
+    /**
+     * List Role
+     */
+    public function datatable()
+    {
+        return $this->model->select('id','uuid','name','guard_name','created_at')
+                                    ->whereNotIn('name',['SuperAdmin']);
     }
 
     /**
@@ -35,7 +45,7 @@ class RoleResponse extends Eloquent implements RoleDesign {
      */
     public function permission()
     {
-       return moduleMenu::with('permissions')
+       return $this->module->with('permissions')
                           ->orderby('module_name','asc')
                           ->get();
     }

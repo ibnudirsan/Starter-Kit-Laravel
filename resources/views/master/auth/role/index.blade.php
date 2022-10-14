@@ -1,6 +1,5 @@
 @push('customCss')
 <link rel="stylesheet" href="{{ asset('assets/system/css/dataTables.bootstrap5.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/system/css/datatables.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/sweetalert2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
 @endpush
@@ -16,7 +15,7 @@
             </div>
 
             <div class="col-12 col-md-4 order-md-1 order-first">
-                <h3>Auth Role</h3>
+                <h3>Auth Data Role</h3>
             </div>
             <div class="col-12 col-md-4 order-md-2 order-last">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -32,10 +31,15 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <table class="table table-hover table-striped" id="tableCustomer">
+                <table class="table table-hover table-striped" id="tableRole">
                     <thead class="table-dark">
                         <tr>
                             <th class="text-left" width="20px">No.</th>
+                            <th class="text-left" width="450px">Role Name</th>
+                            <th class="text-left" width="200px">Guard Name</th>
+                            <th class="text-left" width="200px">Created Time</th>
+                            <th class="text-left" width="20px">View</th>
+                            <th class="text-left" width="20px">Edit</th>
                         </tr>
                     </thead>
                 </table>
@@ -48,6 +52,7 @@
 <script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
+@include('master.auth.role.table.role')
 @endpush
 
 @push('Alert')
