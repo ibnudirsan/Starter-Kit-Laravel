@@ -30,13 +30,13 @@ class AdminController extends Controller
                     })
 
                     ->addColumn('trash', function ($Trash) {
-                        return  '
-                                    <button type="button" class="btn btn-danger btn-sm btn-size"
-                                            onclick="isTrash('.$Trash->id.')">
-                                                Trash
-                                    </button>
-                                ';
-                    })
+                            return  '
+                                        <button type="button" class="btn btn-danger btn-sm btn-size"
+                                                onclick="isTrash('.$Trash->id.')">
+                                                    Trash
+                                        </button>
+                                    ';
+                            })
 
                     ->addColumn('edit', function ($edit) {
                         return  '
