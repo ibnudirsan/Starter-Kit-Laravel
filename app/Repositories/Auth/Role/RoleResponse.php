@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Repositories\Role;
+namespace App\Repositories\Auth\Role;
 
 use App\Models\Role;
+use App\Models\moduleMenu;
 use App\Repositories\Auth\Role\RoleDesign;
 use LaravelEasyRepository\Implementations\Eloquent;
 
@@ -29,5 +30,10 @@ class RoleResponse extends Eloquent implements RoleDesign {
         $this->model = $model;
     }
 
-    // Write something awesome :)
+    public function permission()
+    {
+       return moduleMenu::with('permissions')
+                                    ->orderby('module_name','asc')
+                                    ->get();
+    }
 }
