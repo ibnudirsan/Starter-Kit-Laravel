@@ -27,6 +27,11 @@ class RoleController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        $this->RoleResponse->store($request);
+            $notification = ['message'     => 'Successfully created Role.',
+                            'alert-type'  => 'success',
+                            'gravity'     => 'bottom',
+                            'position'    => 'right'];
+                return redirect()->route('role.index')->with($notification);
     }
 }

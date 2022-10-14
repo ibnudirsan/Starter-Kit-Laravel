@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Example Module
+ */
 return [
 
     'authorities' => [

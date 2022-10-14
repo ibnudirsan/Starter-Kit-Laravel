@@ -52,7 +52,10 @@ class Role extends Model implements RoleContract
     use HasPermissions;
     use RefreshesPermissionCache;
 
-    protected $guarded = [];
+    protected $table = 'roles';
+    protected $fillable = [
+        'uuid', 'name', 'guard_name'
+    ];
 
     public function __construct(array $attributes = [])
     {
@@ -234,7 +237,7 @@ class Role extends Model implements RoleContract
         static::creating(function ($model) {
             try {
                 $model->uuid = str_replace('-', '', Generator::uuid4()->toString());
-            } catch (UnsatisfiedDependencyException $e) {
+            } catch (\Exception $e) {
                 abort(500, $e->getMessage());
             }
         });

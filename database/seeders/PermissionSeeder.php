@@ -5,13 +5,10 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\moduleMenu;
-use Illuminate\Support\Str;
+use App\Models\Permission;
 use Illuminate\Database\Seeder;
-use Ramsey\Uuid\Uuid as Generator;
 use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Models\Permission;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Ramsey\Uuid\Uuid as Generator;
 
 class PermissionSeeder extends Seeder
 {
@@ -22,9 +19,8 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        $useradmin = User::whereLevel(1)->first();
-
-        $authorities            = config('module.authorities');
+        $useradmin      = User::whereLevel(1)->first();
+        $authorities    = config('module.authorities');
 
         $listPermission         = [];
         $superAdminPermissions  = [];
@@ -39,6 +35,7 @@ class PermissionSeeder extends Seeder
             foreach ($permissions as $permission) {
 
                 $listPermission[] = [
+                    'uuid'          => str_replace('-', '', Generator::uuid4()->toString()),
                     'name'          => $permission,
                     'module_id'     => $module->id,
                     'guard_name'    => 'web',
@@ -53,8 +50,9 @@ class PermissionSeeder extends Seeder
 
         // Insert Role
         // ----------------------------------------
-        // Super Admin
+        // Create SuperAdmin
         $superAdmin = Role::create([
+            'uuid'          => str_replace('-', '', Generator::uuid4()->toString()),
             'name'          => "SuperAdmin",
             'guard_name'    => 'web',
         ]);

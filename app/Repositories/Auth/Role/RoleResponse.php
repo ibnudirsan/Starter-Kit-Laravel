@@ -30,10 +30,22 @@ class RoleResponse extends Eloquent implements RoleDesign {
         $this->model = $model;
     }
 
+    /**
+     * List Permissions
+     */
     public function permission()
     {
        return moduleMenu::with('permissions')
-                                    ->orderby('module_name','asc')
-                                    ->get();
+                          ->orderby('module_name','asc')
+                          ->get();
+    }
+
+    /**
+     * Create Role
+     */
+    public function store($param)
+    {
+        $role   = $this->model->create(['name' => $param->roleName]);
+            return $role->givePermissionTo($param->permissions);
     }
 }
