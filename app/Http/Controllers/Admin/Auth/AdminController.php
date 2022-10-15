@@ -63,4 +63,9 @@ class AdminController extends Controller
         $roles = $this->AdminResponse->role();
             return view('master.admin.create',compact('roles'));
     }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
 }

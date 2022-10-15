@@ -3505,7 +3505,7 @@ exports.DEFAULT_CONFIG = {
   loadingText: 'Loading...',
   noResultsText: 'No results found',
   noChoicesText: 'No choices to choose from',
-  itemSelectText: 'Press to select',
+  itemSelectText: 'Click untuk memilih...',
   uniqueItemText: 'Only unique values can be added',
   customAddItemText: 'Only values matching specific conditions can be added',
   addItemText: function (value) {

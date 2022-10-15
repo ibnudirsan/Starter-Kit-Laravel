@@ -25,7 +25,7 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <form class="form" action="#" method="POST">
+                <form class="form" action="{{ route('admin.store') }}" method="POST">
                     @csrf
 
                     <div class="row">
@@ -112,14 +112,38 @@
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="role">Role</label>
-                                    <select class="form-select" id="choices" name="role">
-                                        <option value="" selected>Choose Role...</option>
-                                        @foreach ($roles as $role)
-                                            <option value="{{ $role->id }}">{{ ucwords($role->name) }} - {{ ucwords($role->guard_name) }}</option>
-                                        @endforeach
-                                    </select>
+                                <label for="password">Password</label>
+                                <div class="input-group mb-3">
+                                        <input type="password" name="password" id="password" class="form-control" placeholder="Password...">
+                                        <button class="btn btn-primary" type="button" id="show" onclick="showPassword()">show</button>
+                                    </div>
                             </div>
+                        </div>
+
+                        <div class="col-md-12 col-12">
+                            <div class="form-group">
+                                <label for="role">Role</label>
+                                <div class="form-group">
+                                @foreach ($roles as $role)
+                                    <div class="col-3 d-inline-block me-4 mb-4">
+                                        <div class="form-check">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox"
+                                                    class="form-check-input form-check-success form-check-glow"
+                                                    name="roles[]" id="{{$role->id}}" value="{{$role->id}}">
+                                                <label class="form-check-label" for="roles">{{ ucwords($role->name) }} - {{ ucwords($role->guard_name) }}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                </div>
+                            </div>
+
+                            @error('roles')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                     </div>
@@ -132,12 +156,6 @@
 @stop
 @push('customJs')
 <script src="{{ asset('assets/system/js/choices.js') }}"></script>
-<script>
-    let choices = document.querySelectorAll('#choices')
-    let initChoice
-    for (let i = 0; i < choices.length; i++) {
-        initChoice = new Choices(choices[i])
-    }
-</script>
+<script src="{{ asset('assets/system/js/showpassword.js') }}"></script>
 @endpush
 
