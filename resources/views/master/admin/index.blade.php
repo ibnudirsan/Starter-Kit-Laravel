@@ -41,7 +41,7 @@
                             <th class="text-left" width="100px">Username</th>
                             <th class="text-left" width="100px">Full Name</th>
                             <th class="text-left" width="100px">Email</th>
-                            <th class="text-left" width="100px">Role</th>
+                            <th class="text-left" width="260px">Role</th>
                             <th class="text-left" width="100px">Numberphone</th>
                             <th class="text-left" width="90px">Telegram ID</th>
                             <th class="text-left" width="100px">Created</th>

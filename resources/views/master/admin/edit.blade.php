@@ -156,7 +156,7 @@
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox"
                                                     class="form-check-input form-check-success form-check-glow @error('roles') is-invalid @enderror"
-                                                    name="roles[]" id="{{ $role->id }}" value="{{$role->id}}">
+                                                    name="roles[]" id="{{ $role->id }}" value="{{$role->id}}" {{ $result->roles->contains($role->id) ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="{{ $role->id }}">{{ ucwords($role->name) }} - {{ ucwords($role->guard_name) }}</label>
 
                                                 @error('roles')
