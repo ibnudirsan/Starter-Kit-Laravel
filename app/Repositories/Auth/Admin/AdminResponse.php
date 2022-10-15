@@ -61,4 +61,12 @@ class AdminResponse extends Eloquent implements AdminDesign {
             ]);
                 $user->assignRole($param->roles);
     }
+
+    public function edit($id)
+    {
+        return $this->model->select('id','uuid','name','email')
+                            ->with('profile')
+                            ->whereUuid($id)
+                            ->firstOrFail();
+    }
 }

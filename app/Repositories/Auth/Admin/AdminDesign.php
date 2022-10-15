@@ -8,4 +8,5 @@ interface AdminDesign extends Repository {
     public function datatable();
     public function role();
     public function create($param);
+    public function edit($id);
 }

@@ -43,7 +43,7 @@ class AdminController extends Controller
 
                     ->addColumn('edit', function ($edit) {
                         return  '
-                                    <a href="#" type="button" class="btn btn-primary btn-sm">
+                                    <a href="'.route('admin.edit',$edit->uuid).'" type="button" class="btn btn-primary btn-sm">
                                                 Edit
                                     </a>
                                 ';
@@ -95,6 +95,8 @@ class AdminController extends Controller
 
     public function edit($id)
     {
-        # code...
+        $roles  = $this->AdminResponse->role();
+        $result = $this->AdminResponse->edit($id);
+            return view('master.admin.edit',compact('roles','result'));
     }
 }
