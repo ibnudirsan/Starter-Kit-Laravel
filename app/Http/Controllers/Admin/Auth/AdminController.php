@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-use App\Http\Requests\admin\adminRequest;
+use App\Http\Requests\Auth\admin\adminRequest;
 use App\Repositories\Auth\Admin\AdminResponse;
 
 class AdminController extends Controller

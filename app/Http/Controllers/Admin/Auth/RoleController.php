@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use Carbon\Carbon;
-use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\Auth\role\roleRequest;
 use App\Repositories\Auth\Role\RoleResponse;
 
 class RoleController extends Controller
@@ -59,7 +59,7 @@ class RoleController extends Controller
             return view('master.auth.role.create',compact('authorities'));
     }
 
-    public function store(Request $request)
+    public function store(roleRequest $request)
     {
         try {
             $this->RoleResponse->store($request);

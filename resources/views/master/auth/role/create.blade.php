@@ -67,19 +67,31 @@
                                                         @if (old('permissions'))
                                                             <li class="list-group-item">
                                                                 <div class="form-check form-switch">
-                                                                    <input id="{{ $permission->name }}" name="permissions[]" class="form-check-input" type="checkbox" value="{{ $permission->name }}" {{ in_array($permission->name, old('permissions')) ? 'checked' : null }}>
+                                                                    <input id="permissions" name="permissions[]" class="form-check-input @error('permissions') is-invalid @enderror" type="checkbox" value="{{ $permission->name }}" {{ in_array($permission->name, old('permissions')) ? 'checked' : null }}>
                                                                     <label class="form-check-label" for="{{ $permission->name }}">
                                                                         {{ $permission->name }}
                                                                     </label>
+
+                                                                    @error('permissions')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
                                                                 </div>
                                                             </li>
                                                         @else
                                                             <li class="list-group-item">
                                                                 <div class="form-check form-switch">
-                                                                    <input id="{{ $permission->name }}" name="permissions[]" class="form-check-input" type="checkbox" value="{{ $permission->name }}">
+                                                                    <input id="permissions" name="permissions[]" class="form-check-input @error('permissions') is-invalid @enderror" type="checkbox" value="{{ $permission->name }}">
                                                                     <label class="form-check-label" for="{{ $permission->name }}">
                                                                         {{ $permission->name }}
                                                                     </label>
+
+                                                                    @error('permissions')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
                                                                 </div>
                                                             </li>
                                                         @endif
@@ -90,12 +102,6 @@
                                         @endforeach
                                     </div>
                                 </div>
-
-                                @error('permissions')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 
