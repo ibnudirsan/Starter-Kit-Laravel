@@ -133,12 +133,13 @@
                                 @foreach ($roles as $role)
 
                                     @if (old('roles'))
-                                    <div class="col-3 d-inline-block me-4 mb-4">
+                                    <div class="col-3 d-inline-block me-1 mb-1">
                                         <div class="form-check">
                                             <div class="custom-control custom-checkbox">
+
                                                 <input type="checkbox"
                                                     class="form-check-input form-check-success form-check-glow @error('roles') is-invalid @enderror"
-                                                    name="roles[]" id="{{ $role->id }}" value="{{$role->id}}" {{ in_array($role->name, old('roles')) ? 'checked' : null }}>
+                                                    name="roles[]" id="{{ $role->id }}" value="{{$role->id}}" {{ in_array($role->id, old('roles')) ? 'checked' : null }}>
                                                 <label class="form-check-label" for="{{ $role->id }}">{{ ucwords($role->name) }} - {{ ucwords($role->guard_name) }}</label>
 
                                                 @error('roles')
