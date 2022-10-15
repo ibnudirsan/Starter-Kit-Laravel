@@ -67,7 +67,7 @@
                                                         @if (old('permissions'))
                                                             <li class="list-group-item">
                                                                 <div class="form-check form-switch">
-                                                                    <input id="permissions" name="permissions[]" class="form-check-input @error('permissions') is-invalid @enderror" type="checkbox" value="{{ $permission->name }}" {{ in_array($permission->name, old('permissions')) ? 'checked' : null }}>
+                                                                    <input id="permissions" name="permissions[]" class="form-check-input @error('permissions') is-invalid @enderror" type="checkbox" value="{{ $permission->id }}" {{ in_array($permission->id, old('permissions')) ? 'checked' : null }}>
                                                                     <label class="form-check-label" for="{{ $permission->name }}">
                                                                         {{ $permission->name }}
                                                                     </label>
@@ -82,7 +82,7 @@
                                                         @else
                                                             <li class="list-group-item">
                                                                 <div class="form-check form-switch">
-                                                                    <input id="permissions" name="permissions[]" class="form-check-input @error('permissions') is-invalid @enderror" type="checkbox" value="{{ $permission->name }}">
+                                                                    <input id="permissions" name="permissions[]" class="form-check-input @error('permissions') is-invalid @enderror" type="checkbox" value="{{ $permission->id }}">
                                                                     <label class="form-check-label" for="{{ $permission->name }}">
                                                                         {{ $permission->name }}
                                                                     </label>

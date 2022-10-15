@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\profileUser;
 use Laravel\Sanctum\HasApiTokens;
 use Ramsey\Uuid\Uuid as Generator;
 use Spatie\Permission\Traits\HasRoles;
