@@ -52,12 +52,12 @@
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" id="username" class="form-control @error('username') is-invalid @enderror"
-                                    value="{{ old('username') }}"
-                                    placeholder="Username..." name="username">
+                                <label for="name">Username</label>
+                                <input type="text" id="name" class="form-control @error('name') is-invalid @enderror"
+                                    value="{{ old('name') }}"
+                                    placeholder="Username..." name="name">
 
-                                    @error('username')
+                                    @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -114,9 +114,15 @@
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <div class="input-group mb-3">
-                                        <input type="password" name="password" id="password" class="form-control" placeholder="Password...">
-                                        <button class="btn btn-primary" type="button" id="show" onclick="showPassword()">show</button>
-                                    </div>
+                                        <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password...">
+                                        <button class="btn btn-primary" type="button" onclick="showPassword()">show</button>
+                                        
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                </div>
                             </div>
                         </div>
 
@@ -125,25 +131,46 @@
                                 <label for="role">Role</label>
                                 <div class="form-group">
                                 @foreach ($roles as $role)
+
+                                    @if (old('roles'))
                                     <div class="col-3 d-inline-block me-4 mb-4">
                                         <div class="form-check">
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox"
-                                                    class="form-check-input form-check-success form-check-glow"
-                                                    name="roles[]" id="{{$role->id}}" value="{{$role->id}}">
-                                                <label class="form-check-label" for="roles">{{ ucwords($role->name) }} - {{ ucwords($role->guard_name) }}</label>
+                                                    class="form-check-input form-check-success form-check-glow @error('roles') is-invalid @enderror"
+                                                    name="roles[]" id="{{ $role->id }}" value="{{$role->id}}" {{ in_array($role->name, old('roles')) ? 'checked' : null }}>
+                                                <label class="form-check-label" for="{{ $role->id }}">{{ ucwords($role->name) }} - {{ ucwords($role->guard_name) }}</label>
+
+                                                @error('roles')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
+                                    @else
+                                    <div class="col-3 d-inline-block me-4 mb-4">
+                                        <div class="form-check">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox"
+                                                    class="form-check-input form-check-success form-check-glow @error('roles') is-invalid @enderror"
+                                                    name="roles[]" id="{{ $role->id }}" value="{{$role->id}}">
+                                                <label class="form-check-label" for="{{ $role->id }}">{{ ucwords($role->name) }} - {{ ucwords($role->guard_name) }}</label>
+
+                                                @error('roles')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
+
                                 @endforeach
                                 </div>
                             </div>
-
-                            @error('roles')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
                         </div>
 
                     </div>

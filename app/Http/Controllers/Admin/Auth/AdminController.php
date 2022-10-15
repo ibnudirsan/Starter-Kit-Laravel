@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\admin\adminRequest;
 use App\Repositories\Auth\Admin\AdminResponse;
 
 class AdminController extends Controller
@@ -64,7 +65,7 @@ class AdminController extends Controller
             return view('master.admin.create',compact('roles'));
     }
 
-    public function store(Request $request)
+    public function store(adminRequest $request)
     {
         dd($request->all());
     }
