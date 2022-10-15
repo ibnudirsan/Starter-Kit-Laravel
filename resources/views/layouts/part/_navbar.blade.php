@@ -39,7 +39,7 @@
                     <div class="user-menu d-flex">
                         <div class="user-name text-end me-3">
                             <h6 class="mb-0 text-gray-600">{{ auth()->user()->profile->fullName }}</h6>
-                            <p class="mb-0 text-sm text-gray-600">Administrator</p>
+                            <p class="mb-0 text-sm text-gray-600">Logined CMS</p>
                         </div>
                         <div class="user-img d-flex align-items-center">
                             <div class="avatar avatar-md">
@@ -66,17 +66,9 @@
                             Settings
                         </a>
                     </li>
-                    
-                    <li><a class="dropdown-item" href="#">
-                            <i class="fas fa-wallet"></i>
-                            Wallet
-                        </a>
-                    </li>
-                    
-                    <li><hr class="dropdown-divider">
-                    </li>
-                    
-                    <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                            
+                    <li class="text-bg-danger rounded">
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                                 <i class="fas fa-sign-out-alt"></i>
                                 Logout

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\Auth\admin\editRequest;
 use App\Http\Requests\Auth\admin\adminRequest;
 use App\Repositories\Auth\Admin\AdminResponse;
 
@@ -98,5 +99,17 @@ class AdminController extends Controller
         $roles  = $this->AdminResponse->role();
         $result = $this->AdminResponse->edit($id);
             return view('master.admin.edit',compact('roles','result'));
+    }
+
+    public function update(editRequest $request, $id)
+    {
+        dd($request->all());
+        // dd($request->id);
+
+        try {
+            //code...
+        } catch (\Exception $e) {
+            //throw $th;
+        }
     }
 }

@@ -9,4 +9,5 @@ interface AdminDesign extends Repository {
     public function role();
     public function create($param);
     public function edit($id);
+    public function update($param, $id);
 }

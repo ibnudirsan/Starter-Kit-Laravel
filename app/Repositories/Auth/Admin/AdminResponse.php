@@ -70,4 +70,9 @@ class AdminResponse extends Eloquent implements AdminDesign {
                             ->whereUuid($id)
                             ->firstOrFail();
     }
+
+    public function update($param, $id)
+    {
+        # code...
+    }
 }

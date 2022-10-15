@@ -25,7 +25,7 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <form class="form" action="#" method="POST">
+                <form class="form" action="{{ route('admin.update', $result->uuid) }}" method="POST">
                     @csrf
 
                     <div class="row">
