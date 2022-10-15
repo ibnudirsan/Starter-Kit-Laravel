@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use Carbon\Carbon;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -48,15 +49,11 @@ class AdminController extends Controller
                                 ';
                     })
 
-                    ->addColumn('role', function ($role) {
-                        return  '
-                                    <a href="'.route('admin.view.role',$role->uuid).'" type="button" class="btn btn-success btn-sm">
-                                        '.count($role->model)." Role".'
-                                    </a>
-                                ';
+                    ->addColumn('role', function (User $user) {
+                        return $user->roles->pluck('name')->implode(', ');
                     })
 
-                    ->rawColumns(['trash','edit'])
+                    ->rawColumns(['trash','edit','role'])
                     ->escapeColumns(['trash','edit'])
                     ->smart(true)
                     ->make();
@@ -95,7 +92,7 @@ class AdminController extends Controller
         }
     }
 
-    public function viewRole()
+    public function edit($id)
     {
         # code...
     }

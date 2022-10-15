@@ -23,18 +23,17 @@ $(document).ready( function () {
         searching         : true,
         searchable        : true,
         ordering          : true,
-        order             : [[7, 'desc']],
+        order             : [[9, 'desc']],
         columnDefs        : [
                                 { orderable: false, targets: 0  },
                                 { orderable: false, targets: 1  },
                                 { orderable: false, targets: 2  },
                                 { orderable: false, targets: 3  },
                                 { orderable: false, targets: 4  },
-                                { orderable: false, targets: 6  },
                                 { orderable: false, targets: 5  },
+                                { orderable: false, targets: 6  },
                                 { orderable: false, targets: 7  },
                                 { orderable: false, targets: 8  },
-                                { orderable: false, targets: 9  },
                             ],
         bInfo             : true,
         responsive        : true,
@@ -82,6 +81,8 @@ $(document).ready( function () {
                     return meta.row + meta.settings._iDisplayStart + 1;
                 }
             },
+            {data:'edit',name:'edit'},
+            {data:'trash',name:'trash'},
             {data:'name',name:'name'},
             {data:'profile.fullName',name:'profile.fullName'},
             {data:'role',name:'role'},
@@ -89,8 +90,6 @@ $(document).ready( function () {
             {data:'profile.numberPhone',name:'profile.numberPhone'},
             {data:'profile.TeleID',name:'profile.TeleID'},
             {data:'created_at',name:'created_at'},
-            {data:'edit',name:'edit'},
-            {data:'trash',name:'trash'},
         ]
     });
 

@@ -35,15 +35,15 @@
                     <thead class="table-dark">
                         <tr>
                             <th class="text-left" width="20px">No.</th>
+                            <th class="text-left" width="10px">Edit</th>
+                            <th class="text-left" width="10px">Trash</th>
                             <th class="text-left" width="100px">Username</th>
                             <th class="text-left" width="150px">Full Name</th>
-                            <th class="text-left" width="70px">Role</th>
+                            <th class="text-left" width="400px">Role</th>
                             <th class="text-left" width="100px">Email</th>
                             <th class="text-left" width="100px">Numberphone</th>
                             <th class="text-left" width="90px">Telegram ID</th>
                             <th class="text-left" width="130px">Created</th>
-                            <th class="text-left" width="10px">Edit</th>
-                            <th class="text-left" width="10px">Trash</th>
                         </tr>
                     </thead>
                 </table>

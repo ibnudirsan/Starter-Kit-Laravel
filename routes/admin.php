@@ -30,7 +30,7 @@ Route::group(['prefix'  => '/admin'], function () {
         Route::controller(AdminController::class)->group( function () {
             Route::get('/list','index')->name('index');
             Route::get('/create','create')->name('create');
-            Route::get('/view-role/{id}','viewRole')->name('view.role');
+            Route::get('/edit/{id}','edit')->name('edit');
             Route::post('/store','store')->name('store');
         });
     });
