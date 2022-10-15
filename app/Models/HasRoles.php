@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Permission\Models\Role;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * App\Models\HasRoles
@@ -36,6 +36,6 @@ class HasRoles extends Model
     protected $table = 'model_has_roles';
 
     public function roles() {
-        return $this->hasOne(Role::class,'id','role_id');
+        return $this->hasMany(Role::class,'id','role_id');
     }
 }

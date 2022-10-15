@@ -32,7 +32,7 @@ class AdminResponse extends Eloquent implements AdminDesign {
     public function datatable()
     {
         return $this->model->select('id','uuid','name','deleted_at','email','created_at')
-                            ->with('profile');
+                            ->with('profile','model.roles');
     }
 
     public function role()

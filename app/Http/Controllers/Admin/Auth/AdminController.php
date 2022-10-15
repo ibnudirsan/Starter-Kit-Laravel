@@ -33,7 +33,7 @@ class AdminController extends Controller
 
                     ->addColumn('trash', function ($Trash) {
                             return  '
-                                        <button type="button" class="btn btn-danger btn-sm btn-size"
+                                        <button type="button" class="btn btn-danger btn-sm"
                                                 onclick="isTrash('.$Trash->id.')">
                                                     Trash
                                         </button>
@@ -42,18 +42,22 @@ class AdminController extends Controller
 
                     ->addColumn('edit', function ($edit) {
                         return  '
-                                    <a href="#" type="button" class="btn btn-success btn-sm btn-size">
+                                    <a href="#" type="button" class="btn btn-primary btn-sm">
                                                 Edit
                                     </a>
                                 ';
                     })
 
                     ->addColumn('role', function ($role) {
-                        return "Superadmin";
+                        return  '
+                                    <a href="'.route('admin.view.role',$role->uuid).'" type="button" class="btn btn-success btn-sm">
+                                        '.count($role->model)." Role".'
+                                    </a>
+                                ';
                     })
 
-                    ->rawColumns(['trash','edit','role'])
-                    ->escapeColumns(['trash','edit','role'])
+                    ->rawColumns(['trash','edit'])
+                    ->escapeColumns(['trash','edit'])
                     ->smart(true)
                     ->make();
         }
@@ -89,5 +93,10 @@ class AdminController extends Controller
         } finally {
             DB::commit();
         }
+    }
+
+    public function viewRole()
+    {
+        # code...
     }
 }

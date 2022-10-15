@@ -3,9 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Role;
 use App\Models\profileUser;
 use Laravel\Sanctum\HasApiTokens;
 use Ramsey\Uuid\Uuid as Generator;
+use App\Models\HasRoles as RoleModel;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -116,5 +118,10 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne(profileUser::class,'user_id','id')->select('user_id', 'fullName', 'imageName', 'pathImage', 'numberPhone', 'TeleID');
+    }
+
+    public function model()
+    {
+        return $this->hasMany(RoleModel::class,'model_id','id');
     }
 }
