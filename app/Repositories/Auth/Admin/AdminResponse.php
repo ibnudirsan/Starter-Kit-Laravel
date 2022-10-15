@@ -45,6 +45,20 @@ class AdminResponse extends Eloquent implements AdminDesign {
 
     public function create($param)
     {
-        # code...
+        $user = $this->model->create([
+            'name'     => $param->name,
+            'email'    => $param->email,
+            'level'    => 2,
+            'password' => bcrypt($param->password)
+        ]);
+            $user->profile()->create([
+                'user_id'       => $user->id,
+                'fullName'      => $param->fullName,
+                'imageName'     => $param->name,
+                'pathImage'     => empty($param->pathImage)   ? 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y' : $param->pathImage,
+                'numberPhone'   => empty($param->Numberphone) ? '0' : $param->Numberphone,
+                'TeleID'        => empty($param->telegramid)  ? '0' : $param->telegramid,
+            ]);
+                $user->assignRole($param->roles);
     }
 }

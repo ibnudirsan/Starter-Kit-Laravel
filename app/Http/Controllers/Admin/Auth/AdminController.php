@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\Auth\admin\adminRequest;
@@ -67,6 +68,26 @@ class AdminController extends Controller
 
     public function store(adminRequest $request)
     {
-        dd($request->all());
+        DB::beginTransaction();
+        try {
+            
+            $this->AdminResponse->create($request);
+                $notification = ['message'     => 'Successfully created Admin.',
+                                 'alert-type'  => 'success',
+                                 'gravity'     => 'bottom',
+                                 'position'    => 'right'];
+                    return redirect()->route('admin.index')->with($notification);
+        } catch (\Exception $e) {
+
+            DB::rollBack();
+            $notification = ['message'     => 'Failed to created Admin.',
+                             'alert-type'  => 'danger',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('role.index')->with($notification);
+
+        } finally {
+            DB::commit();
+        }
     }
 }

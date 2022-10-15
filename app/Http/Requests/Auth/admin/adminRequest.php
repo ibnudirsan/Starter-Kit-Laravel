@@ -28,6 +28,7 @@ class adminRequest extends FormRequest
             'fullName'      => 'required|max:30',
             'name'          => 'required|unique:users|max:15',
             'email'         => 'required|unique:users|email:rfc,dns|max:25',
+            'telegramid'    => 'nullable|numeric|digits_between:10,12',
             'Numberphone'   => ['required',
                                 'numeric',
                                 'digits_between:10,13',
@@ -46,7 +47,8 @@ class adminRequest extends FormRequest
     public function messages()
     {
         return [
-           'roles.required' => 'Choose a roles.',
+           'roles.required'     => 'Choose a roles.',
+           'telegramid.numeric' => 'The TelegramID must be a number max 12 digits.',
         ];
     }
 }
