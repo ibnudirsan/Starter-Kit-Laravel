@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css/dataTables.bootstrap5.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/sweetalert2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/system/css//custome/default.css') }}">
 @endpush
 
 @extends('layouts.app')
@@ -15,13 +16,13 @@
                     <a href="{{ route('admin.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1"><i class="fas fa-plus-circle"></i> Create</a>
             </div>
             <div class="col-12 col-md-4 order-md-1 order-first">
-                <h3>Master Admin</h3>
+                <h3>Data Admin</h3>
             </div>
             <div class="col-12 col-md-4 order-md-2 order-last">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Data Master</li>
-                        <li class="breadcrumb-item active" aria-current="page">Master Admin</li>
+                        <li class="breadcrumb-item">Authorization</li>
+                        <li class="breadcrumb-item active" aria-current="page">Data Admin</li>
                     </ol>
                 </nav>
             </div>
@@ -38,12 +39,12 @@
                             <th class="text-left" width="10px">Edit</th>
                             <th class="text-left" width="10px">Trash</th>
                             <th class="text-left" width="100px">Username</th>
-                            <th class="text-left" width="150px">Full Name</th>
-                            <th class="text-left" width="400px">Role</th>
+                            <th class="text-left" width="100px">Full Name</th>
                             <th class="text-left" width="100px">Email</th>
+                            <th class="text-left" width="100px">Role</th>
                             <th class="text-left" width="100px">Numberphone</th>
                             <th class="text-left" width="90px">Telegram ID</th>
-                            <th class="text-left" width="130px">Created</th>
+                            <th class="text-left" width="100px">Created</th>
                         </tr>
                     </thead>
                 </table>

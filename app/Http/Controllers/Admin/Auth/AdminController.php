@@ -50,7 +50,8 @@ class AdminController extends Controller
                     })
 
                     ->addColumn('role', function (User $user) {
-                        return $user->roles->pluck('name')->implode(', ');
+                        $name = $user->roles->pluck('name')->implode(', ');
+                        return "<span class='badge bg-secondary'>$name</span>";
                     })
 
                     ->rawColumns(['trash','edit','role'])

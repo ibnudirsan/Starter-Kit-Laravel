@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css/dataTables.bootstrap5.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/sweetalert2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/system/css//custome/default.css') }}">
 @endpush
 
 @extends('layouts.app')
@@ -15,13 +16,13 @@
             </div>
 
             <div class="col-12 col-md-4 order-md-1 order-first">
-                <h3>Auth Data Role</h3>
+                <h3>Data Role</h3>
             </div>
             <div class="col-12 col-md-4 order-md-2 order-last">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Data Role</li>
-                        <li class="breadcrumb-item active" aria-current="page">Auth Role</li>
+                        <li class="breadcrumb-item">Authorization</li>
+                        <li class="breadcrumb-item active" aria-current="page">Data Role</li>
                     </ol>
                 </nav>
             </div>
@@ -38,8 +39,8 @@
                             <th class="text-left" width="450px">Role Name</th>
                             <th class="text-left" width="200px">Guard Name</th>
                             <th class="text-left" width="200px">Created Time</th>
-                            <th class="text-left" width="20px">View</th>
-                            <th class="text-left" width="20px">Edit</th>
+                            <th class="text-left" width="50px">View</th>
+                            <th class="text-left" width="50px">Edit</th>
                         </tr>
                     </thead>
                 </table>
