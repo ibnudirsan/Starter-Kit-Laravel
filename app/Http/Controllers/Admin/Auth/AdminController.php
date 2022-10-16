@@ -103,7 +103,7 @@ class AdminController extends Controller
 
     public function update(editRequest $request, $id)
     {
-        // try {
+        try {
 
             $this->AdminResponse->update($request, $id);
                 $notification = ['message'     => 'Successfully updated Admin.',
@@ -112,8 +112,13 @@ class AdminController extends Controller
                                 'position'    => 'right'];
                     return redirect()->route('admin.index')->with($notification);
 
-        // } catch (\Exception $e) {
-        //     return "Error";
-        // }
+        } catch (\Exception $e) {
+            
+                $notification = ['message'     => 'Failed to updated Admin.',
+                                 'alert-type'  => 'danger',
+                                 'gravity'     => 'bottom',
+                                 'position'    => 'right'];
+                    return redirect()->route('admin.index')->with($notification);
+        }
     }
 }
