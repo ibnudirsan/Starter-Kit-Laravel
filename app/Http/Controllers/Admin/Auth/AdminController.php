@@ -153,4 +153,20 @@ class AdminController extends Controller
                 ]);
             }
     }
+
+    public function trash(Request $request)
+    {
+        // if($request->ajax()) {
+            
+            $result = $this->AdminResponse->datatable()
+                                          ->onlyTrashed();
+
+                return DataTables::eloquent($result)
+                                    ->rawColumns([])
+                                    ->escapeColumns([])
+                                    ->smart(true)
+                                    ->make();
+
+        // }
+    }
 }

@@ -93,7 +93,6 @@ class CustomerController extends Controller
     {
         if($request->ajax()) {
             $result = $this->CustomerResponse->datatable()
-                            ->orderby('deleted_at','desc')
                             ->onlyTrashed();
                 return DataTables::of($result)
                         ->addIndexColumn(['address'])

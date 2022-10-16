@@ -12,7 +12,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                    <a href="#" class="btn icon icon-left btn-danger btn-sm me-1 mb-1"><i class="fas fa-trash"></i> Trash</a>
+                    <a href="{{ route('admin.trash') }}" class="btn icon icon-left btn-danger btn-sm me-1 mb-1"><i class="fas fa-trash"></i> Trash</a>
                     <a href="{{ route('admin.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1"><i class="fas fa-plus-circle"></i> Create</a>
             </div>
             <div class="col-12 col-md-4 order-md-1 order-first">

@@ -32,7 +32,8 @@ Route::group(['prefix'  => '/admin'], function () {
             Route::post('/store','store')->name('store');
             Route::get('/edit/{id}','edit')->name('edit');
             Route::post('/update/{id}','update')->name('update');
-            Route::post('/trash/{id}','trashedData')->name('trash');
+            Route::post('/trash/{id}','trashedData')->name('trashData');
+            Route::get('/trash','trash')->name('trash');
         });
     });
 });
