@@ -52,8 +52,6 @@
                         <div class="col-md-12 col-12">
                             <div class="form-group">
                                 <label for="permissions[]">List Permission</label>
-
-                                <!-- <div class="form-group row col-12"> -->
                                     <div class="row">
                                         @foreach ($authorities as $authoritie)
                                             <div class="col mb-1">
@@ -103,7 +101,6 @@
                                             </div>
                                         @endforeach
                                     </div>
-                                <!-- </div> -->
                             </div>
                         </div>
                     </div>

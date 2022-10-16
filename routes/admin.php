@@ -21,7 +21,6 @@ use App\Http\Controllers\Admin\Dashboard\dashboardController;
  */
 Route::get('dashboard', [dashboardController::class, 'index'])->name('home');
 
-
 /**
  * Auth Admin
  */
@@ -49,6 +48,7 @@ Route::group(['prefix'   => '/role'], function () {
             Route::post('/store','store')->name('store');
             Route::get('/edit/{id}','edit')->name('edit');
             Route::post('/update/{id}','update')->name('update');
+            Route::get('/view/{id}','view')->name('view');
         });
     });
 });

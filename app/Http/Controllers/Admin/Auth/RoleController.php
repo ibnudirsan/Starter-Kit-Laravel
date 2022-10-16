@@ -28,7 +28,7 @@ class RoleController extends Controller
 
                 ->addColumn('view', function ($view) {
                     return  '
-                                <a href="#" type="button" class="btn btn-success btn-sm btn-size">
+                                <a href="'.route('role.view', $view->uuid).'" type="button" class="btn btn-success btn-sm btn-size">
                                     View
                                 </a>
                             ';
@@ -117,5 +117,12 @@ class RoleController extends Controller
         } finally {
             DB::commit();
         }
+    }
+
+    public function view($id)
+    {
+        $authorities = $this->RoleResponse->permission();
+        $result      = $this->RoleResponse->edit($id);
+            return view('master.auth.role.view', compact('authorities','result'));
     }
 }
