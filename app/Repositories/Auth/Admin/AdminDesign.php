@@ -10,4 +10,5 @@ interface AdminDesign extends Repository {
     public function create($param);
     public function edit($id);
     public function update($param, $id);
+    public function trashedData($id);
 }

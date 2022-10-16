@@ -106,4 +106,10 @@ class AdminResponse extends Eloquent implements AdminDesign {
             
         }
     }
+
+    public function trashedData($id)
+    {
+        $result = $this->model->find($id);
+            return $result->delete();
+    }
 }

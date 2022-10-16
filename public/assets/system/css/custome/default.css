@@ -1,5 +1,8 @@
 table.dataTable td{
-    padding:1px 1px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 1;
 }
 
 .page-item.active .page-link {

@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\Auth\admin\editRequest;
@@ -126,8 +127,30 @@ class AdminController extends Controller
         }
     }
 
-    public function Transh($id)
+    public function trashedData($id)
     {
-        # code...
+        try {
+            $this->AdminResponse->trashedData($id);
+            $success = true;
+        } catch (\Exception) {
+            $message = "Failed to moving data Trash";
+            $success = false;
+        }
+            if($success == true) {
+                /**
+                 * Return response true
+                 */
+                return response()->json([
+                    'success' => $success
+                ]);
+            }elseif($success == false){
+                /**
+                 * Return response false
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
     }
 }
