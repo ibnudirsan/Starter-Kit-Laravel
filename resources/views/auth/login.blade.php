@@ -113,17 +113,17 @@
                   <div class="input-group input-group-merge">
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="off" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password">
 
-                      @error('password')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-
                     <span class="input-group-text cursor-pointer">
                         <i class="bx bx-hide">
                             <i class="fas fa-eye"></i>
                         </i>
                     </span>
+
+                      @error('password')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                   </div>
                 </div>
 

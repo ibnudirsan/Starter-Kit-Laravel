@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
+use App\Rules\admin\passwordRule;
 use Illuminate\Http\JsonResponse;
 use Mews\Captcha\Facades\Captcha;
 use App\Http\Controllers\Controller;
@@ -58,7 +59,7 @@ class LoginController extends Controller
     protected function validateLogin(Request $request) {
         $request->validate([
             $this->username()   => 'required|string',
-            'password'          => 'required|string',
+            'password'          => ['required', new passwordRule, 'string'],
             'captcha'           => 'required|captcha',
         ]);
     }
