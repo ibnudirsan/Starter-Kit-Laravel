@@ -103,6 +103,7 @@ class AdminController extends Controller
 
     public function update(editRequest $request, $id)
     {
+        DB::beginTransaction();
         try {
 
             $this->AdminResponse->update($request, $id);
@@ -113,12 +114,20 @@ class AdminController extends Controller
                     return redirect()->route('admin.index')->with($notification);
 
         } catch (\Exception $e) {
-            
+
+            DB::rollBack();
                 $notification = ['message'     => 'Failed to updated Admin.',
                                  'alert-type'  => 'danger',
                                  'gravity'     => 'bottom',
                                  'position'    => 'right'];
                     return redirect()->route('admin.index')->with($notification);
+        } finally {
+            DB::commit();
         }
+    }
+
+    public function Transh($id)
+    {
+        # code...
     }
 }

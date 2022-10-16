@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\Auth\role\editRequest;
 use App\Http\Requests\Auth\role\roleRequest;
 use App\Repositories\Auth\Role\RoleResponse;
 
@@ -34,7 +36,7 @@ class RoleController extends Controller
 
                 ->addColumn('edit', function ($edit) {
                     return  '
-                                <a href="#" type="button" class="btn btn-primary btn-sm btn-size">
+                                <a href="'.route('role.edit', $edit->uuid).'" type="button" class="btn btn-primary btn-sm btn-size">
                                     Edit
                                 </a>
                             ';
@@ -61,6 +63,8 @@ class RoleController extends Controller
 
     public function store(roleRequest $request)
     {
+
+        DB::beginTransaction();
         try {
             $this->RoleResponse->store($request);
                 $notification = ['message'     => 'Successfully created Role.',
@@ -70,12 +74,48 @@ class RoleController extends Controller
                     return redirect()->route('role.index')->with($notification);
         } catch (\Exception $e) {
             
+            DB::rollBack();
             $notification = ['message'     => 'Failed to created Role.',
                              'alert-type'  => 'danger',
                              'gravity'     => 'bottom',
                              'position'    => 'right'];
                 return redirect()->route('role.index')->with($notification);
 
+        } finally {
+            DB::commit();
+        }
+    }
+
+    public function edit($id)
+    {
+        $authorities = $this->RoleResponse->permission();
+        $result      = $this->RoleResponse->edit($id);
+            return view('master.auth.role.edit', compact('authorities','result'));
+    }
+
+    public function update(editRequest $request, $id)
+    {
+        DB::beginTransaction();
+        try {
+            
+            $this->RoleResponse->update($request, $id);
+            $notification = ['message'     => 'Successfully updated Role.',
+                             'alert-type'  => 'success',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('role.index')->with($notification);
+
+        } catch (\Exception $e) {
+            
+            DB::rollBack();
+            $notification = ['message'     => 'Failed to updated Role.',
+                             'alert-type'  => 'danger',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('role.index')->with($notification);
+
+        } finally {
+            DB::commit();
         }
     }
 }

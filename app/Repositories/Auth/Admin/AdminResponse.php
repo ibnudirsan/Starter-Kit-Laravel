@@ -75,13 +75,13 @@ class AdminResponse extends Eloquent implements AdminDesign {
     {
         if($param->filled('password')) {
             
-            $this->model->where('uuid',$id)->update([
+            $this->model->whereUuid($id)->update([
                 'name'      => $param->name,
                 'email'     => $param->email,
                 'password'  => bcrypt($param->password)
             ]);
 
-            $user = $this->model->where('uuid',$id)->first();
+            $user = $this->model->whereUuid($id)->first();
                 $user->profile()->update([
                     'fullName'      => $param->fullName,
                     'numberPhone'   => $param->Numberphone,
@@ -91,12 +91,12 @@ class AdminResponse extends Eloquent implements AdminDesign {
 
         } elseif (!$param->filled('password')) {
 
-            $this->model->where('uuid',$id)->update([
+            $this->model->whereUuid($id)->update([
                 'name'      => $param->name,
                 'email'     => $param->email,
             ]);
 
-            $user = $this->model->where('uuid',$id)->first();
+            $user = $this->model->whereUuid($id)->first();
                 $user->profile()->update([
                     'fullName'      => $param->fullName,
                     'numberPhone'   => $param->Numberphone,
