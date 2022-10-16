@@ -74,9 +74,11 @@ class AdminResponse extends Eloquent implements AdminDesign {
     public function update($param, $id)
     {
         if($param->filled('password')) {
+            
             $this->model->where('uuid',$id)->update([
-                'name'  => $param->name,
-                'email' => $param->email,
+                'name'      => $param->name,
+                'email'     => $param->email,
+                'password'  => bcrypt($param->password)
             ]);
 
             $user = $this->model->where('uuid',$id)->first();
@@ -88,7 +90,20 @@ class AdminResponse extends Eloquent implements AdminDesign {
                     $user->syncRoles($param->roles);
 
         } elseif (!$param->filled('password')) {
-            // dd("TIdak Ada");
+
+            $this->model->where('uuid',$id)->update([
+                'name'      => $param->name,
+                'email'     => $param->email,
+            ]);
+
+            $user = $this->model->where('uuid',$id)->first();
+                $user->profile()->update([
+                    'fullName'      => $param->fullName,
+                    'numberPhone'   => $param->Numberphone,
+                    'TeleID'        => $param->telegramid,
+                ]);
+                    $user->syncRoles($param->roles);
+            
         }
     }
 }
