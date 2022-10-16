@@ -29,7 +29,7 @@ class editRequest extends FormRequest
         return [
             'firstName'     => 'required|string|max:30',
             'lastName'      => 'required|string|max:30',
-            'email' => 'required|email:rfc,dns|max:25||unique:customers,email,'.$this->id.',uuid',
+            'email'         => 'required|email:rfc,dns|max:25|unique:customers,email,'.$this->id.',uuid',
             'address'       => 'required|max:30',
             'Numberphone'   => ['required',
                                 'numeric',

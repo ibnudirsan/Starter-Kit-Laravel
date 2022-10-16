@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth\admin;
 
+use App\Rules\admin\passwordRule;
 use App\Rules\customer\numberPhoneRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,17 +24,18 @@ class editRequest extends FormRequest
      * @return array<string, mixed>
      */
     public function rules()
-    {
+    {            
         return [
             'fullName'      => 'required|max:30',
-            'name'          => 'required|unique:users|max:15',
-            'email'         => 'required|unique:users|email:rfc,dns|max:25',
+            'name'          => 'required|max:15|unique:users,name,'.$this->id.',uuid',
+            'email'         => 'required|email:rfc,dns|max:25|unique:users,email,'.$this->id.',uuid',         
             'telegramid'    => 'nullable|numeric|digits_between:10,12',
             'Numberphone'   => ['required',
                                 'numeric',
                                 'digits_between:10,13',
                                 new numberPhoneRule()],
             'roles'         => 'required',
+            'password'      => ['nullable','string','min:6', new passwordRule()]
         ];
     }
 
@@ -46,7 +48,7 @@ class editRequest extends FormRequest
     {
         return [
            'roles.required'     => 'Choose a roles.',
-           'telegramid.numeric' => 'The TelegramID must be a number max 12 digits.',
+           'telegramid.numeric' => 'The TelegramID must be a number max 12 digits.'
         ];
     }
 }

@@ -103,13 +103,10 @@ class AdminController extends Controller
 
     public function update(editRequest $request, $id)
     {
-        dd($request->all());
-        // dd($request->id);
-
         try {
-            //code...
+            return "Oke";
         } catch (\Exception $e) {
-            //throw $th;
+            return "Error";
         }
     }
 }
