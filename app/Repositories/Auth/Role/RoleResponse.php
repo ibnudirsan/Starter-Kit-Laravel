@@ -61,10 +61,10 @@ class RoleResponse extends Eloquent implements RoleDesign {
     }
 
     /**
-     * Edit view Role
+     * View Data Role
      */
 
-     public function edit($id)
+     public function view($id)
      {
         return $this->model->with('permissions')
                             ->whereUuid($id)

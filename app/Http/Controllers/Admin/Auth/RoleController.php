@@ -89,7 +89,7 @@ class RoleController extends Controller
     public function edit($id)
     {
         $authorities = $this->RoleResponse->permission();
-        $result      = $this->RoleResponse->edit($id);
+        $result      = $this->RoleResponse->view($id);
             return view('master.auth.role.edit', compact('authorities','result'));
     }
 
@@ -122,7 +122,7 @@ class RoleController extends Controller
     public function view($id)
     {
         $authorities = $this->RoleResponse->permission();
-        $result      = $this->RoleResponse->edit($id);
+        $result      = $this->RoleResponse->view($id);
             return view('master.auth.role.view', compact('authorities','result'));
     }
 }
