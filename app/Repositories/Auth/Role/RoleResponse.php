@@ -37,6 +37,7 @@ class RoleResponse extends Eloquent implements RoleDesign {
     public function datatable()
     {
         return $this->model->select('id','uuid','name','guard_name','created_at')
+                                    ->whereGuardName('web')
                                     ->whereNotIn('name',['SuperAdmin']);
     }
 

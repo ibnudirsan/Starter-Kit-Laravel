@@ -128,49 +128,49 @@
 
                         <div class="col-md-12 col-12">
                             <div class="form-group">
-                                <label for="role">Role</label>
-                                <div class="form-group">
-                                @foreach ($roles as $role)
+                                <label for="roles[]">Role</label>
+                                    <div class="row">
+                                        @foreach ($roles as $role)
 
-                                    @if (old('roles'))
-                                    <div class="col-3 d-inline-block me-1 mb-1">
-                                        <div class="form-check">
-                                            <div class="custom-control custom-checkbox">
+                                        @if (old('roles'))
+                                        <div class="col-6 mb-1">
+                                            <div class="form-control form-check">
+                                                <div class="custom-checkbox">
 
-                                                <input type="checkbox"
-                                                    class="form-check-input form-check-success form-check-glow @error('roles') is-invalid @enderror"
-                                                    name="roles[]" id="{{ $role->id }}" value="{{$role->id}}" {{ in_array($role->id, old('roles')) ? 'checked' : null }}>
-                                                <label class="form-check-label" for="{{ $role->id }}">{{ ucwords($role->name) }} - {{ ucwords($role->guard_name) }}</label>
+                                                    <input type="checkbox"
+                                                        class="form-check-input form-check-success form-check-glow @error('roles') is-invalid @enderror"
+                                                        name="roles[]" id="{{ $role->id }}" value="{{$role->id}}" {{ in_array($role->id, old('roles')) ? 'checked' : null }}>
+                                                    <label class="form-check-label" for="{{ $role->id }}">{{ ucwords($role->name) }}</label>
 
-                                                @error('roles')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                                    @error('roles')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    @else
-                                    <div class="col-3 d-inline-block me-4 mb-4">
-                                        <div class="form-check">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox"
-                                                    class="form-check-input form-check-success form-check-glow @error('roles') is-invalid @enderror"
-                                                    name="roles[]" id="{{ $role->id }}" value="{{$role->id}}">
-                                                <label class="form-check-label" for="{{ $role->id }}">{{ ucwords($role->name) }} - {{ ucwords($role->guard_name) }}</label>
+                                        @else
+                                        <div class="col-6 mb-1">
+                                            <div class="form-control form-check">
+                                                <div class="custom-checkbox">
+                                                    <input type="checkbox"
+                                                        class="form-check-input form-check-success form-check-glow @error('roles') is-invalid @enderror"
+                                                        name="roles[]" id="{{ $role->id }}" value="{{$role->id}}">
+                                                    <label class="form-check-label" for="{{ $role->id }}">{{ ucwords($role->name) }}</label>
 
-                                                @error('roles')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                                    @error('roles')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    @endif
+                                        @endif
 
-                                @endforeach
-                                </div>
+                                        @endforeach
+                                    </div>
                             </div>
                         </div>
 
