@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth\admin;
 
+use App\Rules\admin\passwordRule;
 use App\Rules\customer\numberPhoneRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -33,7 +34,7 @@ class adminRequest extends FormRequest
                                 'numeric',
                                 'digits_between:10,13',
                                 new numberPhoneRule()],
-            'password'      => 'required',
+            'password'      => ['required',new passwordRule()],
             'roles'         => 'required',
         ];
     }
