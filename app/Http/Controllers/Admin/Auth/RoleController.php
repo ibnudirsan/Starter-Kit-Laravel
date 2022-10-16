@@ -42,6 +42,10 @@ class RoleController extends Controller
                             ';
                 })
 
+                ->addColumn('count', function ($count) {
+                    return count($count->permissions). " Permissions";
+                })
+
                 ->editColumn('created_at', function ($created) {
                     return Carbon::create($created->created_at)->format('Y-m-d H:i:s');
                 })

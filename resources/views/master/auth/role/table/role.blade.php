@@ -78,6 +78,7 @@ $(document).ready( function () {
                 }
             },
             {data:'name',name:'name'},
+            {data:'count',name:'count'},
             {data:'guard_name',name:'guard_name'},
             {data:'created_at',name:'created_at'},
             {data:'view',name:'view'},

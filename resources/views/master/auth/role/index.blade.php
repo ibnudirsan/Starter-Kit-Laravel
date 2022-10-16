@@ -36,8 +36,9 @@
                     <thead class="table-dark">
                         <tr>
                             <th class="text-left" width="20px">No.</th>
-                            <th class="text-left" width="500px">Role Name</th>
-                            <th class="text-left" width="200px">Guard Name</th>
+                            <th class="text-left" width="250px">Role Name</th>
+                            <th class="text-left" width="200px">Count Permissions</th>
+                            <th class="text-left" width="200px">Guard Type</th>
                             <th class="text-left" width="200px">Created Time</th>
                             <th class="text-left" width="20px">View</th>
                             <th class="text-left" width="20px">Edit</th>

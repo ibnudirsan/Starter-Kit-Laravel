@@ -38,10 +38,10 @@ $(document).ready( function () {
         bInfo             : true,
         responsive        : true,
         lengthChange      : true,
-        pageLength        : 5,
+        pageLength        : 10,
         lengthMenu        : [
-                                [5,15, 25, 35, 45, 55],
-                                ['5','15', '25', '35', '45', '55']
+                                [10,15, 25, 35, 45, 55],
+                                ['10','15', '25', '35', '45', '55']
                             ],
         language          :
         {  
@@ -51,7 +51,7 @@ $(document).ready( function () {
                                 },
             lengthMenu      :   'Tampilkan ' +
                                     '<select class="form-control form-control-sm">'+
-                                        '<option value="5" class="font-small">5 Baris</option>'+
+                                        '<option value="10" class="font-small">10 Baris</option>'+
                                         '<option value="15" class="font-small">15 Baris</option>'+
                                         '<option value="25" class="font-small">25 Baris</option>'+
                                         '<option value="35" class="font-small">35 Baris</option>'+
