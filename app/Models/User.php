@@ -119,6 +119,11 @@ class User extends Authenticatable
         return $this->hasOne(profileUser::class,'user_id','id')->select('user_id', 'fullName', 'imageName', 'pathImage', 'numberPhone', 'TeleID');
     }
 
+    public function secret()
+    {
+        return $this->hasOne(userSecret::class,'user_id','id')->select('id', 'user_id', 'isBlock', 'secret2Fa');
+    }
+
     public function model()
     {
         return $this->hasMany(RoleModel::class,'model_id','id');

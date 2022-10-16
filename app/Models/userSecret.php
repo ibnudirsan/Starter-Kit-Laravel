@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class userSecret extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id', 'isBlock', 'secret2Fa'
+    ];
 }

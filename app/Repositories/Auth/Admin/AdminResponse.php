@@ -4,6 +4,7 @@ namespace App\Repositories\Auth\Admin;
 
 use App\Models\Role;
 use App\Models\User;
+use App\Models\userSecret;
 use App\Repositories\Auth\Admin\AdminDesign;
 use LaravelEasyRepository\Implementations\Eloquent;
 
@@ -23,10 +24,11 @@ class AdminResponse extends Eloquent implements AdminDesign {
     * @property Model|mixed $model;
     */
     protected $model;
-    public function __construct(User $model, Role $role)
+    public function __construct(User $model, Role $role, userSecret $secret)
     {
-        $this->model = $model;
-        $this->role = $role;
+        $this->model    = $model;
+        $this->role     = $role;
+        $this->secret   = $secret;
     }
 
     public function datatable()
@@ -60,7 +62,10 @@ class AdminResponse extends Eloquent implements AdminDesign {
                 'numberPhone'   => empty($param->Numberphone) ? '0' : $param->Numberphone,
                 'TeleID'        => empty($param->telegramid)  ? '0' : $param->telegramid,
             ]);
-                $user->assignRole($param->roles);
+                $user->secret()->create([
+                    'user_id'   => $user->id
+                ]);
+                    $user->assignRole($param->roles);
     }
 
     public function edit($id)
@@ -110,6 +115,9 @@ class AdminResponse extends Eloquent implements AdminDesign {
     public function trashedData($id)
     {
         $result = $this->model->find($id);
+        $result->secret()->update([
+            'isBlock'   => true
+        ]);
             return $result->delete();
     }
 }
