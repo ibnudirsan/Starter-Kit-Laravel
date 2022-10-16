@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css/dataTables.bootstrap5.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/sweetalert2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/system/css//custome/default.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/system/css//custome/role.css') }}">
 @endpush
 
 @extends('layouts.app')
