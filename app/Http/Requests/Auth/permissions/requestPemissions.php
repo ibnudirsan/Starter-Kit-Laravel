@@ -34,7 +34,8 @@ class requestPemissions extends FormRequest
     {
         return [
             'permissionName' => 'required|max:50',
-            'moduleName'     => 'required'
+            'moduleName'     => 'required',
+            'guardType'      => 'required'
         ];
     }
 }

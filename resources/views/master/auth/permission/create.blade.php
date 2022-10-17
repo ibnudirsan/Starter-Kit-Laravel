@@ -78,11 +78,17 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                     <label for="first-name-vertical">Guard Type</label>
-                                        <select class="form-select" id="choices" name="guardType">
-                                            <option value="" selected>Choose Guard Type...</option>
-                                            <option value="web">Web</option>
-                                            <option value="api">API</option>
+                                        <select class="form-select @error('guardType') is-invalid @enderror" id="choices" name="guardType">
+                                            <option value="" selected>Choose Guard Type...</option>            
+                                            <option value="web" @if (old('guardType') == "web") {{ 'selected' }} @endif>Web</option>
+                                            <option value="api" @if (old('guardType') == "api") {{ 'selected' }} @endif>API</option>
                                         </select>
+
+                                            @error('moduleName')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                     </div>
                                 </div>
 
