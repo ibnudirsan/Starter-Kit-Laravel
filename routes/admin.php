@@ -34,6 +34,7 @@ Route::group(['prefix'  => '/admin'], function () {
             Route::post('/update/{id}','update')->name('update');
             Route::post('/trash/{id}','trashedData')->name('trashData');
             Route::get('/trash','trash')->name('trash');
+            Route::post('/restore/{id}','Restore')->name('restore');
         });
     });
 });

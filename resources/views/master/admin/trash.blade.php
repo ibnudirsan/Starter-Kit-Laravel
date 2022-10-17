@@ -53,4 +53,5 @@
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
 @include('master.admin.table.trash')
+@include('master.admin.js.restore')
 @endpush

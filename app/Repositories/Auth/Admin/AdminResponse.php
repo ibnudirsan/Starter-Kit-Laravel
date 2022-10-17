@@ -112,6 +112,9 @@ class AdminResponse extends Eloquent implements AdminDesign {
         }
     }
 
+    /**
+     * Query for Trashed Data.
+     */
     public function trashedData($id)
     {
         $result = $this->model->find($id);
@@ -119,5 +122,20 @@ class AdminResponse extends Eloquent implements AdminDesign {
             'isBlock'   => true
         ]);
             return $result->delete();
+    }
+
+    /**
+     * Query for Restore Data.
+     */
+    public function restore($id)
+    {
+        $result = $this->model
+                        ->withTrashed()
+                        ->find($id);
+
+            $result->secret()->update([
+                'isBlock'   => false
+            ]);
+                return $result->restore();
     }
 }

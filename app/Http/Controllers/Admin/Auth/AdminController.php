@@ -6,7 +6,6 @@ use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\Auth\admin\editRequest;
@@ -129,12 +128,16 @@ class AdminController extends Controller
 
     public function trashedData($id)
     {
+        DB::beginTransaction();
         try {
             $this->AdminResponse->trashedData($id);
             $success = true;
-        } catch (\Exception) {
+        } catch (\Exception $e) {
+            DB::rollBack();
             $message = "Failed to moving data Trash";
             $success = false;
+        } finally {
+            DB::commit();
         }
             if($success == true) {
                 /**
@@ -143,7 +146,7 @@ class AdminController extends Controller
                 return response()->json([
                     'success' => $success
                 ]);
-            }elseif($success == false){
+            } elseif ($success == false) {
                 /**
                  * Return response false
                  */
@@ -186,5 +189,36 @@ class AdminController extends Controller
         }
 
             return view('master.admin.trash');
+    }
+
+    public function Restore($id)
+    {
+        DB::beginTransaction();
+        try {
+            $this->AdminResponse->restore($id);
+            $success = true;
+        } catch (\Exception $e) {
+            $message = "Failed to Restore data Admin.";
+            $success = false;
+            DB::rollBack();
+        } finally {
+            DB::commit();
+        }
+            if($success == true) {
+                /**
+                 * Return response true
+                 */
+                return response()->json([
+                    'success' => $success
+                ]);
+            } elseif ($success == false) {
+                /**
+                 * Return response false
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
     }
 }
