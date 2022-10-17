@@ -48,35 +48,39 @@
                         <div class="col-md-12 col-12">
                             <div class="form-group">
                                 <label for="permissions[]">List Permission</label>
-                                    <div class="row">
-                                        @foreach ($authorities as $authoritie)
-                                            <div class="col-4 mb-1">
-                                                <ul class="list-group ml-1 mb-2">
-                                                    <li class="list-group-item text-black">
-                                                        {{ $authoritie->module_name }}
+                                <div class="row">
+
+                                    @foreach ($authorities as $authoritie)
+                                    <div class="col-md-4 col-12">
+                                        <div class="form-group">
+                                            <ul class="list-group ml-1 mb-2">
+                                                <li class="list-group-item text-black">
+                                                    {{ $authoritie->module_name }}
+                                                </li>
+                                                @foreach ($authoritie->permissions as $permission)
+                                                    <li class="list-group-item">
+                                                        <div class="form-check form-switch">
+                                                            <input id="permissions" name="permissions[]" class="form-check-input @error('permissions') is-invalid @enderror"
+                                                            type="checkbox" value="{{ $permission->id }}" {{ $result->permissions->contains($permission->id) ? 'checked' : '' }} disabled>
+
+                                                            <label class="form-check-label" for="{{ $permission->name }}">
+                                                                {{ $permission->name }}
+                                                            </label>
+
+                                                            @error('permissions')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
                                                     </li>
-                                                    @foreach ($authoritie->permissions as $permission)
-                                                        <li class="list-group-item">
-                                                            <div class="form-check form-switch">
-                                                                <input id="permissions" name="permissions[]" class="form-check-input @error('permissions') is-invalid @enderror"
-                                                                type="checkbox" value="{{ $permission->id }}" {{ $result->permissions->contains($permission->id) ? 'checked' : '' }} disabled>
-
-                                                                <label class="form-check-label" for="{{ $permission->name }}">
-                                                                    {{ $permission->name }}
-                                                                </label>
-
-                                                                @error('permissions')
-                                                                    <span class="invalid-feedback" role="alert">
-                                                                        <strong>{{ $message }}</strong>
-                                                                    </span>
-                                                                @enderror
-                                                            </div>
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endforeach
+                                                @endforeach
+                                            </ul>
+                                        </div>
                                     </div>
+                                    @endforeach
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
