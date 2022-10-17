@@ -78,4 +78,25 @@ class PermissionController extends Controller
         $result  = $this->PermissionsResponse->edit($id);
             return view('master.auth.permission.edit',compact('result','modules'));
     }
+
+    public function update(requestPemissions $request, $id)
+    {
+        try {
+            $this->PermissionsResponse->update($request, $id);
+                $notification = ['message'     => 'Successfully updated Permission.',
+                                 'alert-type'  => 'success',
+                                 'gravity'     => 'bottom',
+                                 'position'    => 'right'];
+                    return redirect()->route('permissions.index')->with($notification);
+
+        } catch (\Exception $e) {
+           
+            $notification = ['message'     => 'Failed to updated Permission.',
+                             'alert-type'  => 'danger',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('permissions.index')->with($notification);
+            
+        }
+    }
 }

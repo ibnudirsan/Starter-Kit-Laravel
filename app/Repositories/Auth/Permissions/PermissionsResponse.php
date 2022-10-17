@@ -60,4 +60,13 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign{
                            ->whereUuid($id)
                            ->firstOrFail();
     }
+
+    public function update($param, $id)
+    {
+        return $this->model->whereUuid($id)->update([
+            'module_id'     => $param->moduleName,
+            'name'          => $param->permissionName,
+            'guard_name'    => $param->guardType,
+        ]);
+    }
 }

@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\Auth\PermissionController;
 use App\Http\Controllers\Admin\Auth\RoleController;
 use App\Http\Controllers\Admin\Master\CustomerController;
 use App\Http\Controllers\Admin\Dashboard\dashboardController;
+use App\Models\Role;
+
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -82,6 +84,7 @@ Route::group(['prefix' => '/permissions'], function () {
             Route::get('/create','create')->name('create');
             Route::post('/store','store')->name('store');
             Route::get('/edit/{id}','edit')->name('edit');
+            Route::post('/update/{id}','update')->name('update');
         });
     });
 });

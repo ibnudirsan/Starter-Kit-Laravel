@@ -26,7 +26,7 @@
         <div class="col-md-8 col-12">
             <div class="card">
                 <div class="card-body">
-                    <form class="form form-vertical" action="" method="POST">
+                    <form class="form form-vertical" action="{{ route('permissions.update', $result->uuid) }}" method="POST">
                     @csrf
 
                         <div class="form-body">
