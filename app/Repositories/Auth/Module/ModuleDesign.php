@@ -6,4 +6,5 @@ use LaravelEasyRepository\Repository;
 
 interface ModuleDesign extends Repository{
     public function datatables();
+    public function store($param);
 }

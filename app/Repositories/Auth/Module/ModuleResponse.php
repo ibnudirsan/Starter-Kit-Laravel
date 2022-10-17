@@ -33,4 +33,11 @@ class ModuleResponse extends Eloquent implements ModuleDesign {
         return $this->model->select('id','module_name','created_at')
                            ->with('permissions');
     }
+
+    public function store($param)
+    {
+        return $this->model->create([
+            'module_name'   => $param->moduleName
+        ]);
+    }
 }

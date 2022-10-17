@@ -63,6 +63,8 @@ Route::group(['prefix' => '/module'], function () {
     Route::name('module.')->group(function () {
         Route::controller(ModuleController::class)->group(function () {
             Route::get('/list','index')->name('index');
+            Route::get('/create','create')->name('create');
+            Route::post('/store','store')->name('store');
         });
     });
 });
