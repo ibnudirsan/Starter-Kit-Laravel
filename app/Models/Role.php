@@ -2,17 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Spatie\Permission\Contracts\Role as RoleContract;
-use Spatie\Permission\Exceptions\GuardDoesNotMatch;
-use Spatie\Permission\Exceptions\RoleAlreadyExists;
-use Spatie\Permission\Exceptions\RoleDoesNotExist;
 use Spatie\Permission\Guard;
+use Ramsey\Uuid\Uuid as Generator;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\PermissionRegistrar;
 use Spatie\Permission\Traits\HasPermissions;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Permission\Exceptions\RoleDoesNotExist;
+use Spatie\Permission\Exceptions\GuardDoesNotMatch;
+use Spatie\Permission\Exceptions\RoleAlreadyExists;
+use Spatie\Permission\Contracts\Role as RoleContract;
 use Spatie\Permission\Traits\RefreshesPermissionCache;
-use Ramsey\Uuid\Uuid as Generator;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
 
 /**
@@ -49,8 +50,7 @@ class Role extends Model implements RoleContract
 | Copyright © RumahDev 2022
 |--------------------------------------------------------------------------
 */
-    use HasPermissions;
-    use RefreshesPermissionCache;
+    use HasPermissions, RefreshesPermissionCache, SoftDeletes;
 
     protected $table = 'roles';
     protected $fillable = [

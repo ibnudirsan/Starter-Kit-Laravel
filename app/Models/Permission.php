@@ -10,6 +10,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\PermissionRegistrar;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Permission\Traits\RefreshesPermissionCache;
 use Spatie\Permission\Exceptions\PermissionDoesNotExist;
@@ -19,7 +20,7 @@ use Spatie\Permission\Contracts\Permission as PermissionContract;
 
 class Permission extends Model implements PermissionContract
 {
-    use HasFactory, HasRoles, RefreshesPermissionCache;
+    use HasFactory, HasRoles, RefreshesPermissionCache, SoftDeletes;
 
     protected $table = 'permissions';
     protected $fillable = [

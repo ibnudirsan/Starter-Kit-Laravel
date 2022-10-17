@@ -5,6 +5,7 @@ namespace App\Models;
 use Ramsey\Uuid\Uuid as Generator;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
@@ -28,7 +29,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class moduleMenu extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'id','module_name'
