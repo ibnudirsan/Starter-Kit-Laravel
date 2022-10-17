@@ -28,7 +28,7 @@
                     <a href="{{ route('module.index') }}">Data Module</a>
                 </li>
                 <li class="submenu-item ">
-                    <a href="#">Data Permission</a>
+                    <a href="{{ route('permissions.index') }}">Data Permission</a>
                 </li>
             </ul>
         </li>

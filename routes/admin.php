@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\AdminController;
 use App\Http\Controllers\Admin\Auth\ModuleController;
+use App\Http\Controllers\Admin\Auth\PermissionController;
 use App\Http\Controllers\Admin\Auth\RoleController;
 use App\Http\Controllers\Admin\Master\CustomerController;
 use App\Http\Controllers\Admin\Dashboard\dashboardController;
@@ -67,6 +68,17 @@ Route::group(['prefix' => '/module'], function () {
             Route::post('/store','store')->name('store');
             Route::get('/edit/{id}','edit')->name('edit');
             Route::post('/update/{id}','update')->name('update');
+        });
+    });
+});
+
+/**
+ * Auth Permission
+ */
+Route::group(['prefix' => '/permissions'], function () {
+    Route::name('permissions.')->group(function () {
+        Route::controller(PermissionController::class)->group(function () {
+            Route::get('/list','index')->name('index');
         });
     });
 });

@@ -50,6 +50,10 @@ class RoleController extends Controller
                     return Carbon::create($created->created_at)->format('Y-m-d H:i:s');
                 })
 
+                ->editColumn('guard_name', function ($name) {
+                    return ucwords($name->guard_name);
+                })
+
                 ->rawColumns(['view','edit','created_at'])
                 ->escapeColumns(['view','edit'])
                 ->smart(true)

@@ -3,8 +3,8 @@
 namespace App\Models;
 
 
+use App\Models\moduleMenu;
 use Spatie\Permission\Guard;
-use App\ModelApps\moduleMenu;
 use Ramsey\Uuid\Uuid as Generator;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;

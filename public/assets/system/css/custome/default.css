@@ -36,13 +36,13 @@ table.dataTable td{
 
 .dataTables_wrapper .dataTables_length select {
     padding: 10px;
-    font-size: 13px;
+    font-size: 14px;
     border: none;
 }
 
 .dataTables_wrapper {
     font-family: "Times Roman";
-    font-size:13px;
+    font-size:14px;
     position: relative;
     clear: both;
     *zoom: 0;
