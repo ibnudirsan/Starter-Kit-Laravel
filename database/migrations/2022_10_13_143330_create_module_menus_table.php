@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('module_menus', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('module_name');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
