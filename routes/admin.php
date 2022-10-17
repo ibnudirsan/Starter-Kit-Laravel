@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\Auth\PermissionController;
 use App\Http\Controllers\Admin\Auth\RoleController;
 use App\Http\Controllers\Admin\Master\CustomerController;
 use App\Http\Controllers\Admin\Dashboard\dashboardController;
-use App\Models\Role;
 
 /*
 |--------------------------------------------------------------------------
