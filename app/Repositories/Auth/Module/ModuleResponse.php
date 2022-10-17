@@ -40,4 +40,18 @@ class ModuleResponse extends Eloquent implements ModuleDesign {
             'module_name'   => $param->moduleName
         ]);
     }
+
+    public function edit($id)
+    {
+        return $this->model->select('id','module_name')
+                           ->whereId($id)
+                           ->firstOrFail();
+    }
+
+    public function update($param, $id)
+    {
+        return $this->model->whereId($id)->update([
+            'module_name'   => $param->moduleName
+        ]);
+    }
 }

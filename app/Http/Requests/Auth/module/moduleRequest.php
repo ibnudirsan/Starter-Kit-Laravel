@@ -24,7 +24,7 @@ class moduleRequest extends FormRequest
     public function rules()
     {
         return [
-            'moduleName' => 'required|max:20'
+            'moduleName' => 'required|max:50'
         ];
     }
 }

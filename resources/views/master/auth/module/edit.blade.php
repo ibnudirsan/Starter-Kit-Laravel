@@ -9,13 +9,13 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-first">
-                <h3>Create Module</h3>
+                <h3>Edit Module</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-last">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">List Module</li>
-                        <li class="breadcrumb-item active" aria-current="page">Create Module</li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit Module</li>
                     </ol>
                 </nav>
             </div>
@@ -26,7 +26,7 @@
         <div class="col-md-6 col-12">
             <div class="card">
                 <div class="card-body">
-                    <form class="form form-vertical" action="{{ route('module.store') }}" method="POST">
+                    <form class="form form-vertical" action="{{ route('module.update', $result->id) }}" method="POST">
                     @csrf
 
                         <div class="form-body">
@@ -38,7 +38,7 @@
                                         <div class="position-relative">
                                             <input type="text" class="form-control form-control @error('moduleName') is-invalid @enderror" 
                                             placeholder="Module Name..." id="moduleName" autocomplete="off" autofocus
-                                            name="moduleName" value="{{ old('moduleName') }}">
+                                            name="moduleName" value="{{ old('moduleName', $result->module_name) }}">
 
                                             <div class="form-control-icon">
                                                 <i class="fas fa-list-alt"></i>
@@ -55,7 +55,7 @@
 
                                 <div class="col-12 d-flex justify-content-end">
                                     <a href="{{ route('module.index') }}" class="btn btn-outline-secondary icon icon-left me-1 mb-1"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
-                                    <button type="submit" class="btn btn-primary me-1 mb-1"><i class="fas fa-plus-circle"></i> Create</button>
+                                    <button type="submit" class="btn btn-primary me-1 mb-1"><i class="fas fa-edit"></i> Edit</button>
                                 </div>
 
                             </div>

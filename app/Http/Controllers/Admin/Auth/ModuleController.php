@@ -30,7 +30,7 @@ class ModuleController extends Controller
             })
             ->addColumn('edit', function ($edit) {
                 return  '
-                            <a href="" type="button" class="btn btn-primary btn-sm">
+                            <a href="'.route('module.edit', $edit->id).'" type="button" class="btn btn-primary btn-sm">
                                         Edit
                             </a>
                         ';
@@ -70,6 +70,33 @@ class ModuleController extends Controller
                              'position'    => 'right'];
                 return redirect()->route('module.index')->with($notification);
             
+        }
+    }
+
+    public function edit($id)
+    {
+        $result = $this->ModuleResponse->edit($id);
+            return view('master.auth.module.edit',compact('result'));
+    }
+
+    public function update(moduleRequest $request, $id)
+    {
+        try {
+            $this->ModuleResponse->update($request, $id);
+            $notification = ['message'     => 'Successfully Updated Module.',
+                             'alert-type'  => 'success',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('module.index')->with($notification);
+
+        } catch (\Exception $e) {
+            
+            $notification = ['message'     => 'Failed to Updated Module.',
+                             'alert-type'  => 'danger',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('module.index')->with($notification);
+    
         }
     }
 }
