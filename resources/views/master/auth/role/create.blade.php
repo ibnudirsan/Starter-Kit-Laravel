@@ -51,17 +51,19 @@
 
                         <div class="col-md-12 col-12">
                             <div class="form-group">
-                                <label for="permissions[]">List Permission</label>
-                                    <div class="row">
-                                        @foreach ($authorities as $authoritie)
-                                            <div class="col-4 mb-1">
+                                <label for="permissions[]">
+                                    List Permission
+                                </label>
+                                <div class="row">
+                                    @foreach ($authorities as $authoritie)
+                                        <div class="col-md-4 col-12">
+                                            <div class="form-group">
                                                 <ul class="list-group me-1 mb-1">
                                                     <li class="list-group-item text-black">
                                                         {{ $authoritie->module_name }}
                                                     </li>
 
                                                     @foreach ($authoritie->permissions as $permission)
-
                                                         @if (old('permissions'))
                                                             <li class="list-group-item">
                                                                 <div class="form-check form-switch">
@@ -93,12 +95,12 @@
                                                                 </div>
                                                             </li>
                                                         @endif
-
                                                     @endforeach
                                                 </ul>
                                             </div>
-                                        @endforeach
-                                    </div>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
 
