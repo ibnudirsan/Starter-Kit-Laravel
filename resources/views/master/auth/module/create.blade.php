@@ -36,7 +36,7 @@
                                     <div class="form-group has-icon-left">
                                         <label for="moduleName">Module Name</label>
                                         <div class="position-relative">
-                                            <input type="text" class="form-control form-control @error('moduleName') is-invalid @enderror" 
+                                            <input type="text" class="form-control @error('moduleName') is-invalid @enderror" 
                                             placeholder="Module Name..." id="moduleName" autocomplete="off" autofocus
                                             name="moduleName" value="{{ old('moduleName') }}">
 

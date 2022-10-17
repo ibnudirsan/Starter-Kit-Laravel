@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\Auth\permissions\requestPemissions;
 use App\Repositories\Auth\Permissions\PermissionsResponse;
 
 class PermissionController extends Controller
@@ -42,5 +43,16 @@ class PermissionController extends Controller
                     ->make();
         }
             return view('master.auth.permission.index');
+    }
+
+    public function create()
+    {
+        $results = $this->PermissionsResponse->module();
+            return view('master.auth.permission.create', compact('results'));
+    }
+
+    public function store(requestPemissions $request)
+    {
+        # code...
     }
 }
