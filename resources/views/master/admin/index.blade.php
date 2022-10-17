@@ -37,7 +37,7 @@
                         <tr>
                             <th class="text-left" width="20px">No.</th>
                             <th class="text-left" width="10px">Edit</th>
-                            <th class="text-left" width="10px">Trash</th>
+                            <th class="text-left" width="10px">isBlock</th>
                             <th class="text-left" width="100px">Username</th>
                             <th class="text-left" width="100px">Full Name</th>
                             <th class="text-left" width="100px">Email</th>

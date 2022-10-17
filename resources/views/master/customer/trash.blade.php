@@ -14,7 +14,7 @@
                 <a href="{{ route('customer.index') }}" class="btn icon icon-left btn-primary btn-sm">List Customers</a>
             </div>
             <div class="col-12 col-md-4 order-md-1 order-first">
-                <h3>Trash Data Customers</h3>
+                <h3>Trash Customers</h3>
             </div>
         </div>
     </div>

@@ -38,7 +38,7 @@ class AdminController extends Controller
                             return  '
                                         <button type="button" class="btn btn-danger btn-sm"
                                                 onclick="isTrash('.$Trash->id.')">
-                                                    Trash
+                                                 isBlock
                                         </button>
                                     ';
                             })
@@ -156,17 +156,35 @@ class AdminController extends Controller
 
     public function trash(Request $request)
     {
-        // if($request->ajax()) {
+        if($request->ajax()) {
             
             $result = $this->AdminResponse->datatable()
                                           ->onlyTrashed();
 
                 return DataTables::eloquent($result)
-                                    ->rawColumns([])
-                                    ->escapeColumns([])
-                                    ->smart(true)
-                                    ->make();
 
-        // }
+
+                        ->addColumn('restore', function ($restore) {
+                            return  '
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                                onclick="isRestore('.$restore->id.')">
+                                                    Restore
+                                        </button>
+                                    ';
+                        })
+
+                        ->editColumn('deleted_at', function ($deleted) {
+                            $date = Carbon::create($deleted->deleted_at)->format('Y-m-d H:i:s');
+                            return $date;
+                        })
+
+                        ->rawColumns(['restore'])
+                        ->escapeColumns(['restore'])
+                        ->smart(true)
+                        ->make();
+
+        }
+
+            return view('master.admin.trash');
     }
 }

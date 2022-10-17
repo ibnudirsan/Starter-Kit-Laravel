@@ -1,8 +1,8 @@
 <script type="text/javascript">
     function isTrash(id) {
         swal({
-            title: "Confirmation Trash",
-            text: "Are you sure you want to trash admin data ?",
+            title: "Confirmation isBlock",
+            text: "Are you sure you want to Block admin data ?",
             type: "question",
             showCancelButton: !0,
             cancelButtonText: "Batal...",
