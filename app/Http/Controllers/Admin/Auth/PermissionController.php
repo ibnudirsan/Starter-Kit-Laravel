@@ -53,6 +53,22 @@ class PermissionController extends Controller
 
     public function store(requestPemissions $request)
     {
-        # code...
+        try {
+            $this->PermissionsResponse->store($request);
+            $notification = ['message'     => 'Successfully created Permission.',
+                             'alert-type'  => 'success',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('permissions.index')->with($notification);
+
+        } catch (\Exception $e) {
+            
+            $notification = ['message'     => 'Failed to created Permission.',
+                             'alert-type'  => 'danger',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('permissions.index')->with($notification);
+
+        }
     }
 }

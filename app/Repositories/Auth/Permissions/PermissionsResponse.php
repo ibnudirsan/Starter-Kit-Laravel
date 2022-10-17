@@ -44,8 +44,12 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign{
                             ->get();
     }
 
-    public function store($param, $id)
+    public function store($param)
     {
-        # code...
+        $this->model->create([
+            'module_id'     => $param->moduleName,
+            'name'          => $param->permissionName,
+            'guard_name'    => $param->guardType,
+        ]);
     }
 }
