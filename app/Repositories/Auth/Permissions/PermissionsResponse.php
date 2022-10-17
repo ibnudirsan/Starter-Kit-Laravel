@@ -52,4 +52,12 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign{
             'guard_name'    => $param->guardType,
         ]);
     }
+
+    public function edit($id)
+    {
+        return $this->model->select('uuid','module_id','name','guard_name')
+                           ->with('modules')
+                           ->whereUuid($id)
+                           ->firstOrFail();
+    }
 }

@@ -32,7 +32,7 @@ class PermissionController extends Controller
                     })
                     ->addColumn('edit', function ($edit) {
                         return  '
-                                    <a href="" type="button" class="btn btn-primary btn-sm">
+                                    <a href="'.route('permissions.edit', $edit->uuid).'" type="button" class="btn btn-primary btn-sm">
                                         Edit
                                     </a>
                                 ';
@@ -70,5 +70,12 @@ class PermissionController extends Controller
                 return redirect()->route('permissions.index')->with($notification);
 
         }
+    }
+
+    public function edit($id)
+    {
+        $modules = $this->PermissionsResponse->module();
+        $result  = $this->PermissionsResponse->edit($id);
+            return view('master.auth.permission.edit',compact('result','modules'));
     }
 }

@@ -81,6 +81,7 @@ Route::group(['prefix' => '/permissions'], function () {
             Route::get('/list','index')->name('index');
             Route::get('/create','create')->name('create');
             Route::post('/store','store')->name('store');
+            Route::get('/edit/{id}','edit')->name('edit');
         });
     });
 });
