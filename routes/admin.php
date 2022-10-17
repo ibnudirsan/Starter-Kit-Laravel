@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\AdminController;
+use App\Http\Controllers\Admin\Auth\ModuleController;
 use App\Http\Controllers\Admin\Auth\RoleController;
 use App\Http\Controllers\Admin\Master\CustomerController;
 use App\Http\Controllers\Admin\Dashboard\dashboardController;
@@ -42,7 +43,7 @@ Route::group(['prefix'  => '/admin'], function () {
 /**
  * Auth Role 
  */
-Route::group(['prefix'   => '/role'], function () {
+Route::group(['prefix' => '/role'], function () {
     Route::name('role.')->group(function () {
         Route::controller(RoleController::class)->group(function () {
             Route::get('/list','index')->name('index');
@@ -51,6 +52,17 @@ Route::group(['prefix'   => '/role'], function () {
             Route::get('/edit/{id}','edit')->name('edit');
             Route::post('/update/{id}','update')->name('update');
             Route::get('/view/{id}','view')->name('view');
+        });
+    });
+});
+
+/**
+ * Auth Module
+ */
+Route::group(['prefix' => '/module'], function () {
+    Route::name('module.')->group(function () {
+        Route::controller(ModuleController::class)->group(function () {
+            Route::get('/list','index')->name('index');
         });
     });
 });
