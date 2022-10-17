@@ -10,4 +10,5 @@ interface RoleDesign extends Repository{
     public function store($param);
     public function view($id);
     public function update($param, $id);
+    public function transh($id);
 }

@@ -84,4 +84,13 @@ class RoleResponse extends Eloquent implements RoleDesign {
             $role = $this->model->whereUuid($id)->first();
                 $role->syncPermissions($param->permissions);
      }
+
+     /**
+      * Transh Role
+      */
+     public function transh($id)
+     {
+        $result = $this->model->find($id);
+            return $result->delete();
+     }
 }

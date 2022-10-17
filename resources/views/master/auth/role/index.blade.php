@@ -37,10 +37,10 @@
                         <tr>
                             <th class="text-left" width="20px">No.</th>
                             <th class="text-left" width="250px">Role Name</th>
-                            <th class="text-left" width="200px">Count Permissions</th>
-                            <th class="text-left" width="150px">Guard Type</th>
-                            <th class="text-left" width="200px">Created Time</th>
-                            <th class="text-left" width="10px">Transh</th>
+                            <th class="text-left" width="250px">Count Permissions</th>
+                            <th class="text-left" width="200px">Guard Type</th>
+                            <th class="text-left" width="150px">Created Time</th>
+                            <th class="text-left" width="10px">Trash</th>
                             <th class="text-left" width="10px">View</th>
                             <th class="text-left" width="10px">Edit</th>
                         </tr>
@@ -56,6 +56,7 @@
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
 @include('master.auth.role.table.role')
+@include('master.auth.role.js.transh')
 @endpush
 
 @push('Alert')

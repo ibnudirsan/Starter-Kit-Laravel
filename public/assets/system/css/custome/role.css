@@ -47,7 +47,5 @@ table.dataTable td{
 }
 
 .btn-size {
-    padding-left: 25%;
-    padding-right: 25%;
-    font-size: smaller;
+    font-size: 100%;
 }

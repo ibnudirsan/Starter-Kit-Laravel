@@ -54,6 +54,7 @@ Route::group(['prefix' => '/role'], function () {
             Route::get('/edit/{id}','edit')->name('edit');
             Route::post('/update/{id}','update')->name('update');
             Route::get('/view/{id}','view')->name('view');
+            Route::post('/trash/{id}','trash')->name('trash');
         });
     });
 });

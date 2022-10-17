@@ -143,4 +143,35 @@ class RoleController extends Controller
         $result      = $this->RoleResponse->view($id);
             return view('master.auth.role.view', compact('authorities','result'));
     }
+
+    public function trash($id)
+    {
+        DB::beginTransaction();
+        try {
+            $this->RoleResponse->transh($id);
+            $success = true;
+        } catch (\Exception $e) {
+            DB::rollBack();
+            $message = "Failed to moving data Trash";
+            $success = false;
+        } finally {
+            DB::commit();
+        }
+            if($success == true) {
+                /**
+                 * Return response true
+                 */
+                return response()->json([
+                    'success' => $success
+                ]);
+            } elseif ($success == false) {
+                /**
+                 * Return response false
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
+    }
 }
