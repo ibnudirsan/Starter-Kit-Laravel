@@ -1,6 +1,7 @@
 @push('customCss')
 <link rel="stylesheet" href="{{ asset('assets/system/css/dataTables.bootstrap5.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/system/css//custome/module.css') }}">
 @endpush
 
 @extends('layouts.app')
@@ -30,12 +31,13 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <table class="table table-hover table-striped" id="tableRole">
+                <table class="table table-hover table-striped" id="tableModule">
                     <thead class="table-dark">
                         <tr>
                             <th class="text-left" width="20px">No.</th>
-                            <th class="text-left" width="250px">Module Name</th>
+                            <th class="text-left" width="550px">Module Name</th>
                             <th class="text-left" width="200px">Count Permissions</th>
+                            <th class="text-left" width="200px">Created Time</th>
                             <th class="text-left" width="20px">Edit</th>
                         </tr>
                     </thead>
@@ -48,6 +50,7 @@
 @push('customJs')
 <script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
+@include('master.auth.module.table.module')
 @endpush
 
 @push('Alert')
