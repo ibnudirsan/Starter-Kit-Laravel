@@ -33,13 +33,13 @@ table.dataTable td{
 
 .dataTables_wrapper .dataTables_length select {
     padding: 10px;
-    font-size: 15px;
+    font-size: 14px;
     border: none;
 }
 
 .dataTables_wrapper {
     font-family: "Times Roman";
-    font-size:15px;
+    font-size:14px;
     position: relative;
     clear: both;
     *zoom: 0;
@@ -47,7 +47,7 @@ table.dataTable td{
 }
 
 .btn-size {
-    --bs-btn-padding-y: .15rem;
-    --bs-btn-padding-x: .5rem;
-    --bs-btn-font-size: .80rem;
+    padding-left: 25%;
+    padding-right: 25%;
+    font-size: smaller;
 }

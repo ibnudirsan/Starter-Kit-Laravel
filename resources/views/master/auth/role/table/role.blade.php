@@ -81,6 +81,7 @@ $(document).ready( function () {
             {data:'count',name:'count'},
             {data:'guard_name',name:'guard_name'},
             {data:'created_at',name:'created_at'},
+            {data:'trash',name:'trash'},
             {data:'view',name:'view'},
             {data:'edit',name:'edit'},
         ]

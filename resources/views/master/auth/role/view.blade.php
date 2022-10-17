@@ -61,7 +61,7 @@
                                                     <li class="list-group-item">
                                                         <div class="form-check form-switch">
                                                             <input id="permissions" name="permissions[]" class="form-check-input @error('permissions') is-invalid @enderror"
-                                                            type="checkbox" value="{{ $permission->id }}" {{ $result->permissions->contains($permission->id) ? 'checked' : '' }} disabled>
+                                                            type="checkbox" value="{{ $permission->id }}" {{ $result->permissions->contains($permission->id) ? 'checked' : '' }} onclick="return false;">
 
                                                             <label class="form-check-label" for="{{ $permission->name }}">
                                                                 {{ $permission->name }}

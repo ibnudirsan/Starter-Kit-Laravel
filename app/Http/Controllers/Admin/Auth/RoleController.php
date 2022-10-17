@@ -26,6 +26,16 @@ class RoleController extends Controller
             $result = $this->RoleResponse->datatable();
                 return DataTables::eloquent($result)
 
+
+                ->addColumn('trash', function ($Trash) {
+                    return  '
+                                <button type="button" class="btn btn-danger btn-sm btn-size"
+                                        onclick="isTrash('.$Trash->id.')">
+                                        Trash
+                                </button>
+                            ';
+                })
+
                 ->addColumn('view', function ($view) {
                     return  '
                                 <a href="'.route('role.view', $view->uuid).'" type="button" class="btn btn-success btn-sm btn-size">
@@ -54,8 +64,8 @@ class RoleController extends Controller
                     return ucwords($name->guard_name);
                 })
 
-                ->rawColumns(['view','edit','created_at'])
-                ->escapeColumns(['view','edit'])
+                ->rawColumns(['view','edit','created_at','trash'])
+                ->escapeColumns(['view','edit','trash'])
                 ->smart(true)
                 ->make();
         }
