@@ -11,7 +11,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                <a href="{{ route('customer.index') }}" class="btn icon icon-left btn-primary btn-sm">Master Customers</a>
+                <a href="{{ route('customer.index') }}" class="btn icon icon-left btn-primary btn-sm">List Customers</a>
             </div>
             <div class="col-12 col-md-4 order-md-1 order-first">
                 <h3>Trash Data Customers</h3>
