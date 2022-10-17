@@ -54,7 +54,7 @@
                                 <label for="permissions[]">List Permission</label>
                                     <div class="row">
                                         @foreach ($authorities as $authoritie)
-                                            <div class="col mb-1">
+                                            <div class="col-4 mb-1">
                                                 <ul class="list-group ml-1 mb-2">
                                                     <li class="list-group-item text-black">
                                                         {{ $authoritie->module_name }}
