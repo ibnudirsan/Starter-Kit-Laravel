@@ -12,6 +12,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
+                    <a href="{{ route('role.data.trash') }}" class="btn icon icon-left btn-danger btn-sm me-1 mb-1"><i class="fas fa-trash"></i> All Trash</a>
                     <a href="{{ route('role.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1"><i class="fas fa-plus-circle"></i> Create</a>
             </div>
 
@@ -56,7 +57,7 @@
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
 @include('master.auth.role.table.role')
-@include('master.auth.role.js.transh')
+@include('master.auth.role.js.trash')
 @endpush
 
 @push('Alert')

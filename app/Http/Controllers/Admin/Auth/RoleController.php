@@ -174,4 +174,9 @@ class RoleController extends Controller
                 ]);
             }
     }
+
+    public function dataTrash()
+    {
+        return view('master.auth.role.trash');
+    }
 }

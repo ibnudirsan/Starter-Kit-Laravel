@@ -19,6 +19,7 @@ class AdminController extends Controller
     public function __construct(AdminResponse $AdminResponse)
     {
         $this->AdminResponse = $AdminResponse;
+        $this->middleware('permission:Auth Create', ['only' => ['edit']]);
     }
 
     public function index(Request $request)
@@ -34,20 +35,29 @@ class AdminController extends Controller
                     })
 
                     ->addColumn('trash', function ($Trash) {
+                        if(auth()->user()->hasPermissionTo('Auth Create')){
                             return  '
                                         <button type="button" class="btn btn-danger btn-sm"
                                                 onclick="isTrash('.$Trash->id.')">
                                                  isBlock
                                         </button>
                                     ';
-                            })
+                        }else{
+                            return '';
+                        }
+                    })
+
 
                     ->addColumn('edit', function ($edit) {
-                        return  '
-                                    <a href="'.route('admin.edit',$edit->uuid).'" type="button" class="btn btn-primary btn-sm">
-                                                Edit
-                                    </a>
-                                ';
+                        if(auth()->user()->hasPermissionTo('Auth Create')){
+                            return  '
+                                        <a href="'.route('admin.edit',$edit->uuid).'" type="button" class="btn btn-primary btn-sm">
+                                                    Edit
+                                        </a>
+                                    ';
+                        }else{
+                            return '';
+                        }
                     })
 
                     ->addColumn('role', function (User $user) {

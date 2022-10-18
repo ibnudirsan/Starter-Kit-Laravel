@@ -1,7 +1,7 @@
 @push('customCss')
 <link rel="stylesheet" href="{{ asset('assets/system/css/dataTables.bootstrap5.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/sweetalert2.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/system/css//custome/role.css') }}">
 @endpush
 
 @extends('layouts.app')
@@ -11,16 +11,17 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                    <a href="{{ route('admin.index') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1"> <i class="fas fa-arrow-alt-circle-left"></i> Data Admin</a>
+                    <a href="{{ route('role.index') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1"><i class="fas fa-arrow-alt-circle-left"></i> Data Role</a>
             </div>
+
             <div class="col-12 col-md-4 order-md-1 order-first">
-                <h3>Trash Admin</h3>
+                <h3>Data Trash Role</h3>
             </div>
             <div class="col-12 col-md-4 order-md-2 order-last">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Authorization</li>
-                        <li class="breadcrumb-item active" aria-current="page">Trash Admin</li>
+                        <li class="breadcrumb-item active" aria-current="page">Data Trash Role</li>
                     </ol>
                 </nav>
             </div>
@@ -30,16 +31,16 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <table class="table table-hover table-striped" id="tableAdminTrash">
+                <table class="table table-hover table-striped" id="tableRoleTrash">
                     <thead class="table-dark">
                         <tr>
                             <th class="text-left" width="20px">No.</th>
-                            <th class="text-left" width="100px">Username</th>
-                            <th class="text-left" width="200px">Full Name</th>
-                            <th class="text-left" width="250px">Email</th>
-                            <th class="text-left" width="150px">Numberphone</th>
-                            <th class="text-left" width="200px">Deleted Time</th>
+                            <th class="text-left" width="250px">Role Name</th>
+                            <th class="text-left" width="250px">Count Permissions</th>
+                            <th class="text-left" width="200px">Guard Type</th>
+                            <th class="text-left" width="150px">Created Time</th>
                             <th class="text-left" width="10px">Restore</th>
+                            <th class="text-left" width="10px">Delete</th>
                         </tr>
                     </thead>
                 </table>
@@ -52,6 +53,4 @@
 <script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
-@include('master.admin.table.trash')
-@include('master.admin.js.restore')
 @endpush
