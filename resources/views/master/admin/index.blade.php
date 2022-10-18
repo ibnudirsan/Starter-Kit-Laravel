@@ -12,10 +12,13 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                @can('Auth Create')
+                @can('Admin Trash')
                     <a href="{{ route('admin.trash') }}" class="btn icon icon-left btn-danger btn-sm me-1 mb-1"><i class="fas fa-trash"></i> All Trash</a>
                 @endcan
+
+                @can('Admin Create')
                     <a href="{{ route('admin.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1"><i class="fas fa-plus-circle"></i> Create</a>
+                @endcan
             </div>
             <div class="col-12 col-md-4 order-md-1 order-first">
                 <h3>Data Admin</h3>
@@ -38,8 +41,7 @@
                     <thead class="table-dark">
                         <tr>
                             <th class="text-left" width="20px">No.</th>
-                            <th class="text-left" width="10px">Edit</th>
-                            <th class="text-left" width="10px">isBlock</th>
+                            <th class="text-center" width="100px">Action</th>
                             <th class="text-left" width="100px">Username</th>
                             <th class="text-left" width="100px">Full Name</th>
                             <th class="text-left" width="100px">Email</th>

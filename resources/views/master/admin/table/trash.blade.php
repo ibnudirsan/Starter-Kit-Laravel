@@ -83,7 +83,7 @@ $(document).ready( function () {
             {data:'email',name:'email'},
             {data:'profile.numberPhone',name:'profile.numberPhone'},
             {data:'deleted_at',name:'deleted_at'},
-            {data:'restore',name:'restore'},
+            {data:'action',name:'action'},
         ]
     });
 

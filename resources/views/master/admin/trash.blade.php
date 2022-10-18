@@ -39,7 +39,7 @@
                             <th class="text-left" width="250px">Email</th>
                             <th class="text-left" width="150px">Numberphone</th>
                             <th class="text-left" width="200px">Deleted Time</th>
-                            <th class="text-left" width="10px">Restore</th>
+                            <th class="text-center" width="10px">Action</th>
                         </tr>
                     </thead>
                 </table>

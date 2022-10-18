@@ -19,7 +19,11 @@ class AdminController extends Controller
     public function __construct(AdminResponse $AdminResponse)
     {
         $this->AdminResponse = $AdminResponse;
-        $this->middleware('permission:Auth Create', ['only' => ['edit']]);
+        $this->middleware('permission:Admin Create', ['only' => ['create','store']]);
+        $this->middleware('permission:Admin Edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:Admin Trash', ['only' => ['trashedData','trash']]);
+        $this->middleware('permission:Admin Restore', ['only' => ['Restore']]);
+        $this->middleware('permission:Admin Show', ['only' => ['index']]);
     }
 
     public function index(Request $request)
@@ -34,30 +38,29 @@ class AdminController extends Controller
                         return $date;
                     })
 
-                    ->addColumn('trash', function ($Trash) {
-                        if(auth()->user()->hasPermissionTo('Auth Create')){
-                            return  '
-                                        <button type="button" class="btn btn-danger btn-sm"
-                                                onclick="isTrash('.$Trash->id.')">
-                                                 isBlock
-                                        </button>
-                                    ';
-                        }else{
-                            return '';
-                        }
-                    })
+                    ->addColumn('action', function ($action) {
 
-
-                    ->addColumn('edit', function ($edit) {
-                        if(auth()->user()->hasPermissionTo('Auth Create')){
-                            return  '
-                                        <a href="'.route('admin.edit',$edit->uuid).'" type="button" class="btn btn-primary btn-sm">
-                                                    Edit
-                                        </a>
-                                    ';
-                        }else{
-                            return '';
+                        if (auth()->user()->hasPermissionTo('Admin Trash')){
+                            $Trash =    '
+                                            <button type="button" class="btn btn-danger btn-sm"
+                                                    onclick="isTrash('.$action->id.')">
+                                                    isBlock
+                                            </button>
+                                        ';
+                        } else {
+                            $Trash =    '';
                         }
+
+                        if (auth()->user()->hasPermissionTo('Admin Edit')) {
+                            $Edit   =  '
+                                            <a href="'.route('admin.edit',$action->uuid).'" type="button" class="btn btn-primary btn-sm">
+                                                        Edit
+                                            </a>
+                                        ';
+                        } else {
+                            $Edit   =   '';
+                        }
+                            return $Trash.' '.$Edit;
                     })
 
                     ->addColumn('role', function (User $user) {
@@ -65,8 +68,8 @@ class AdminController extends Controller
                         return "<span class='badge bg-secondary'>$name</span>";
                     })
 
-                    ->rawColumns(['trash','edit','role'])
-                    ->escapeColumns(['trash','edit'])
+                    ->rawColumns(['action','role'])
+                    ->escapeColumns(['action'])
                     ->smart(true)
                     ->make();
         }
@@ -177,13 +180,19 @@ class AdminController extends Controller
                 return DataTables::eloquent($result)
 
 
-                        ->addColumn('restore', function ($restore) {
-                            return  '
-                                        <button type="button" class="btn btn-danger btn-sm"
-                                                onclick="isRestore('.$restore->id.')">
-                                                    Restore
-                                        </button>
-                                    ';
+                        ->addColumn('action', function ($restore) {
+                            
+                            if (auth()->user()->hasPermissionTo('Admin Restore')) {
+                                $Restore =  '
+                                                <button type="button" class="btn btn-danger btn-sm"
+                                                        onclick="isRestore('.$restore->id.')">
+                                                            Restore
+                                                </button>
+                                            ';
+                            } else {
+                                $Restore =  '';
+                            }
+                                return $Restore;
                         })
 
                         ->editColumn('deleted_at', function ($deleted) {
@@ -191,8 +200,8 @@ class AdminController extends Controller
                             return $date;
                         })
 
-                        ->rawColumns(['restore'])
-                        ->escapeColumns(['restore'])
+                        ->rawColumns(['action'])
+                        ->escapeColumns(['action'])
                         ->smart(true)
                         ->make();
 
