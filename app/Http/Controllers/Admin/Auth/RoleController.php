@@ -27,29 +27,41 @@ class RoleController extends Controller
                 return DataTables::eloquent($result)
 
 
-                ->addColumn('trash', function ($Trash) {
-                    return  '
-                                <button type="button" class="btn btn-danger btn-sm btn-size"
-                                        onclick="isTrash('.$Trash->id.')">
-                                        Trash
-                                </button>
-                            ';
-                })
+                ->addColumn('action', function ($action) {
 
-                ->addColumn('view', function ($view) {
-                    return  '
-                                <a href="'.route('role.view', $view->uuid).'" type="button" class="btn btn-success btn-sm btn-size">
-                                    View
-                                </a>
-                            ';
-                })
+                    if (auth()->user()->can('Role Trash')) {
+                        $Trash  =  '
+                                        <button type="button" class="btn btn-danger btn-sm btn-size"
+                                            onclick="isTrash('.$action->id.')">
+                                            Trash
+                                        </button>
+                                    ';
+                    } else {
+                        $Trash = '';
+                    }
 
-                ->addColumn('edit', function ($edit) {
-                    return  '
-                                <a href="'.route('role.edit', $edit->uuid).'" type="button" class="btn btn-primary btn-sm btn-size">
-                                    Edit
-                                </a>
-                            ';
+                    if (auth()->user()->can('Role View')) {
+                        $View   =   '
+                                        <a href="'.route('role.view',$action->uuid).'" type="button" 
+                                            class="btn btn-success btn-sm btn-size">
+                                            View
+                                        </a>
+                                    ';
+                    } else {
+                        $View   = '';
+                    }
+
+                    if (auth()->user()->can('Role Edit')) {
+                        $Edit   =   '
+                                        <a href="'.route('role.edit',$action->uuid).'" type="button"
+                                            class="btn btn-primary btn-sm btn-size">
+                                            Edit
+                                        </a>
+                                    ';            
+                    } else {
+                        $Edit   = '';
+                    }
+                        return $Trash." ".$View." ".$Edit;
                 })
 
                 ->addColumn('count', function ($count) {
@@ -64,8 +76,8 @@ class RoleController extends Controller
                     return ucwords($name->guard_name);
                 })
 
-                ->rawColumns(['view','edit','created_at','trash'])
-                ->escapeColumns(['view','edit','trash'])
+                ->rawColumns(['created_at','action'])
+                ->escapeColumns(['action'])
                 ->smart(true)
                 ->make();
         }

@@ -30,8 +30,6 @@ $(document).ready( function () {
                                 { orderable: false, targets: 2  },
                                 { orderable: false, targets: 3  },
                                 { orderable: false, targets: 5  },
-                                { orderable: false, targets: 6  },
-                                { orderable: false, targets: 7  },
                             ],
         bInfo             : true,
         responsive        : true,
@@ -83,9 +81,7 @@ $(document).ready( function () {
             {data:'count',name:'count'},
             {data:'guard_name',name:'guard_name'},
             {data:'created_at',name:'created_at'},
-            {data:'trash',name:'trash'},
-            {data:'view',name:'view'},
-            {data:'edit',name:'edit'},
+            {data:'action',name:'action'},
         ]
     });
 

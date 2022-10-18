@@ -2,8 +2,9 @@
 
 namespace App\Repositories\Auth\Role;
 
-use App\Models\Role;
 use App\Models\moduleMenu;
+use Ramsey\Uuid\Uuid as Generator;
+use Spatie\Permission\Models\Role;
 use App\Repositories\Auth\Role\RoleDesign;
 use LaravelEasyRepository\Implementations\Eloquent;
 
@@ -38,7 +39,7 @@ class RoleResponse extends Eloquent implements RoleDesign {
     {
         return $this->model->select('id','uuid','name','guard_name','created_at')
                                     ->with('permissions')
-                                    ->whereGuardName('web')
+                                    ->whereIn('guard_name',['web','api'])
                                     ->whereNotIn('name',['SuperAdmin']);
     }
 
@@ -57,7 +58,10 @@ class RoleResponse extends Eloquent implements RoleDesign {
      */
     public function store($param)
     {
-        $role   = $this->model->create(['name' => $param->roleName]);
+        $role   = $this->model->create([
+            'uuid'  => str_replace('-', '', Generator::uuid4()->toString()),
+            'name'  => $param->roleName
+        ]);
             return $role->givePermissionTo($param->permissions);
     }
 

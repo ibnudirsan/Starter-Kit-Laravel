@@ -2,9 +2,9 @@
 
 namespace App\Repositories\Auth\Admin;
 
-use App\Models\Role;
 use App\Models\User;
 use App\Models\userSecret;
+use Spatie\Permission\Models\Role;
 use App\Repositories\Auth\Admin\AdminDesign;
 use LaravelEasyRepository\Implementations\Eloquent;
 

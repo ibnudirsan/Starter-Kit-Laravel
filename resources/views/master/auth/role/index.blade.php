@@ -37,13 +37,11 @@
                     <thead class="table-dark">
                         <tr>
                             <th class="text-left" width="20px">No.</th>
-                            <th class="text-left" width="250px">Role Name</th>
-                            <th class="text-left" width="250px">Count Permissions</th>
+                            <th class="text-left" width="240px">Role Name</th>
+                            <th class="text-left" width="240px">Count Permissions</th>
                             <th class="text-left" width="200px">Guard Type</th>
                             <th class="text-left" width="150px">Created Time</th>
-                            <th class="text-left" width="10px">Trash</th>
-                            <th class="text-left" width="10px">View</th>
-                            <th class="text-left" width="10px">Edit</th>
+                            <th class="text-center" width="150px">Action</th>
                         </tr>
                     </thead>
                 </table>
