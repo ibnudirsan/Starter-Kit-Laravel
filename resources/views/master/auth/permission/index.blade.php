@@ -35,11 +35,11 @@
                     <thead class="table-dark">
                         <tr>
                             <th class="text-left" width="20px">No.</th>
-                            <th class="text-left" width="350px">Permission Name</th>
+                            <th class="text-left" width="250px">Permission Name</th>
                             <th class="text-left" width="200px">Module Name</th>
                             <th class="text-left" width="200px">Guard Type</th>
                             <th class="text-left" width="200px">Created Time</th>
-                            <th class="text-left" width="20px">Edit</th>
+                            <th class="text-center" width="100px">Action</th>
                         </tr>
                     </thead>
                 </table>

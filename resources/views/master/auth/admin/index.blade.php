@@ -40,8 +40,8 @@
                 <table class="table table-hover table-striped" id="tableAdmin">
                     <thead class="table-dark">
                         <tr>
-                            <th class="text-left" width="20px">No.</th>
                             <th class="text-center" width="100px">Action</th>
+                            <th class="text-left" width="20px">No.</th>
                             <th class="text-left" width="100px">Username</th>
                             <th class="text-left" width="100px">Full Name</th>
                             <th class="text-left" width="100px">Email</th>

@@ -30,15 +30,33 @@ class PermissionController extends Controller
                     ->editColumn('guard_name', function ($name) {
                         return ucwords($name->guard_name);
                     })
-                    ->addColumn('edit', function ($edit) {
-                        return  '
-                                    <a href="'.route('permissions.edit', $edit->uuid).'" type="button" class="btn btn-primary btn-sm">
-                                        Edit
-                                    </a>
-                                ';
+                    ->addColumn('action', function ($action) {
+                        
+                        
+                        if (auth()->user()->can('Permissions Edit')){
+                            $Edit   =  '
+                            <a href="'.route('permissions.edit', $action->uuid).'" type="button" class="btn btn-primary btn-sm">
+                            Edit
+                            </a>
+                            ';
+                        } else {
+                            $Edit   = '';
+                        }
+                        
+                        if(auth()->user()->can('Permissions Delete')) {
+                            $Delete = '
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            onclick="isDelete('.$action->id.')">
+                                            Delete
+                                        </button>
+                                      ';
+                        } else {
+                            $Delete = '';
+                        }
+                            return $Delete.' '.$Edit;
                     })
-                    ->rawColumns(['edit'])
-                    ->escapeColumns(['edit'])
+                    ->rawColumns(['action'])
+                    ->escapeColumns(['action'])
                     ->smart(true)
                     ->make();
         }

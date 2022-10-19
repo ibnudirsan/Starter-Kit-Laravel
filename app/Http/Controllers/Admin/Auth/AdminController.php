@@ -44,7 +44,7 @@ class AdminController extends Controller
                             $Trash =    '
                                             <button type="button" class="btn btn-danger btn-sm"
                                                     onclick="isTrash('.$action->id.')">
-                                                    isBlock
+                                                    Block
                                             </button>
                                         ';
                         } else {

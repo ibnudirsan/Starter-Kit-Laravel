@@ -81,7 +81,7 @@ $(document).ready( function () {
             {data:'modules.module_name',name:'modules.module_name'},
             {data:'guard_name',name:'guard_name'},
             {data:'created_at',name:'created_at'},
-            {data:'edit',name:'edit'},
+            {data:'action',name:'action'},
         ]
     });
 
