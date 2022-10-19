@@ -73,13 +73,13 @@ class AdminController extends Controller
                     ->smart(true)
                     ->make();
         }
-            return view('master.admin.index');
+            return view('master.auth.admin.index');
     }
 
     public function create()
     {
         $roles = $this->AdminResponse->role();
-            return view('master.admin.create',compact('roles'));
+            return view('master.auth.admin.create',compact('roles'));
     }
 
     public function store(adminRequest $request)
@@ -111,7 +111,7 @@ class AdminController extends Controller
     {
         $roles  = $this->AdminResponse->role();
         $result = $this->AdminResponse->edit($id);
-            return view('master.admin.edit',compact('roles','result'));
+            return view('master.auth.admin.edit',compact('roles','result'));
     }
 
     public function update(editRequest $request, $id)
@@ -207,7 +207,7 @@ class AdminController extends Controller
 
         }
 
-            return view('master.admin.trash');
+            return view('master.auth.admin.trash');
     }
 
     public function Restore($id)

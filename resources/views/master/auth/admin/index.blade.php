@@ -61,8 +61,8 @@
 <script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
-@include('master.admin.table.admin')
-@include('master.admin.js.trash')
+@include('master.auth.admin.table.admin')
+@include('master.auth.admin.js.trash')
 @endpush
 
 @push('Alert')
