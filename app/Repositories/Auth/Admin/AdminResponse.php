@@ -34,7 +34,7 @@ class AdminResponse extends Eloquent implements AdminDesign {
     public function datatable()
     {
         return $this->model->select('id','uuid','name','deleted_at','email','created_at')
-                            // ->whereLevel(0)
+                            ->whereLevel(0)
                             ->with('profile','secret');
     }
 
@@ -42,6 +42,7 @@ class AdminResponse extends Eloquent implements AdminDesign {
     {
         return $this->role->select('id','name','guard_name')
                             ->whereNotIn('name',['SuperAdmin'])
+                            ->whereNull('deleted_at')
                             ->orderby('id','desc')
                             ->get();
     }
