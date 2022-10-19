@@ -187,8 +187,55 @@ class RoleController extends Controller
             }
     }
 
-    public function dataTrash()
+    public function dataTrash(Request $request)
     {
-        return view('master.auth.role.trash');
+        if($request->ajax()) {
+
+            $result = $this->RoleResponse->tableTrashed();
+                return DataTables::eloquent($result)
+
+                ->addColumn('action', function ($action) {
+
+                    // if (auth()->user()->can('')) {
+                        $Restore  = '
+                                        <button type="button" class="btn btn-primary btn-sm btn-size"
+                                            onclick="isRestore('.$action->id.')">
+                                            Restore
+                                        </button>
+                                    ';
+                    // } else {
+                    //     $Restore = '';
+                    // }
+
+                    // if (auth()->user()->can('')) {
+                        $Delete  =  '
+                                        <button type="button" class="btn btn-danger btn-sm btn-size"
+                                            onclick="isDelete('.$action->id.')">
+                                            Delete
+                                        </button>
+                                    ';
+                    // } else {
+                    //     $Delete  = '';
+                    // }
+
+                    
+                        return $Restore." ".$Delete;
+                })
+
+
+                ->addColumn('count', function ($count) {
+                    return count($count->permissions). " Permissions";
+                })
+
+                ->editColumn('deleted_at', function ($deleted) {
+                    return Carbon::create($deleted->deleted_at)->format('Y-m-d H:i:s');
+                })
+
+                ->rawColumns(['action'])
+                ->escapeColumns(['action'])
+                ->smart(true)
+                ->make();
+        }
+            return view('master.auth.role.trash');
     }
 }

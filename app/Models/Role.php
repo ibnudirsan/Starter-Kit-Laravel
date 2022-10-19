@@ -53,7 +53,7 @@ class Role extends Model implements RoleContract
 
     protected $table = 'roles';
     protected $fillable = [
-        'uuid', 'name', 'guard_name'
+        'uuid', 'name', 'guard_name', 'deleted_at'
     ];
 
     public function __construct(array $attributes = [])

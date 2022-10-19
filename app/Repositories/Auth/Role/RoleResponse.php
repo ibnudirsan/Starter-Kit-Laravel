@@ -3,9 +3,11 @@
 namespace App\Repositories\Auth\Role;
 
 use App\Models\moduleMenu;
+use App\Models\Role as RoleModel;
 use Ramsey\Uuid\Uuid as Generator;
 use Spatie\Permission\Models\Role;
 use App\Repositories\Auth\Role\RoleDesign;
+use Illuminate\Support\Facades\Log;
 use LaravelEasyRepository\Implementations\Eloquent;
 
 class RoleResponse extends Eloquent implements RoleDesign {
@@ -25,11 +27,13 @@ class RoleResponse extends Eloquent implements RoleDesign {
     * @property Model|mixed $model;
     */
     protected $model;
-
-    public function __construct(Role $model, moduleMenu $module)
+    protected $module;
+    protected $RoleModel;
+    public function __construct(Role $model, moduleMenu $module, RoleModel $RoleModel)
     {
-        $this->model    = $model;
-        $this->module   = $module;
+        $this->model        = $model;
+        $this->module       = $module;
+        $this->RoleModel    = $RoleModel;
     }
 
     /**
@@ -40,8 +44,22 @@ class RoleResponse extends Eloquent implements RoleDesign {
         return $this->model->select('id','uuid','name','guard_name','created_at')
                                     ->with('permissions')
                                     ->whereIn('guard_name',['web','api'])
-                                    ->whereNotIn('name',['SuperAdmin']);
+                                    ->whereNotIn('name',['SuperAdmin'])
+                                    ->whereNull('deleted_at');
     }
+
+    /**
+     * List Trashed
+     */
+
+     public function tableTrashed()
+     {
+        return $this->RoleModel->select('id','uuid','name','guard_name','deleted_at')
+                                ->with('permissions')
+                                ->whereIn('guard_name',['web','api'])
+                                ->whereNotIn('name',['SuperAdmin'])
+                                ->onlyTrashed();
+     }
 
     /**
      * List Permissions
@@ -94,7 +112,7 @@ class RoleResponse extends Eloquent implements RoleDesign {
       */
      public function transh($id)
      {
-        $result = $this->model->find($id);
+        $result = $this->RoleModel->find($id);
             return $result->delete();
      }
 }

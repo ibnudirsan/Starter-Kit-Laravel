@@ -39,8 +39,7 @@
                             <th class="text-left" width="250px">Count Permissions</th>
                             <th class="text-left" width="200px">Guard Type</th>
                             <th class="text-left" width="150px">Created Time</th>
-                            <th class="text-left" width="10px">Restore</th>
-                            <th class="text-left" width="10px">Delete</th>
+                            <th class="text-center" width="120px">Action</th>
                         </tr>
                     </thead>
                 </table>
@@ -53,4 +52,5 @@
 <script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
+@include('master.auth.role.table.trash')
 @endpush
