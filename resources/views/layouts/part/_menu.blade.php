@@ -18,18 +18,29 @@
                 <span>Authorization</span>
             </a>
             <ul class="submenu ">
+                @can('Admin')
+                    <li class="submenu-item ">
+                        <a href="{{ route('admin.index') }}">Data Admin</a>
+                    </li>
+                @endcan
+
+                @can('Role')
+                    <li class="submenu-item ">
+                        <a href="{{ route('role.index') }}">Data Role</a>
+                    </li>
+                @endcan
+
+                @can('Module')
                 <li class="submenu-item ">
-                    <a href="{{ route('admin.index') }}">Data Admin</a>
-                </li>
-                <li class="submenu-item ">
-                    <a href="{{ route('role.index') }}">Data Role</a>
-                </li>
-                <li class="submenu-item ">
-                    <a href="{{ route('module.index') }}">Data Module</a>
-                </li>
+                        <a href="{{ route('module.index') }}">Data Module</a>
+                    </li>
+                @endcan
+                
+                @can('Permissions')
                 <li class="submenu-item ">
                     <a href="{{ route('permissions.index') }}">Data Permission</a>
                 </li>
+                @endcan
             </ul>
         </li>
                             
