@@ -79,7 +79,7 @@ $(document).ready( function () {
             {data:'module_name',name:'module_name'},
             {data:'permissions',name:'permissions'},
             {data:'created_at',name:'created_at'},
-            {data:'edit',name:'edit'},
+            {data:'action',name:'action'},
         ]
     });
 

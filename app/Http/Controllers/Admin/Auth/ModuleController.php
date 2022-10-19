@@ -15,6 +15,9 @@ class ModuleController extends Controller
     public function __construct(ModuleResponse $ModuleResponse)
     {
         $this->ModuleResponse = $ModuleResponse;
+        $this->middleware('permission:Module Create', ['only' => ['create','store']]);
+        $this->middleware('permission:Module Edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:Module Show', ['only' => ['index']]);
     }
 
     public function index(Request $request)
@@ -28,18 +31,23 @@ class ModuleController extends Controller
                 $date = Carbon::create($crated->created_at)->format('Y-m-d H:i:s');
                 return $date;
             })
-            ->addColumn('edit', function ($edit) {
-                return  '
-                            <a href="'.route('module.edit', $edit->id).'" type="button" class="btn btn-primary btn-sm">
-                                        Edit
-                            </a>
-                        ';
+            ->addColumn('action', function ($action) {
+                if (auth()->user()->can('Module Edit')){
+                    $Edit =  '
+                                <a href="'.route('module.edit', $action->id).'" type="button" class="btn btn-primary btn-sm">
+                                    Edit
+                                </a>
+                            ';
+                } else {
+                    $Edit = '';
+                }
+                    return $Edit;
             })
             ->addColumn('permissions', function ($count) {
                 return count($count->permissions). " Permissions";
             })
-            ->rawColumns(['edit'])
-            ->escapeColumns(['edit'])
+            ->rawColumns(['action'])
+            ->escapeColumns(['action'])
             ->smart(true)
             ->make();
 

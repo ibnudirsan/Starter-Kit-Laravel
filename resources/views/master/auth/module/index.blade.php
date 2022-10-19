@@ -11,7 +11,14 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                    <a href="{{ route('module.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1"><i class="fas fa-plus-circle"></i> Create</a>
+                
+                @can('Module Create')
+                    <a href="{{ route('module.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1">
+                        <i class="fas fa-plus-circle"></i>
+                        Create
+                    </a>
+                @endcan
+
             </div>
 
             <div class="col-12 col-md-4 order-md-1 order-first">
@@ -38,7 +45,7 @@
                             <th class="text-left" width="550px">Module Name</th>
                             <th class="text-left" width="200px">Count Permissions</th>
                             <th class="text-left" width="200px">Created Time</th>
-                            <th class="text-left" width="20px">Edit</th>
+                            <th class="text-center" width="20px">Action</th>
                         </tr>
                     </thead>
                 </table>

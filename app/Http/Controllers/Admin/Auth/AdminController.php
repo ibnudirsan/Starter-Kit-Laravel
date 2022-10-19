@@ -40,7 +40,7 @@ class AdminController extends Controller
 
                     ->addColumn('action', function ($action) {
 
-                        if (auth()->user()->hasPermissionTo('Admin Trash')){
+                        if (auth()->user()->can('Admin Trash')){
                             $Trash =    '
                                             <button type="button" class="btn btn-danger btn-sm"
                                                     onclick="isTrash('.$action->id.')">
@@ -51,7 +51,7 @@ class AdminController extends Controller
                             $Trash =    '';
                         }
 
-                        if (auth()->user()->hasPermissionTo('Admin Edit')) {
+                        if (auth()->user()->can('Admin Edit')) {
                             $Edit   =  '
                                             <a href="'.route('admin.edit',$action->uuid).'" type="button" class="btn btn-primary btn-sm">
                                                         Edit
