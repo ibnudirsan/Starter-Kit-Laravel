@@ -37,8 +37,9 @@
                             <th class="text-left" width="100px">Username</th>
                             <th class="text-left" width="200px">Full Name</th>
                             <th class="text-left" width="250px">Email</th>
-                            <th class="text-left" width="150px">Numberphone</th>
-                            <th class="text-left" width="200px">Deleted Time</th>
+                            <th class="text-left" width="100px">Numberphone</th>
+                            <th class="text-left" width="80px">Status</th>
+                            <th class="text-left" width="150px">Deleted Time</th>
                             <th class="text-center" width="10px">Action</th>
                         </tr>
                     </thead>

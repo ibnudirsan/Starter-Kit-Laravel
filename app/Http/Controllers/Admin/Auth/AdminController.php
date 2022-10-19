@@ -11,6 +11,7 @@ use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\Auth\admin\editRequest;
 use App\Http\Requests\Auth\admin\adminRequest;
 use App\Repositories\Auth\Admin\AdminResponse;
+use PhpParser\Builder\Function_;
 
 class AdminController extends Controller
 {
@@ -200,13 +201,19 @@ class AdminController extends Controller
                             return $date;
                         })
 
+                        ->editColumn('secret.isBlock', function($status) {
+                            return $status->secret->isBlock == 1    ? 
+                                                                        '<span class="badge bg-danger">Block</span>'
+                                                                    :   
+                                                                        '<span class="badge bg-success">Active</span>';
+                        })
+
                         ->rawColumns(['action'])
                         ->escapeColumns(['action'])
                         ->smart(true)
                         ->make();
 
         }
-
             return view('master.auth.admin.trash');
     }
 
