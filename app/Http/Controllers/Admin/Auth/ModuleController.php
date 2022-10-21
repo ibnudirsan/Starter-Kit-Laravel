@@ -119,4 +119,31 @@ class ModuleController extends Controller
     
         }
     }
+
+    public function trash($id)
+    {
+        try {
+            $this->ModuleResponse->trash($id);
+            $success = true;
+        } catch (\Exception $e) {
+            $message = "Failed to moving data Trash";
+            $success = false;
+        }
+            if($success == true) {
+                /**
+                 * Return response true
+                 */
+                return response()->json([
+                    'success' => $success
+                ]);
+            } elseif ($success == false) {
+                /**
+                 * Return response false
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
+    }
 }

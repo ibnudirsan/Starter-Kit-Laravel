@@ -12,4 +12,6 @@ interface RoleDesign extends Repository{
     public function update($param, $id);
     public function transh($id);
     public function tableTrashed();
+    public function restore($id);
+    public function delete($id);
 }

@@ -30,7 +30,7 @@ class ModuleResponse extends Eloquent implements ModuleDesign {
 
     public function datatables()
     {
-        return $this->model->select('uuid','module_name','created_at')
+        return $this->model->select('id','uuid','module_name','created_at')
                            ->with('permissions');
     }
 
@@ -53,5 +53,11 @@ class ModuleResponse extends Eloquent implements ModuleDesign {
         return $this->model->whereUuid($id)->update([
             'module_name'   => $param->moduleName
         ]);
+    }
+
+    public function trash($id)
+    {
+        $result = $this->model->find($id);
+            return $result->delete();
     }
 }

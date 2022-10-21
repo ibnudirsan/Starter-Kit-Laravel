@@ -1,7 +1,8 @@
 @push('customCss')
 <link rel="stylesheet" href="{{ asset('assets/system/css/dataTables.bootstrap5.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css//custome/module.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/system/css/sweetalert2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
 @endpush
 
 @extends('layouts.app')
@@ -57,7 +58,9 @@
 @push('customJs')
 <script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
+<script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
 @include('master.auth.module.table.module')
+@include('master.auth.module.js.trash')
 @endpush
 
 @push('Alert')
