@@ -3,7 +3,8 @@
 namespace App\Repositories\Auth\Permissions;
 
 use App\Models\moduleMenu;
-use App\Models\Permission;
+use Ramsey\Uuid\Uuid as Generator;
+use Spatie\Permission\Models\Permission;
 use LaravelEasyRepository\Implementations\Eloquent;
 
 
@@ -47,6 +48,7 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign{
     public function store($param)
     {
         $this->model->create([
+            'uuid'          => str_replace('-', '', Generator::uuid4()->toString()),
             'module_id'     => $param->moduleName,
             'name'          => $param->permissionName,
             'guard_name'    => $param->guardType,
