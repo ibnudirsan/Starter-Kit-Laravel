@@ -60,7 +60,7 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign {
 
     public function edit($id)
     {
-        return $this->model->select('uuid','module_id','name','guard_name')
+        return $this->PemisssionModel->select('uuid','module_id','name','guard_name')
                            ->with('modules')
                            ->whereUuid($id)
                            ->firstOrFail();

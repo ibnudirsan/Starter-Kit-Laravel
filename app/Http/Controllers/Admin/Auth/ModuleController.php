@@ -42,7 +42,7 @@ class ModuleController extends Controller
                     $Edit   =   '';
                 }
 
-                if(auth()->user()->can('Trash Module')) {
+                if(auth()->user()->can('Module Trash')) {
                     $Trash  =   '
                                     <button type="button" class="btn btn-danger btn-sm"
                                         onclick="isTrash('.$action->id.')">

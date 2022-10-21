@@ -62,7 +62,7 @@
                                                 @if (old('moduleName') == $module->uuid)
                                                     <option value="{{ $module->uuid }}" selected>{{ ucwords($module->module_name) }}</option>
                                                 @else
-                                                    <option value="{{ $module->uuid }}" {{ $module->id == $result->module_id ? 'selected' : '' }}>{{ ucwords($module->module_name) }}</option>
+                                                    <option value="{{ $module->uuid }}" {{ $module->uuid == $result->module_id ? 'selected' : '' }}>{{ ucwords($module->module_name) }}</option>
                                                 @endif
                                              @endforeach
                                         </select>
