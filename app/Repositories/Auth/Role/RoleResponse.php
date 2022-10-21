@@ -126,4 +126,15 @@ class RoleResponse extends Eloquent implements RoleDesign {
                        ->find($id);
             return $result->restore();
     }
+
+    /**
+     * Delete Permanent Data Role
+     */
+    public function delete($id)
+    {
+        $result = $this->RoleModel
+                       ->withTrashed()
+                       ->find($id);
+            return $result->forceDelete();
+    }
 }

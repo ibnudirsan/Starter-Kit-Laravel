@@ -265,4 +265,34 @@ class RoleController extends Controller
                 ]);
             }
     }
+    
+    /**
+     * Delete Permanent Data Role
+     */
+    public function delete($id)
+    {
+        try {
+            $this->RoleResponse->delete($id);
+            $success = true;
+        } catch (\Exception $e) {
+            $message = "Failed to Delete data Role.";
+            $success = false;
+        }
+            if($success == true) {
+                /**
+                 * Return response true
+                 */
+                return response()->json([
+                    'success' => $success
+                ]);
+            } elseif ($success == false) {
+                /**
+                 * Return response false
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
+    }
 }

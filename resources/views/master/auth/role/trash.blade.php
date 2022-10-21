@@ -54,4 +54,5 @@
 <script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
 @include('master.auth.role.table.trash')
 @include('master.auth.role.js.restore')
+@include('master.auth.role.js.delete')
 @endpush
