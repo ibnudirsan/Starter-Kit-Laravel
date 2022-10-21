@@ -4,11 +4,12 @@ namespace App\Repositories\Auth\Permissions;
 
 use App\Models\moduleMenu;
 use Ramsey\Uuid\Uuid as Generator;
+use App\Models\Permission as PemisssionModel;
 use Spatie\Permission\Models\Permission;
 use LaravelEasyRepository\Implementations\Eloquent;
 
 
-class PermissionsResponse extends Eloquent implements PermissionsDesign{
+class PermissionsResponse extends Eloquent implements PermissionsDesign {
 
 /*
 |--------------------------------------------------------------------------
@@ -26,21 +27,23 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign{
     */
     protected $model;
     protected $module;
-    public function __construct(Permission $model, moduleMenu $module)
+    protected $PemisssionModel;
+    public function __construct(Permission $model, moduleMenu $module, PemisssionModel $PemisssionModel)
     {
-        $this->model = $model;
-        $this->module = $module;
+        $this->model            = $model;
+        $this->module           = $module;
+        $this->PemisssionModel  = $PemisssionModel;
     }
 
     public function datatables()
     {
-        return $this->model->select('id','uuid','module_id','name','guard_name','created_at')
-                           ->with('modules');
+        return $this->PemisssionModel->select('id','uuid','module_id','name','guard_name','created_at')
+                                     ->with('modules');
     }
 
     public function module()
     {
-        return $this->module->select('id','module_name')
+        return $this->module->select('uuid','module_name')
                             ->orderby('module_name','desc')
                             ->get();
     }

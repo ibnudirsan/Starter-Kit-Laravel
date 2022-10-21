@@ -59,10 +59,10 @@
                                         <select class="form-select @error('moduleName') is-invalid @enderror" id="choices" name="moduleName">
                                             <option value="" selected>Choose Module Name...</option>
                                             @foreach($results as $result)
-                                                @if (old('moduleName') == $result->id)
-                                                    <option value="{{ $result->id }}" selected>{{ ucwords($result->module_name) }}</option>
+                                                @if (old('moduleName') == $result->uuid)
+                                                    <option value="{{ $result->uuid }}" selected>{{ ucwords($result->module_name) }}</option>
                                                 @else
-                                                    <option value="{{ $result->id }}">{{ ucwords($result->module_name) }}</option>
+                                                    <option value="{{ $result->uuid }}">{{ ucwords($result->module_name) }}</option>
                                                 @endif
                                              @endforeach
                                         </select>

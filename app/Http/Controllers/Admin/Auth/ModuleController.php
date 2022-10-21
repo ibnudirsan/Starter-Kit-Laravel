@@ -32,17 +32,29 @@ class ModuleController extends Controller
                 return $date;
             })
             ->addColumn('action', function ($action) {
-                if (auth()->user()->can('Module Edit')){
-                    $Edit =  '
-                                <a href="'.route('module.edit', $action->id).'" type="button" class="btn btn-primary btn-sm">
-                                    Edit
-                                </a>
-                            ';
+                if (auth()->user()->can('Module Edit')) {
+                    $Edit   =  '
+                                    <a href="'.route('module.edit', $action->uuid).'" type="button" class="btn btn-primary btn-sm">
+                                        Edit
+                                    </a>
+                                ';
                 } else {
-                    $Edit = '';
+                    $Edit   =   '';
                 }
-                    return $Edit;
+
+                if(auth()->user()->can('Trash Module')) {
+                    $Trash  =   '
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                        onclick="isTrash('.$action->id.')">
+                                        Trash
+                                    </button>  
+                                ';
+                } else {
+                    $Trash  =   '';
+                }
+                    return $Trash." ".$Edit;
             })
+
             ->addColumn('permissions', function ($count) {
                 return count($count->permissions). " Permissions";
             })

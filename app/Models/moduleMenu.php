@@ -32,7 +32,7 @@ class moduleMenu extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'id','module_name'
+        'uuid','module_name'
     ];
 
     public function getIncrementing()
@@ -51,7 +51,7 @@ class moduleMenu extends Model
 
         static::creating(function ($model) {
             try {
-                $model->id = Generator::uuid4()->toString();
+                $model->uuid = Generator::uuid4()->toString();
             } catch (\Exception $e) {
                 abort(500);
             }
@@ -60,7 +60,7 @@ class moduleMenu extends Model
 
     public function permissions()
     {
-        return $this->hasMany(Permission::class,'module_id','id');
+        return $this->hasMany(Permission::class,'module_id','uuid');
     }
 
 }

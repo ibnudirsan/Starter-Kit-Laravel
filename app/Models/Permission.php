@@ -179,7 +179,7 @@ class Permission extends Model implements PermissionContract
     }
 
     public function modules() {
-        return $this->hasOne(moduleMenu::class,'id','module_id')->select('id','module_name');
+        return $this->hasOne(moduleMenu::class,'uuid','module_id')->select('uuid','module_name');
     }
 
 }

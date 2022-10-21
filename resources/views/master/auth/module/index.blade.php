@@ -42,10 +42,10 @@
                     <thead class="table-dark">
                         <tr>
                             <th class="text-left" width="20px">No.</th>
-                            <th class="text-left" width="550px">Module Name</th>
+                            <th class="text-left" width="480px">Module Name</th>
                             <th class="text-left" width="200px">Count Permissions</th>
                             <th class="text-left" width="200px">Created Time</th>
-                            <th class="text-center" width="20px">Action</th>
+                            <th class="text-center" width="100px">Action</th>
                         </tr>
                     </thead>
                 </table>

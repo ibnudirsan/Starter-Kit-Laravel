@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('module_menus', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
+            $table->uuid('uuid');
             $table->string('module_name');
             $table->softDeletes();
             $table->timestamps();

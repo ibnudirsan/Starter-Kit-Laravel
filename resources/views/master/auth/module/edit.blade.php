@@ -26,7 +26,7 @@
         <div class="col-md-6 col-12">
             <div class="card">
                 <div class="card-body">
-                    <form class="form form-vertical" action="{{ route('module.update', $result->id) }}" method="POST">
+                    <form class="form form-vertical" action="{{ route('module.update', $result->uuid) }}" method="POST">
                     @csrf
 
                         <div class="form-body">
