@@ -12,28 +12,24 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                
-                @can('Module Trash')
-                    <a href="{{ route('module.data.trash') }}" class="btn icon icon-left btn-danger btn-sm me-1 mb-1"><i class="fas fa-trash"></i> All Trash</a>
-                @endcan
 
-                @can('Module Create')
-                    <a href="{{ route('module.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1">
-                        <i class="fas fa-plus-circle"></i>
-                        Create
+                @can('Module Show')
+                    <a href="{{ route('module.index') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1">
+                        <i class="fas fa-arrow-alt-circle-left"></i> 
+                        Data Module
                     </a>
                 @endcan
 
             </div>
 
             <div class="col-12 col-md-4 order-md-1 order-first">
-                <h3>Data Module</h3>
+                <h3>Trash Module</h3>
             </div>
             <div class="col-12 col-md-4 order-md-2 order-last">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Authorization</li>
-                        <li class="breadcrumb-item active" aria-current="page">Data Module</li>
+                        <li class="breadcrumb-item active" aria-current="page">Trash Module</li>
                     </ol>
                 </nav>
             </div>
@@ -43,14 +39,14 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <table class="table table-hover table-striped" id="tableModule">
+                <table class="table table-hover table-striped" id="tableModuleTrash">
                     <thead class="table-dark">
                         <tr>
                             <th class="text-left" width="20px">No.</th>
-                            <th class="text-left" width="480px">Module Name</th>
-                            <th class="text-left" width="200px">Count Permissions</th>
-                            <th class="text-left" width="200px">Created Time</th>
-                            <th class="text-center" width="100px">Action</th>
+                            <th class="text-left" width="400px">Module Name</th>
+                            <th class="text-left" width="240px">Count Permissions</th>
+                            <th class="text-left" width="200px">Deleted Time</th>
+                            <th class="text-center" width="150px">Action</th>
                         </tr>
                     </thead>
                 </table>
@@ -63,8 +59,7 @@
 <script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
-@include('master.auth.module.table.module')
-@include('master.auth.module.js.trash')
+@include('master.auth.module.table.trash')
 @endpush
 
 @push('Alert')

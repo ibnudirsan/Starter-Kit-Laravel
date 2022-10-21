@@ -146,4 +146,58 @@ class ModuleController extends Controller
                 ]);
             }
     }
+
+    public function trashData(Request $request)
+    {
+        if($request->ajax()) {
+        
+            $result = $this->ModuleResponse->datatables()
+                                           ->onlyTrashed();
+
+            return DataTables::eloquent($result)
+
+
+            ->addColumn('action', function ($action) {
+
+                // if (auth()->user()->can('Role Restore')) {
+                    $Restore  = '
+                                    <button type="button" class="btn btn-primary btn-sm btn-size"
+                                        onclick="isRestore('.$action->id.')">
+                                        Restore
+                                    </button>
+                                ';
+                // } else {
+                //     $Restore = '';
+                // }
+
+                // if (auth()->user()->can('Role Delete')) {
+                    $Delete  =  '
+                                    <button type="button" class="btn btn-danger btn-sm btn-size"
+                                        onclick="isDelete('.$action->id.')">
+                                        Delete
+                                    </button>
+                                ';
+                // } else {
+                //     $Delete  = '';
+                // }
+
+                
+                    return $Restore." ".$Delete;
+            })
+
+            ->editColumn('deleted_at', function ($delete) {
+                $date = Carbon::create($delete->deleted_at)->format('Y-m-d H:i:s');
+                return $date;
+            })
+            ->addColumn('permissions', function ($count) {
+                return count($count->permissions). " Permissions";
+            })
+
+            ->rawColumns([])
+            ->escapeColumns([])
+            ->smart(true)
+            ->make();
+        }   
+            return view('master.auth.module.trash');
+    }
 }

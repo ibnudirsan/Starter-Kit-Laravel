@@ -11,38 +11,40 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-                            
-        <li class="sidebar-item  has-sub">
-            <a href="#" class='sidebar-link'>
-                <i class="fas fa-folder"></i>
-                <span>Authorization</span>
-            </a>
-            <ul class="submenu ">
-                @can('Admin')
-                    <li class="submenu-item ">
-                        <a href="{{ route('admin.index') }}">Data Admin</a>
-                    </li>
-                @endcan
+        
+        @can('Master Auth')
+            <li class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="fas fa-folder"></i>
+                    <span>Authorization</span>
+                </a>
+                <ul class="submenu ">
+                    @can('Admin')
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.index') }}">Data Admin</a>
+                        </li>
+                    @endcan
 
-                @can('Role')
-                    <li class="submenu-item ">
-                        <a href="{{ route('role.index') }}">Data Role</a>
-                    </li>
-                @endcan
+                    @can('Role')
+                        <li class="submenu-item ">
+                            <a href="{{ route('role.index') }}">Data Role</a>
+                        </li>
+                    @endcan
 
-                @can('Module')
-                <li class="submenu-item ">
-                        <a href="{{ route('module.index') }}">Data Module</a>
+                    @can('Module')
+                    <li class="submenu-item ">
+                            <a href="{{ route('module.index') }}">Data Module</a>
+                        </li>
+                    @endcan
+                    
+                    @can('Permissions')
+                    <li class="submenu-item ">
+                        <a href="{{ route('permissions.index') }}">Data Permission</a>
                     </li>
-                @endcan
-                
-                @can('Permissions')
-                <li class="submenu-item ">
-                    <a href="{{ route('permissions.index') }}">Data Permission</a>
-                </li>
-                @endcan
-            </ul>
-        </li>
+                    @endcan
+                </ul>
+            </li>
+        @endcan
                             
         <li class="sidebar-item has-sub">
             <a href="#" class='sidebar-link'>
