@@ -61,6 +61,7 @@
 <script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
 @include('master.auth.module.table.trash')
 @include('master.auth.module.js.restore')
+@include('master.auth.module.js.delete')
 @endpush
 
 @push('Alert')

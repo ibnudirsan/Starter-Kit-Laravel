@@ -20,6 +20,9 @@ class ModuleController extends Controller
         $this->middleware('permission:Module Show', ['only' => ['index']]);
     }
 
+    /**
+     * index View Data Module
+     */
     public function index(Request $request)
     {
         if($request->ajax()) {
@@ -67,11 +70,17 @@ class ModuleController extends Controller
         return view('master.auth.module.index');
     }
 
+    /**
+     * Create View Data Module
+     */
     public function create()
     {
         return view('master.auth.module.create');
     }
 
+    /**
+     * Store Data Module
+     */
     public function store(moduleRequest $request)
     {
         try {
@@ -93,12 +102,18 @@ class ModuleController extends Controller
         }
     }
 
+    /**
+     * Edit Data Module
+     */
     public function edit($id)
     {
         $result = $this->ModuleResponse->edit($id);
             return view('master.auth.module.edit',compact('result'));
     }
 
+    /**
+     * Update Data Module
+     */
     public function update(moduleRequest $request, $id)
     {
         try {
@@ -120,6 +135,9 @@ class ModuleController extends Controller
         }
     }
 
+    /**
+     * Trash Data Module
+     */
     public function trash($id)
     {
         try {
@@ -147,6 +165,9 @@ class ModuleController extends Controller
             }
     }
 
+    /**
+     * List Trash Data Module
+     */
     public function trashData(Request $request)
     {
         if($request->ajax()) {
@@ -201,6 +222,9 @@ class ModuleController extends Controller
             return view('master.auth.module.trash');
     }
 
+    /**
+     * Restore Data Module
+     */
     public function restore($id)
     {
         try {
@@ -208,6 +232,36 @@ class ModuleController extends Controller
             $success = true;
         } catch (\Exception $e) {
             $message = "Failed to Restore data Module";
+            $success = false;
+        }
+            if($success == true) {
+                /**
+                 * Return response true
+                 */
+                return response()->json([
+                    'success' => $success
+                ]);
+            } elseif ($success == false) {
+                /**
+                 * Return response false
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
+    }
+
+    /**
+     * Delete Permanent Data Module
+     */
+    public function delete($id)
+    {
+        try {
+            $this->ModuleResponse->delete($id);
+            $success = true;
+        } catch (\Exception $e) {
+            $message = "Failed to Delete Permanent Data Module.";
             $success = false;
         }
             if($success == true) {

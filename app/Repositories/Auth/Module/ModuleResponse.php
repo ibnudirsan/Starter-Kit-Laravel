@@ -28,12 +28,18 @@ class ModuleResponse extends Eloquent implements ModuleDesign {
         $this->model = $model;
     }
 
+    /**
+     * Datatables Data Module
+     */
     public function datatables()
     {
         return $this->model->select('id','uuid','module_name','created_at','deleted_at')
                            ->with('permissions');
     }
 
+    /**
+     * Store Data Module
+     */
     public function store($param)
     {
         return $this->model->create([
@@ -41,6 +47,9 @@ class ModuleResponse extends Eloquent implements ModuleDesign {
         ]);
     }
 
+    /**
+     * Edit Data Module
+     */
     public function edit($id)
     {
         return $this->model->select('uuid','module_name')
@@ -48,6 +57,9 @@ class ModuleResponse extends Eloquent implements ModuleDesign {
                            ->firstOrFail();
     }
 
+    /**
+     * Update Data Module
+     */
     public function update($param, $id)
     {
         return $this->model->whereUuid($id)->update([
@@ -55,12 +67,18 @@ class ModuleResponse extends Eloquent implements ModuleDesign {
         ]);
     }
 
+    /**
+     * Trash Data Module
+     */
     public function trash($id)
     {
         $result = $this->model->find($id);
             return $result->delete();
     }
 
+    /**
+     * Restore Data Module
+     */
     public function restore($id)
     {
         $result = $this->model
@@ -69,8 +87,14 @@ class ModuleResponse extends Eloquent implements ModuleDesign {
             return $result->restore();
     }
 
+    /**
+     * Delete Permanent Data Role
+     */
     public function delete($id)
     {
-        # code...
+        $result = $this->model
+                       ->withTrashed()
+                       ->find($id);
+            return $result->forceDelete();
     }
 }
