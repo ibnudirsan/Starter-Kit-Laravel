@@ -159,27 +159,27 @@ class ModuleController extends Controller
 
             ->addColumn('action', function ($action) {
 
-                // if (auth()->user()->can('Role Restore')) {
+                if (auth()->user()->can('Module Restore')) {
                     $Restore  = '
                                     <button type="button" class="btn btn-primary btn-sm btn-size"
                                         onclick="isRestore('.$action->id.')">
                                         Restore
                                     </button>
                                 ';
-                // } else {
-                //     $Restore = '';
-                // }
+                } else {
+                    $Restore = '';
+                }
 
-                // if (auth()->user()->can('Role Delete')) {
+                if (auth()->user()->can('Module Delete')) {
                     $Delete  =  '
                                     <button type="button" class="btn btn-danger btn-sm btn-size"
                                         onclick="isDelete('.$action->id.')">
                                         Delete
                                     </button>
                                 ';
-                // } else {
-                //     $Delete  = '';
-                // }
+                } else {
+                    $Delete  = '';
+                }
 
                 
                     return $Restore." ".$Delete;
@@ -199,5 +199,32 @@ class ModuleController extends Controller
             ->make();
         }   
             return view('master.auth.module.trash');
+    }
+
+    public function restore($id)
+    {
+        try {
+            $this->ModuleResponse->restore($id);
+            $success = true;
+        } catch (\Exception $e) {
+            $message = "Failed to Restore data Module";
+            $success = false;
+        }
+            if($success == true) {
+                /**
+                 * Return response true
+                 */
+                return response()->json([
+                    'success' => $success
+                ]);
+            } elseif ($success == false) {
+                /**
+                 * Return response false
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
     }
 }
