@@ -34,24 +34,24 @@ class PermissionController extends Controller
                         
 
                         if (auth()->user()->can('Permissions Edit')){
-                            $Edit   =  '
-                            <a href="'.route('permissions.edit', $action->uuid).'" type="button" class="btn btn-primary btn-sm">
-                            Edit
-                            </a>
-                            ';
+                            $Edit   =   '
+                                            <a href="'.route('permissions.edit', $action->uuid).'" type="button" class="btn btn-primary btn-sm">
+                                                Edit
+                                            </a>
+                                        ';
                         } else {
-                            $Edit   = '';
+                            $Edit   =   '';
                         }
                         
                         if(auth()->user()->can('Permission Trash')) {
-                            $Delete = '
-                                        <button type="button" class="btn btn-danger btn-sm"
-                                            onclick="isTrash('.$action->id.')">
-                                            Trash
-                                        </button>
-                                      ';
+                            $Delete =   '
+                                            <button type="button" class="btn btn-danger btn-sm"
+                                                onclick="isTrash('.$action->id.')">
+                                                Trash
+                                            </button>
+                                        ';
                         } else {
-                            $Delete = '';
+                            $Delete =   '';
                         }
                             return $Edit.' '.$Delete;
                     })
@@ -168,12 +168,12 @@ class PermissionController extends Controller
                         
 
                     if (auth()->user()->can('Permissions Restore')){
-                        $Restore   =    '
-                                            <button type="button" class="btn btn-primary btn-sm"
-                                                onclick="isRestore('.$action->id.')">
+                        $Restore   =    "
+                                            <button type='button' class='btn btn-primary btn-sm'
+                                                onclick='isRestore($action->id)'>
                                                 Restore
                                             </button>
-                                        ';
+                                        ";
                     } else {
                         $Restore   = '';
                     }
@@ -203,8 +203,9 @@ class PermissionController extends Controller
     {
         try {
             $this->PermissionsResponse->restore($id);
+            $result  = $this->PermissionsResponse->first($id);
             $success = true;
-            $message = "Successfully to restore Data Pemission.";
+            $message = "Successfully to restore Data Pemission: $result->name.";
         } catch (\Exception $e) {
             $message = "Failed to restore Data Restore.";
             $success = false;
@@ -226,5 +227,10 @@ class PermissionController extends Controller
                     'message' => $message,
                 ]);
             }
+    }
+
+    public function delete($id)
+    {
+        # code...
     }
 }

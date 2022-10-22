@@ -1,8 +1,10 @@
 <script type="text/javascript">
     function isRestore(id) {
+        console.log("myname");
+        var user = "<?= auth()->user()->profile->fullName ?>"
         swal({
             title: "Confirmation Restore",
-            text: "Are you sure you to Restore Data Permissions ?",
+            text: `${user}, Are you sure Restore Data Permissions ?`,
             type: "question",
             showCancelButton: !0,
             cancelButtonText: "Batal...",

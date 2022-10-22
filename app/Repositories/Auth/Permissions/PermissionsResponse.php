@@ -66,6 +66,13 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign {
                            ->firstOrFail();
     }
 
+    public function first($id)
+    {
+        return $this->PemisssionModel->select('uuid','module_id','name','guard_name')
+                                    ->whereId($id)
+                                    ->firstOrFail();
+    }
+
     public function update($param, $id)
     {
         return $this->model->whereUuid($id)->update([
