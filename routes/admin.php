@@ -94,6 +94,7 @@ Route::group(['prefix' => '/permissions'], function () {
             Route::post('/update/{id}','update')->name('update');
             Route::post('/trash/{id}','trash')->name('trash');
             Route::get('trash','dataTrash')->name('data.trash');
+            Route::post('/restore/{id}','restore')->name('restore');
         });
     });
 });

@@ -123,8 +123,9 @@ class PermissionController extends Controller
         try {
             $this->PermissionsResponse->trash($id);
             $success = true;
+            $message = "Successfully to moving Trash data Pemission.";
         } catch (\Exception $e) {
-            $message = "Failed to moving data Trash";
+            $message = "Failed to moving Trash data Permisson.";
             $success = false;
         }
             if($success == true) {
@@ -132,7 +133,8 @@ class PermissionController extends Controller
                  * Return response true
                  */
                 return response()->json([
-                    'success' => $success
+                    'success' => $success,
+                    'message' => $message,
                 ]);
             } elseif ($success == false) {
                 /**
@@ -165,27 +167,27 @@ class PermissionController extends Controller
                 ->addColumn('action', function ($action) {
                         
 
-                    // if (auth()->user()->can('')){
+                    if (auth()->user()->can('Permissions Restore')){
                         $Restore   =    '
                                             <button type="button" class="btn btn-primary btn-sm"
                                                 onclick="isRestore('.$action->id.')">
                                                 Restore
                                             </button>
                                         ';
-                    // } else {
-                    //     $Restore   = '';
-                    // }
+                    } else {
+                        $Restore   = '';
+                    }
                     
-                    // if(auth()->user()->can('')) {
+                    if(auth()->user()->can('Permissions Delete')) {
                         $Delete     =   '
                                             <button type="button" class="btn btn-danger btn-sm"
                                                 onclick="isDelete('.$action->id.')">
                                                 Delete
                                             </button>
                                         ';
-                    // } else {
-                    //     $Delete = '';
-                    // }
+                    } else {
+                        $Delete = '';
+                    }
                         return $Restore.' '.$Delete;
                 })
 
@@ -195,5 +197,34 @@ class PermissionController extends Controller
                 ->make();
         }
         return view('master.auth.permission.trash');
+    }
+
+    public function restore($id)
+    {
+        try {
+            $this->PermissionsResponse->restore($id);
+            $success = true;
+            $message = "Successfully to restore Data Pemission.";
+        } catch (\Exception $e) {
+            $message = "Failed to restore Data Restore.";
+            $success = false;
+        }
+            if($success == true) {
+                /**
+                 * Return response true
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            } elseif ($success == false) {
+                /**
+                 * Return response false
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
     }
 }

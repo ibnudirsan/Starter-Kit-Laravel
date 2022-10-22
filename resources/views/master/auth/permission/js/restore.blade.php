@@ -1,8 +1,8 @@
 <script type="text/javascript">
-    function isTrash(id) {
+    function isRestore(id) {
         swal({
-            title: "Confirmation Transh",
-            text: "Are you sure you to Transh Data Permissions ?",
+            title: "Confirmation Restore",
+            text: "Are you sure you to Restore Data Permissions ?",
             type: "question",
             showCancelButton: !0,
             cancelButtonText: "Batal...",
@@ -12,7 +12,7 @@
                 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
                     type: 'POST',
-                    url: "trash/" + id,
+                    url: "restore/" + id,
                     data: {_token: CSRF_TOKEN},
                     dataType: 'JSON',
                     success: function (results) {

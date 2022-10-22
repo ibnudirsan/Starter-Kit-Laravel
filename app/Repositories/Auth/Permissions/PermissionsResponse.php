@@ -80,4 +80,12 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign {
         $result = $this->PemisssionModel->find($id);
             return $result->delete();
     }
+
+    public function restore($id)
+    {
+        $result = $this->PemisssionModel
+                       ->withTrashed()
+                       ->find($id);
+            return $result->restore();
+    }
 }

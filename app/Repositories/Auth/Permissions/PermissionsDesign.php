@@ -11,4 +11,5 @@ interface PermissionsDesign extends Repository {
     public function edit($id);
     public function update($param, $id);
     public function trash($id);
+    public function restore($id);
 }
