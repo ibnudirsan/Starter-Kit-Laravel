@@ -32,7 +32,7 @@ class PermissionController extends Controller
                     })
                     ->addColumn('action', function ($action) {
                         
-                        
+
                         if (auth()->user()->can('Permissions Edit')){
                             $Edit   =  '
                             <a href="'.route('permissions.edit', $action->uuid).'" type="button" class="btn btn-primary btn-sm">
@@ -43,17 +43,17 @@ class PermissionController extends Controller
                             $Edit   = '';
                         }
                         
-                        if(auth()->user()->can('Permissions Delete')) {
+                        if(auth()->user()->can('Permission Trash')) {
                             $Delete = '
                                         <button type="button" class="btn btn-danger btn-sm"
-                                            onclick="isDelete('.$action->id.')">
-                                            Delete
+                                            onclick="isTrash('.$action->id.')">
+                                            Trash
                                         </button>
                                       ';
                         } else {
                             $Delete = '';
                         }
-                            return $Delete.' '.$Edit;
+                            return $Edit.' '.$Delete;
                     })
                     ->rawColumns(['action'])
                     ->escapeColumns(['action'])
@@ -116,5 +116,37 @@ class PermissionController extends Controller
                 return redirect()->route('permissions.index')->with($notification);
             
         }
+    }
+
+    public function trash($id)
+    {
+        try {
+            $this->PermissionsResponse->trash($id);
+            $success = true;
+        } catch (\Exception $e) {
+            $message = "Failed to moving data Trash";
+            $success = false;
+        }
+            if($success == true) {
+                /**
+                 * Return response true
+                 */
+                return response()->json([
+                    'success' => $success
+                ]);
+            } elseif ($success == false) {
+                /**
+                 * Return response false
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
+    }
+
+    public function dataTrash()
+    {
+        # code...
     }
 }

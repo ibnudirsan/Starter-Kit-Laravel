@@ -1,7 +1,8 @@
 @push('customCss')
 <link rel="stylesheet" href="{{ asset('assets/system/css/dataTables.bootstrap5.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css//custome/default.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/system/css/sweetalert2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
 @endpush
 
 @extends('layouts.app')
@@ -11,7 +12,20 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                <a href="{{ route('permissions.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1"><i class="fas fa-plus-circle"></i> Create</a>
+
+                @can('Permission Trash')
+                    <a href="{{ route('permissions.data.trash') }}" class="btn icon icon-left btn-danger btn-sm me-1 mb-1">
+                        <i class="fas fa-trash"></i>
+                        All Trash
+                    </a>
+                @endcan
+
+                @can('Permissions Create')
+                    <a href="{{ route('permissions.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1">
+                        <i class="fas fa-plus-circle"></i>
+                        Create
+                    </a>
+                @endcan
             </div>
 
             <div class="col-12 col-md-4 order-md-1 order-first">
@@ -51,7 +65,9 @@
 @push('customJs')
 <script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
+<script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
 @include('master.auth.permission.table.permission')
+@include('master.auth.permission.js.trash')
 @endpush
 
 @push('Alert')

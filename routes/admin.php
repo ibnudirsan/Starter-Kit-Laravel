@@ -92,6 +92,8 @@ Route::group(['prefix' => '/permissions'], function () {
             Route::post('/store','store')->name('store');
             Route::get('/edit/{id}','edit')->name('edit');
             Route::post('/update/{id}','update')->name('update');
+            Route::post('/trash/{id}','trash')->name('trash');
+            Route::get('trash','dataTrash')->name('data.trash');
         });
     });
 });

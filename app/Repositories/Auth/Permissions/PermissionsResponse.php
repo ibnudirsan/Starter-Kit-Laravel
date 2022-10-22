@@ -74,4 +74,10 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign {
             'guard_name'    => $param->guardType,
         ]);
     }
+
+    public function trash($id)
+    {
+        $result = $this->PemisssionModel->find($id);
+            return $result->delete();
+    }
 }
