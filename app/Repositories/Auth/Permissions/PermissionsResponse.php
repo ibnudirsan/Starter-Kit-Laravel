@@ -37,7 +37,7 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign {
 
     public function datatables()
     {
-        return $this->PemisssionModel->select('id','uuid','module_id','name','guard_name','created_at')
+        return $this->PemisssionModel->select('id','uuid','module_id','name','guard_name','created_at','deleted_at')
                                      ->with('modules');
     }
 

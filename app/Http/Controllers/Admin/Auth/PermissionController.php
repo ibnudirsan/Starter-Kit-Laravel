@@ -145,8 +145,55 @@ class PermissionController extends Controller
             }
     }
 
-    public function dataTrash()
+    public function dataTrash(Request $request)
     {
-        # code...
+        if($request->ajax()) {
+
+            $result = $this->PermissionsResponse
+                           ->datatables()
+                           ->onlyTrashed();
+
+                return DataTables::eloquent($result)
+                
+                ->editColumn('deleted_at', function ($deleted) {
+                    return empty($deleted->deleted_at) ? '-' : Carbon::create($deleted->deleted_at)->format('Y-m-d H:i:s');
+                })
+                ->editColumn('guard_name', function ($name) {
+                    return ucwords($name->guard_name);
+                })
+
+                ->addColumn('action', function ($action) {
+                        
+
+                    // if (auth()->user()->can('')){
+                        $Restore   =    '
+                                            <button type="button" class="btn btn-primary btn-sm"
+                                                onclick="isRestore('.$action->id.')">
+                                                Restore
+                                            </button>
+                                        ';
+                    // } else {
+                    //     $Restore   = '';
+                    // }
+                    
+                    // if(auth()->user()->can('')) {
+                        $Delete     =   '
+                                            <button type="button" class="btn btn-danger btn-sm"
+                                                onclick="isDelete('.$action->id.')">
+                                                Delete
+                                            </button>
+                                        ';
+                    // } else {
+                    //     $Delete = '';
+                    // }
+                        return $Restore.' '.$Delete;
+                })
+
+                ->rawColumns(['action'])
+                ->escapeColumns(['action'])
+                ->smart(true)
+                ->make();
+        }
+        return view('master.auth.permission.trash');
     }
 }
