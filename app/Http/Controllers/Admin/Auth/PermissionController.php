@@ -16,10 +16,19 @@ class PermissionController extends Controller
     public function __construct(PermissionsResponse $PermissionsResponse)
     {
         $this->PermissionsResponse = $PermissionsResponse;
+        $this->middleware('permission:Permissions Show',    ['only'    => ['index']]);
+        $this->middleware('permission:Permissions Create',  ['only'    => ['create','store']]);
+        $this->middleware('permission:Permissions Edit',    ['only'    => ['edit','update']]);
+        $this->middleware('permission:Permissions Trash',   ['only'    => ['trash','dataTrash']]);
+        $this->middleware('permission:Permissions Restore', ['only'    => ['restore']]);
+        $this->middleware('permission:Permissions Delete',  ['only'    => ['delete']]);
     }
 
     public function index(Request $request)
     {
+        /**
+         * List Data Permissions
+         */
         if($request->ajax()) {
 
             $result = $this->PermissionsResponse->datatables();
@@ -44,7 +53,7 @@ class PermissionController extends Controller
                             $Edit   =   '';
                         }
                         
-                        if(auth()->user()->can('Permission Trash')) {
+                        if(auth()->user()->can('Permissions Trash')) {
                             $Delete =   '
                                             <button type="button" class="btn btn-danger btn-sm"
                                                 onclick="isTrash('.$action->id.')">
@@ -64,12 +73,18 @@ class PermissionController extends Controller
             return view('master.auth.permission.index');
     }
 
+    /**
+     * View Create Data Permission.
+     */
     public function create()
     {
         $results = $this->PermissionsResponse->module();
             return view('master.auth.permission.create', compact('results'));
     }
 
+    /**
+     * Process Create Data Permission.
+     */
     public function store(requestPemissions $request)
     {
         try {
@@ -91,6 +106,9 @@ class PermissionController extends Controller
         }
     }
 
+    /**
+     * View Edit Data Permission.
+     */
     public function edit($id)
     {
         $modules = $this->PermissionsResponse->module();
@@ -98,6 +116,9 @@ class PermissionController extends Controller
             return view('master.auth.permission.edit',compact('result','modules'));
     }
 
+    /**
+     * Process Edit Data Permission.
+     */
     public function update(requestPemissions $request, $id)
     {
         try {
@@ -119,6 +140,9 @@ class PermissionController extends Controller
         }
     }
 
+    /**
+     * Process Moving Data Permission to Trash.
+     */
     public function trash($id)
     {
         try {
@@ -148,6 +172,9 @@ class PermissionController extends Controller
             }
     }
 
+    /**
+     * List Data Permissions Trash.
+     */
     public function dataTrash(Request $request)
     {
         if($request->ajax()) {
@@ -200,6 +227,9 @@ class PermissionController extends Controller
         return view('master.auth.permission.trash');
     }
 
+    /**
+     * Process Restore Data Permission.
+     */
     public function restore($id)
     {
         try {

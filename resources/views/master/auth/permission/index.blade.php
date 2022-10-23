@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
 
-                @can('Permission Trash')
+                @can('Permissions Trash')
                     <a href="{{ route('permissions.data.trash') }}" class="btn icon icon-left btn-danger btn-sm me-1 mb-1">
                         <i class="fas fa-trash"></i>
                         All Trash

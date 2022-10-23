@@ -11,12 +11,14 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
+
                 @can('Permissions Show')
                     <a href="{{ route('permissions.index') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1">
                         <i class="fas fa-arrow-alt-circle-left"></i> 
                         Data Permissions
                     </a>
                 @endcan
+                
             </div>
 
             <div class="col-12 col-md-4 order-md-1 order-first">
