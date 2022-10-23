@@ -23,13 +23,13 @@
             </div>
 
             <div class="col-12 col-md-4 order-md-1 order-first">
-                <h3>Trash Module</h3>
+                <h3>Data Trash Module</h3>
             </div>
             <div class="col-12 col-md-4 order-md-2 order-last">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Authorization</li>
-                        <li class="breadcrumb-item active" aria-current="page">Trash Module</li>
+                        <li class="breadcrumb-item active" aria-current="page">Data Trash Module</li>
                     </ol>
                 </nav>
             </div>
