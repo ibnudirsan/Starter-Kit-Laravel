@@ -17,13 +17,13 @@ class RoleController extends Controller
     public function __construct(RoleResponse $RoleResponse)
     {
         $this->RoleResponse = $RoleResponse;
-        $this->middleware('permission:Role Show', ['only' => ['index']]);
-        $this->middleware('permission:Role Create', ['only' => ['create','store']]);
-        $this->middleware('permission:Role Edit', ['only' => ['edit','update']]);
-        $this->middleware('permission:Role View', ['only' => ['view']]);
-        $this->middleware('permission:Role Trash', ['only' => ['trash','dataTrash']]);
-        $this->middleware('permission:Role Restore', ['only' => ['restore']]);
-        $this->middleware('permission:Role Delete', ['only' => ['delete']]);
+        $this->middleware('permission:Role Show',       ['only' => ['index']]);
+        $this->middleware('permission:Role Create',     ['only' => ['create','store']]);
+        $this->middleware('permission:Role Edit',       ['only' => ['edit','update']]);
+        $this->middleware('permission:Role View',       ['only' => ['view']]);
+        $this->middleware('permission:Role Trash',      ['only' => ['trash','dataTrash']]);
+        $this->middleware('permission:Role Restore',    ['only' => ['restore']]);
+        $this->middleware('permission:Role Delete',     ['only' => ['delete']]);
     }
 
     /**

@@ -20,11 +20,11 @@ class AdminController extends Controller
     public function __construct(AdminResponse $AdminResponse)
     {
         $this->AdminResponse = $AdminResponse;
-        $this->middleware('permission:Admin Create', ['only' => ['create','store']]);
-        $this->middleware('permission:Admin Edit', ['only' => ['edit','update']]);
-        $this->middleware('permission:Admin Trash', ['only' => ['trashedData','trash']]);
-        $this->middleware('permission:Admin Restore', ['only' => ['Restore']]);
-        $this->middleware('permission:Admin Show', ['only' => ['index']]);
+        $this->middleware('permission:Admin Create',    ['only' => ['create','store']]);
+        $this->middleware('permission:Admin Edit',      ['only' => ['edit','update']]);
+        $this->middleware('permission:Admin Trash',     ['only' => ['trashedData','trash']]);
+        $this->middleware('permission:Admin Restore',   ['only' => ['Restore']]);
+        $this->middleware('permission:Admin Show',      ['only' => ['index']]);
     }
 
     public function index(Request $request)
