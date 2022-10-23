@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|HasRoles whereModelType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|HasRoles whereRoleId($value)
  * @mixin \Eloquent
+ * @property-read int|null $roles_count
  */
 
 /*

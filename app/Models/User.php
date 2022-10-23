@@ -58,6 +58,9 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @method static \Illuminate\Database\Query\Builder|User withTrashed()
  * @method static \Illuminate\Database\Query\Builder|User withoutTrashed()
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|RoleModel[] $model
+ * @property-read int|null $model_count
+ * @property-read \App\Models\userSecret|null $secret
  */
 
 /*

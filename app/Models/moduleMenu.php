@@ -26,6 +26,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|moduleMenu whereModuleName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|moduleMenu whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $uuid
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @method static \Illuminate\Database\Query\Builder|moduleMenu onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|moduleMenu whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|moduleMenu whereUuid($value)
+ * @method static \Illuminate\Database\Query\Builder|moduleMenu withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|moduleMenu withoutTrashed()
  */
 
 /*
