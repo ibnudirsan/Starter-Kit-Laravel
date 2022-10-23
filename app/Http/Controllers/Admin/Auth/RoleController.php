@@ -311,8 +311,10 @@ class RoleController extends Controller
     public function delete($id)
     {
         try {
+            $result  = $this->RoleResponse->trashedfirst($id);
             $this->RoleResponse->delete($id);
             $success = true;
+            $message = "Successfully to Delete Permanent Data Role : $result->name.";
         } catch (\Exception $e) {
             $message = "Failed to Delete data Role.";
             $success = false;
@@ -322,7 +324,8 @@ class RoleController extends Controller
                  * Return response true
                  */
                 return response()->json([
-                    'success' => $success
+                    'success' => $success,
+                    'message' => $message,
                 ]);
             } elseif ($success == false) {
                 /**
