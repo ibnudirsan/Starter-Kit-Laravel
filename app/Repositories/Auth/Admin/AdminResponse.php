@@ -126,6 +126,17 @@ class AdminResponse extends Eloquent implements AdminDesign {
     }
 
     /**
+     * Get One User
+     */
+    public function trashedfirst($id)
+    {
+        return $this->model->select('name','email')
+                           ->whereId($id)
+                           ->withTrashed()
+                           ->firstOrFail();
+    }
+
+    /**
      * Query for Restore Data.
      */
     public function restore($id)

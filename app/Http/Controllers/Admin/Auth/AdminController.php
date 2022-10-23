@@ -163,6 +163,7 @@ class AdminController extends Controller
         DB::beginTransaction();
         try {
             $this->AdminResponse->trashedData($id);
+            $message = "Successfully to Trashed Data Admin.";
             $success = true;
         } catch (\Exception $e) {
             DB::rollBack();
@@ -176,7 +177,8 @@ class AdminController extends Controller
                  * Return response true
                  */
                 return response()->json([
-                    'success' => $success
+                    'success' => $success,
+                    'message' => $message,
                 ]);
             } elseif ($success == false) {
                 /**
@@ -246,6 +248,8 @@ class AdminController extends Controller
         DB::beginTransaction();
         try {
             $this->AdminResponse->restore($id);
+            $result  = $this->AdminResponse->trashedfirst($id);
+            $message = "Successfully to restore Data Admin : $result->name.";
             $success = true;
         } catch (\Exception $e) {
             $message = "Failed to Restore data Admin.";
@@ -259,7 +263,8 @@ class AdminController extends Controller
                  * Return response true
                  */
                 return response()->json([
-                    'success' => $success
+                    'success' => $success,
+                    'message' => $message,
                 ]);
             } elseif ($success == false) {
                 /**
