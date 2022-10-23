@@ -145,6 +145,7 @@ class ModuleController extends Controller
     {
         try {
             $this->ModuleResponse->trash($id);
+            $message = "Successfully to Trashed Data Module.";
             $success = true;
         } catch (\Exception $e) {
             $message = "Failed to moving data Trash";
@@ -155,7 +156,8 @@ class ModuleController extends Controller
                  * Return response true
                  */
                 return response()->json([
-                    'success' => $success
+                    'success' => $success,
+                    'message' => $message,
                 ]);
             } elseif ($success == false) {
                 /**
@@ -232,6 +234,8 @@ class ModuleController extends Controller
     {
         try {
             $this->ModuleResponse->restore($id);
+            $result  = $this->ModuleResponse->trashedfirst($id);
+            $message = "Successfully to restore Data Module : $result->module_name.";
             $success = true;
         } catch (\Exception $e) {
             $message = "Failed to Restore data Module";
@@ -242,7 +246,8 @@ class ModuleController extends Controller
                  * Return response true
                  */
                 return response()->json([
-                    'success' => $success
+                    'success' => $success,
+                    'message' => $message,
                 ]);
             } elseif ($success == false) {
                 /**
@@ -261,8 +266,10 @@ class ModuleController extends Controller
     public function delete($id)
     {
         try {
+            $result  = $this->ModuleResponse->trashedfirst($id);            
             $this->ModuleResponse->delete($id);
             $success = true;
+            $message = "Successfully to Delete Permanent Data Module : $result->module_name.";
         } catch (\Exception $e) {
             $message = "Failed to Delete Permanent Data Module.";
             $success = false;
@@ -272,7 +279,8 @@ class ModuleController extends Controller
                  * Return response true
                  */
                 return response()->json([
-                    'success' => $success
+                    'success' => $success,
+                    'message' => $message,
                 ]);
             } elseif ($success == false) {
                 /**

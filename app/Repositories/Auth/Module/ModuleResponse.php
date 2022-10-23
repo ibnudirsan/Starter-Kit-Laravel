@@ -77,6 +77,17 @@ class ModuleResponse extends Eloquent implements ModuleDesign {
     }
 
     /**
+     * Get One Data
+     */
+    public function trashedfirst($id)
+    {
+        return $this->model->select('uuid','module_name')
+                            ->whereId($id)
+                            ->withTrashed()
+                            ->firstOrFail();
+    }
+
+    /**
      * Restore Data Module
      */
     public function restore($id)

@@ -17,6 +17,13 @@
                     dataType: 'JSON',
                     success: function (results) {
                         if (results.success === true) {
+                            swal({
+                                title               : "Successfully",
+                                text                : results.message, 
+                                type                : "success",
+                                showCancelButton    : false,
+                                showConfirmButton   : false,
+                            }),
                             setInterval(function() { window.location.reload(); }, 1000);
                         } else {
                             swal("Failed Process", results.message, "info");

@@ -10,6 +10,7 @@ interface ModuleDesign extends Repository {
     public function edit($id);
     public function update($param, $id);
     public function trash($id);
+    public function trashedfirst($id);
     public function restore($id);
     public function delete($id);
 }
