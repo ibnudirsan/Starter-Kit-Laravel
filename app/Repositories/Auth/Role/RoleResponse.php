@@ -61,6 +61,17 @@ class RoleResponse extends Eloquent implements RoleDesign {
                                 ->onlyTrashed();
      }
 
+     /**
+      * Get One Data
+      */
+      public function trashedfirst($id)
+      {
+        return $this->RoleModel->select('uuid', 'name', 'guard_name', 'deleted_at')
+                               ->whereId($id)
+                               ->withTrashed()
+                               ->firstOrFail();
+      }
+
     /**
      * List Permissions
      */

@@ -189,6 +189,7 @@ class RoleController extends Controller
         DB::beginTransaction();
         try {
             $this->RoleResponse->transh($id);
+            $message = "Successfully to moving Data Role Trash.";
             $success = true;
         } catch (\Exception $e) {
             DB::rollBack();
@@ -202,7 +203,8 @@ class RoleController extends Controller
                  * Return response true
                  */
                 return response()->json([
-                    'success' => $success
+                    'success' => $success,
+                    'message' => $message,
                 ]);
             } elseif ($success == false) {
                 /**
@@ -277,6 +279,8 @@ class RoleController extends Controller
     {
         try {
             $this->RoleResponse->restore($id);
+            $result  = $this->RoleResponse->trashedfirst($id);
+            $message = "Successfully to Restore data Role : $result->name.";
             $success = true;
         } catch (\Exception $e) {
             $message = "Failed to Restore data Role.";
@@ -287,7 +291,8 @@ class RoleController extends Controller
                  * Return response true
                  */
                 return response()->json([
-                    'success' => $success
+                    'success' => $success,
+                    'message' => $message,
                 ]);
             } elseif ($success == false) {
                 /**
