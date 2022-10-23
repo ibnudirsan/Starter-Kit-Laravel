@@ -29,6 +29,9 @@ class AdminController extends Controller
 
     public function index(Request $request)
     {
+        /**
+         * index data Admin
+         */
         if($request->ajax()) {
             
             $result = $this->AdminResponse->datatable();
@@ -77,12 +80,18 @@ class AdminController extends Controller
             return view('master.auth.admin.index');
     }
 
+    /**
+     * View Create Data Admin
+     */
     public function create()
     {
         $roles = $this->AdminResponse->role();
             return view('master.auth.admin.create',compact('roles'));
     }
 
+    /**
+     * Process Create Data Admin
+     */
     public function store(adminRequest $request)
     {
         DB::beginTransaction();
@@ -108,6 +117,9 @@ class AdminController extends Controller
         }
     }
 
+    /**
+     * View Edit Data Admin
+     */
     public function edit($id)
     {
         $roles  = $this->AdminResponse->role();
@@ -115,6 +127,9 @@ class AdminController extends Controller
             return view('master.auth.admin.edit',compact('roles','result'));
     }
 
+    /**
+     * Process Edit Data Admin
+     */
     public function update(editRequest $request, $id)
     {
         DB::beginTransaction();
@@ -140,6 +155,9 @@ class AdminController extends Controller
         }
     }
 
+    /**
+     * Process moving data admin to Trash
+     */
     public function trashedData($id)
     {
         DB::beginTransaction();
@@ -171,6 +189,9 @@ class AdminController extends Controller
             }
     }
 
+    /**
+     * List Data Trash Admin
+     */
     public function trash(Request $request)
     {
         if($request->ajax()) {
@@ -183,7 +204,7 @@ class AdminController extends Controller
 
                         ->addColumn('action', function ($restore) {
                             
-                            if (auth()->user()->hasPermissionTo('Admin Restore')) {
+                            if (auth()->user()->can('Admin Restore')) {
                                 $Restore =  '
                                                 <button type="button" class="btn btn-danger btn-sm"
                                                         onclick="isRestore('.$restore->id.')">
@@ -217,6 +238,9 @@ class AdminController extends Controller
             return view('master.auth.admin.trash');
     }
 
+    /**
+     * Process Restore data Admin
+     */
     public function Restore($id)
     {
         DB::beginTransaction();
