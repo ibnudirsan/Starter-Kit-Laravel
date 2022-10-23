@@ -15,9 +15,12 @@ class ModuleController extends Controller
     public function __construct(ModuleResponse $ModuleResponse)
     {
         $this->ModuleResponse = $ModuleResponse;
+        $this->middleware('permission:Module Show', ['only' => ['index']]);
         $this->middleware('permission:Module Create', ['only' => ['create','store']]);
         $this->middleware('permission:Module Edit', ['only' => ['edit','update']]);
-        $this->middleware('permission:Module Show', ['only' => ['index']]);
+        $this->middleware('permission:Module Trash', ['only' => ['trash','trashData']]);
+        $this->middleware('permission:Module Restore', ['only' => ['restore']]);
+        $this->middleware('permission:Module Delete', ['only' => ['delete']]);
     }
 
     /**
