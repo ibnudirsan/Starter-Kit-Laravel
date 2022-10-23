@@ -27,6 +27,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|moduleMenu whereUpdatedAt($value)
  * @mixin \Eloquent
  */
+
+/*
+|--------------------------------------------------------------------------
+| Rumah Dev
+| Backend Developer : ibudirsan
+| Email             : ibnudirsan@gmail.com
+| Copyright © RumahDev 2022
+|--------------------------------------------------------------------------
+*/
 class moduleMenu extends Model
 {
     use HasFactory, SoftDeletes;

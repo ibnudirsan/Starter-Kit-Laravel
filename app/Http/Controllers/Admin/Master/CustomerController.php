@@ -12,6 +12,14 @@ use App\Http\Requests\customer\editRequest;
 use App\Http\Requests\customer\customerRequest;
 use App\Repositories\Customer\CustomerResponse;
 
+/*
+|--------------------------------------------------------------------------
+| Rumah Dev
+| Backend Developer : ibudirsan
+| Email             : ibnudirsan@gmail.com
+| Copyright © RumahDev 2022
+|--------------------------------------------------------------------------
+*/
 class CustomerController extends Controller
 {
 
@@ -67,7 +75,7 @@ class CustomerController extends Controller
         try {
             $this->CustomerResponse->trashedData($id);
             $success = true;
-        } catch (\Exception) {
+        } catch (\Exception $e) {
             $message = "Failed to moving data Trash";
             $success = false;
         }
@@ -172,7 +180,7 @@ class CustomerController extends Controller
                                 'gravity'     => 'bottom',
                                 'position'    => 'right'];
                 return redirect()->route('customer.index')->with($notification);
-        } catch (\Exception) {
+        } catch (\Exception $e) {
                 $notification = ['message'     => 'Failed to updated data customer.',
                                 'alert-type'  => 'danger',
                                 'gravity'     => 'bottom',
@@ -186,7 +194,7 @@ class CustomerController extends Controller
         try {
             $this->CustomerResponse->restore($id);
             $success = true;
-        } catch (\Exception) {
+        } catch (\Exception $e) {
             $message = "Failed to moving data customer Trash";
             $success = false;
         }
@@ -213,7 +221,7 @@ class CustomerController extends Controller
         try {
             $this->CustomerResponse->deletePermanent($id);
             $success = true;
-        } catch (\Exception) {
+        } catch (\Exception $e) {
             $message = "Failed to Delete Permanent data customer Trash";
             $success = false;
         }

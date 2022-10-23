@@ -21,9 +21,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|HasRoles whereRoleId($value)
  * @mixin \Eloquent
  */
-class HasRoles extends Model
-{
-    
+
 /*
 |--------------------------------------------------------------------------
 | Rumah Dev
@@ -32,6 +30,8 @@ class HasRoles extends Model
 | Copyright © RumahDev 2022
 |--------------------------------------------------------------------------
 */
+class HasRoles extends Model
+{
     use HasFactory;
     protected $table = 'model_has_roles';
 

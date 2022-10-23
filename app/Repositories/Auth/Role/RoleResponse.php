@@ -10,8 +10,6 @@ use App\Repositories\Auth\Role\RoleDesign;
 use Illuminate\Support\Facades\Log;
 use LaravelEasyRepository\Implementations\Eloquent;
 
-class RoleResponse extends Eloquent implements RoleDesign {
-
 /*
 |--------------------------------------------------------------------------
 | Rumah Dev
@@ -20,7 +18,7 @@ class RoleResponse extends Eloquent implements RoleDesign {
 | Copyright © RumahDev 2022
 |--------------------------------------------------------------------------
 */
-
+class RoleResponse extends Eloquent implements RoleDesign {
     /**
     * Model class to be used in this repository for the common methods inside Eloquent
     * Don't remove or change $this->model variable name

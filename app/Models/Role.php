@@ -38,8 +38,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Role extends Model implements RoleContract
-{
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +47,8 @@ class Role extends Model implements RoleContract
 | Copyright © RumahDev 2022
 |--------------------------------------------------------------------------
 */
+class Role extends Model implements RoleContract
+{
     use HasPermissions, RefreshesPermissionCache, SoftDeletes;
 
     protected $table = 'roles';

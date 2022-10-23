@@ -4,6 +4,14 @@ namespace App\Repositories\Auth\Module;
 
 use LaravelEasyRepository\Repository;
 
+/*
+|--------------------------------------------------------------------------
+| Rumah Dev
+| Backend Developer : ibudirsan
+| Email             : ibnudirsan@gmail.com
+| Copyright © RumahDev 2022
+|--------------------------------------------------------------------------
+*/
 interface ModuleDesign extends Repository {
     public function datatables();
     public function store($param);

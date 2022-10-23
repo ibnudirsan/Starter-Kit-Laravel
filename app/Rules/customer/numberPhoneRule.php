@@ -5,6 +5,14 @@ namespace App\Rules\customer;
 use Illuminate\Support\Str;
 use Illuminate\Contracts\Validation\Rule;
 
+/*
+|--------------------------------------------------------------------------
+| Rumah Dev
+| Backend Developer : ibudirsan
+| Email             : ibnudirsan@gmail.com
+| Copyright © RumahDev 2022
+|--------------------------------------------------------------------------
+*/
 class numberPhoneRule implements Rule
 {
     /**

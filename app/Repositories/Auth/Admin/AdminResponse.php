@@ -8,8 +8,6 @@ use Spatie\Permission\Models\Role;
 use App\Repositories\Auth\Admin\AdminDesign;
 use LaravelEasyRepository\Implementations\Eloquent;
 
-class AdminResponse extends Eloquent implements AdminDesign {
-
 /*
 |--------------------------------------------------------------------------
 | Rumah Dev
@@ -18,6 +16,7 @@ class AdminResponse extends Eloquent implements AdminDesign {
 | Copyright © RumahDev 2022
 |--------------------------------------------------------------------------
 */
+class AdminResponse extends Eloquent implements AdminDesign {
     /**
     * Model class to be used in this repository for the common methods inside Eloquent
     * Don't remove or change $this->model variable name

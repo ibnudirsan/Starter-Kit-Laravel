@@ -9,6 +9,14 @@ use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\Auth\module\moduleRequest;
 use App\Repositories\Auth\Module\ModuleResponse;
 
+/*
+|--------------------------------------------------------------------------
+| Rumah Dev
+| Backend Developer : ibudirsan
+| Email             : ibnudirsan@gmail.com
+| Copyright © RumahDev 2022
+|--------------------------------------------------------------------------
+*/
 class ModuleController extends Controller
 {
     protected $ModuleResponse;
