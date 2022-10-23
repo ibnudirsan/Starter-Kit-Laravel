@@ -16,9 +16,27 @@
                 <form action="{{ route('customer.download') }}" method="POST">
                     @csrf
 
-                    <a href="{{ route('customer.trash') }}" class="btn icon icon-left btn-danger btn-sm me-1 mb-1"><i class="fas fa-trash"></i> Trash</a>
-                    <button type="submit" class="btn icon icon-left btn-success btn-sm me-1 mb-1"><i class="fas fa-cloud-download-alt"></i> Download</button>
-                    <a href="{{ route('customer.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1"><i class="fas fa-plus-circle"></i> Create</a>
+                    @can('Customer Trash')
+                        <a href="{{ route('customer.trash') }}" class="btn icon icon-left btn-danger btn-sm me-1 mb-1">
+                            <i class="fas fa-trash"></i>
+                            All Trash
+                        </a>
+                    @endcan
+
+                    @can('Customer Excel')
+                        <button type="submit" class="btn icon icon-left btn-success btn-sm me-1 mb-1">
+                            <i class="fas fa-cloud-download-alt"></i>
+                            Download
+                        </button>
+                    @endcan
+                    
+                    @can('Customer Create')
+                        <a href="{{ route('customer.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1">
+                            <i class="fas fa-plus-circle"></i>
+                            Create
+                        </a>
+                    @endcan
+
                 </form>
 
             </div>
@@ -51,8 +69,7 @@
                             <th class="text-left" width="200px">Email</th>
                             <th class="text-left" width="200px">Address</th>
                             <th class="text-left" width="100px">Created</th>
-                            <th class="text-left" width="10px">Edit</th>
-                            <th class="text-left" width="10px">Trash</th>
+                            <th class="text-center" width="70px">Action</th>
                         </tr>
                     </thead>
                 </table>

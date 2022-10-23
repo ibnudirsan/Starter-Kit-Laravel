@@ -11,10 +11,17 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                <a href="{{ route('customer.index') }}" class="btn icon icon-left btn-primary btn-sm">List Customers</a>
+                
+                @can('Customer Show')
+                    <a href="{{ route('customer.index') }}" class="btn icon icon-left btn-primary btn-sm">
+                        <i class="fas fa-arrow-alt-circle-left"></i>
+                        Data Customers
+                    </a>
+                @endcan
+
             </div>
             <div class="col-12 col-md-4 order-md-1 order-first">
-                <h3>Trash Customers</h3>
+                <h3>Data Trash Customers</h3>
             </div>
         </div>
     </div>
@@ -34,8 +41,7 @@
                                 <th class="text-left" width="200px">Email</th>
                                 <th class="text-left" width="200px">Address</th>
                                 <th class="text-left" width="100px">DeletedAt</th>
-                                <th class="text-left" width="20px">Delete</th>
-                                <th class="text-left" width="20px">Restore</th>
+                                <th class="text-center" width="90px">Action</th>
                             </tr>
                         </thead>
                     </table>

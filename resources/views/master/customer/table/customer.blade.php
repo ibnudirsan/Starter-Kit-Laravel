@@ -34,7 +34,6 @@ $(document).ready( function () {
                                 { orderable: false, targets: 6  },
                                 { orderable: false, targets: 7  },
                                 { orderable: false, targets: 9  },
-                                { orderable: false, targets: 10  },
                             ],
         bInfo             : true,
         responsive        : true,
@@ -89,8 +88,7 @@ $(document).ready( function () {
             {data:'email',name:'email'},
             {data:'address',name:'address'},
             {data:'created_at',name:'created_at'},
-            {data:'edit',name:'edit'},
-            {data:'delete',name:'delete'},
+            {data:'action',name:'action'},
         ]
     });
 

@@ -26,9 +26,19 @@ class CustomerController extends Controller
     protected $CustomerResponse ;
     public function __construct(CustomerResponse  $CustomerResponse)
     {
-        $this->CustomerResponse  = $CustomerResponse ;
+        $this->CustomerResponse  = $CustomerResponse;
+        $this->middleware('permission:Customer Show',       ['only' => ['index']]);
+        $this->middleware('permission:Customer Create',     ['only' => ['create','Store']]);
+        $this->middleware('permission:Customer Edit',       ['only' => ['edit','update']]);
+        $this->middleware('permission:Customer Trash',      ['only' => ['trashData','Trash']]);
+        $this->middleware('permission:Customer Excel',      ['only' => ['downloadExcel']]);
+        $this->middleware('permission:Customer Restore',    ['only' => ['RestoreData']]);
+        $this->middleware('permission:Customer Delete',     ['only' => ['delete']]);
     }
 
+    /**
+     * List Data Customer
+     */
     public function index(Request $request)
     {
         if($request->ajax()) {
@@ -36,21 +46,29 @@ class CustomerController extends Controller
                 return DataTables::eloquent($result)
                                 ->addIndexColumn(['address'])
 
-                                ->addColumn('delete', function ($delete) {
-                                    return  '
-                                                <button type="button" class="btn btn-danger btn-sm btn-size"
-                                                        onclick="isDelete('.$delete->id.')">
-                                                            Trash
-                                                </button>
-                                            ';
-                                })
+                                ->addColumn('action', function ($action) {
 
-                                ->addColumn('edit', function ($edit) {
-                                    return  '
-                                                <a href="'.url(route('customer.edit',$edit->uuid)).'" type="button" class="btn btn-success btn-sm btn-size">
-                                                            Edit
-                                                </a>
-                                            ';
+                                    if (auth()->user()->can('Customer Trash')) {
+                                        $Delete =   '
+                                                        <button type="button" class="btn btn-danger btn-sm btn-size"
+                                                                onclick="isDelete('.$action->id.')">
+                                                                Trash
+                                                        </button>
+                                                    ';
+                                    } else {
+                                        $Delete =   '';
+                                    }
+
+                                    if (auth()->user()->can('Customer Edit')) {
+                                        $Edit   =   '
+                                                        <a href="'.url(route('customer.edit',$action->uuid)).'" type="button" class="btn btn-success btn-sm btn-size">
+                                                                    Edit
+                                                        </a>
+                                                    ';
+                                    } else {
+                                        $Edit   =   '';
+                                    }
+                                        return $Edit." ".$Delete;
                                 })
 
                                 ->editColumn('age', function ($age) {
@@ -62,14 +80,17 @@ class CustomerController extends Controller
                                     return $date;
                                 })
 
-                                ->rawColumns(['delete','edit'])
-                                ->escapeColumns(['delete','edit'])
+                                ->rawColumns(['action'])
+                                ->escapeColumns(['action'])
                                 ->smart(true)
                                 ->make();
         }
             return view('master.customer.index');
     }
 
+    /**
+     * Process moving data Trash
+     */
     public function trashData($id)
     {
         try {
@@ -97,6 +118,9 @@ class CustomerController extends Controller
             }
     }
 
+    /**
+     * List Data Trash Customer.
+     */
     public function Trash(Request $request)
     {
         if($request->ajax()) {
@@ -105,22 +129,30 @@ class CustomerController extends Controller
                 return DataTables::of($result)
                         ->addIndexColumn(['address'])
 
-                        ->addColumn('delete', function ($delete) {
-                            return  '
-                                        <button type="button" class="btn btn-danger btn-sm btn-size"
-                                                onclick="isDelete('.$delete->id.')">
-                                                    Delete
-                                        </button>
-                                    ';
-                        })
+                        ->addColumn('action', function ($action) {
+                            if (auth()->user()->can('Customer Delete')) {
+                                $Delete =   '
+                                                <button type="button" class="btn btn-danger btn-sm btn-size"
+                                                        onclick="isDelete('.$action->id.')">
+                                                        Delete
+                                                </button>
+                                            ';
+                            } else {
+                                $Delete = '';
+                            }
 
-                        ->addColumn('restore', function ($restore) {
-                            return  '
-                                        <button type="button" class="btn btn-success btn-sm btn-size"
-                                                onclick="isRestore('.$restore->id.')">
-                                                    Restore
-                                        </button>
-                                    ';
+                            if (auth()->user()->can('Customer Restore')) {
+                                $Restore    =   '
+                                                    <button type="button" class="btn btn-success btn-sm btn-size"
+                                                            onclick="isRestore('.$action->id.')">
+                                                                Restore
+                                                    </button>
+                                                ';
+                            } else {
+                                $Restore    = '';
+                            }
+                                return $Delete." ".$Restore;
+
                         })
 
                         ->editColumn('age', function ($age) {
@@ -132,19 +164,25 @@ class CustomerController extends Controller
                             return $date;
                         })
 
-                        ->rawColumns(['delete','restore'])
-                        ->escapeColumns(['delete','restore'])
+                        ->rawColumns(['action'])
+                        ->escapeColumns(['action'])
                         ->smart(true)
                         ->make();
         }
             return view('master.customer.trash');
     }
 
+    /**
+     * View Create Data Customer.
+     */
     public function create()
     {
         return view('master.customer.create');
     }
 
+    /**
+     * Process Create Data Customer.
+     */
     public function Store(customerRequest $request)
     {
         try {
@@ -165,12 +203,18 @@ class CustomerController extends Controller
         }
     }
 
+    /**
+     * View Edit Data Customer.
+     */
     public function edit($id)
     {
         $result = $this->CustomerResponse->edit($id);
             return view('master.customer.edit',compact('result'));
     }
 
+    /**
+     * Process Edit Data Customer.
+     */
     public function update(editRequest $request, $id)
     {
         try {
@@ -189,13 +233,16 @@ class CustomerController extends Controller
         }
     }
 
+    /**
+     * Process moving Restore data customer.
+     */
     public function RestoreData($id)
     {
         try {
             $this->CustomerResponse->restore($id);
             $success = true;
         } catch (\Exception $e) {
-            $message = "Failed to moving data customer Trash";
+            $message = "Failed to moving Restore data customer.";
             $success = false;
         }
             if($success == true) {
@@ -216,6 +263,9 @@ class CustomerController extends Controller
             }
     }
 
+    /**
+     * Process Delete Permanent Data Customer.
+     */
     public function delete($id)
     {
         try {
@@ -243,6 +293,9 @@ class CustomerController extends Controller
             }
     }
 
+    /**
+     * Process Report Data Excel Customer.
+     */
     public function downloadExcel()
     {
         /** 

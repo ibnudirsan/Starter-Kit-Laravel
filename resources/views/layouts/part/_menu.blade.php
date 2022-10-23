@@ -52,9 +52,11 @@
                 <span>Data Master</span>
             </a>
             <ul class="submenu ">
-                <li class="submenu-item ">
-                    <a href="{{ route('customer.index') }}">Data Customer</a>
-                </li>
+                @can('Customer Show')
+                    <li class="submenu-item ">
+                        <a href="{{ route('customer.index') }}">Data Customer</a>
+                    </li>
+                @endcan
             </ul>
         </li>            
     </ul>
