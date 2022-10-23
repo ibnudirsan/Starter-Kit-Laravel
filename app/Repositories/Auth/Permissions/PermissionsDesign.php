@@ -9,8 +9,9 @@ interface PermissionsDesign extends Repository {
     public function module();
     public function store($param);
     public function edit($id);
-    public function first($id);
+    public function trashedfirst($id);
     public function update($param, $id);
     public function trash($id);
     public function restore($id);
+    public function delete($id);
 }

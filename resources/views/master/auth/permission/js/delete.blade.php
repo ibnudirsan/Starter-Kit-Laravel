@@ -1,9 +1,9 @@
 <script type="text/javascript">
-    function isRestore(id) {
+    function isDelete(id) {
         var user = "<?= auth()->user()->profile->fullName ?>"
         swal({
-            title: "Confirmation Restore",
-            text: `${user}, Are you sure Restore Data Permissions ?`,
+            title: "Confirmation Delete",
+            text: `${user}, Are you sure Delete Permanent Data Permission ?`,
             type: "question",
             showCancelButton: !0,
             cancelButtonText: "Batal...",
@@ -13,7 +13,7 @@
                 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
                     type: 'POST',
-                    url: "restore/" + id,
+                    url: "delete/" + id,
                     data: {_token: CSRF_TOKEN},
                     dataType: 'JSON',
                     success: function (results) {

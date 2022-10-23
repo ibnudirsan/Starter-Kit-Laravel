@@ -59,4 +59,5 @@
 <script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
 @include('master.auth.permission.table.trash')
 @include('master.auth.permission.js.restore')
+@include('master.auth.permission.js.delete')
 @endpush

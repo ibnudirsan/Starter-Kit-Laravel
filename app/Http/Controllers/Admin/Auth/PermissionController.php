@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\Auth\permissions\requestPemissions;
@@ -203,7 +204,7 @@ class PermissionController extends Controller
     {
         try {
             $this->PermissionsResponse->restore($id);
-            $result  = $this->PermissionsResponse->first($id);
+            $result  = $this->PermissionsResponse->trashedfirst($id);
             $success = true;
             $message = "Successfully to restore Data Pemission: $result->name.";
         } catch (\Exception $e) {
@@ -229,8 +230,36 @@ class PermissionController extends Controller
             }
     }
 
+    /**
+     * Delete Permanent Data Permission
+     */
     public function delete($id)
     {
-        # code...
+        try {
+            $result  = $this->PermissionsResponse->trashedfirst($id);
+            $this->PermissionsResponse->delete($id);
+            $success = true;
+            $message = "Successfully to Delete Permanent Data Permission : $result->name.";
+        } catch (\Exception $e) {
+            $message = "Failed to Delete Permanent Data Permission.";
+            $success = false;
+        }
+            if($success == true) {
+                /**
+                 * Return response true
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            } elseif ($success == false) {
+                /**
+                 * Return response false
+                 */
+                return response()->json([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
     }
 }

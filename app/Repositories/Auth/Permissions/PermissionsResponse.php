@@ -66,10 +66,11 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign {
                            ->firstOrFail();
     }
 
-    public function first($id)
+    public function trashedfirst($id)
     {
         return $this->PemisssionModel->select('uuid','module_id','name','guard_name')
                                     ->whereId($id)
+                                    ->withTrashed()
                                     ->firstOrFail();
     }
 
@@ -94,5 +95,13 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign {
                        ->withTrashed()
                        ->find($id);
             return $result->restore();
+    }
+
+    public function delete($id): void
+    {
+        $result = $this->PemisssionModel
+                        ->withTrashed()
+                        ->find($id);
+            $result->forceDelete();
     }
 }
