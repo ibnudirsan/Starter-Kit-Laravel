@@ -67,8 +67,8 @@
                         </a>
                     </li>
                                                             
-                    <li class="text-bg-danger rounded">
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <li class="dropdown-item rounded fs-5">
+                        <a class="dropdown-item badge bg-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                                 <i class="fas fa-sign-out-alt"></i>
                                 Logout
