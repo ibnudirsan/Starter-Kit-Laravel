@@ -17,8 +17,18 @@ class RoleController extends Controller
     public function __construct(RoleResponse $RoleResponse)
     {
         $this->RoleResponse = $RoleResponse;
+        $this->middleware('permission:Role Show', ['only' => ['index']]);
+        $this->middleware('permission:Role Create', ['only' => ['create','store']]);
+        $this->middleware('permission:Role Edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:Role View', ['only' => ['view']]);
+        $this->middleware('permission:Role Trash', ['only' => ['trash','dataTrash']]);
+        $this->middleware('permission:Role Restore', ['only' => ['restore']]);
+        $this->middleware('permission:Role Delete', ['only' => ['delete']]);
     }
 
+    /**
+     * List Data Role
+     */
     public function index(Request $request)
     {
         if($request->ajax()) {
@@ -85,12 +95,18 @@ class RoleController extends Controller
         return view('master.auth.role.index');
     }
 
+    /**
+     * View Create Data Role
+     */
     public function create()
     {
         $authorities = $this->RoleResponse->permission();
             return view('master.auth.role.create',compact('authorities'));
     }
 
+    /**
+     * Process Create Data Role
+     */
     public function store(roleRequest $request)
     {
 
@@ -116,6 +132,9 @@ class RoleController extends Controller
         }
     }
 
+    /**
+     * View Edit data Role
+     */
     public function edit($id)
     {
         $authorities = $this->RoleResponse->permission();
@@ -123,6 +142,9 @@ class RoleController extends Controller
             return view('master.auth.role.edit', compact('authorities','result'));
     }
 
+    /**
+     * Process Edit data Role
+     */
     public function update(editRequest $request, $id)
     {
         DB::beginTransaction();
@@ -149,6 +171,9 @@ class RoleController extends Controller
         }
     }
 
+    /**
+     * View data Role
+     */
     public function view($id)
     {
         $authorities = $this->RoleResponse->permission();
@@ -156,6 +181,9 @@ class RoleController extends Controller
             return view('master.auth.role.view', compact('authorities','result'));
     }
 
+    /**
+     * Process moving data Role to Trash
+     */
     public function trash($id)
     {
         DB::beginTransaction();
@@ -187,6 +215,9 @@ class RoleController extends Controller
             }
     }
 
+    /**
+     * List Trash data Role
+     */
     public function dataTrash(Request $request)
     {
         if($request->ajax()) {
@@ -239,6 +270,9 @@ class RoleController extends Controller
             return view('master.auth.role.trash');
     }
 
+    /**
+     * Process Role data Restore
+     */
     public function restore($id)
     {
         try {

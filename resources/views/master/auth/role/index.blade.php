@@ -12,8 +12,21 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                    <a href="{{ route('role.data.trash') }}" class="btn icon icon-left btn-danger btn-sm me-1 mb-1"><i class="fas fa-trash"></i> All Trash</a>
-                    <a href="{{ route('role.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1"><i class="fas fa-plus-circle"></i> Create</a>
+
+                    @can('Role Trash')
+                        <a href="{{ route('role.data.trash') }}" class="btn icon icon-left btn-danger btn-sm me-1 mb-1">
+                            <i class="fas fa-trash"></i>
+                            All Trash
+                        </a>
+                    @endcan
+
+                    @can('Role Create')
+                        <a href="{{ route('role.create') }}" class="btn icon icon-left btn-primary btn-sm me-1 mb-1">
+                            <i class="fas fa-plus-circle"></i>
+                            Create
+                        </a>
+                    @endcan
+                    
             </div>
 
             <div class="col-12 col-md-4 order-md-1 order-first">
