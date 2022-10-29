@@ -19,7 +19,6 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        $useradmin      = User::whereLevel(1)->first();
         $authorities    = config('module.authorities');
 
         $listPermission         = [];
@@ -37,7 +36,7 @@ class PermissionSeeder extends Seeder
                 $listPermission[] = [
                     'uuid'          => str_replace('-', '', Generator::uuid4()->toString()),
                     'name'          => $permission,
-                    'module_id'     => $module->id,
+                    'module_id'     => $module->uuid,
                     'guard_name'    => 'web',
                 ];
                 // SuperAdmin
@@ -59,6 +58,5 @@ class PermissionSeeder extends Seeder
 
         // Role -> Permission
         $superAdmin->givePermissionTo($superAdminPermissions);
-        $useradmin->assignRole("SuperAdmin");
     }
 }

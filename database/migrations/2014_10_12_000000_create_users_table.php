@@ -18,6 +18,7 @@ return new class extends Migration
             $table->uuid('uuid',40);
             $table->string('name');
             $table->string('email')->unique();
+            $table->boolean('level')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

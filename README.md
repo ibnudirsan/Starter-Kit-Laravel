@@ -14,3 +14,21 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 ## License
 
 The Starter Kit framework 9.x is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+```shell
+
+php artisan migrate
+
+```
+
+```shell
+
+php artisan db:seed --class=PermissionSeeder
+
+```
+
+```shell
+
+php artisan super:admin --username=ibnudirsan --email=ibnudirsan@gmail.com --password=Password@123
+
+```
