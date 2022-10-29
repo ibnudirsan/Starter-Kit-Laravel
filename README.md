@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/ibnudirsan/art/main/laravel-logolockup-cmyk-red.png" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
     <a href="https://github.com/ibnudirsan/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/v/release/ibnudirsan/Starter-Kit-Laravel-9?style=plastic"></a>
