@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 class SuperAdmin extends Command
 {
@@ -28,6 +29,7 @@ class SuperAdmin extends Command
      */
     public function handle()
     {
+        DB::beginTransaction();
         try {
             $result     = User::select('id')->whereLevel(1)->first();
             $username   = !$this->option('username') ? 'ibnudirsan' : $this->option('username');
@@ -59,8 +61,11 @@ class SuperAdmin extends Command
                             $this->line('<bg=black;fg=white>..:: Created by RumahDev ::..</>');
             }
         } catch (\Exception $e) {
+            DB::rollBack();
             $this->components->error('An error occurred in Superadmin account setup.');
             $this->line('<bg=black;fg=white>..:: Created by RumahDev ::..</>');
+        } finally {
+            DB::commit();
         }
     }
 }
