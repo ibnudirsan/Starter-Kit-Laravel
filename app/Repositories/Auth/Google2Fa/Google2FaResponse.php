@@ -38,7 +38,7 @@ class Google2FaResponse extends Eloquent implements Google2FaDesign{
             if($valid) {
                 $this->model->whereUserId($id)->update([
                     'statusOTP' => true,
-                    'timeOTP'   => Carbon::now()->format('Y-m-d H:i:s'),
+                    'timeOTP'   => Carbon::now()->addDay()->format('Y-m-d H:i:s'),
                 ]);
             } elseif (!$valid) {
                 $notification = ['message'     => 'Code No match, Google 2FA activation failed.',
