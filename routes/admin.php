@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\AdminController;
+use App\Http\Controllers\Admin\Auth\Google2FaController;
 use App\Http\Controllers\Admin\Auth\ModuleController;
 use App\Http\Controllers\Admin\Auth\PermissionController;
 use App\Http\Controllers\Admin\Auth\ProfileController;
@@ -110,6 +111,17 @@ Route::group(['prefix'  => '/profile'], function () {
             Route::get('/user','index')->name('index');
             Route::get('/setting','setting')->name('setting');
             Route::post('/password','password')->name('password');
+        });
+    });
+});
+
+/**
+ * Google 2FA
+ */
+Route::group(['prefix' => '/google2fa'], function () {
+    Route::name('google2fa.')->group(function () {
+        Route::controller(Google2FaController::class)->group(function () {
+            Route::get('/configuration','index')->name('index');
         });
     });
 });

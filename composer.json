@@ -14,6 +14,8 @@
         "laravel/ui": "^4.0",
         "maatwebsite/excel": "^3.1",
         "mews/captcha": "3.2.7",
+        "pragmarx/google2fa-laravel": "^2.0",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-permission": "^5.5",
         "yajra/laravel-datatables": "^9.0",
         "yaza/laravel-repository-service": "^3.2"

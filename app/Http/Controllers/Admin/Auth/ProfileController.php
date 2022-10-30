@@ -23,7 +23,7 @@ class ProfileController extends Controller
 
     public function setting()
     {
-        return view('master.auth.admin.profile.setting');
+        return view('master.auth.profile.setting');
     }
 
     public function password(profilePassword $request)

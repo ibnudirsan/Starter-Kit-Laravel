@@ -16,6 +16,18 @@
                 </a>
             </li>
         
+            <li class="sidebar-item has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="fas fa-user-lock"></i>
+                    <span>Authentication</span>
+                </a>
+                <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route('google2fa.index') }}">Google2FA</a>
+                        </li>
+                </ul>
+            </li>
+
         @can('Authorization')
             <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
