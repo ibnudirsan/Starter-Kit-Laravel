@@ -36,6 +36,12 @@ class Google2FaController extends Controller
 
     public function activation(Request $request)
     {
-        return $this->Google2FaResponse->activation($request); 
+        $id = auth()->user()->id;
+        $this->Google2FaResponse->activation($request, $id);
+            $notification = ['message'     => 'Code match, Successfuly activation of Google 2FA.',
+                             'alert-type'  => 'success',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('google2fa.index')->with($notification);
     }
 }

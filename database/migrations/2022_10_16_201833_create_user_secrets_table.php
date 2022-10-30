@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->boolean('isBlock')->default(0);
             $table->string('secret2Fa')->nullable();
+            $table->boolean('statusOTP')->default(0);
+            $table->dateTime('timeOTP')->nullable();
             $table->timestamps();
         });
     }

@@ -38,6 +38,6 @@ class userSecret extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'isBlock', 'secret2Fa'
+        'user_id', 'isBlock', 'secret2Fa','statusOTP','timeOTP'
     ];
 }
