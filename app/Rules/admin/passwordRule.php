@@ -43,6 +43,6 @@ class passwordRule implements Rule
      */
     public function message()
     {
-        return 'Password berisi Huruf Besar, Huruf Kecil, Angka dan Karakter Khusus.';
+        return 'Password contains Uppercase, Lowercase, Numbers and Special Characters.';
     }
 }

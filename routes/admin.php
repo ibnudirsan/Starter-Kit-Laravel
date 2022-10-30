@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\AdminController;
 use App\Http\Controllers\Admin\Auth\ModuleController;
 use App\Http\Controllers\Admin\Auth\PermissionController;
+use App\Http\Controllers\Admin\Auth\ProfileController;
 use App\Http\Controllers\Admin\Auth\RoleController;
 use App\Http\Controllers\Admin\Master\CustomerController;
 use App\Http\Controllers\Admin\Dashboard\dashboardController;
@@ -96,6 +97,18 @@ Route::group(['prefix' => '/permissions'], function () {
             Route::get('trash','dataTrash')->name('data.trash');
             Route::post('/restore/{id}','restore')->name('restore');
             Route::post('/delete/{id}','delete')->name('delete');
+        });
+    });
+});
+
+/**
+ * Profile User
+ */
+Route::group(['prefix'  => '/profile'], function () {
+    Route::name('profile.')->group(function () {
+        Route::controller(ProfileController::class)->group(function () {
+            Route::get('/user','index')->name('index');
+            Route::get('/setting','setting')->name('setting');
         });
     });
 });

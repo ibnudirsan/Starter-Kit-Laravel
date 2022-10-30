@@ -114,9 +114,9 @@
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="off" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password">
 
                     <span class="input-group-text cursor-pointer">
-                        <i class="bx bx-hide">
-                            <i class="fas fa-eye"></i>
-                        </i>
+                      <div class="hide-show">
+                          <span>Show</span>
+                      </div>
                     </span>
 
                       @error('password')
@@ -187,6 +187,7 @@
     <script src="{{ asset('assets/auth/js/menu.js') }}"></script>
     <script src="{{ asset('assets/auth/js/main.js') }}"></script>
     <script src="{{ asset('assets/auth/js/captcha.js') }}"></script>
+    <script src="{{ asset('assets/system/js/password.js') }}"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
