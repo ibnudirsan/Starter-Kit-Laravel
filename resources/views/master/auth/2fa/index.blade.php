@@ -49,7 +49,7 @@
                         {{ $QRCode }}
                     </div>
 
-                    <form class="form form-vertical" action="" method="post">
+                    <form class="form form-vertical" action="{{ route('google2fa.activation') }}" method="post">
                         @csrf
 
                         <div class="form-body">
@@ -57,11 +57,19 @@
                                 <div class="col-8 card-body d-flex justify-content-center">
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="text" class="form-control"
-                                                placeholder="OTP Code Google 2FA..." id="qrcode" autofocus>
-                                            <div class="form-control-icon">
-                                                <i class="fas fa-qrcode"></i>
-                                            </div>
+                                            <input type="text" class="form-control @error('qrcode') is-invalid @enderror"
+                                                placeholder="OTP Code Google 2FA..." id="qrcode" name="qrcode"
+                                                autocomplete="off" autofocus>
+                                                
+                                                <div class="form-control-icon">
+                                                    <i class="fas fa-qrcode"></i>
+                                                </div>
+
+                                                @error('qrcode')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                         </div>
                                     </div>
                                 </div>

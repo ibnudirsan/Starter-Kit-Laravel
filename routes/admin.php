@@ -122,6 +122,7 @@ Route::group(['prefix' => '/google2fa'], function () {
     Route::name('google2fa.')->group(function () {
         Route::controller(Google2FaController::class)->group(function () {
             Route::get('/configuration','index')->name('index');
+            Route::post('/activation','activation')->name('activation');
         });
     });
 });
