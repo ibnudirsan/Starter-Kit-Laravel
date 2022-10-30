@@ -33,7 +33,7 @@ class AdminResponse extends Eloquent implements AdminDesign {
     public function datatable()
     {
         return $this->model->select('id','uuid','name','deleted_at','email','created_at')
-                            ->whereLevel(0)
+                            ->whereLevel(2)
                             ->with('profile','secret');
     }
 
@@ -48,6 +48,9 @@ class AdminResponse extends Eloquent implements AdminDesign {
 
     public function create($param)
     {
+        $google2fa      = app('pragmarx.google2fa');
+        $NewSecretKey   = $google2fa->generateSecretKey();
+
         $user = $this->model->create([
             'name'     => $param->name,
             'email'    => $param->email,
@@ -63,7 +66,8 @@ class AdminResponse extends Eloquent implements AdminDesign {
                 'TeleID'        => empty($param->telegramid)  ? '0' : $param->telegramid,
             ]);
                 $user->secret()->create([
-                    'user_id'   => $user->id
+                    'user_id'   => $user->id,
+                    'secret2Fa' => $NewSecretKey
                 ]);
                     $user->assignRole($param->roles);
     }
