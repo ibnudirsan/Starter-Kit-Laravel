@@ -26,7 +26,9 @@
         <div class="col-md-8 col-12">
             <div class="card">
                 <div class="card-body">
-                    <form class="form form-vertical">
+                    <form class="form form-vertical" action="{{ route('profile.password') }}" method="post">
+                        @csrf
+
                         <div class="form-body">
                             <div class="row">
 
@@ -34,13 +36,19 @@
                                     <div class="form-group has-icon-left">
                                         <label for="password">New Password</label>
                                         <div class="position-relative">
-                                            <input type="password" class="form-control"
+                                            <input type="password" class="form-control @error('password') is-invalid @enderror"
                                                 placeholder="New Password..." id="password" name="password" 
                                                 autocomplete="off" autofocus>
 
                                             <div class="form-control-icon">
                                                 <i class="fas fa-lock"></i>
                                             </div>
+
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -64,13 +72,19 @@
                                     <div class="form-group has-icon-left">
                                         <label for="passwordOld">Current Password</label>
                                         <div class="position-relative">
-                                            <input type="password" class="form-control"
+                                            <input type="password" class="form-control @error('passwordOld') is-invalid @enderror"
                                                 placeholder="Current Password..." id="password"
                                                 name="passwordOld" autocomplete="off" autofocus>
 
                                             <div class="form-control-icon">
                                                 <i class="fas fa-lock"></i>
                                             </div>
+
+                                            @error('passwordOld')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>

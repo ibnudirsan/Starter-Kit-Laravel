@@ -2,9 +2,9 @@
 
 namespace App\Repositories\Auth\Profile;
 
-use LaravelEasyRepository\Implementations\Eloquent;
-use App\Models\Profile;
 use App\Models\User;
+use App\Models\profileUser;
+use LaravelEasyRepository\Implementations\Eloquent;
 
 class ProfileResponse extends Eloquent implements ProfileDesign {
 
@@ -39,5 +39,17 @@ class ProfileResponse extends Eloquent implements ProfileDesign {
     public function index()
     {
         # code...
+    }
+
+    public function CurrentPassword($param)
+    {
+        return $this->model->select('password')->where('id',$param)->first();
+    }
+
+    public function updatePassword($param, $id)
+    {
+        return $this->model->where('id',$id)->update([
+            'password'  => bcrypt($param->password)
+        ]);
     }
 }

@@ -109,6 +109,7 @@ Route::group(['prefix'  => '/profile'], function () {
         Route::controller(ProfileController::class)->group(function () {
             Route::get('/user','index')->name('index');
             Route::get('/setting','setting')->name('setting');
+            Route::post('/password','password')->name('password');
         });
     });
 });

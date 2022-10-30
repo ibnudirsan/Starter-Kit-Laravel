@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Auth\role;
+namespace App\Http\Requests\Auth\admin;
 
+use App\Rules\admin\passwordRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 /*
@@ -13,7 +14,7 @@ use Illuminate\Foundation\Http\FormRequest;
 |--------------------------------------------------------------------------
 */
 
-class roleRequest extends FormRequest
+class profilePassword extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,20 +34,7 @@ class roleRequest extends FormRequest
     public function rules()
     {
         return [
-            'roleName'      => 'required|max:30',
-            'permissions'   => 'required',
-        ];
-    }
-
-    /**
-    * Get the validation messages that apply to the request.
-    *
-    * @return array
-    */
-    public function messages()
-    {
-        return [
-           'permissions.required' => 'Choose a permissions.',
+            'password' => ['required','confirmed','min:6','string', new passwordRule()]
         ];
     }
 }

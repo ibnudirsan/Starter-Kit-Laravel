@@ -4,6 +4,15 @@ namespace App\Http\Requests\Auth\role;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/*
+|--------------------------------------------------------------------------
+| Rumah Dev
+| Backend Developer : ibudirsan
+| Email             : ibnudirsan@gmail.com
+| Copyright © RumahDev 2022
+|--------------------------------------------------------------------------
+*/
+
 class editRequest extends FormRequest
 {
     /**

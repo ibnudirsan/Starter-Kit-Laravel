@@ -6,6 +6,15 @@ use App\Rules\admin\passwordRule;
 use App\Rules\customer\numberPhoneRule;
 use Illuminate\Foundation\Http\FormRequest;
 
+/*
+|--------------------------------------------------------------------------
+| Rumah Dev
+| Backend Developer : ibudirsan
+| Email             : ibnudirsan@gmail.com
+| Copyright © RumahDev 2022
+|--------------------------------------------------------------------------
+*/
+
 class editRequest extends FormRequest
 {
     /**
