@@ -32,60 +32,83 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-6 col-md-4 col-sm-12">
-                <div class="card card-statistic-2 shadow-lg bg-body rounded">
-                    <div class="card-body">
-                        <h2>Secret Key : <h2>
-                        <blockquote class="blockquote">
-                            {{ $SecretKey }}
-                        </blockquote>
+
+            @if(auth()->user()->secret->statusOTP == 0)
+                <div class="col-lg-6 col-md-4 col-sm-12">
+                    <div class="card card-statistic-2 shadow-lg bg-body rounded">
+                        <div class="card-body">
+                            <h2>Secret Key : <h2>
+                            <blockquote class="blockquote">
+                                {{ $SecretKey }}
+                            </blockquote>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-lg-6 col-md-4 col-sm-12">
-                <div class="card card-statistic-2 shadow-lg bg-body rounded">
-                    <div class="col-12 card-body d-flex justify-content-center">
-                        {{ $QRCode }}
-                    </div>
+                <div class="col-lg-6 col-md-4 col-sm-12">
+                    <div class="card card-statistic-2 shadow-lg bg-body rounded">
+                        <div class="col-12 card-body d-flex justify-content-center">
+                            {{ $QRCode }}
+                        </div>
 
-                    <form class="form form-vertical" action="{{ route('google2fa.activation') }}" method="post">
-                        @csrf
+                        <form class="form form-vertical" action="{{ route('google2fa.activation') }}" method="post">
+                            @csrf
 
-                        <div class="form-body">
-                            <div class="row">
-                                <div class="col-8 card-body d-flex justify-content-center">
-                                    <div class="form-group has-icon-left">
-                                        <div class="position-relative">
-                                            <input type="text" class="form-control @error('qrcode') is-invalid @enderror"
-                                                placeholder="OTP Code Google 2FA..." id="qrcode" name="qrcode"
-                                                autocomplete="off" autofocus>
-                                                
-                                                <div class="form-control-icon">
-                                                    <i class="fas fa-qrcode"></i>
-                                                </div>
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-8 card-body d-flex justify-content-center">
+                                        <div class="form-group has-icon-left">
+                                            <div class="position-relative">
+                                                <input type="text" class="form-control @error('qrcode') is-invalid @enderror"
+                                                    placeholder="OTP Code Google 2FA..." id="qrcode" name="qrcode"
+                                                    autocomplete="off" autofocus>
+                                                    
+                                                    <div class="form-control-icon">
+                                                        <i class="fas fa-qrcode"></i>
+                                                    </div>
 
-                                                @error('qrcode')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                                    @error('qrcode')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary icon icon-left">
-                                <i class="fas fa-file-signature"></i>
-                                Activation
-                            </button>
-                        </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary icon icon-left">
+                                    <i class="fas fa-file-signature"></i>
+                                    Activation
+                                </button>
+                            </div>
 
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            @elseif(auth()->user()->secret->statusOTP == 1)
+                <div class="col-12 d-flex justify-content-center">
+                    <div class="col-lg-5 col-md-4 col-sm-12">
+                        <div class="card card-statistic-2 shadow-lg bg-body rounded">
+                        <div class="card-wrap">
+                            <div class="col card-header d-flex justify-content-center">
+                                <h2>Google 2FA<h2>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="col badge-success rounded d-flex justify-content-center">
+                                    <div class="alert alert-success">
+                                        Activated
+                                    </div>
+                                </h1>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
         </div>
     </section>
 </div>
