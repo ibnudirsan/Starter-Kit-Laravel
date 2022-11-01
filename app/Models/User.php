@@ -134,7 +134,7 @@ class User extends Authenticatable
 
     public function secret()
     {
-        return $this->hasOne(userSecret::class,'user_id','id')->select('id', 'user_id', 'isBlock', 'secret2Fa','statusOTP');
+        return $this->hasOne(userSecret::class,'user_id','id')->select('id', 'user_id', 'isBlock', 'secret2Fa','statusOTP','timeOTP');
     }
 
     public function model()
