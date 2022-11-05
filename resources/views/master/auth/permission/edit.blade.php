@@ -2,6 +2,10 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css/choices.css') }}">
 @endpush
 
+@section('tittle')
+| Edit Permission
+@endsection
+
 @extends('layouts.app')
 
 @section('content')

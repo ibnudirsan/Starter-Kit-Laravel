@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
 @endpush
 
+@section('tittle')
+| List Permissions
+@endsection
+
 @extends('layouts.app')
 
 @section('content')
@@ -29,13 +33,13 @@
             </div>
 
             <div class="col-12 col-md-4 order-md-1 order-first">
-                <h3>Data Permissions</h3>
+                <h3>List Permissions</h3>
             </div>
             <div class="col-12 col-md-4 order-md-2 order-last">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Authorization</li>
-                        <li class="breadcrumb-item active" aria-current="page">Data Permissions</li>
+                        <li class="breadcrumb-item active" aria-current="page">List Permissions</li>
                     </ol>
                 </nav>
             </div>
