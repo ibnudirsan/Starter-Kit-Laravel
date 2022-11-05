@@ -55,7 +55,7 @@
                         </h6>
                     </li>
 
-                    <li><a class = "dropdown-item" href ="#">
+                    <li><a class = "dropdown-item" href ="{{ route('profile.index') }}">
                         <i class="fas fa-user-cog"></i>
                             Profile
                         </a>
