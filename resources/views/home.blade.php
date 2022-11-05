@@ -1,6 +1,9 @@
 @push('customCss')
 <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
 @endpush
+@section('tittle')
+| Dasboard
+@endsection
 @extends('layouts.app')
 
 @section('content')

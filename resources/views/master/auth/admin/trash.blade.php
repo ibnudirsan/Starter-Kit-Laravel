@@ -6,6 +6,10 @@
 
 @extends('layouts.app')
 
+@section('tittle')
+| Trash Admin
+@endsection
+
 @section('content')
 <div class="page-heading">
     <div class="card-body">

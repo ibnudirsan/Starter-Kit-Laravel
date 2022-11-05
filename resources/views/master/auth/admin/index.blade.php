@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css/custome/default.css') }}">
 @endpush
 
+@section('tittle')
+| List Admin
+@endsection
+
 @extends('layouts.app')
 
 @section('content')

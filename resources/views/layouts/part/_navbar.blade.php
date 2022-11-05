@@ -56,13 +56,13 @@
                     </li>
 
                     <li><a class = "dropdown-item" href ="#">
-                    <i     class = "fas fa-user"></i>
-                            My Profile
+                        <i class="fas fa-user-cog"></i>
+                            Profile
                         </a>
                     </li>
 
                     <li><a class="dropdown-item" href="{{ route('profile.setting') }}">
-                            <i class="fas fa-user-cog"></i>
+                        <i class="fas fa-cogs"></i>
                             Settings
                         </a>
                     </li>
