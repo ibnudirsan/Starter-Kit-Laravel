@@ -21,6 +21,11 @@ class ProfileController extends Controller
         return view('master.auth.profile.index');
     }
 
+    public function ProfileImage(Request $request, $id)
+    {
+        dd($request->all());
+    }
+
     public function ProfileUpdate(Request $request, $id)
     {
         $this->ProfileResponse->updateProfile($request, $id);

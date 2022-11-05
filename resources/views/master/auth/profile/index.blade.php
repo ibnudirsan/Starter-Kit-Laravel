@@ -32,7 +32,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 mb-1">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('profile.image',auth()->user()->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="col-12 d-flex justify-content-end mb-2">
@@ -47,7 +47,7 @@
                                         <label class="input-group-text" for="fileImage">
                                             <i class="fas fa-upload"></i>
                                         </label>
-                                        <input type="file" class="form-control" id="fileImage">
+                                        <input type="file" class="form-control" id="fileImage" name="file">
                                     </div>
                                 </div>
 
