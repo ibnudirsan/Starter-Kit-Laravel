@@ -21,10 +21,16 @@ class ProfileController extends Controller
         return view('master.auth.profile.index');
     }
 
+    public function ProfileUpdate(Request $request, $id)
+    {
+        $this->ProfileResponse->updateProfile($request, $id);
+    }
+
     public function setting()
     {
         return view('master.auth.profile.setting');
     }
+
 
     public function password(profilePassword $request)
     {

@@ -27,10 +27,40 @@
     </div>
     
     <section class="section">
-        <div class="col-md-8 col-12">
+        <div class="col-md-12 col-12">
             <div class="card">
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-1">
+                            <form action="" method="post" enctype="multipart/form-data">
+                                @csrf
 
+                                <div class="col-12 d-flex justify-content-end mb-2">
+                                    <button type="submit" class="btn btn-primary icon icon-left">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        Upload
+                                    </button>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="fileImage">
+                                            <i class="fas fa-upload"></i>
+                                        </label>
+                                        <input type="file" class="form-control" id="fileImage">
+                                    </div>
+                                </div>
+
+                                <div class="input-group avatar avatar-xl me-3">
+                                    <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y">
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="col-md-6 mb-1">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

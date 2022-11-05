@@ -52,4 +52,9 @@ class ProfileResponse extends Eloquent implements ProfileDesign {
             'password'  => bcrypt($param->password)
         ]);
     }
+
+    public function updateProfile($param, $id)
+    {
+        # code...
+    }
 }
