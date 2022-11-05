@@ -2,6 +2,10 @@
 
 @endpush
 
+@section('tittle')
+| View Role
+@endsection
+
 @extends('layouts.app')
 
 @section('content')

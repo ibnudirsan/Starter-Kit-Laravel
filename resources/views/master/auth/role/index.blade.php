@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css//custome/role.css') }}">
 @endpush
 
+@section('tittle')
+| List Role
+@endsection
+
 @extends('layouts.app')
 
 @section('content')
