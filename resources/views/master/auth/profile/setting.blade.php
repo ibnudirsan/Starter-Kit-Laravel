@@ -2,6 +2,10 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
 @endpush
 
+@section('tittle')
+| Setting Account
+@endsection
+
 @extends('layouts.app')
 
 @section('content')
