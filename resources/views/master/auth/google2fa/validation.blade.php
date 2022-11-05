@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('assets/auth/css/core.css') }}" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{ asset('assets/auth/css/theme-default.css') }}" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('assets/auth/css/demo.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('assets/auth/css/perfect-scrollbar.css') }}"/>
     <!-- Page CSS -->
@@ -153,5 +154,9 @@
     <script src="{{ asset('assets/auth/js/main.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="{{ asset('assets/system/js/toastify.js') }}"></script>
+    @if(Session::has('message'))
+        @include('layouts.part._notif')
+    @endif
 </body>
 </html>

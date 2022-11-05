@@ -61,6 +61,22 @@ class Google2FaController extends Controller
 
     public function google2FaValidator(validatorGoogle2fa $request)
     {
-        dd($request->all());
+        $google2fa      = app('pragmarx.google2fa');
+        $valid          = $google2fa->verifyKey(auth()->user()->secret->secret2Fa, $request->otp);
+            if($valid) {
+                $this->Google2FaResponse->validation();
+                $notification = ['message'     => 'Welcome to the CMS RumahDev.',
+                                 'alert-type'  => 'success',
+                                 'gravity'     => 'bottom',
+                                 'position'    => 'right'];
+                    return redirect()->route('home')->with($notification);
+            } elseif (!$valid){
+                $notification = ['message'     => 'Code No match, OTP Google 2FA Failed.',
+                                 'alert-type'  => 'danger',
+                                 'gravity'     => 'bottom',
+                                 'position'    => 'right'];
+                    return redirect()->route('google.validation')->with($notification);
+            }
+
     }
 }

@@ -1,3 +1,6 @@
+@push('customCss')
+<link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
+@endpush
 @extends('layouts.app')
 
 @section('content')
@@ -31,4 +34,11 @@
         </div>
     </section>
 </div>
-@endsection
+@stop
+
+@push('Alert')
+<script src="{{ asset('assets/system/js/toastify.js') }}"></script>
+@if(Session::has('message'))
+    @include('layouts.part._notif')
+@endif
+@endpush

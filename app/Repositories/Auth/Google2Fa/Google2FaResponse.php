@@ -49,4 +49,25 @@ class Google2FaResponse extends Eloquent implements Google2FaDesign{
             }
 
     }
+
+    public function validation()
+    {
+        try {
+
+            $timeOTP        = Carbon::now()->addDay()->format('Y-m-d H:i:s');
+            $this->model->where('user_id',auth()->user()->id)->update([
+                'timeOTP'   => $timeOTP
+            ]);
+            
+        } catch (\Exception $e) {
+            $notification = ['message'     => 'An error occurred in the internal server application.',
+                             'alert-type'  => 'danger',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('google.validation')->with($notification);
+        }
+
+
+
+    }
 }
