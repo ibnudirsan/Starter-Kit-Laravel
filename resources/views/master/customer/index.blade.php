@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
 @endpush
 
+@section('tittle')
+| Master Customer
+@endsection
+
 @extends('layouts.app')
 
 @section('content')

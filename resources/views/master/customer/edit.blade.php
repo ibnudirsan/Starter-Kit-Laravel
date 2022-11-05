@@ -2,6 +2,10 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css/datepicker.css') }}">
 @endpush
 
+@section('tittle')
+| Edit Customer
+@endsection
+
 @extends('layouts.app')
 
 @section('content')

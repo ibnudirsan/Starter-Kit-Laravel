@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css/sweetalert2.min.css') }}">
 @endpush
 
+@section('tittle')
+| Data Trash Customers
+@endsection
+
 @extends('layouts.app')
 
 @section('content')
