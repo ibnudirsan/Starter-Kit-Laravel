@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
 @endpush
 
+@section('tittle')
+| List Module
+@endsection
+
 @extends('layouts.app')
 
 @section('content')
@@ -30,13 +34,13 @@
             </div>
 
             <div class="col-12 col-md-4 order-md-1 order-first">
-                <h3>Data Module</h3>
+                <h3>List Module</h3>
             </div>
             <div class="col-12 col-md-4 order-md-2 order-last">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Authorization</li>
-                        <li class="breadcrumb-item active" aria-current="page">Data Module</li>
+                        <li class="breadcrumb-item active" aria-current="page">List Module</li>
                     </ol>
                 </nav>
             </div>

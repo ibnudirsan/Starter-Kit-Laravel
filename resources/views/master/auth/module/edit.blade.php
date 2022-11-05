@@ -2,6 +2,10 @@
 
 @endpush
 
+@section('tittle')
+| Edit Module
+@endsection
+
 @extends('layouts.app')
 
 @section('content')
