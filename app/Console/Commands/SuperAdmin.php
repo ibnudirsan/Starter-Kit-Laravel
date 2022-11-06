@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use File;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -57,6 +58,7 @@ class SuperAdmin extends Command
                             'user_id'   => $user->id
                         ]);
                         $user->assignRole("SuperAdmin");
+                        File::makeDirectory(public_path('assets/images/profile/'));
                             $this->components->info('Aready Created User '.$username);
                             $this->line('<bg=black;fg=white>..:: Created by RumahDev ::..</>');
             }
