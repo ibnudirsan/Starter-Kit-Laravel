@@ -34,21 +34,17 @@
                         <div class="col-md-6">
                             <form action="{{ route('profile.image',auth()->user()->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
-
-                                <div class="input-group avatar avatar-xl col d-flex justify-content-end mb-2">
-                                    <img src="{{ asset(auth()->user()->profile->pathImage) }}">
-                                </div>
                                 
                                 <div class="input-group">
                                     <div class="input-group mb-1">
                                         <label class="input-group-text" for="fileImage">
                                             <i class="fas fa-upload"></i>
                                         </label>
-                                        <input type="file" class="form-control" id="fileImage" name="file">
+                                        <input type="file" class="form-control" name="file" id="file" onchange="previewImage()">
                                     </div>
                                 </div>
                                 
-                                <div class="col-12 d-flex justify-content-end">
+                                <div class="col-12 d-flex justify-content-end mb-2">
                                     <button type="submit" class="btn btn-primary icon icon-left">
                                         <i class="fas fa-cloud-upload-alt"></i>
                                         Upload
@@ -56,6 +52,18 @@
                                 </div>
 
                             </form>
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="input-group img-fluid col d-flex justify-content-end mb-2">
+                                <img src="{{
+                                    empty(auth()->user()->profile->pathImage) ?
+                                    'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y' :
+                                    asset(auth()->user()->profile->pathImage) 
+                                }}" class="img-fluid rounded-circle shadow-lg" id="img-preview" width="200" height="200">
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -146,6 +154,7 @@
 @push('customJs')
 <script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/password.js') }}"></script>
+<script src="{{  asset('assets/system/js/img.preview.js') }}"></script>
 @endpush
 
 @push('Alert')
