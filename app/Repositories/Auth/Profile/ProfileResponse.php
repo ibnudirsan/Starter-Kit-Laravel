@@ -53,6 +53,11 @@ class ProfileResponse extends Eloquent implements ProfileDesign {
         ]);
     }
 
+    public function profile($id)
+    {
+        return $this->profile->whereUserId($id)->first();
+    }
+
     public function imageProfile($param, $id)
     {
         # code...

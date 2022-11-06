@@ -35,7 +35,7 @@
                             <form action="{{ route('profile.image',auth()->user()->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
 
-                                <div class="input-group avatar avatar-xl col d-flex justify-content-end">
+                                <div class="input-group avatar avatar-xl col d-flex justify-content-end mb-2">
                                     <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y">
                                 </div>
                                 
@@ -48,7 +48,7 @@
                                     </div>
                                 </div>
                                 
-                                <div class="col-12 d-flex justify-content-end mb-2">
+                                <div class="col-12 d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary icon icon-left">
                                         <i class="fas fa-cloud-upload-alt"></i>
                                         Upload
@@ -79,7 +79,7 @@
                                                 <label for="fullname" class="form-label">
                                                     Full Name
                                                 </label>
-                                                <input type="text" id="fullname" class="form-control"
+                                                <input type="text" id="fullname" class="form-control" value="{{ old('fullname', $profile->fullName) }}"
                                                 placeholder="Full Name..." name="fullname" autocomplete="off" autofocus>
 
                                             </div>
@@ -91,7 +91,7 @@
                                                     Numberphone
                                                 </label>
                                                 <input type="text" id="numberphone" class="form-control" autocomplete="off"
-                                                placeholder="Numberphone..." name="numberphone">
+                                                placeholder="Numberphone..." name="numberphone" value="{{ old('numberphone', $profile->numberPhone) }}">
 
 
                                             </div>
@@ -103,13 +103,13 @@
                                                     Telegram ID
                                                 </label>
                                                 <input type="text" id="telegram" class="form-control" autocomplete="off"
-                                                placeholder="Telegram ID..." name="telegram">
+                                                placeholder="Telegram ID..." name="telegram" value="{{ old('telegram', $profile->TeleID) }}">
 
 
                                             </div>
                                         </div>
 
-                                        <div class="col-12 d-flex justify-content-end mb-2">
+                                        <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary icon icon-left">
                                                 <i class="fas fa-pen-square"></i>
                                                 Update
