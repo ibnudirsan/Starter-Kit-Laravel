@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Auth\admin\profilePassword;
+use App\Http\Requests\Auth\profile\updateProfile;
 use App\Repositories\Auth\Profile\ProfileResponse;
 
 class ProfileController extends Controller
@@ -28,9 +29,22 @@ class ProfileController extends Controller
         // dd($id);
     }
 
-    public function ProfileUpdate(Request $request, $id)
+    public function ProfileUpdate(updateProfile $request, $id)
     {
-        $this->ProfileResponse->updateProfile($request, $id);
+        try {
+            $this->ProfileResponse->updateProfile($request, $id);
+            $notification = ['message'     => 'Successfully Updated Profile.',
+                             'alert-type'  => 'success',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('profile.index')->with($notification);
+        } catch (\Exception $e) {
+            $notification = ['message'     => 'Failed to Updated Profile.',
+                             'alert-type'  => 'danger',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('profile.index')->with($notification);
+        }
     }
 
     public function setting()

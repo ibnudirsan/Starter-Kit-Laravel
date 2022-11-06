@@ -110,7 +110,7 @@ Route::group(['prefix'  => '/profile'], function () {
         Route::controller(ProfileController::class)->group(function () {
             Route::get('/user','index')->name('index');
             Route::post('/update/profile/{id}','ProfileImage')->name('image');
-            Route::post('/update','ProfileUpdate')->name('update');
+            Route::post('/update/{id}','ProfileUpdate')->name('update');
             Route::get('/setting','setting')->name('setting');
             Route::post('/password','password')->name('password');
         });

@@ -65,6 +65,10 @@ class ProfileResponse extends Eloquent implements ProfileDesign {
 
     public function updateProfile($param, $id)
     {
-        # code...
+        return $this->profile->whereUserId($id)->update([
+            'fullName'      => $param->fullname,
+            'numberPhone'   => $param->numberphone,
+            'TeleID'        => $param->telegram
+        ]);
     }
 }
