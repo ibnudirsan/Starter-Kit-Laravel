@@ -36,7 +36,7 @@
                                 @csrf
 
                                 <div class="input-group avatar avatar-xl col d-flex justify-content-end mb-2">
-                                    <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y">
+                                    <img src="{{ asset(auth()->user()->profile->pathImage) }}">
                                 </div>
                                 
                                 <div class="input-group">

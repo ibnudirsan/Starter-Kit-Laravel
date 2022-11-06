@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Auth\Profile;
 
+use Image;
 use App\Models\User;
 use App\Models\profileUser;
 use LaravelEasyRepository\Implementations\Eloquent;
@@ -24,7 +25,6 @@ class ProfileResponse extends Eloquent implements ProfileDesign {
     */
     protected $model;
     protected $profile;
-
     /**
      *
      * @param User $model
@@ -34,11 +34,6 @@ class ProfileResponse extends Eloquent implements ProfileDesign {
     {
         $this->model    = $model;
         $this->profile  = $profile;
-    }
-
-    public function index()
-    {
-        # code...
     }
 
     public function CurrentPassword($param)
@@ -58,11 +53,6 @@ class ProfileResponse extends Eloquent implements ProfileDesign {
         return $this->profile->whereUserId($id)->first();
     }
 
-    public function imageProfile($param, $id)
-    {
-        # code...
-    }
-
     public function updateProfile($param, $id)
     {
         return $this->profile->whereUserId($id)->update([
@@ -71,4 +61,18 @@ class ProfileResponse extends Eloquent implements ProfileDesign {
             'TeleID'        => $param->telegram
         ]);
     }
+
+    public function imageProfile($param, $id)
+    {
+        $imageProfile       = $param->file;
+        $imageName          = 'profile-'.$id.'.'.strtolower($imageProfile->getClientOriginalExtension());
+        Image::make($imageProfile)->resize(500,500)->save('assets/images/profile/'.$imageName);
+        $pathImage          = 'assets/images/profile/'.$imageName;
+
+            $this->profile->whereUserId($id)->update([
+                'imageName' => $imageName,
+                'pathImage' => $pathImage,
+            ]);
+    }
+
 }

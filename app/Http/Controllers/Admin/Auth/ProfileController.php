@@ -25,21 +25,33 @@ class ProfileController extends Controller
 
     public function ProfileImage(Request $request, $id)
     {
-        // dd($request->all());
-        // dd($id);
+        try {            
+            $this->ProfileResponse->imageProfile($request, $id);
+            $notification = ['message'     => 'Successfully Upload Image Profile.',
+                             'alert-type'  => 'success',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('profile.index')->with($notification);
+        } catch (\Exception $e) {
+            $notification = ['message'     => 'Failed to Upload Image Profile.',
+                             'alert-type'  => 'danger',
+                             'gravity'     => 'bottom',
+                             'position'    => 'right'];
+                return redirect()->route('profile.index')->with($notification);
+        }
     }
 
     public function ProfileUpdate(updateProfile $request, $id)
     {
         try {
             $this->ProfileResponse->updateProfile($request, $id);
-            $notification = ['message'     => 'Successfully Updated Profile.',
+            $notification = ['message'     => 'Successfully Updated Data Profile.',
                              'alert-type'  => 'success',
                              'gravity'     => 'bottom',
                              'position'    => 'right'];
                 return redirect()->route('profile.index')->with($notification);
         } catch (\Exception $e) {
-            $notification = ['message'     => 'Failed to Updated Profile.',
+            $notification = ['message'     => 'Failed to Updated Data Profile.',
                              'alert-type'  => 'danger',
                              'gravity'     => 'bottom',
                              'position'    => 'right'];
