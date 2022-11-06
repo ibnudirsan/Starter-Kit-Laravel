@@ -32,6 +32,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|userSecret whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|userSecret whereUserId($value)
  * @mixin \Eloquent
+ * @property int $statusOTP
+ * @property string|null $timeOTP
+ * @method static \Illuminate\Database\Eloquent\Builder|userSecret whereStatusOTP($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|userSecret whereTimeOTP($value)
  */
 class userSecret extends Model
 {
