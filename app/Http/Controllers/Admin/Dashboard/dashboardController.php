@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Dashboard;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Repositories\Auth\Admin\AdminResponse;
+use App\Repositories\Customer\CustomerResponse;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,14 @@ use Illuminate\Http\Request;
 */
 class dashboardController extends Controller
 {
+    protected $CustomerResponse;
+    protected $AdminResponse;
+    public function __construct(CustomerResponse $CustomerResponse, AdminResponse $AdminResponse)
+    {
+        $this->CustomerResponse = $CustomerResponse;
+        $this->AdminResponse    = $AdminResponse;
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -22,6 +32,8 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $customer   = $this->CustomerResponse->datatable()->count();
+        $user       = $this->AdminResponse->datatable()->count();
+            return view('home',compact('customer','user'));
     }
 }

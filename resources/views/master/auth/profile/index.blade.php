@@ -31,7 +31,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <form action="{{ route('profile.image',auth()->user()->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 
@@ -54,7 +54,7 @@
                             </form>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
 
                             <div class="input-group img-fluid col d-flex justify-content-end mb-2">
                                 <img src="{{

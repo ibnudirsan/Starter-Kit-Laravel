@@ -41,11 +41,11 @@
                                 <th class="text-left" width="70px">Last Name</th>
                                 <th class="text-left" width="80px">Numberphone</th>
                                 <th class="text-left" width="70px">Birth Day</th>
-                                <th class="text-left" width="30px">Age</th>
-                                <th class="text-left" width="200px">Email</th>
+                                <th class="text-left" width="70px">Age</th>
+                                <th class="text-left" width="150px">Email</th>
                                 <th class="text-left" width="200px">Address</th>
                                 <th class="text-left" width="100px">DeletedAt</th>
-                                <th class="text-center" width="90px">Action</th>
+                                <th class="text-center" width="120px">Action</th>
                             </tr>
                         </thead>
                     </table>
