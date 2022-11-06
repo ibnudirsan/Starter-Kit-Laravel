@@ -21,7 +21,6 @@ class Google2FaController extends Controller
     {
         $user           = Auth::User();  
         $google2fa      = app('pragmarx.google2fa');
-        $NewSecretKey   = $google2fa->generateSecretKey();
         $SecretKey      = $user->secret->secret2Fa;
 
         $QR_Image = $google2fa->getQRCodeUrl(
@@ -35,16 +34,20 @@ class Google2FaController extends Controller
         return view('master.auth.google2fa.index',compact('QRCode','SecretKey'));
     }
 
-    public function activation(Request $request)
+    public function activation(validatorGoogle2fa $request)
     {
         try {
             $id = auth()->user()->id;
-            $this->Google2FaResponse->activation($request, $id);
-                $notification = ['message'     => 'Code match, Successfuly activation of Google 2FA.',
-                                 'alert-type'  => 'success',
-                                 'gravity'     => 'bottom',
-                                 'position'    => 'right'];
-                    return redirect()->route('google2fa.index')->with($notification);
+                $result = $this->Google2FaResponse->activation($request, $id);
+                if($result === true) {
+                    $notification = ['message'     => 'Code Match, Successfuly activation of Google 2FA.',
+                                     'alert-type'  => 'success',
+                                     'gravity'     => 'bottom',
+                                     'position'    => 'right'];
+                        return redirect()->route('google2fa.index')->with($notification);
+                } else {
+                    return $result;
+                }
         } catch (\Exception $e) {
             $notification = ['message'     => 'An error occurred on the internal server.',
                              'alert-type'  => 'danger',

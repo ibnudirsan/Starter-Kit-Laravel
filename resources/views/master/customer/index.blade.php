@@ -68,12 +68,12 @@
                             <th class="text-left" width="70px">First Name</th>
                             <th class="text-left" width="70px">Last Name</th>
                             <th class="text-left" width="80px">Numberphone</th>
-                            <th class="text-left" width="70px">Birth Day</th>
-                            <th class="text-left" width="30px">Age</th>
-                            <th class="text-left" width="200px">Email</th>
+                            <th class="text-left" width="60px">Birth Day</th>
+                            <th class="text-left" width="40px">Age</th>
+                            <th class="text-left" width="180px">Email</th>
                             <th class="text-left" width="200px">Address</th>
                             <th class="text-left" width="100px">Created</th>
-                            <th class="text-center" width="70px">Action</th>
+                            <th class="text-center" width="100px">Action</th>
                         </tr>
                     </thead>
                 </table>

@@ -52,7 +52,7 @@
                             <th class="text-left" width="260px">Role</th>
                             <th class="text-left" width="100px">Numberphone</th>
                             <th class="text-left" width="90px">Telegram ID</th>
-                            <th class="text-left" width="100px">Created</th>
+                            <th class="text-left" width="110px">Created</th>
                         </tr>
                     </thead>
                 </table>

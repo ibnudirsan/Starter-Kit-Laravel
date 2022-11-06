@@ -34,13 +34,14 @@ class Google2FaResponse extends Eloquent implements Google2FaDesign{
     {
         $secret2Fa      = auth()->user()->secret->secret2Fa;
         $google2fa      = app('pragmarx.google2fa');
-        $valid          = $google2fa->verifyKey($secret2Fa, $param->qrcode);
-            if($valid) {
-                $this->model->whereUserId($id)->update([
+        $valid          = $google2fa->verifyKey($secret2Fa, $param->otp);
+            if($valid === true) {
+                $result = $this->model->whereUserId($id)->update([
                     'statusOTP' => true,
                     'timeOTP'   => Carbon::now()->addDay()->format('Y-m-d H:i:s'),
                 ]);
-            } elseif (!$valid) {
+                return (boolean) $result;
+            } elseif ($valid === false) {
                 $notification = ['message'     => 'Code No match, Google 2FA activation failed.',
                                  'alert-type'  => 'danger',
                                  'gravity'     => 'bottom',

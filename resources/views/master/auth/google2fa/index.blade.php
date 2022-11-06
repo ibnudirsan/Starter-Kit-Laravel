@@ -63,15 +63,15 @@
                                     <div class="col-8 card-body d-flex justify-content-center">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
-                                                <input type="text" class="form-control @error('qrcode') is-invalid @enderror"
-                                                    placeholder="OTP Code Google 2FA..." id="qrcode" name="qrcode"
+                                                <input type="text" class="form-control @error('otp') is-invalid @enderror"
+                                                    placeholder="OTP Code Google 2FA..." id="otp" name="otp"
                                                     autocomplete="off" autofocus>
                                                     
                                                     <div class="form-control-icon">
                                                         <i class="fas fa-qrcode"></i>
                                                     </div>
 
-                                                    @error('qrcode')
+                                                    @error('otp')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
