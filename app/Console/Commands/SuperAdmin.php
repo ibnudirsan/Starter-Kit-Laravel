@@ -32,6 +32,8 @@ class SuperAdmin extends Command
     {
         DB::beginTransaction();
         try {
+            $google2fa      = app('pragmarx.google2fa');
+            $NewSecretKey   = $google2fa->generateSecretKey();
             $result     = User::select('id')->whereLevel(1)->first();
             $username   = !$this->option('username') ? 'ibnudirsan' : $this->option('username');
             $email      = !$this->option('email') ? 'admin@rumahdev.net' : $this->option('email');
@@ -55,12 +57,15 @@ class SuperAdmin extends Command
                         'TeleID'        => '0',
                     ]);
                         $user->secret()->create([
-                            'user_id'   => $user->id
+                            'user_id'   => $user->id,
+                            'secret2Fa' => $NewSecretKey
                         ]);
-                        $user->assignRole("SuperAdmin");
-                        File::makeDirectory(public_path('assets/images/profile/'));
-                            $this->components->info('Aready Created User '.$username);
-                            $this->line('<bg=black;fg=white>..:: Created by RumahDev ::..</>');
+                            $user->assignRole("SuperAdmin");
+                            if(!File::exists(public_path('assets/images/profile/'))) {
+                                File::makeDirectory(public_path('assets/images/profile/'));
+                            }
+                                $this->components->info('Aready Created User '.$username);
+                                $this->line('<bg=black;fg=white>..:: Created by RumahDev ::..</>');
             }
         } catch (\Exception $e) {
             DB::rollBack();

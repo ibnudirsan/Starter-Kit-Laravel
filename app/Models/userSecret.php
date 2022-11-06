@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 /*
@@ -44,4 +45,15 @@ class userSecret extends Model
     protected $fillable = [
         'user_id', 'isBlock', 'secret2Fa','statusOTP','timeOTP'
     ];
+
+    
+    public function setsecret2faAttribute($value)
+    {
+         $this->attributes['secret2Fa'] = encrypt($value);
+    }
+
+    public function getsecret2faAttribute($value)
+    {
+        return decrypt($value);
+    }
 }
