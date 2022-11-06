@@ -23,7 +23,8 @@ class ProfileController extends Controller
 
     public function ProfileImage(Request $request, $id)
     {
-        dd($request->all());
+        // dd($request->all());
+        // dd($id);
     }
 
     public function ProfileUpdate(Request $request, $id)
