@@ -100,6 +100,14 @@ https://github.com/ibnudirsan/Starter-Kit-Laravel-9.git
 ```
 
 - Buat .env dari file .env.example
+- Jalankan perintah :
+```shell
+php artisan key:generate
+```
+- Jalankan perintah :
+```shell
+composer install
+```
 - Buat Database.
 - Konfigurasi Database.
 - Lalu jalankan perintah :
@@ -116,6 +124,11 @@ php artisan db:seed --class=PermissionSeeder
 php artisan super:admin --username=ibnudirsan --email=ibnudirsan@gmail.com --password=Password@123
 ```
 > Note: Password terdiri dari kombinasi huruf Besar, Kecil, Karakter Khusus dan Angka.
+
+## Create Repository Baru :
+```shell
+php artisan make:repository repositoryName 
+```
 
 ## License
 
