@@ -1,10 +1,11 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/ibnudirsan/art/main/laravel-logolockup-cmyk-red.png" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-    <a href="https://github.com/ibnudirsan/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/v/release/ibnudirsan/Starter-Kit-Laravel-9?style=plastic"></a>
-    <a href="https://github.com/ibnudirsan/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/last-commit/ibnudirsan/Starter-Kit-Laravel-9?style=plastic"></a>
-    <a href="https://github.com/ibnudirsan/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/forks/ibnudirsan/Starter-Kit-Laravel-9?style=plastic"></a>
-        <a href="https://github.com/ibnudirsan/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/downloads/ibnudirsan/Starter-Kit-Laravel-9/total?style=plastic"></a>
+<a href="https://github.com/ibnudirsan/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/v/release/ibnudirsan/Starter-Kit-Laravel-9?style=plastic">
+</a><a href="https://github.com/ibnudirsan/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/last-commit/ibnudirsan/Starter-Kit-Laravel-9?style=plastic">
+ </a><a href="https://github.com/ibnudirsan/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/forks/ibnudirsan/Starter-Kit-Laravel-9?style=plastic">
+ </a><a href="https://github.com/ibnudirsan/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/downloads/ibnudirsan/Starter-Kit-Laravel-9/total?style=plastic">
+ </a>
 </p>
 
 ## RumahDev | Starter Kit Laravel 9.x
@@ -91,6 +92,9 @@ Project Starter Kit Laravel 9.x untuk kita para Developer PHP Laravel yang serin
 - "yaza/laravel-repository-service": "^3.2"
     > Note: Untuk Manajemen Repository design pattern.
 
+```shell
+https://github.com/ibnudirsan/Starter-Kit-Laravel-9.git
+```
 
 ```shell
 
@@ -113,4 +117,7 @@ php artisan super:admin --username=ibnudirsan --email=ibnudirsan@gmail.com --pas
 
 ## License
 
-The Starter Kit framework 9.x is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+MIT license adalah lisensi perangkat lunak bebas guna yang berasal dari Massachusetts Institute of Technology (MIT). Lisensi ini ringkas dan to the point. Lisensi ini membolehkan pengguna untuk melakukan apapun pada kode program seperti pada Apache License. Lisensi ini hanya mewajibkan pengguna untuk menyertakan lisensi dan copyright si pembuat pada kode yang didistribusikan ulang dan tidak ada larangan untuk menggunakan trademark dari si pembuat asli. Selain itu pengguna juga tidak berhak untuk menuntut si pembuat ketika terjadi kerusakan pada perangkat lunak tersebut.
+[MIT license](https://opensource.org/licenses/MIT).
+
+link : https://codepolitan.com/blog/8-open-source-license-populer-yang-mesti-diketahui
