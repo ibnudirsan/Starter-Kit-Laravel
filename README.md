@@ -92,28 +92,30 @@ Project Starter Kit Laravel 9.x untuk kita para Developer PHP Laravel yang serin
 - "yaza/laravel-repository-service": "^3.2"
     > Note: Untuk Manajemen Repository design pattern.
 
+## Setup :
+
+- Clone Project dari Github :
 ```shell
 https://github.com/ibnudirsan/Starter-Kit-Laravel-9.git
 ```
 
+- Buat .env dari file .env.example
+- Buat Database.
+- Konfigurasi Database.
+- Lalu jalankan perintah :
 ```shell
-
 php artisan migrate
-
 ```
 
+- Lalu jalankan perintah :
 ```shell
-
 php artisan db:seed --class=PermissionSeeder
-
 ```
-
+- Untuk membuat User SuperAdmun jalankan perintah :
 ```shell
-
 php artisan super:admin --username=ibnudirsan --email=ibnudirsan@gmail.com --password=Password@123
-
 ```
-
+> Note: Password terdiri dari kombinasi huruf Besar, Kecil, Karakter Khusus dan Angka.
 
 ## License
 
