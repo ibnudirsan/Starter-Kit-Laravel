@@ -123,7 +123,11 @@ Route::group(['prefix'  => '/profile'], function () {
 Route::group(['prefix' => '/google2fa'], function () {
     Route::name('google2fa.')->group(function () {
         Route::controller(Google2FaController::class)->group(function () {
-            Route::get('/configuration','index')->name('index');
+
+            Route::group(['middleware' => ['password.confirm']], function () {
+                Route::get('/configuration','index')->name('index');
+            });
+
             Route::post('/activation','activation')->name('activation');
         });
     });
@@ -140,7 +144,7 @@ Route::group(['prefix'  => '/customer'], function () {
             Route::post('/store','Store')->name('store');
             Route::get('/edit/{id}','edit')->name('edit');
             Route::post('update/{id}','update')->name('update');
-            Route::post('/trash/{id}','trashData')->name('trash');
+            Route::post('/trash/{id}','trashData')->name('data.trash');
             Route::get('/trash','Trash')->name('trash');
             Route::post('/restore/{id}','RestoreData')->name('restore');
             Route::post('/delete/{id}','delete')->name('delete');
