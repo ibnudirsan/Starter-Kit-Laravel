@@ -9,7 +9,87 @@
 
 ## RumahDev | Starter Kit Laravel 9.x
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling.
+## Introduction
+Assalamu'alikum...
+Project Starter Kit Laravel 9.x untuk kita para Developer PHP Laravel yang sering kali setup project mulai dari nol, agar kedepannya bisa lebih cepat untuk develop web aplikasi.
+
+## Features
+
+- Authentication menggunakan Laravel UI Bootstrap :
+    *   Register
+    *   Login
+    *   Forget Password
+- CAPTCHA Login.
+- Example UI Dashboard.
+- Authentication Google Two Factor.
+- Password Validation.
+- Authorization :
+    *   Data Admin
+        * Create
+        * Edit
+        * Block
+        * All Trash :
+            * Restore
+    *   Data Role
+        * Create
+        * Edit
+        * View
+        * Trash
+        * All Trash :
+            * Restore
+            * Delete
+    *   List Module
+        * Create
+        * Edit
+        * Trash
+        * All Trash :
+            * Restore
+            * Delete
+    *   List Permissions
+        * Create
+        * Edit
+        * Trash
+        * All Trash :
+            * Restore
+            * Delete
+ - Data Example (Data Customer) :
+    * Create
+    * Edit
+    * Trash
+    * Download (Excel)
+    * All Trash :
+        * Restore
+        * Delete
+ - Profile Account :
+    * Change Photo Profile.
+    * Update Data Profile.
+ - Setting Account (Update Password).
+
+    
+## Requered :
+- PHP 8.0
+- Composer version 2.3.7
+- MySQL
+
+## Package PHP :
+- "barryvdh/laravel-debugbar": "^3.7"
+    > Note: Untuk DebugBar Info.
+- "intervention/image": "^2.7",
+    > Note: Untuk Manajemen Image (Upload).
+- "maatwebsite/excel": "^3.1",
+    > Note: Untuk Membuat Report dalam bentuk Excel.
+- "mews/captcha": "3.2.7",
+    > Note: Untuk captcha ketika login.
+- "pragmarx/google2fa-laravel": "^2.0",
+    > Note: Untuk Google 2FA.  
+- "simplesoftwareio/simple-qrcode": "^4.2",
+    > Note: Untuk menampilkan QRCode Google 2FA.  
+- "spatie/laravel-permission": "^5.5",
+    > Note: Untuk Manajemen Authorization User.
+- "yajra/laravel-datatables": "^9.0",
+    > Note: Untuk Manajemen Table Display.
+- "yaza/laravel-repository-service": "^3.2"
+    > Note: Untuk Manajemen Repository design pattern.
 
 
 ```shell
