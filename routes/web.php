@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Route::prefix('app/v1/')->group(function () {
     Auth::routes([
-        'verify'    => true
+        'verify'    => true,
     ]);
     Route::get('reload-captcha',[LoginController::class,'reloadCaptcha']);
 });
