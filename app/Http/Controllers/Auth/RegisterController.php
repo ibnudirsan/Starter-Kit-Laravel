@@ -58,11 +58,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $google2fa      = app('pragmarx.google2fa');
+        $NewSecretKey   = $google2fa->generateSecretKey();
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'level'    => 2,
             'password' => Hash::make($data['password']),
         ]);
+            $user->profile()->create([
+                'user_id'       => $user->id,
+                'fullName'      => 'Fulan',
+                'imageName'     => 'ImageFulan',
+                'pathImage'     => 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
+                'numberPhone'   => '0',
+                'TeleID'        => '0',
+            ]);
+                $user->secret()->create([
+                    'user_id'   => $user->id,
+                    'secret2Fa' => $NewSecretKey
+                ]);
+                    return $user;
     }
 
     /**

@@ -126,10 +126,11 @@
                     />
                     
                     <span class="input-group-text cursor-pointer">
-                        <i class="bx bx-hide">
-                            <i class="fas fa-eye"></i>
-                        </i>
+                      <div class="hide-show">
+                          <span>Show</span>
+                      </div>
                     </span>
+
                   </div>
 
                     @error('password')
@@ -140,17 +141,18 @@
                 </div>
 
                 <div class="mb-3 form-password-toggle">
-                  <label class="form-label" for="password-confirm">Confirm Password</label>
+                  <label class="form-label" for="password_confirm">Confirm Password</label>
                   <div class="input-group input-group-merge">
-                    <input type="password" id="password-confirm" class="form-control" name="password_confirmation" aria-describedby="password" required autocomplete="off"
+                    <input type="password" id="password_confirm" class="form-control" name="password_confirmation" aria-describedby="password" required autocomplete="off"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" 
                     />
                     
                     <span class="input-group-text cursor-pointer">
-                        <i class="bx bx-hide">
-                            <i class="fas fa-eye"></i>
-                        </i>
+                      <div class="hideshow">
+                          <span>Show</span>
+                      </div>
                     </span>
+
                   </div>
                 </div>
 
@@ -180,6 +182,8 @@
     <!-- Main JS -->
     <script src="{{ asset('assets/auth/js/main.js') }}"></script>
     <!-- Page JS -->
+    <script src="{{ asset('assets/system/js/password.js') }}"></script>
+    <script src="{{ asset('assets/system/js/password-confirm.js') }}"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
