@@ -119,11 +119,18 @@ php artisan migrate
 ```shell
 php artisan db:seed --class=PermissionSeeder
 ```
-- Untuk membuat User SuperAdmun jalankan perintah :
+- Untuk membuat User SuperAdmin jalankan perintah :
 ```shell
 php artisan super:admin --username=ibnudirsan --email=ibnudirsan@gmail.com --password=Password@123
 ```
 > Note: Password terdiri dari kombinasi huruf Besar, Kecil, Karakter Khusus dan Angka.
+
+- Untuk membuat Data Dummy Customer, Jalankan perintah :
+```shell
+php artisan db:seed
+```
+> Note : Create 1000 data dummy customer.
+
 
 ## Create Repository Baru :
 ```shell
