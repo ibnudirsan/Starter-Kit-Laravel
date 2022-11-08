@@ -112,6 +112,24 @@
                             </div>
                         </div>
 
+
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="google2fa">Reset Authentication Google 2FA ?</label>
+                                <div class="input-group mb-3">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input @error('google2fa') is-invalid @enderror" type="checkbox" id="google2fa" name="google2fa">
+                                    </div>
+                                        
+                                        @error('google2fa')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="password">Password</label>
@@ -127,6 +145,7 @@
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="col-md-12 col-12">
                             <div class="form-group">

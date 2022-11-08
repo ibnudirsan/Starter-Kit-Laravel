@@ -75,45 +75,48 @@ class AdminResponse extends Eloquent implements AdminDesign {
     public function edit($id)
     {
         return $this->model->select('id','uuid','name','email')
-                            ->with('profile')
+                            ->with('profile','secret')
                             ->whereUuid($id)
                             ->firstOrFail();
     }
 
     public function update($param, $id)
     {
+        $google2fa      = app('pragmarx.google2fa');
+        $NewSecretKey   = $google2fa->generateSecretKey();
+        $user           = $this->model->whereUuid($id)->first();
+
         if($param->filled('password')) {
-            
-            $this->model->whereUuid($id)->update([
+            $user->update([
                 'name'      => $param->name,
                 'email'     => $param->email,
                 'password'  => bcrypt($param->password)
             ]);
-
-            $user = $this->model->whereUuid($id)->first();
                 $user->profile()->update([
                     'fullName'      => $param->fullName,
                     'numberPhone'   => $param->Numberphone,
                     'TeleID'        => $param->telegramid,
                 ]);
                     $user->syncRoles($param->roles);
-
         } elseif (!$param->filled('password')) {
-
-            $this->model->whereUuid($id)->update([
+            $user->update([
                 'name'      => $param->name,
                 'email'     => $param->email,
             ]);
-
-            $user = $this->model->whereUuid($id)->first();
                 $user->profile()->update([
                     'fullName'      => $param->fullName,
                     'numberPhone'   => $param->Numberphone,
                     'TeleID'        => $param->telegramid,
                 ]);
                     $user->syncRoles($param->roles);
-            
         }
+            if($param->filled('google2fa')) {
+                $user->secret()->update([
+                    'secret2Fa' => encrypt($NewSecretKey),
+                    'statusOTP' => 0,
+                    'timeOTP'   => null
+                ]);
+            }
     }
 
     /**

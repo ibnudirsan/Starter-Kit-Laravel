@@ -119,7 +119,7 @@ php artisan migrate
 ```shell
 php artisan db:seed --class=PermissionSeeder
 ```
-- Untuk membuat User SuperAdmin jalankan perintah :
+- Untuk membuat User SuperAdmun jalankan perintah :
 ```shell
 php artisan super:admin --username=ibnudirsan --email=ibnudirsan@gmail.com --password=Password@123
 ```
