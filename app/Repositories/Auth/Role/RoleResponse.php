@@ -7,7 +7,6 @@ use App\Models\Role as RoleModel;
 use Ramsey\Uuid\Uuid as Generator;
 use Spatie\Permission\Models\Role;
 use App\Repositories\Auth\Role\RoleDesign;
-use Illuminate\Support\Facades\Log;
 use LaravelEasyRepository\Implementations\Eloquent;
 
 /*

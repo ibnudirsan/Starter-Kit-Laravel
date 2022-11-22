@@ -7,7 +7,7 @@ use Ramsey\Uuid\Uuid as Generator;
 use App\Models\Permission as PemisssionModel;
 use Spatie\Permission\Models\Permission;
 use LaravelEasyRepository\Implementations\Eloquent;
-
+use Spatie\Permission\Models\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,11 +33,13 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign {
     * Don't remove or change $this->model variable name
     * @property Model|mixed $model;
     */
+    protected $role;
     protected $model;
     protected $module;
     protected $PemisssionModel;
-    public function __construct(Permission $model, moduleMenu $module, PemisssionModel $PemisssionModel)
+    public function __construct(Permission $model, moduleMenu $module, PemisssionModel $PemisssionModel, Role $role)
     {
+        $this->role             = $role;
         $this->model            = $model;
         $this->module           = $module;
         $this->PemisssionModel  = $PemisssionModel;
@@ -64,6 +66,9 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign {
             'name'          => $param->permissionName,
             'guard_name'    => $param->guardType,
         ]);
+
+        $role = $this->role->whereName('SuperAdmin')->first();
+        $role->givePermissionTo($param->permissionName);
     }
 
     public function edit($id)
