@@ -3,11 +3,12 @@
 namespace App\Repositories\Auth\Permissions;
 
 use App\Models\moduleMenu;
+use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Uuid as Generator;
-use App\Models\Permission as PemisssionModel;
-use Spatie\Permission\Models\Permission;
-use LaravelEasyRepository\Implementations\Eloquent;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use App\Models\Permission as PemisssionModel;
+use LaravelEasyRepository\Implementations\Eloquent;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,15 +61,22 @@ class PermissionsResponse extends Eloquent implements PermissionsDesign {
 
     public function store($param)
     {
-        $this->model->create([
-            'uuid'          => str_replace('-', '', Generator::uuid4()->toString()),
-            'module_id'     => $param->moduleName,
-            'name'          => $param->permissionName,
-            'guard_name'    => $param->guardType,
-        ]);
-
-        $role = $this->role->whereName('SuperAdmin')->first();
-        $role->givePermissionTo($param->permissionName);
+        DB::beginTransaction();
+        try {
+            $this->model->create([
+                'uuid'          => str_replace('-', '', Generator::uuid4()->toString()),
+                'module_id'     => $param->moduleName,
+                'name'          => $param->permissionName,
+                'guard_name'    => $param->guardType,
+            ]);
+    
+            $role = $this->role->whereName('SuperAdmin')->first();
+            $role->givePermissionTo($param->permissionName);
+        } catch (\Exception $e) {
+            DB::rollBack();
+        } finally {
+            DB::commit();
+        }
     }
 
     public function edit($id)
