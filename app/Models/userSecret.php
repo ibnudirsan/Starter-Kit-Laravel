@@ -46,7 +46,6 @@ class userSecret extends Model
         'user_id', 'isBlock', 'secret2Fa','statusOTP','timeOTP'
     ];
 
-    
     public function setsecret2faAttribute($value)
     {
          $this->attributes['secret2Fa'] = encrypt($value);
