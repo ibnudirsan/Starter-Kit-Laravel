@@ -102,12 +102,13 @@ https://github.com/ibnudirsan/Starter-Kit-Laravel-9.git
 - Buat .env dari file .env.example
 - Jalankan perintah :
 ```shell
-php artisan key:generate
+composer install
 ```
 - Jalankan perintah :
 ```shell
-composer install
+php artisan key:generate
 ```
+
 - Buat Database.
 - Konfigurasi Database.
 - Lalu jalankan perintah :
