@@ -96,7 +96,7 @@ Project Starter Kit Laravel 9.x untuk kita para Developer PHP Laravel yang serin
 
 - Clone Project dari Github :
 ```shell
-https://github.com/ibnudirsan/Starter-Kit-Laravel-9.git
+https://github.com/IDrumahdev/Starter-Kit-Laravel-9.git
 ```
 
 - Buat .env dari file .env.example
