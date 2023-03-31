@@ -96,19 +96,18 @@ Project Starter Kit Laravel 9.x untuk kita para Developer PHP Laravel yang serin
 
 - Clone Project dari Github :
 ```shell
-https://github.com/IDrumahdev/Starter-Kit-Laravel-9.git
+https://github.com/ibnudirsan/Starter-Kit-Laravel-9.git
 ```
 
 - Buat .env dari file .env.example
 - Jalankan perintah :
 ```shell
-composer install
+php artisan key:generate
 ```
 - Jalankan perintah :
 ```shell
-php artisan key:generate
+composer install
 ```
-
 - Buat Database.
 - Konfigurasi Database.
 - Lalu jalankan perintah :
