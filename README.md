@@ -2,7 +2,7 @@
 
 <p align="center">
 <a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/v/release/IDrumahdev/Starter-Kit-Laravel-9?style=plastic">
-</a><a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/last-commit/IDrumahdev/Starter-Kit-Laravel-9?style=plastic">
+</a><a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/last-commit/IDrumahdev/Starter-Kit-Laravel-9/main?style=plastic">
  </a><a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/forks/IDrumahdev/Starter-Kit-Laravel-9?style=plastic">
  </a><a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/downloads/IDrumahdev/Starter-Kit-Laravel-9/total?style=plastic">
  </a>
