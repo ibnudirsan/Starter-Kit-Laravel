@@ -1,10 +1,10 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/ibnudirsan/art/main/laravel-logolockup-cmyk-red.png" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/v/release/ibnudirsan/Starter-Kit-Laravel-9?style=plastic">
-</a><a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/last-commit/ibnudirsan/Starter-Kit-Laravel-9?style=plastic">
- </a><a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/forks/ibnudirsan/Starter-Kit-Laravel-9?style=plastic">
- </a><a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/downloads/ibnudirsan/Starter-Kit-Laravel-9/total?style=plastic">
+<a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/v/release/IDrumahdev/Starter-Kit-Laravel-9?style=plastic">
+</a><a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/last-commit/IDrumahdev/Starter-Kit-Laravel-9?style=plastic">
+ </a><a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/forks/IDrumahdev/Starter-Kit-Laravel-9?style=plastic">
+ </a><a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/downloads/IDrumahdev/Starter-Kit-Laravel-9/total?style=plastic">
  </a>
 </p>
 
