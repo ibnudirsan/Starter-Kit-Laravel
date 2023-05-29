@@ -8530,8 +8530,8 @@
                 "brianium/paratest": "^6.4.1",
                 "laravel/framework": "^9.26.1",
                 "laravel/pint": "^1.1.1",
-                "nunomaduro/larastan": "^1.0.3",
-                "nunomaduro/mock-final-classes": "^1.1.0",
+                // "nunomaduro/larastan": "^1.0.3",
+                // "nunomaduro/mock-final-classes": "^1.1.0",
                 "orchestra/testbench": "^7.7",
                 "phpunit/phpunit": "^9.5.23",
                 "spatie/ignition": "^1.4.1"
