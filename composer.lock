@@ -8507,94 +8507,94 @@
             ],
             "time": "2022-03-03T13:19:32+00:00"
         },
-        // {
-        //     "name": "nunomaduro/collision",
-        //     "version": "v6.3.1",
-        //     "source": {
-        //         "type": "git",
-        //         "url": "https://github.com/nunomaduro/collision.git",
-        //         "reference": "0f6349c3ed5dd28467087b08fb59384bb458a22b"
-        //     },
-        //     "dist": {
-        //         "type": "zip",
-        //         "url": "https://api.github.com/repos/nunomaduro/collision/zipball/0f6349c3ed5dd28467087b08fb59384bb458a22b",
-        //         "reference": "0f6349c3ed5dd28467087b08fb59384bb458a22b",
-        //         "shasum": ""
-        //     },
-        //     "require": {
-        //         "filp/whoops": "^2.14.5",
-        //         "php": "^8.0.0",
-        //         "symfony/console": "^6.0.2"
-        //     },
-        //     "require-dev": {
-        //         "brianium/paratest": "^6.4.1",
-        //         "laravel/framework": "^9.26.1",
-        //         "laravel/pint": "^1.1.1",
-        //         // "nunomaduro/larastan": "^1.0.3",
-        //         // "nunomaduro/mock-final-classes": "^1.1.0",
-        //         "orchestra/testbench": "^7.7",
-        //         "phpunit/phpunit": "^9.5.23",
-        //         "spatie/ignition": "^1.4.1"
-        //     },
-        //     "type": "library",
-        //     "extra": {
-        //         "branch-alias": {
-        //             "dev-develop": "6.x-dev"
-        //         },
-        //         "laravel": {
-        //             "providers": [
-        //                 // "NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider"
-        //             ]
-        //         }
-        //     },
-        //     "autoload": {
-        //         "psr-4": {
-        //             // "NunoMaduro\\Collision\\": "src/"
-        //         }
-        //     },
-        //     "notification-url": "https://packagist.org/downloads/",
-        //     "license": [
-        //         "MIT"
-        //     ],
-        //     "authors": [
-        //         {
-        //             "name": "Nuno Maduro",
-        //             "email": "enunomaduro@gmail.com"
-        //         }
-        //     ],
-        //     "description": "Cli error handling for console/command-line PHP applications.",
-        //     "keywords": [
-        //         "artisan",
-        //         "cli",
-        //         "command-line",
-        //         "console",
-        //         "error",
-        //         "handling",
-        //         "laravel",
-        //         "laravel-zero",
-        //         "php",
-        //         "symfony"
-        //     ],
-        //     "support": {
-        //         "issues": "https://github.com/nunomaduro/collision/issues",
-        //         "source": "https://github.com/nunomaduro/collision"
-        //     },
-        //     "funding": [
-        //         {
-        //             "url": "https://www.paypal.com/paypalme/enunomaduro",
-        //             "type": "custom"
-        //         },
-        //         {
-        //             "url": "https://github.com/nunomaduro",
-        //             "type": "github"
-        //         },
-        //         {
-        //             "url": "https://www.patreon.com/nunomaduro",
-        //             "type": "patreon"
-        //         }
-        //     ],
-        //     "time": "2022-09-29T12:29:49+00:00"
-        // },
+        {
+            "name": "nunomaduro/collision",
+            "version": "v6.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nunomaduro/collision.git",
+                "reference": "0f6349c3ed5dd28467087b08fb59384bb458a22b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/0f6349c3ed5dd28467087b08fb59384bb458a22b",
+                "reference": "0f6349c3ed5dd28467087b08fb59384bb458a22b",
+                "shasum": ""
+            },
+            "require": {
+                "filp/whoops": "^2.14.5",
+                "php": "^8.0.0",
+                "symfony/console": "^6.0.2"
+            },
+            "require-dev": {
+                "brianium/paratest": "^6.4.1",
+                "laravel/framework": "^9.26.1",
+                "laravel/pint": "^1.1.1",
+                "nunomaduro/larastan": "^1.0.3",
+                "nunomaduro/mock-final-classes": "^1.1.0",
+                "orchestra/testbench": "^7.7",
+                "phpunit/phpunit": "^9.5.23",
+                "spatie/ignition": "^1.4.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "6.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NunoMaduro\\Collision\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nuno Maduro",
+                    "email": "enunomaduro@gmail.com"
+                }
+            ],
+            "description": "Cli error handling for console/command-line PHP applications.",
+            "keywords": [
+                "artisan",
+                "cli",
+                "command-line",
+                "console",
+                "error",
+                "handling",
+                "laravel",
+                "laravel-zero",
+                "php",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/nunomaduro/collision/issues",
+                "source": "https://github.com/nunomaduro/collision"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/paypalme/enunomaduro",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/nunomaduro",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/nunomaduro",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2022-09-29T12:29:49+00:00"
+        },
         {
             "name": "phar-io/manifest",
             "version": "2.0.3",
