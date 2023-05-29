@@ -43,20 +43,20 @@ class ProfileController extends Controller
 
     public function ProfileUpdate(updateProfile $request, $id)
     {
-        try {
+        // try {
             $this->ProfileResponse->updateProfile($request, $id);
             $notification = ['message'     => 'Successfully Updated Data Profile.',
                              'alert-type'  => 'success',
                              'gravity'     => 'bottom',
                              'position'    => 'right'];
                 return redirect()->route('profile.index')->with($notification);
-        } catch (\Exception $e) {
-            $notification = ['message'     => 'Failed to Updated Data Profile.',
-                             'alert-type'  => 'danger',
-                             'gravity'     => 'bottom',
-                             'position'    => 'right'];
-                return redirect()->route('profile.index')->with($notification);
-        }
+        // } catch (\Exception $e) {
+        //     $notification = ['message'     => 'Failed to Updated Data Profile.',
+        //                      'alert-type'  => 'danger',
+        //                      'gravity'     => 'bottom',
+        //                      'position'    => 'right'];
+        //         return redirect()->route('profile.index')->with($notification);
+        // }
     }
 
     public function setting()
