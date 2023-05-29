@@ -8543,7 +8543,7 @@
                 },
                 "laravel": {
                     "providers": [
-                        "NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider"
+                        // "NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider"
                     ]
                 }
             },
