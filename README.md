@@ -103,8 +103,8 @@ https://github.com/IDrumahdev/Starter-Kit-Laravel-9.git
 - Jalankan perintah :
 ```shell
 composer install
-- Jalankan perintah :
 ```
+- Jalankan perintah :
 ```shell
 php artisan key:generate
 ```
