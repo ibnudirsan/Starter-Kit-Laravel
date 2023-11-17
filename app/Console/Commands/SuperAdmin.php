@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use File;
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -43,9 +44,10 @@ class SuperAdmin extends Command
                 $this->line('<bg=black;fg=white>..:: Created by RumahDev ::..</>');
             } elseif (!$result){
                 $user = User::create([
-                    'name'     => $username,
-                    'email'    => $email,
-                    'level'    => 1,
+                    'name'              => $username,
+                    'email'             => $email,
+                    'level'             => 1,
+                    'email_verified_at' => Carbon::now()->format('Y-m-d h:i:s'),
                     'password' => bcrypt($password)
                 ]);
                     $user->profile()->create([

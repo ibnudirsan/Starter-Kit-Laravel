@@ -1,7 +1,7 @@
 @section('tittle')
 | Confirm Password
 @endsection
-@extends('layouts.app')
+@extends('admin.app')
 
 @section('content')
 

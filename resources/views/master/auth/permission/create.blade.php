@@ -6,7 +6,7 @@
 | Create Permission
 @endsection
 
-@extends('layouts.app')
+@extends('admin.app')
 
 @section('content')
 <div class="page-heading">

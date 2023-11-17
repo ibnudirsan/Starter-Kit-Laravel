@@ -156,7 +156,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="{{ asset('assets/system/js/toastify.js') }}"></script>
     @if(Session::has('message'))
-        @include('layouts.part._notif')
+        @include('admin.part._notif')
     @endif
 </body>
 </html>

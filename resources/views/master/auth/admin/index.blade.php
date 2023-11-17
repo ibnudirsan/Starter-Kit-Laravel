@@ -9,7 +9,7 @@
 | List Admin
 @endsection
 
-@extends('layouts.app')
+@extends('admin.app')
 
 @section('content')
 <div class="page-heading">
@@ -72,6 +72,6 @@
 @push('Alert')
 <script src="{{ asset('assets/system/js/toastify.js') }}"></script>
 @if(Session::has('message'))
-    @include('layouts.part._notif')
+    @include('admin.part._notif')
 @endif
 @endpush
