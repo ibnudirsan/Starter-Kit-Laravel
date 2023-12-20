@@ -8,6 +8,10 @@
  </a>
 </p>
 
+<p>
+     Donation : <br> <a target="_blank" href="https://saweria.co/ruangdev" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-512/free-e-wallet-4292583-3557281.png?f=webp&w=256" width="50" alt="Laravel Logo"></a>
+</p>
+
 ## RumahDev | Starter Kit Laravel 9.x
 
 ## Introduction
