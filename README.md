@@ -9,14 +9,14 @@
 </p>
 
 <p>
-     Donation : <br> <a href="https://saweria.co/ruangdev" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-512/free-e-wallet-4292583-3557281.png?f=webp&w=256" width="50" alt="Laravel Logo"></a>
+     Donation : <br> <a target="_blank" href="https://saweria.co/ruangdev" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-512/free-e-wallet-4292583-3557281.png?f=webp&w=256" width="50" alt="Laravel Logo"></a>
 </p>
 
-## RumahDev | Starter Kit Laravel 9.x
+## RuangDev | Starter Kit Laravel 10.x
 
 ## Introduction
 Assalamu'alikum...
-Project Starter Kit Laravel 9.x untuk kita para Developer PHP Laravel yang sering kali setup project mulai dari nol, agar kedepannya bisa lebih cepat untuk develop web aplikasi.
+Project Starter Kit Laravel 10.x untuk kita para Developer PHP Laravel yang sering kali setup project mulai dari nol, agar kedepannya bisa lebih cepat untuk develop web aplikasi.
 
 ## Features
 
