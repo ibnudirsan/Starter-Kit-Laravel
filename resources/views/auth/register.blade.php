@@ -88,11 +88,11 @@
                     </svg>
                   </span>
 
-                  <span class="app-brand-text demo text-body fw-bolder">RumahDev</span>
+                  <span class="app-brand-text demo text-body fw-bolder">RuangDev</span>
                 </a>
               </div>
 
-              <h4 class="mb-2">System Register RumahDev</h4>
+              <h4 class="mb-2">System Register RuangDev</h4>
               <form id="formAuthentication" class="mb-3" method="POST" action="{{ route('register') }}">
                 @csrf
 
