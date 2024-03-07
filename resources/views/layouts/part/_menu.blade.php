@@ -28,7 +28,7 @@
                 </ul>
             </li>
 
-        @can('Authorization')
+        @can('Menu Logs')
             <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="fas fa-folder"></i>

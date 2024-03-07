@@ -1,7 +1,7 @@
 @section('tittle')
 | Verify Email 
 @endsection
-@extends('admin.app')
+@extends('layouts.app')
 
 @section('content')
 
