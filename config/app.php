@@ -201,6 +201,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * Custom Service Provider
+         */
+        App\Providers\logsServiceProvider::class,
+
     ],
 
     /*

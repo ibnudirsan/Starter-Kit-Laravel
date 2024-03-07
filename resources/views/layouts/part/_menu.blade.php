@@ -32,6 +32,23 @@
             <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="fas fa-folder"></i>
+                        <span>Master Logs</span>
+                    </a>
+                <ul class="submenu">
+                    <li class="submenu-item">
+                        <a href="{{ route('log-viewer.index') }}" target="_blank" class='sidebar-link'>
+                            <i class="fas fa-clipboard-list"></i>
+                            <span>Logs View</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        @endcan
+
+        @can('Authorization')
+            <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="fas fa-folder"></i>
                         <span>Authorization</span>
                     </a>
                 <ul class="submenu ">

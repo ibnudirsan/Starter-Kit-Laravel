@@ -7,7 +7,7 @@
 | Forbidden Page
 @endsection
 
-@extends('admin.app')
+@extends('layouts.app')
 
 @section('content')
     <div class="error-page container">
