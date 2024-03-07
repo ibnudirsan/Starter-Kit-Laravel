@@ -101,7 +101,15 @@ return [
 
     'hosts' => [
         'local' => [
-            'name' => ucfirst(env('APP_ENV', 'local')),
+            'name' => 'Development Server'
+        ],
+        'staging' => [
+            'name' => 'Staging Server',
+            'host' => 'https://staging.example.com/log-viewer',
+        ],
+        'production' => [
+            'name' => 'Production Server',
+            'host' => 'https://staging.example.com/log-viewer',
         ],
 
         // 'staging' => [
