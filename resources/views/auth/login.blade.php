@@ -86,10 +86,10 @@
                     </svg>
                   </span>
 
-                  <span class="app-brand-text demo text-body fw-bolder">RumahDev</span>
+                  <span class="app-brand-text demo text-body fw-bolder">RuangDev</span>
                 </a>
               </div>
-              <h4 class="mb-2">Welcome to RumahDev</h4>
+              <h4 class="mb-2">Welcome to RuangDev</h4>
               <p class="mb-2">Please sign-in to your account and start the adventure</p>
 
               <form id="formAuthentication" class="mb-3" method="POST" action="{{ route('login') }}">

@@ -8,7 +8,7 @@
 | Trash Role
 @endsection
 
-@extends('admin.app')
+@extends('layouts.app')
 
 @section('content')
 <div class="page-heading">

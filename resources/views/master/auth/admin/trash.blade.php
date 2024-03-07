@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
 @endpush
 
-@extends('admin.app')
+@extends('layouts.app')
 
 @section('tittle')
 | Trash Admin

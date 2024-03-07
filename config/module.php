@@ -10,9 +10,14 @@ return [
         '01. Master Menu' => [
             'Authorization',
             'Menu Customer',
+            'Menu Logs'
         ],
 
-        '02. Master Admin' => [
+        '02. Master Logs' => [
+            'View Logger'
+        ],
+
+        '03. Master Admin' => [
             'Admin Create',
             'Admin Edit',
             'Admin Show',
@@ -20,7 +25,7 @@ return [
             'Admin Restore'
         ],
 
-        '03. Master Module' => [
+        '04. Master Module' => [
             'Module Show',
             'Module Edit',
             'Module Create',
@@ -29,7 +34,7 @@ return [
             'Module Delete'
         ],
 
-        '04. Master Permissions' => [
+        '05. Master Permissions' => [
             'Permissions Create',
             'Permissions Edit',
             'Permissions Show',
@@ -38,7 +43,7 @@ return [
             'Permissions Restore'
         ],
 
-        '05. Master Role' => [
+        '06. Master Role' => [
             'Role Trash',
             'Role View',
             'Role Edit',
@@ -48,7 +53,7 @@ return [
             'Role Create'
         ],
 
-        '06. Master Customer' => [
+        '07. Master Customer' => [
             'Customer Create',
             'Customer Show',
             'Customer Edit',
