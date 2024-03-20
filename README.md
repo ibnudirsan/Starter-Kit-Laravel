@@ -100,7 +100,7 @@ Project Starter Kit Laravel 10.x untuk kita para Developer PHP Laravel yang seri
 
 - Clone Project dari Github :
 ```shell
-https://github.com/IDrumahdev/Starter-Kit-Laravel-9.git
+https://github.com/IDrumahdev/Starter-Kit-Laravel.git
 ```
 
 - Buat .env dari file .env.example
