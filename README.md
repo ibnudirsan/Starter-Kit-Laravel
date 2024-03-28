@@ -98,6 +98,12 @@ Project Starter Kit Laravel 10.x untuk kita para Developer PHP Laravel yang seri
 
 ## Setup :
 
+- Buat Container untuk database postgresql dengan perintah berikut
+
+```shell
+docker run --name PGSQL-LOCAL-MAC -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=123456789 -d postgres
+```
+
 - Clone Project dari Github :
 ```shell
 https://github.com/IDrumahdev/Starter-Kit-Laravel.git

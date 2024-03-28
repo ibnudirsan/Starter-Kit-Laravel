@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  app:
+    build:
+      args:
+        user: aang
+        uid: 1000
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    # image: ubuntu
+    container_name: app-member-rki
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - localNetwork
+  
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-member-rki
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker:/etc/nginx/conf.d/
+    networks:
+      - localNetwork
+networks:
+  localNetwork:
+    driver: bridge
