@@ -1,10 +1,10 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/ibnudirsan/art/main/laravel-logolockup-cmyk-red.png" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<a href="https://github.com/IDRaungdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/v/release/IDRaungdev/Starter-Kit-Laravel-9?style=social">
-</a><a href="https://github.com/IDRaungdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/last-commit/IDRaungdev/Starter-Kit-Laravel-9?style=social">
- </a><a href="https://github.com/IDRaungdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/forks/IDRaungdev/Starter-Kit-Laravel-9?style=social">
- </a><a href="https://github.com/IDRaungdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/stars/IDRaungdev?style=social">
+<a href="https://github.com/ibnudirsan/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/v/release/ibnudirsan/Starter-Kit-Laravel-9?style=social">
+</a><a href="https://github.com/ibnudirsan/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/last-commit/ibnudirsan/Starter-Kit-Laravel-9?style=social">
+ </a><a href="https://github.com/ibnudirsan/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/forks/ibnudirsan/Starter-Kit-Laravel-9?style=social">
+ </a><a href="https://github.com/ibnudirsan/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/stars/ibnudirsan?style=social">
  </a>
 </p>
 
@@ -12,11 +12,11 @@
      Donation : <br> <a target="_blank" href="https://saweria.co/ruangdev" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-512/free-e-wallet-4292583-3557281.png?f=webp&w=256" width="50" alt="Laravel Logo"></a>
 </p>
 
-## RuangDev | Starter Kit Laravel 10.x
+## RuangDev | Starter Kit Laravel 11.x
 
 ## Introduction
-Assalamu'alikum...
-Project Starter Kit Laravel 10.x untuk kita para Developer PHP Laravel yang sering kali setup project mulai dari nol, agar kedepannya bisa lebih cepat untuk develop web aplikasi.
+Assalamu'alikum.
+Project Starter Kit Laravel 11.x untuk kita para Developer PHP Laravel yang sering kali setup project mulai dari nol, agar kedepannya bisa lebih cepat untuk develop web aplikasi.
 
 ## Features
 
@@ -72,9 +72,9 @@ Project Starter Kit Laravel 10.x untuk kita para Developer PHP Laravel yang seri
 
     
 ## Requered :
-- PHP 8.0
+- PHP ^8.0
 - Composer version 2.3.7
-- MySQL
+- MySQL ^8.0
 
 ## Package PHP :
 - "barryvdh/laravel-debugbar": "^3.7"
@@ -89,18 +89,18 @@ Project Starter Kit Laravel 10.x untuk kita para Developer PHP Laravel yang seri
     > Note: Untuk Google 2FA.  
 - "simplesoftwareio/simple-qrcode": "^4.2",
     > Note: Untuk menampilkan QRCode Google 2FA.  
-- "spatie/laravel-permission": "^5.5",
+- "spatie/laravel-permission": "^6.9",
     > Note: Untuk Manajemen Authorization User.
-- "yajra/laravel-datatables": "^9.0",
+- "yajra/laravel-datatables": "^11.0",
     > Note: Untuk Manajemen Table Display.
-- "yaza/laravel-repository-service": "^3.2"
+- "yaza/laravel-repository-service": "^5.0.1"
     > Note: Untuk Manajemen Repository design pattern.
 
 ## Setup :
 
 - Clone Project dari Github :
 ```shell
-https://github.com/IDRaungdev/Starter-Kit-Laravel.git
+https://github.com/ibnudirsan/Starter-Kit-Laravel.git
 ```
 
 - Buat .env dari file .env.example
