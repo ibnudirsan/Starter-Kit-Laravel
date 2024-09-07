@@ -1,10 +1,10 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/ibnudirsan/art/main/laravel-logolockup-cmyk-red.png" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/v/release/IDrumahdev/Starter-Kit-Laravel-9?style=social">
-</a><a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/last-commit/IDrumahdev/Starter-Kit-Laravel-9?style=social">
- </a><a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/forks/IDrumahdev/Starter-Kit-Laravel-9?style=social">
- </a><a href="https://github.com/IDrumahdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/stars/IDrumahdev?style=social">
+<a href="https://github.com/IDRaungdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/v/release/IDRaungdev/Starter-Kit-Laravel-9?style=social">
+</a><a href="https://github.com/IDRaungdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/last-commit/IDRaungdev/Starter-Kit-Laravel-9?style=social">
+ </a><a href="https://github.com/IDRaungdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/forks/IDRaungdev/Starter-Kit-Laravel-9?style=social">
+ </a><a href="https://github.com/IDRaungdev/Starter-Kit-Laravel-9"><img src="https://img.shields.io/github/stars/IDRaungdev?style=social">
  </a>
 </p>
 
@@ -100,7 +100,7 @@ Project Starter Kit Laravel 10.x untuk kita para Developer PHP Laravel yang seri
 
 - Clone Project dari Github :
 ```shell
-https://github.com/IDrumahdev/Starter-Kit-Laravel.git
+https://github.com/IDRaungdev/Starter-Kit-Laravel.git
 ```
 
 - Buat .env dari file .env.example

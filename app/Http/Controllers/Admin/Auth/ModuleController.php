@@ -14,7 +14,7 @@ use App\Repositories\Auth\Module\ModuleResponse;
 | Rumah Dev
 | Backend Developer : ibudirsan
 | Email             : ibnudirsan@gmail.com
-| Copyright © RumahDev 2022
+| Copyright © Raungdev 2022
 |--------------------------------------------------------------------------
 */
 class ModuleController extends Controller

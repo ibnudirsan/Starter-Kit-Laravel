@@ -44,7 +44,7 @@
                                     auth()->user()->profile->fullName
                                 }}
                             </h6>
-                            <p class="mb-0 text-sm text-gray-600">CMS Rumahdev</p>
+                            <p class="mb-0 text-sm text-gray-600">CMS Raungdev</p>
                         </div>
                         <div class="user-img d-flex align-items-center">
                             <div class="avatar avatar-md">

@@ -28,7 +28,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 | Rumah Dev
 | Backend Developer : ibudirsan
 | Email             : ibnudirsan@gmail.com
-| Copyright © RumahDev 2022
+| Copyright © Raungdev 2022
 |--------------------------------------------------------------------------
 */
 class HasRoles extends Model

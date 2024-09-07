@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Password | RumahDev</title>
+    <title>Reset Password | Raungdev</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -92,7 +92,7 @@
                     </svg>
                   </span>
 
-                  <span class="app-brand-text demo text-body fw-bolder">RumahDev</span>
+                  <span class="app-brand-text demo text-body fw-bolder">Raungdev</span>
                 </a>
               </div>
               <!-- /Logo -->

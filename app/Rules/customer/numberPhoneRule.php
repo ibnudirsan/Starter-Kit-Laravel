@@ -10,7 +10,7 @@ use Illuminate\Contracts\Validation\Rule;
 | Rumah Dev
 | Backend Developer : ibudirsan
 | Email             : ibnudirsan@gmail.com
-| Copyright © RumahDev 2022
+| Copyright © Raungdev 2022
 |--------------------------------------------------------------------------
 */
 class numberPhoneRule implements Rule

@@ -68,7 +68,7 @@ class Google2FaController extends Controller
         $valid          = $google2fa->verifyKey(auth()->user()->secret->secret2Fa, $request->otp);
             if($valid) {
                 $this->Google2FaResponse->validation();
-                $notification = ['message'     => 'Welcome to the CMS RumahDev.',
+                $notification = ['message'     => 'Welcome to the CMS Raungdev.',
                                  'alert-type'  => 'success',
                                  'gravity'     => 'bottom',
                                  'position'    => 'right'];

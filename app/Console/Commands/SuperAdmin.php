@@ -37,11 +37,11 @@ class SuperAdmin extends Command
             $NewSecretKey   = $google2fa->generateSecretKey();
             $result     = User::select('id')->whereLevel(1)->first();
             $username   = !$this->option('username') ? 'ibnudirsan' : $this->option('username');
-            $email      = !$this->option('email') ? 'admin@rumahdev.net' : $this->option('email');
-            $password   = !$this->option('password') ? 'Rumahdev@123' : $this->option('password');
+            $email      = !$this->option('email') ? 'admin@Raungdev.net' : $this->option('email');
+            $password   = !$this->option('password') ? 'Raungdev@123' : $this->option('password');
             if($result) {
                 $this->components->error('Superadmin is already in the Database.');
-                $this->line('<bg=black;fg=white>..:: Created by RumahDev ::..</>');
+                $this->line('<bg=black;fg=white>..:: Created by Raungdev ::..</>');
             } elseif (!$result){
                 $user = User::create([
                     'name'              => $username,
@@ -67,12 +67,12 @@ class SuperAdmin extends Command
                                 File::makeDirectory(public_path('assets/images/profile/'));
                             }
                                 $this->components->info('Aready Created User '.$username);
-                                $this->line('<bg=black;fg=white>..:: Created by RumahDev ::..</>');
+                                $this->line('<bg=black;fg=white>..:: Created by Raungdev ::..</>');
             }
         } catch (\Exception $e) {
             DB::rollBack();
             $this->components->error('An error occurred in Superadmin account setup.');
-            $this->line('<bg=black;fg=white>..:: Created by RumahDev ::..</>');
+            $this->line('<bg=black;fg=white>..:: Created by Raungdev ::..</>');
         } finally {
             DB::commit();
         }

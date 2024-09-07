@@ -61,7 +61,7 @@ use Spatie\Permission\Contracts\Permission as PermissionContract;
 | Rumah Dev
 | Backend Developer : ibudirsan
 | Email             : ibnudirsan@gmail.com
-| Copyright © RumahDev 2022
+| Copyright © Raungdev 2022
 |--------------------------------------------------------------------------
 */
 class Permission extends Model implements PermissionContract
@@ -169,7 +169,7 @@ class Permission extends Model implements PermissionContract
     *
     * @return \Spatie\Permission\Contracts\Permission
     */
-    public static function findById(int $id, $guardName = null): PermissionContract {
+    public static function findById(string|int $id, ?string $guardName = null): PermissionContract {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
         $permission = static::getPermission(['id' => $id, 'guard_name' => $guardName]);
 

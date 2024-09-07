@@ -21,7 +21,7 @@ use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 | Rumah Dev
 | Backend Developer : ibudirsan
 | Email             : ibnudirsan@gmail.com
-| Copyright © RumahDev 2022
+| Copyright © Raungdev 2022
 |--------------------------------------------------------------------------
 */
 class CustomersExport implements FromCollection, WithMapping, WithHeadings, ShouldAutoSize, WithEvents, WithTitle, WithColumnFormatting, WithChunkReading, WithStyles
@@ -84,7 +84,7 @@ class CustomersExport implements FromCollection, WithMapping, WithHeadings, Shou
     {
         return [
             [
-                'PT. RumahDev Lab.'
+                'PT. RuangDev Lab.'
             ],
             [
                 'Report Customer'

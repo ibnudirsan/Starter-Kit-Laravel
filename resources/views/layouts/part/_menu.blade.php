@@ -3,7 +3,7 @@
         <p class="text-mute">2022 &copy;
             <a href="https://zuramai.github.io/mazer/" target="_blank" rel="noopener noreferrer">Mazer</a>
             |
-            <a href="http://" target="_blank" rel="noopener noreferrer">RumahDev Lab</a>
+            <a href="http://" target="_blank" rel="noopener noreferrer">Raungdev Lab</a>
         </p>
     </div>
                         

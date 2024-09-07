@@ -16,7 +16,7 @@ use App\Repositories\Auth\Role\RoleResponse;
 | Rumah Dev
 | Backend Developer : ibudirsan
 | Email             : ibnudirsan@gmail.com
-| Copyright © RumahDev 2022
+| Copyright © Raungdev 2022
 |--------------------------------------------------------------------------
 */
 class RoleController extends Controller

@@ -21,7 +21,7 @@ class CustomerFactory extends Factory
         return [
             'firstName'     => $this->faker->firstName(),
             'lastName'      => $this->faker->lastName(),
-            'email'         => $this->faker->userName(). '@rumahdev.net',
+            'email'         => $this->faker->userName(). '@Raungdev.net',
             'birthDay'      => $birthDay,
             'age'           => Carbon::parse($birthDay)->age,
             'address'       => $this->faker->townState(),

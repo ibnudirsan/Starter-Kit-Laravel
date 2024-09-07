@@ -51,7 +51,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 | Rumah Dev
 | Backend Developer : ibudirsan
 | Email             : ibnudirsan@gmail.com
-| Copyright © RumahDev 2022
+| Copyright © Raungdev 2022
 |--------------------------------------------------------------------------
 */
 class Role extends Model implements RoleContract
@@ -146,7 +146,7 @@ class Role extends Model implements RoleContract
         return $role;
     }
 
-    public static function findById(int $id, $guardName = null): RoleContract
+    public static function findById(string|int $id, ?string $guardName = null): RoleContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
 
@@ -208,7 +208,7 @@ class Role extends Model implements RoleContract
      *
      * @throws \Spatie\Permission\Exceptions\GuardDoesNotMatch
      */
-    public function hasPermissionTo($permission): bool
+    public function hasPermissionTo($permission, ?string $guardName = null): bool
     {
         if (config('permission.enable_wildcard_permission', false)) {
             return $this->hasWildcardPermission($permission, $this->getDefaultGuardName());

@@ -68,7 +68,7 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
 | Rumah Dev
 | Backend Developer : ibudirsan
 | Email             : ibnudirsan@gmail.com
-| Copyright © RumahDev 2022
+| Copyright © Raungdev 2022
 |--------------------------------------------------------------------------
 */
 class User extends Authenticatable implements MustVerifyEmail
