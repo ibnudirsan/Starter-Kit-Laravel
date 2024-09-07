@@ -48,6 +48,9 @@ class AdminResponse extends Eloquent implements AdminDesign {
 
     public function create($param)
     {
+        // dd($param->roles);
+        // exit;
+
         $google2fa      = app('pragmarx.google2fa');
         $NewSecretKey   = $google2fa->generateSecretKey();
 
@@ -69,7 +72,8 @@ class AdminResponse extends Eloquent implements AdminDesign {
                     'user_id'   => $user->id,
                     'secret2Fa' => $NewSecretKey
                 ]);
-                    $user->assignRole($param->roles);
+                    $role = $this->role->find($param->roles);
+                    $user->assignRole($role);
     }
 
     public function edit($id)
@@ -108,7 +112,8 @@ class AdminResponse extends Eloquent implements AdminDesign {
                     'numberPhone'   => $param->Numberphone,
                     'TeleID'        => $param->telegramid,
                 ]);
-                    $user->syncRoles($param->roles);
+                    $role = $this->role->find($param->roles);
+                    $user->syncRoles($role);
         }
             if($param->filled('google2fa')) {
                 $user->secret()->update([

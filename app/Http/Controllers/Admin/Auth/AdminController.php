@@ -118,7 +118,7 @@ class AdminController extends Controller
                              'alert-type'  => 'danger',
                              'gravity'     => 'bottom',
                              'position'    => 'right'];
-                return redirect()->route('role.index')->with($notification);
+                return redirect()->route('admin.index')->with($notification);
 
         } finally {
             DB::commit();
