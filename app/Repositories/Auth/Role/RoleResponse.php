@@ -3,6 +3,7 @@
 namespace App\Repositories\Auth\Role;
 
 use App\Models\moduleMenu;
+use App\Models\Permission;
 use App\Models\Role as RoleModel;
 use Ramsey\Uuid\Uuid as Generator;
 use Spatie\Permission\Models\Role;
@@ -26,11 +27,13 @@ class RoleResponse extends Eloquent implements RoleDesign {
     protected $model;
     protected $module;
     protected $RoleModel;
-    public function __construct(Role $model, moduleMenu $module, RoleModel $RoleModel)
+    protected $permission;
+    public function __construct(Role $model, moduleMenu $module, RoleModel $RoleModel, Permission $permission)
     {
         $this->model        = $model;
         $this->module       = $module;
         $this->RoleModel    = $RoleModel;
+        $this->permission   = $permission;
     }
 
     /**
@@ -88,7 +91,8 @@ class RoleResponse extends Eloquent implements RoleDesign {
             'uuid'  => str_replace('-', '', Generator::uuid4()->toString()),
             'name'  => $param->roleName
         ]);
-            return $role->givePermissionTo($param->permissions);
+        $permissions = $this->permission->whereIn('id', $param->permissions)->pluck('name');
+        return $role->givePermissionTo($permissions);
     }
 
     /**
@@ -112,7 +116,8 @@ class RoleResponse extends Eloquent implements RoleDesign {
             'name'  => $param->roleName
         ]);
             $role = $this->model->whereUuid($id)->first();
-                $role->syncPermissions($param->permissions);
+            $permissions = $this->permission->whereIn('id', $param->permissions)->pluck('name');
+            $role->syncPermissions($permissions);
      }
 
      /**
