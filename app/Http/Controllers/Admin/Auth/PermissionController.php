@@ -61,16 +61,16 @@ class PermissionController extends Controller
                         }
                         
                         if(auth()->user()->can('Permissions Trash')) {
-                            $Delete =   '
-                                            <button type="button" class="btn btn-danger btn-sm"
-                                                onclick="isTrash('.$action->id.')">
+                            $Trash  =   '
+                                            <button class="btn btn-danger btn-sm btn-trash"
+                                                data-uuid="'.$action->id.'">
                                                 Trash
                                             </button>
                                         ';
                         } else {
                             $Delete =   '';
                         }
-                            return $Edit.' '.$Delete;
+                            return $Edit.' '.$Trash;
                     })
                     ->rawColumns(['action'])
                     ->escapeColumns(['action'])
