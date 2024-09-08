@@ -35,15 +35,14 @@
         <div class="authentication-inner">
           <div class="card">
             <div class="card-body shadow rounded">
-              <div class="app-brand justify-content-center">
-                <a href="{{ route('login') }}" class="app-brand-link gap-2">
-                  <div class="d-flex justify-content-center">
-                    <img class="avatar bg-light rounded-circle text-white p-2" src="{{ asset('assets/auth/image/logo.png') }}" style="width: 150px; height: auto;">
-                  </div>
+
+              <div class="d-flex justify-content-center">
+                <a href="{{ route('login') }}" class="app-brand-link">
+                    <img class="avatar rounded-circle" src="{{ asset('assets/auth/image/logo.png') }}" style="width: 150px; height: auto;">
                 </a>
               </div>
 
-              <h4 class="mb-2">System Register RuangDev</h4>
+              <h4 class="d-flex justify-content-center mt-2">System Register RuangDev</h4>
               <form id="formAuthentication" method="POST" action="{{ route('register') }}">
                 @csrf
 
