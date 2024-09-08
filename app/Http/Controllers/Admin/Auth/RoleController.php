@@ -48,9 +48,9 @@ class RoleController extends Controller
                 ->addColumn('action', function ($action) {
 
                     if (auth()->user()->can('Role Trash')) {
-                        $Trash  =  '
-                                        <button type="button" class="btn btn-danger btn-sm btn-size"
-                                            onclick="isTrash('.$action->id.')">
+                        $Trash  =   '
+                                        <button class="btn btn-danger btn-sm btn-trash"
+                                            data-uuid="'.$action->id.'">
                                             Trash
                                         </button>
                                     ';
@@ -238,9 +238,9 @@ class RoleController extends Controller
                 ->addColumn('action', function ($action) {
 
                     if (auth()->user()->can('Role Restore')) {
-                        $Restore  = '
-                                        <button type="button" class="btn btn-primary btn-sm btn-size"
-                                            onclick="isRestore('.$action->id.')">
+                        $Restore  =   '
+                                        <button class="btn btn-primary btn-sm btn-restore"
+                                            data-uuid="'.$action->id.'">
                                             Restore
                                         </button>
                                     ';
@@ -249,9 +249,9 @@ class RoleController extends Controller
                     }
 
                     if (auth()->user()->can('Role Delete')) {
-                        $Delete  =  '
-                                        <button type="button" class="btn btn-danger btn-sm btn-size"
-                                            onclick="isDelete('.$action->id.')">
+                        $Delete  =   '
+                                        <button class="btn btn-danger btn-sm btn-delete"
+                                            data-uuid="'.$action->id.'">
                                             Delete
                                         </button>
                                     ';
