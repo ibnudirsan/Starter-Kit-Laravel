@@ -58,10 +58,10 @@ class ModuleController extends Controller
 
                 if(auth()->user()->can('Module Trash')) {
                     $Trash  =   '
-                                    <button type="button" class="btn btn-danger btn-sm"
-                                        onclick="isTrash('.$action->id.')">
+                                    <button class="btn btn-danger btn-sm btn-trash"
+                                        data-uuid="'.$action->id.'">
                                         Trash
-                                    </button>  
+                                    </button>
                                 ';
                 } else {
                     $Trash  =   '';
@@ -194,9 +194,9 @@ class ModuleController extends Controller
             ->addColumn('action', function ($action) {
 
                 if (auth()->user()->can('Module Restore')) {
-                    $Restore  = '
-                                    <button type="button" class="btn btn-primary btn-sm btn-size"
-                                        onclick="isRestore('.$action->id.')">
+                    $Restore  =   '
+                                    <button class="btn btn-primary btn-sm btn-restore"
+                                        data-uuid="'.$action->id.'">
                                         Restore
                                     </button>
                                 ';
@@ -205,9 +205,9 @@ class ModuleController extends Controller
                 }
 
                 if (auth()->user()->can('Module Delete')) {
-                    $Delete  =  '
-                                    <button type="button" class="btn btn-danger btn-sm btn-size"
-                                        onclick="isDelete('.$action->id.')">
+                    $Delete  = '
+                                    <button class="btn btn-danger btn-sm btn-delete"
+                                        data-uuid="'.$action->id.'">
                                         Delete
                                     </button>
                                 ';

@@ -1,6 +1,6 @@
 @push('customCss')
 <link rel="stylesheet" href="{{ asset('assets/system/css/dataTables.bootstrap5.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/system/css/sweetalert2.min.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@latest/dist/sweetalert2.min.css">
 <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css//custome/role.css') }}">
 @endpush
@@ -70,7 +70,7 @@
 @push('customJs')
 <script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/system/js/datatables.min.js') }}"></script>
-<script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @include('master.auth.role.table.role')
 @include('master.auth.role.js.trash')
 @endpush
