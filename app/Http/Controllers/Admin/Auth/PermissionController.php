@@ -68,7 +68,7 @@ class PermissionController extends Controller
                                             </button>
                                         ';
                         } else {
-                            $Delete =   '';
+                            $Trash =   '';
                         }
                             return $Edit.' '.$Trash;
                     })
@@ -203,20 +203,20 @@ class PermissionController extends Controller
                         
 
                     if (auth()->user()->can('Permissions Restore')){
-                        $Restore   =    "
-                                            <button type='button' class='btn btn-primary btn-sm'
-                                                onclick='isRestore($action->id)'>
+                        $Restore   =   '
+                                            <button class="btn btn-primary btn-sm btn-restore"
+                                                data-uuid="'.$action->id.'">
                                                 Restore
                                             </button>
-                                        ";
+                                        ';
                     } else {
                         $Restore   = '';
                     }
                     
                     if(auth()->user()->can('Permissions Delete')) {
-                        $Delete     =   '
-                                            <button type="button" class="btn btn-danger btn-sm"
-                                                onclick="isDelete('.$action->id.')">
+                        $Delete   =     '
+                                            <button class="btn btn-danger btn-sm btn-delete"
+                                                data-uuid="'.$action->id.'">
                                                 Delete
                                             </button>
                                         ';
