@@ -49,26 +49,26 @@ class CustomerController extends Controller
                                 ->addColumn('action', function ($action) {
 
                                     if (auth()->user()->can('Customer Trash')) {
-                                        $Delete =   '
-                                                        <button type="button" class="btn btn-danger btn-sm btn-size"
-                                                                onclick="isDelete('.$action->id.')">
-                                                                Trash
+                                        $Trash  =   '
+                                                        <button class="btn btn-danger btn-sm btn-size btn-trash"
+                                                            data-uuid="'.$action->id.'">
+                                                            Trash
                                                         </button>
                                                     ';
                                     } else {
-                                        $Delete =   '';
+                                        $Trash =   '';
                                     }
 
                                     if (auth()->user()->can('Customer Edit')) {
                                         $Edit   =   '
                                                         <a href="'.url(route('customer.edit',$action->uuid)).'" type="button" class="btn btn-success btn-sm btn-size">
-                                                                    Edit
+                                                            Edit
                                                         </a>
                                                     ';
                                     } else {
                                         $Edit   =   '';
                                     }
-                                        return $Edit." ".$Delete;
+                                        return $Edit." ".$Trash;
                                 })
 
                                 ->editColumn('age', function ($age) {
@@ -131,10 +131,10 @@ class CustomerController extends Controller
 
                         ->addColumn('action', function ($action) {
                             if (auth()->user()->can('Customer Delete')) {
-                                $Delete =   '
-                                                <button type="button" class="btn btn-danger btn-sm btn-size"
-                                                        onclick="isDelete('.$action->id.')">
-                                                        Delete
+                                $Delete  =  '
+                                                <button class="btn btn-danger btn-sm btn-delete"
+                                                    data-uuid="'.$action->id.'">
+                                                    Delete
                                                 </button>
                                             ';
                             } else {
@@ -142,12 +142,12 @@ class CustomerController extends Controller
                             }
 
                             if (auth()->user()->can('Customer Restore')) {
-                                $Restore    =   '
-                                                    <button type="button" class="btn btn-success btn-sm btn-size"
-                                                            onclick="isRestore('.$action->id.')">
-                                                                Restore
-                                                    </button>
-                                                ';
+                                $Restore  = '
+                                                <button class="btn btn-primary btn-sm btn-restore"
+                                                    data-uuid="'.$action->id.'">
+                                                    Restore
+                                                </button>
+                                            ';
                             } else {
                                 $Restore    = '';
                             }

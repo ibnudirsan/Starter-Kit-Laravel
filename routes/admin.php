@@ -147,7 +147,7 @@ Route::group(['prefix'  => '/customer'], function () {
             Route::post('/trash/{id}','trashData')->name('data.trash');
             Route::get('/trash','Trash')->name('trash');
             Route::post('/restore/{id}','RestoreData')->name('restore');
-            Route::post('/delete/{id}','delete')->name('delete');
+            Route::delete('/delete/{id}','delete')->name('delete');
             Route::post('/excel','downloadExcel')->name('download');
         });
     });
