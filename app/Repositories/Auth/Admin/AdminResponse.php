@@ -48,17 +48,15 @@ class AdminResponse extends Eloquent implements AdminDesign {
 
     public function create($param)
     {
-        // dd($param->roles);
-        // exit;
-
         $google2fa      = app('pragmarx.google2fa');
         $NewSecretKey   = $google2fa->generateSecretKey();
 
         $user = $this->model->create([
-            'name'     => $param->name,
-            'email'    => $param->email,
-            'level'    => 2,
-            'password' => bcrypt($param->password)
+            'name'              => $param->name,
+            'email'             => $param->email,
+            'level'             => 2,
+            'email_verified_at' => now(),
+            'password'          => bcrypt($param->password)
         ]);
             $user->profile()->create([
                 'user_id'       => $user->id,

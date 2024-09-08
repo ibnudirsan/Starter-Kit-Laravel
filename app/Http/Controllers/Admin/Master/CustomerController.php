@@ -95,6 +95,7 @@ class CustomerController extends Controller
     {
         try {
             $this->CustomerResponse->trashedData($id);
+            $message = "Successfully to moving Trash data customer.";
             $success = true;
         } catch (\Exception $e) {
             $message = "Failed to moving data Trash";
@@ -105,7 +106,8 @@ class CustomerController extends Controller
                  * Return response true
                  */
                 return response()->json([
-                    'success' => $success
+                    'success' => $success,
+                    'message' => $message,
                 ]);
             }elseif($success == false){
                 /**
@@ -240,6 +242,7 @@ class CustomerController extends Controller
     {
         try {
             $this->CustomerResponse->restore($id);
+            $message = "Successfully to moving Restore data customer.";
             $success = true;
         } catch (\Exception $e) {
             $message = "Failed to moving Restore data customer.";
@@ -250,7 +253,8 @@ class CustomerController extends Controller
                  * Return response true
                  */
                 return response()->json([
-                    'success' => $success
+                    'success' => $success,
+                    'message' => $message,
                 ]);
             }elseif($success == false){
                 /**
@@ -270,6 +274,7 @@ class CustomerController extends Controller
     {
         try {
             $this->CustomerResponse->deletePermanent($id);
+            $message = "Successfully to Delete Permanent Data customer.";
             $success = true;
         } catch (\Exception $e) {
             $message = "Failed to Delete Permanent data customer Trash";
@@ -280,7 +285,8 @@ class CustomerController extends Controller
                  * Return response true
                  */
                 return response()->json([
-                    'success' => $success
+                    'success' => $success,
+                    'message' => $message,
                 ]);
             }elseif($success == false){
                 /**

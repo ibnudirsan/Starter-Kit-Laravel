@@ -87,7 +87,7 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="telegramid">Telegram ID</label>
-                                <input type="text" id="telegramid" class="form-control @error('telegramid') is-invalid @enderror"
+                                <input type="number" id="telegramid" class="form-control @error('telegramid') is-invalid @enderror"
                                     value="{{ old('telegramid') }}"
                                     name="telegramid" placeholder="Telegram ID...">
 
@@ -111,6 +111,23 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="verifyAccount">Do Verify Your Email Address now ?</label>
+                                <div class="input-group mb-3">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input @error('verifyAccount') is-invalid @enderror" type="checkbox" id="verifyAccount" name="verifyAccount" checked>
+                                    </div>
+                                        
+                                        @error('verifyAccount')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                </div>
                             </div>
                         </div>
 
