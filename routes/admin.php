@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\Auth\ModuleController;
 use App\Http\Controllers\Admin\Auth\PermissionController;
 use App\Http\Controllers\Admin\Auth\ProfileController;
 use App\Http\Controllers\Admin\Auth\RoleController;
-use App\Http\Controllers\Admin\Master\CustomerController;
 use App\Http\Controllers\Admin\Dashboard\dashboardController;
 
 /*
@@ -129,26 +128,6 @@ Route::group(['prefix' => '/google2fa'], function () {
             });
 
             Route::post('/activation','activation')->name('activation');
-        });
-    });
-});
-
-/**
- * Master Customer
- */
-Route::group(['prefix'  => '/customer'], function () {
-    Route::name('customer.')->group(function () {
-        Route::controller(CustomerController::class)->group(function () {
-            Route::get('/list','index')->name('index');
-            Route::get('/create','create')->name('create');
-            Route::post('/store','Store')->name('store');
-            Route::get('/edit/{id}','edit')->name('edit');
-            Route::post('update/{id}','update')->name('update');
-            Route::post('/trash/{id}','trashData')->name('data.trash');
-            Route::get('/trash','Trash')->name('trash');
-            Route::post('/restore/{id}','RestoreData')->name('restore');
-            Route::delete('/delete/{id}','delete')->name('delete');
-            Route::post('/excel','downloadExcel')->name('download');
         });
     });
 });

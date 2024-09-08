@@ -17,11 +17,9 @@ use App\Repositories\Customer\CustomerResponse;
 */
 class dashboardController extends Controller
 {
-    protected $CustomerResponse;
     protected $AdminResponse;
-    public function __construct(CustomerResponse $CustomerResponse, AdminResponse $AdminResponse)
+    public function __construct(AdminResponse $AdminResponse)
     {
-        $this->CustomerResponse = $CustomerResponse;
         $this->AdminResponse    = $AdminResponse;
     }
 
@@ -32,8 +30,7 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        $customer   = $this->CustomerResponse->datatable()->count();
         $user       = $this->AdminResponse->datatable()->count();
-            return view('home',compact('customer','user'));
+            return view('home',compact('user'));
     }
 }

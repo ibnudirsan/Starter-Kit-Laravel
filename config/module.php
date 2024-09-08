@@ -9,7 +9,6 @@ return [
 
         '01. Master Menu' => [
             'Authorization',
-            'Menu Customer',
             'Menu Logs'
         ],
 
@@ -52,15 +51,5 @@ return [
             'Role Show',
             'Role Create'
         ],
-
-        '07. Master Customer' => [
-            'Customer Create',
-            'Customer Show',
-            'Customer Edit',
-            'Customer Delete',
-            'Customer Trash',
-            'Customer Restore',
-            'Customer Excel'
-        ]
     ],
 ];
