@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Auth\profile;
 
-use App\Rules\customer\numberPhoneRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 /*
@@ -35,7 +34,7 @@ class updateProfile extends FormRequest
     {
         return [
             'fullname'      => ['required','max:30'],
-            'numberphone'   => ['required', new numberPhoneRule()],
+            'numberphone'   => ['required','numeric','digits_between:10,13'],
             'TeleID'        => 'telegram'
         ];
     }

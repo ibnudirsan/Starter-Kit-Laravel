@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Auth\admin;
 
 use App\Rules\admin\passwordRule;
-use App\Rules\customer\numberPhoneRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 /*
@@ -39,10 +38,10 @@ class adminRequest extends FormRequest
             'name'          => 'required|unique:users|max:15',
             'email'         => 'required|unique:users|email:rfc,dns|max:25',
             'telegramid'    => 'nullable|numeric|digits_between:10,12',
-            'Numberphone'   => ['required',
-                                'numeric',
-                                'digits_between:10,13',
-                                new numberPhoneRule()],
+            'Numberphone'   =>  [   'required',
+                                    'numeric',
+                                    'digits_between:10,13'
+                                ],
             'password'      => ['required',new passwordRule()],
             'roles'         => 'required',
         ];
