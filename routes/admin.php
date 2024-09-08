@@ -78,7 +78,7 @@ Route::group(['prefix' => '/module'], function () {
             Route::post('/trash/{id}','trash')->name('trash');
             Route::get('/trash','trashData')->name('data.trash');
             Route::post('/restore/{id}','restore')->name('restore');
-            Route::post('/delete/{id}','delete')->name('delete');
+            Route::delete('/delete/{id}','delete')->name('delete');
         });
     });
 });
