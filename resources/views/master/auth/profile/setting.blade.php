@@ -116,7 +116,7 @@
 @stop
 @push('customJs')
 <script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/system/js/password.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/js/password.js" integrity="sha512-G7zXQdyJ2a3/xfUAc2hDs4Bu6jJwX3HKe5/+RUO72tQaTA6DNYRMxeAHjh9u8V1Ht69H2LkuD0j6lyR+I+vYyQ==" crossorigin="anonymous"></script>
 @endpush
 
 @push('Alert')
