@@ -1,6 +1,5 @@
 @push('customCss')
-<link rel="stylesheet" href="{{ asset('assets/system/css/app.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/system/css/error.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/js/error.css" integrity="sha512-tSMu9/Nw5petw4epygAILFv4b9CuUwCzvTAZmEqrigs/w94gaMJORa3g3vKbqxsRD7YIoP9HZnCv6rfLeNXIlA==" crossorigin="anonymous">
 @endpush
 
 @section('tittle')

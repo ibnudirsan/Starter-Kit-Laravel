@@ -1,5 +1,5 @@
 @push('customCss')
-<link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/dashboard/css/toastify.css" integrity="sha512-tA+z1mt8+hiZE9CgG95WPtakY4JPkTaYgIcM1Wyq/VCdKDttHhnJoIDRC9/eWo8mbK2MmIDcDeUBfIfI1J8nWA==" crossorigin="anonymous">
 @endpush
 
 @section('tittle')
@@ -118,11 +118,11 @@
 </div>
 @stop
 @push('customJs')
-<script src="{{ asset('assets/system/js/sweetalert2.all.min.js') }}"></script>
+
 @endpush
 
 @push('Alert')
-<script src="{{ asset('assets/system/js/toastify.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/dashboard/js/toastify.js" integrity="sha512-ZHzbWDQKpcZxIT9l5KhcnwQTidZFzwK/c7gpUUsFvGjEsxPusdUCyFxjjpc7e/Wj7vLhfMujNx7COwOmzbn+2w==" crossorigin="anonymous"></script>
 @if(Session::has('message'))
     @include('layouts.part._notif')
 @endif

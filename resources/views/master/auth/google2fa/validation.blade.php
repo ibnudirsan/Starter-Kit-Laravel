@@ -9,22 +9,21 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/css/fontawesome5/font-awesome5-all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"/>
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="{{ asset('assets/auth/css/boxicons.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/css/boxicons.css" integrity="sha512-dMNYt8oyGcGMYootKGiAdkrDyYgyWNGgTRtU7nmwebJOek7suG5gt2HxxAAD72nEqVf8vPVsBfVUUPslRIna2A==" crossorigin="anonymous">
     <!-- Core CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/auth/css/core.css') }}" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('assets/auth/css/theme-default.css') }}" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="{{ asset('assets/auth/css/demo.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/css/core.css" integrity="sha512-pnYsRB7mKLuwgeRjM6d27ImCoFfcmO0VuXC9JW3gxWTwaYWy4uqYqEbqUZD5HFAaUks/qMMcDjNKLbGFU01X+g==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/css/theme-default.css" integrity="sha512-B5NVktYE2EFdcAxg8H7jyIxKQMzNHk7BP0iUy86wPF3Tb/jw9C4iTEpdtGmj0lFxCAjs1+dDEM1pgdSE34beKw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/css/demo.css" integrity="sha512-jR/omOlI/7L6vHxzVV9fJiHYheixqNwDxH777Qxq9fD34UC8yn21E5P0CrIeAjAxMPQ3jNFrr07GdKH8Keq8QA==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/dashboard/css/toastify.css" integrity="sha512-tA+z1mt8+hiZE9CgG95WPtakY4JPkTaYgIcM1Wyq/VCdKDttHhnJoIDRC9/eWo8mbK2MmIDcDeUBfIfI1J8nWA==" crossorigin="anonymous">
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/auth/css/perfect-scrollbar.css') }}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/css/perfect-scrollbar.css" integrity="sha512-1f/eQrQ/g+/r86r3S0s///7uEUyKzP1vrwOJh1P+ncqZzEiYCVsedkr7Q2gFybD90NPG2Gvl7H1hvWMBsF6rAw==" crossorigin="anonymous">
     <!-- Page CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/auth/css/page-auth.css') }}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/css/page-auth.css" integrity="sha512-GHAL9AzkSO8iwPLfzO0xqGp/XCptlFXJbro6Zb0oZAoySOJzDlwntxraz3Xl3mcKcFFLVvjoXjEXFfPmP97N8w==" crossorigin="anonymous">
     <!-- Helpers -->
-    <script src="{{ asset('assets/auth/js/helpers.js') }}"></script>
-    <script src="{{ asset('assets/auth/js/config.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/js/config.js" integrity="sha512-8V7NXvBBbl1Ry3wSibDR65p/HfaHuu1ZsQ+9Z6fl1UshAdo65dFIPJakOWYA7NCExLA1PluSvi5oEmNE/AyA+A==" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -145,16 +144,15 @@
     </div>
 
     <!-- Core JS -->
-    <script src="{{ asset('assets/auth/js/jquery.js') }}"></script>
-    <script src="{{ asset('assets/auth/js/popper.js') }}"></script>
-    <script src="{{ asset('assets/auth/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('assets/auth/js/perfect-scrollbar.js') }}"></script>
-    <script src="{{ asset('assets/auth/js/menu.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/js/jquery.js" integrity="sha512-89uTEAAU9s+AG9aSjIDwlNDbSSymNSmsaO8bm08gZjZgo/Kq9HjsvGZGICnjNGooW2/9RVfd2Tvn59L3A9vhOw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/js/popper.js" integrity="sha512-YlaDiPEzSotPTerG8gJwnEkN44q4y2YgUvPj1+8w5kRIzr4IE5C4DoWE7IdLsMa0X8kNUoJjo+BwEooCOrHXWQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/dashboard/js/bootstrap.js" integrity="sha512-GTXxDPa3h1BC/V1Xn/dkn8wBsmR9xz8l83o3UxutVGFwr+MnPXxv4ZIuw+oCaEAW/W1SzcKzkm6oxzYdaC7axQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/js/perfect-scrollbar.js" integrity="sha512-1G7EgZJK+gzxZghsEH/0MhkzHjbivPQWQjlNlQr6yg3MHruSAv3NUqgq08iXvMUTUaIqjsmeXNWXoM9qOYcICQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/js/menu.js" integrity="sha512-0p64shxcXiIUhcuutdNTXzGl3f2tfW/Hh5GzKdXvNa+ld4GKf/YcAaSw3SpiCdpRYwMYt+9Mra7CWHK22jPSkg==" crossorigin="anonymous"></script>
     <!-- Main JS -->
-    <script src="{{ asset('assets/auth/js/main.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="{{ asset('assets/system/js/toastify.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/js/main.js" integrity="sha512-U98ojlsH4ICl8hdwi/F7XsTW0ugRMZNCGkyI+h9rYCbq2Dt9jDESjVhMWbKspcB8GIzF2zcSxSDu2t7rsff0Dw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/js/fontawesome5/font-awesome5-all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/dashboard/js/toastify.js" integrity="sha512-ZHzbWDQKpcZxIT9l5KhcnwQTidZFzwK/c7gpUUsFvGjEsxPusdUCyFxjjpc7e/Wj7vLhfMujNx7COwOmzbn+2w==" crossorigin="anonymous"></script>
     @if(Session::has('message'))
         @include('admin.part._notif')
     @endif

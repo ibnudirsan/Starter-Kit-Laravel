@@ -78,5 +78,5 @@
 </div>
 @stop
 @push('customJs')
-<script src="{{ asset('assets/system/js/showpassword.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/dashboard/js/showpassword.js" integrity="sha512-s07o5REwpYHaR3sXgRQ8ukoiA2VzXsfDixf8cL+1Lj0htcAOnFrEuzQMzDgPW1apkVeuoL+aItLMlK03bDv6mQ==" crossorigin="anonymous"></script>
 @endpush
