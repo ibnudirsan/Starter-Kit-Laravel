@@ -1,5 +1,5 @@
 @push('customCss')
-<link rel="stylesheet" href="{{ asset('assets/system/css/toastify.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/dashboard/css/toastify.css" integrity="sha512-tA+z1mt8+hiZE9CgG95WPtakY4JPkTaYgIcM1Wyq/VCdKDttHhnJoIDRC9/eWo8mbK2MmIDcDeUBfIfI1J8nWA==" crossorigin="anonymous">
 @endpush
 
 @section('tittle')
@@ -152,13 +152,13 @@
 </div>
 @stop
 @push('customJs')
-<script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/datatables/js/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/js/password.js" integrity="sha512-G7zXQdyJ2a3/xfUAc2hDs4Bu6jJwX3HKe5/+RUO72tQaTA6DNYRMxeAHjh9u8V1Ht69H2LkuD0j6lyR+I+vYyQ==" crossorigin="anonymous"></script>
-<script src="{{  asset('assets/system/js/img.preview.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/js/previewimage/img.preview.js" integrity="sha512-v4yg0eAx7DcsPFGDPc2LxS0EIriB4v6QWPMDTRlKhxBvnYAbmuRMhTr9PrcsdaxvbtRA3J3XLRCuDiZZagdbTg==" crossorigin="anonymous"></script>
 @endpush
 
 @push('Alert')
-<script src="{{ asset('assets/system/js/toastify.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/dashboard/js/toastify.js" integrity="sha512-ZHzbWDQKpcZxIT9l5KhcnwQTidZFzwK/c7gpUUsFvGjEsxPusdUCyFxjjpc7e/Wj7vLhfMujNx7COwOmzbn+2w==" crossorigin="anonymous"></script>
 @if(Session::has('message'))
     @include('layouts.part._notif')
 @endif

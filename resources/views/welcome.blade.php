@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Starter Kit - Rumah Dev</title>
 
-    <link rel="stylesheet" href="{{ asset('assets/system/css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/auth/css/error.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/dashboard/css/app.css" integrity="sha512-tDo30oUmCj9tnLTo4pOh7G5nwADM0jnv2EFKRxUZzwnOUagtpYiXD5UCd9Pmr8dEMgZdb7bbeZps7JWNrvMlCA==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/js/error.css" integrity="sha512-tSMu9/Nw5petw4epygAILFv4b9CuUwCzvTAZmEqrigs/w94gaMJORa3g3vKbqxsRD7YIoP9HZnCv6rfLeNXIlA==" crossorigin="anonymous">
     <link rel="shortcut icon" href="https://laravel.com/img/notification-logo.png" type="image/png">
 
 </head>

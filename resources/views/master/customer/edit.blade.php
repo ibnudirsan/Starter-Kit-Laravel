@@ -1,5 +1,5 @@
 @push('customCss')
-<link rel="stylesheet" href="{{ asset('assets/system/css/datepicker.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/datepicker/css/datepicker.css" integrity="sha512-n/98Hzv7vnNVN8bL5s+hajql1X8LVhS/kPJIMxpXinGzcIVcM+SKTG54IKnRVz8vPIJmWWtyRyP3p4aK3vLiZw==" crossorigin="anonymous">
 @endpush
 
 @section('tittle')
@@ -137,20 +137,8 @@
 </div>
 @stop
 @push('customJs')
-<script src="{{ asset('assets/system/js/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/system/js/bootstrap-datepicker.js') }}"></script>
-<script>
-    /**@abstract
-    * Doc :
-    * https://www.eyecon.ro/bootstrap-datepicker/
-    */
-    $(document).ready(function () { 
-            $('#birthDay').datepicker({
-                format: 'yyyy-mm-dd'
-            }) 
-    }).on('changeDate', function (ev) { 
-        if (ev.viewMode == "days") { $('.datepicker').hide() } 
-    });
-</script>
+<script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/datatables/js/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/datepicker/js/datepicker.js" integrity="sha512-zTadvlTFbfS8sBJpRcCpwz5NobiDyGe3Tm39xRlDjHCitm1gKu0ciMq24Zl+BGX2oLqtK5sfKUprFNdRHVgWNA==" crossorigin="anonymous"></script>
+@include('master.customer.js.date')
 @endpush
 

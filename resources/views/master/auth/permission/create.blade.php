@@ -1,5 +1,5 @@
 @push('customCss')
-<link rel="stylesheet" href="{{ asset('assets/system/css/choices.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/dashboard/css/choices.css" integrity="sha512-YnbHRWZoSH9PCoOc5bKcCX5yyHA0IjXZvFV0N26hBeKWK3vaqwjAwGiDbwM9hZne6tfTRUMuagPDoaQN87L2pA==" crossorigin="anonymous">
 @endpush
 
 @section('tittle')
@@ -107,7 +107,7 @@
 </div>
 @stop
 @push('customJs')
-<script src="{{ asset('assets/system/js/choices.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/dashboard/js/choices.js" integrity="sha512-McxoNDBJYOFe4JFCQuUuccQGic/xTQ+xPxS28tgJQbJbjZaffaJPiTSqucG6JZ96dMMTBQXeoAbpEv7Xd6AhCw==" crossorigin="anonymous"></script>
 <script>
     let choices = document.querySelectorAll('#choices')
     let initChoice
