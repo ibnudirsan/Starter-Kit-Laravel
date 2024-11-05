@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"/>
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="{{ asset('assets/auth/css/boxicons.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/css/boxicons.css" integrity="sha512-dMNYt8oyGcGMYootKGiAdkrDyYgyWNGgTRtU7nmwebJOek7suG5gt2HxxAAD72nEqVf8vPVsBfVUUPslRIna2A==" crossorigin="anonymous">
     <!-- Core CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/css/core.css" integrity="sha512-pnYsRB7mKLuwgeRjM6d27ImCoFfcmO0VuXC9JW3gxWTwaYWy4uqYqEbqUZD5HFAaUks/qMMcDjNKLbGFU01X+g==" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ruangdev/cdn@idn/starterkit/auth/css/theme-default.css" integrity="sha512-B5NVktYE2EFdcAxg8H7jyIxKQMzNHk7BP0iUy86wPF3Tb/jw9C4iTEpdtGmj0lFxCAjs1+dDEM1pgdSE34beKw==" crossorigin="anonymous">

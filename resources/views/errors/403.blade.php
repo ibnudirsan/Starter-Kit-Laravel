@@ -1,5 +1,4 @@
 @push('customCss')
-<link rel="stylesheet" href="{{ asset('assets/system/css/app.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/system/css/error.css') }}">
 @endpush
 
