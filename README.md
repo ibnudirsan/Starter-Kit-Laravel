@@ -12,7 +12,7 @@
      Donation : <br> <a target="_blank" href="https://saweria.co/ruangdev" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-512/free-e-wallet-4292583-3557281.png?f=webp&w=256" width="50" alt="Laravel Logo"></a>
 </p>
 
-## RuangDev | Starter Kit Laravel 11.xx
+## RuangDev | Starter Kit Laravel 11.x
 
 ## Introduction
 Assalamu'alikum.
