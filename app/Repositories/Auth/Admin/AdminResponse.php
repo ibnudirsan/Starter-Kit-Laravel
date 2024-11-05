@@ -99,7 +99,8 @@ class AdminResponse extends Eloquent implements AdminDesign {
                     'numberPhone'   => $param->Numberphone,
                     'TeleID'        => $param->telegramid,
                 ]);
-                    $user->syncRoles($param->roles);
+                    $role = $this->role->find($param->roles);
+                    $user->syncRoles($role);
         } elseif (!$param->filled('password')) {
             $user->update([
                 'name'      => $param->name,
